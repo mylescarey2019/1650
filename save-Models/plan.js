@@ -1,9 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
   var Plan = sequelize.define("plan", {
+    plan_id: { type: DataTypes.INTEGER,
+                   autoIncrement: true,
+                   primaryKey: true },
     plan_name: { type: DataTypes.STRING,
           allowNull: false }
 
-  },{timestamps: false, freezeTableName: true,  underscored: true});
+  },{timestamps: false, freezeTableName: true});
 
 
     // We're saying that a Plan should belong to an PlanUser

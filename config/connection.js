@@ -1,26 +1,26 @@
-// *********************************************************************************
-// CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
-// *********************************************************************************
+// // *********************************************************************************
+// // CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
+// // *********************************************************************************
 
-// Dependencies
-var Sequelize = require("sequelize");
+// // Dependencies
+// var Sequelize = require("sequelize");
 
-// global DB options
-var opts = {
-  define: {freezeTableName: true}
-};
+// // global DB options
+// var opts = {
+//   define: {freezeTableName: true}
+// };
 
-// Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
-var sequelize = new Sequelize("invest", "root", "", {
-  host: "localhost",
-  port: 3306,
-  dialect: "mysql",
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  }
-});
+// // Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
+// var sequelize = new Sequelize("invest", "root", "", {
+//   host: "localhost",
+//   port: 3306,
+//   dialect: "mysql",
+//   pool: {
+//     max: 5,
+//     min: 0,
+//     idle: 10000
+//   }
+// });
 
-// Exports the connection for other files to use
-module.exports = sequelize;
+// // Exports the connection for other files to use
+// module.exports = sequelize;
