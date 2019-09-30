@@ -5,6 +5,7 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+var router = express.Router();
 
 // Sets up the Express App
 // =============================================================
@@ -23,7 +24,7 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-require("./controllers/api-routes.js")(app);
+require("./controllers/api-routes.js")(router);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
