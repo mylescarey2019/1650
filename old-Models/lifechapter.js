@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var LifeChapter = sequelize.define("LifeChapter", {
+  var LifeChapter = sequelize.define("life_chapter", {
     seq_no: { type: DataTypes.SMALLINT,
       allowNull: false },   
     chapter_name: { type: DataTypes.STRING,
@@ -14,15 +14,15 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false},
     inflation_pct: { type: DataTypes.DECIMAL(3,1),
             allowNull: false}
-  },{timestamps: false});
+  },{timestamps: false, freezeTableName: true,  underscored: true});
 
   LifeChapter.associate = function(models) {
-    LifeChapter.belongsTo(models.Plan, {
+    LifeChapter.belongsTo(models.plan, {
         foreignKey: {
              allowNull: false
            }
         }),
-    LifeChapter.belongsTo(models.InvestRateType, {
+    LifeChapter.belongsTo(models.invest_rate_type, {
         foreignKey: {
               allowNull: false
             }

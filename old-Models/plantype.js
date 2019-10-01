@@ -1,12 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
-  var PlanType = sequelize.define("PlanType", {
+  var PlanType = sequelize.define("plan_type", {
     type_name: { type: DataTypes.STRING,
           allowNull: false }
 
-  },{timestamps: false});
+  },{timestamps: false, freezeTableName: true, underscored: true});
 
   PlanType.associate = function(models) {
-    PlanType.hasMany(models.Plan, {
+    PlanType.hasMany(models.plan, {
       onDelete: "cascade"
     });
   };  

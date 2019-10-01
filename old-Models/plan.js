@@ -1,25 +1,25 @@
 module.exports = function(sequelize, DataTypes) {
-  var Plan = sequelize.define("Plan", {
+  var Plan = sequelize.define("plan", {
     plan_name: { type: DataTypes.STRING,
           allowNull: false }
 
-  },{timestamps: false});
+  },{timestamps: false, freezeTableName: true,  underscored: true});
 
 
     // We're saying that a Plan should belong to an PlanUser
     // A Plan can't be created without an PlanUser due to the foreign key constraint
     Plan.associate = function(models) {
-      models.Plan.belongsTo(models.PlanUser, {
+      Plan.belongsTo(models.plan_user, {
           foreignKey: {
                allowNull: false
              }
           }),
-      models.Plan.belongsTo(models.PlanType, {
+      Plan.belongsTo(models.plan_type, {
         foreignKey: {
               allowNull: false
             }
       }),
-      models.Plan.hasMany(models.LifeChapter, {
+      Plan.hasMany(models.life_chapter, {
         onDelete: "cascade"
       });
     };      

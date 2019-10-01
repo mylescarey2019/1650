@@ -10,7 +10,7 @@ SELECT pu.id, pu.user_name
     ON pu.id = p.plan_user_id
   JOIN plan_type AS pt 
     ON pt.id = p.plan_type_id
- ORDER BY pu.id, p.id
+ ORDER BY pu.id, p.id;
 
 
 -- Plans's chapters
@@ -18,7 +18,7 @@ SELECT pu.id, pu.user_name
 SELECT pu.id, pu.user_name
       ,p.id, p.plan_name
       ,pt.id, pt.type_name
-      ,lc.id, lc.chapter_name
+      ,lc.id, lc.seq_no, lc.chapter_name
       ,lc.start_age, lc.end_age
       ,lc.invest_amount
       ,irt.invest_type
@@ -33,4 +33,4 @@ SELECT pu.id, pu.user_name
     ON p.id = lc.plan_id
   JOIN invest_rate_type AS irt 
     ON irt.id = lc.invest_rate_type_id
- ORDER BY pu.id, p.id, lc.start_age
+ ORDER BY pu.id, p.id, lc.seq_no
