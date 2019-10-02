@@ -1,0 +1,57 @@
+/* home page CSS file */
+/* Color Theme Swatches in Hex */
+.jesse-bowser-c0I4ahyGIkA-unsplash-1-hex { color: #69728C; }
+.jesse-bowser-c0I4ahyGIkA-unsplash-2-hex { color: #D5E5F2; }
+.jesse-bowser-c0I4ahyGIkA-unsplash-3-hex { color: #D99543; }
+.jesse-bowser-c0I4ahyGIkA-unsplash-4-hex { color: #D98841; }
+.jesse-bowser-c0I4ahyGIkA-unsplash-5-hex { color: #594031; }
+
+/* Color Theme Swatches in RGBA */
+.jesse-bowser-c0I4ahyGIkA-unsplash-1-rgba { color: rgba(105, 114, 140, 1); }
+.jesse-bowser-c0I4ahyGIkA-unsplash-2-rgba { color: rgba(213, 229, 242, 1); }
+.jesse-bowser-c0I4ahyGIkA-unsplash-3-rgba { color: rgba(217, 149, 67, 1); }
+.jesse-bowser-c0I4ahyGIkA-unsplash-4-rgba { color: rgba(217, 136, 65, 1); }
+.jesse-bowser-c0I4ahyGIkA-unsplash-5-rgba { color: rgba(89, 64, 49, 1); }
+
+
+
+body {
+  background-image: url(../img/jesse-bowser-c0I4ahyGIkA-unsplash.jpg);
+}
+
+.jumbotron  {
+  background-color: rgba(105, 114, 140, .8); ;
+  color: #D5E5F2;
+  border: 2px solid #D98841;
+} 
+
+h3, h4 {
+  color: #D5E5F2;
+}
+
+#chart, #grid {
+  background-color:  rgba(105, 114, 140, .8);
+  color: #D5E5F2;
+  border: 2px solid #D98841;
+}
+
+caption {
+  color: D5E5F2;
+}  
+
+table td, table th {
+  border:  1px solid #D98841;
+}
+
+table tr:hover {
+  background-color: #594031;
+}
+
+
+table th {
+  background-color: #594031;
+  color: D5E5F2;
+}
+
+
+

@@ -1,0 +1,65 @@
+/* home page CSS file */
+
+
+/* Color Theme Swatches in Hex */
+.gdtography-LCJ9iOli-uE-unsplash-1-hex { color: #F0F0F2; }
+.gdtography-LCJ9iOli-uE-unsplash-2-hex { color: #BDBEBF; }
+.gdtography-LCJ9iOli-uE-unsplash-3-hex { color: #3A403E; }
+.gdtography-LCJ9iOli-uE-unsplash-4-hex { color: #8C8C88; }
+.gdtography-LCJ9iOli-uE-unsplash-5-hex { color: #D96523; }
+
+/* Color Theme Swatches in RGBA */
+.gdtography-LCJ9iOli-uE-unsplash-1-rgba { color: rgba(240, 240, 242, 1); }
+.gdtography-LCJ9iOli-uE-unsplash-2-rgba { color: rgba(189, 190, 191, 1); }
+.gdtography-LCJ9iOli-uE-unsplash-3-rgba { color: rgba(58, 64, 62, 1); }
+.gdtography-LCJ9iOli-uE-unsplash-4-rgba { color: rgba(140, 140, 136, 1); }
+.gdtography-LCJ9iOli-uE-unsplash-5-rgba { color: rgba(217, 101, 35, 1); }
+
+/* Color Theme Swatches in HSLA */
+.gdtography-LCJ9iOli-uE-unsplash-1-hsla { color: hsla(240, 7, 94, 1); }
+.gdtography-LCJ9iOli-uE-unsplash-2-hsla { color: hsla(210, 1, 74, 1); }
+.gdtography-LCJ9iOli-uE-unsplash-3-hsla { color: hsla(160, 4, 23, 1); }
+.gdtography-LCJ9iOli-uE-unsplash-4-hsla { color: hsla(60, 1, 54, 1); }
+.gdtography-LCJ9iOli-uE-unsplash-5-hsla { color: hsla(21, 72, 49, 1); }
+
+
+
+
+
+body {
+  background-image: url(../img/gdtography-LCJ9iOli-uE-unsplash.jpg);
+}
+
+.jumbotron  {
+  background-color: rgba(58, 64, 62, .8);
+} 
+
+
+h3, h4 {
+  color: #f2f2f2;
+}
+
+#chart, #grid {
+  background-color:  rgba(58, 64, 62, .8);
+  color: #f2f2f2;
+  border: 2px solid #f2f2f2;
+}
+
+caption {
+  color: #f2f2f2;
+}  
+
+table td, table th {
+  border:  1px solid #3A403E;
+}
+
+table tr:hover {
+  background-color: #8C8C88;
+}
+
+
+table th {
+  background-color: #8C8C88;
+  color: #f2f2f2;
+}
+

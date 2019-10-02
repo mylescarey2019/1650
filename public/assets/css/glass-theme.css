@@ -1,0 +1,67 @@
+/* home page CSS file */
+
+/* Color Theme Swatches in Hex */
+.drew-beamer-xU5Mqq0Chck-unsplash-1-hex { color: #3C5973; }
+.drew-beamer-xU5Mqq0Chck-unsplash-2-hex { color: #0367A6; }
+.drew-beamer-xU5Mqq0Chck-unsplash-3-hex { color: #8DD5F2; }
+.drew-beamer-xU5Mqq0Chck-unsplash-4-hex { color: #F2D479; }
+.drew-beamer-xU5Mqq0Chck-unsplash-5-hex { color: #F2A35E; }
+
+/* Color Theme Swatches in RGBA */
+.drew-beamer-xU5Mqq0Chck-unsplash-1-rgba { color: rgba(60, 89, 115, 1); }
+.drew-beamer-xU5Mqq0Chck-unsplash-2-rgba { color: rgba(3, 103, 166, 1); }
+.drew-beamer-xU5Mqq0Chck-unsplash-3-rgba { color: rgba(141, 213, 242, 1); }
+.drew-beamer-xU5Mqq0Chck-unsplash-4-rgba { color: rgba(242, 212, 121, 1); }
+.drew-beamer-xU5Mqq0Chck-unsplash-5-rgba { color: rgba(242, 163, 94, 1); }
+
+/* Color Theme Swatches in HSLA */
+.drew-beamer-xU5Mqq0Chck-unsplash-1-hsla { color: hsla(208, 31, 34, 1); }
+.drew-beamer-xU5Mqq0Chck-unsplash-2-hsla { color: hsla(203, 96, 33, 1); }
+.drew-beamer-xU5Mqq0Chck-unsplash-3-hsla { color: hsla(197, 79, 75, 1); }
+.drew-beamer-xU5Mqq0Chck-unsplash-4-hsla { color: hsla(45, 82, 71, 1); }
+.drew-beamer-xU5Mqq0Chck-unsplash-5-hsla { color: hsla(27, 85, 65, 1); }
+
+
+
+
+
+body {
+  background-image: url(../img/drew-beamer-xU5Mqq0Chck-unsplash.jpg);
+}
+
+.jumbotron  {
+  background-color: rgba(141, 213, 242, .8);
+  color: #3C5973;
+  border: 2px solid #F2D479;
+} 
+
+h3, h4 {
+  color: #3C5973;
+}
+
+#chart, #grid {
+  background-color:  rgba(141, 213, 242, .8);
+  color: #3C5973;
+  border: 2px solid #F2D479;
+}
+
+caption {
+  color: #3C5973;
+}  
+
+table td, table th {
+  border:  1px solid #F2D479;
+}
+
+table tr:hover {
+  background-color: #0367A6;
+  color: #e5e5e5;
+}
+
+
+table th {
+  background-color: #0367A6;
+  color: #e5e5e5;
+}
+
+

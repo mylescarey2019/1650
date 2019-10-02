@@ -1,0 +1,58 @@
+/* home page CSS file */
+
+
+/* Color Theme Swatches in Hex */
+.yux-xiang-AATLGHDZrJY-unsplash-1-hex { color: #4F6F8C; }
+.yux-xiang-AATLGHDZrJY-unsplash-2-hex { color: #7C92A6; }
+.yux-xiang-AATLGHDZrJY-unsplash-3-hex { color: #455559; }
+.yux-xiang-AATLGHDZrJY-unsplash-4-hex { color: #8C884F; }
+.yux-xiang-AATLGHDZrJY-unsplash-5-hex { color: #737046; }
+
+/* Color Theme Swatches in RGBA */
+.yux-xiang-AATLGHDZrJY-unsplash-1-rgba { color: rgba(79, 111, 140, 1); }
+.yux-xiang-AATLGHDZrJY-unsplash-2-rgba { color: rgba(124, 146, 166, 1); }
+.yux-xiang-AATLGHDZrJY-unsplash-3-rgba { color: rgba(69, 85, 89, 1); }
+.yux-xiang-AATLGHDZrJY-unsplash-4-rgba { color: rgba(140, 136, 79, 1); }
+.yux-xiang-AATLGHDZrJY-unsplash-5-rgba { color: rgba(115, 112, 70, 1); }
+
+
+body {
+  background-image: url(../img/yux-xiang-AATLGHDZrJY-unsplash.jpg);
+}
+
+.jumbotron  {
+  background-color: rgba(69, 85, 89, .8); ;
+  color: #e5e5e5;
+  border: 2px solid #4F6F8C;
+} 
+
+h3, h4 {
+  color: #e5e5e5;
+}
+
+#chart, #grid {
+  background-color:  rgba(69, 85, 89, .8);
+  color: #e5e5e5;
+  border: 2px solid #8C884F;
+}
+
+caption {
+  color: #e5e5e5;
+}  
+
+table td, table th {
+  border:  1px solid #8C884F;
+}
+
+table tr:hover {
+  background-color: #737046;
+}
+
+
+table th {
+  background-color: #737046;
+  color: #e5e5e5;
+}
+
+
+

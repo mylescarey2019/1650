@@ -1,0 +1,59 @@
+/* home page CSS file */
+/* Color Theme Swatches in Hex */
+.jeshoots-com-fzOITuS1DIQ-unsplash-1-hex { color: #4970BF; }
+.jeshoots-com-fzOITuS1DIQ-unsplash-2-hex { color: #244673; }
+.jeshoots-com-fzOITuS1DIQ-unsplash-3-hex { color: #7EA5D9; }
+.jeshoots-com-fzOITuS1DIQ-unsplash-4-hex { color: #F2A007; }
+.jeshoots-com-fzOITuS1DIQ-unsplash-5-hex { color: #F2380F; }
+
+/* Color Theme Swatches in RGBA */
+.jeshoots-com-fzOITuS1DIQ-unsplash-1-rgba { color: rgba(73, 112, 191, 1); }
+.jeshoots-com-fzOITuS1DIQ-unsplash-2-rgba { color: rgba(36, 70, 115, 1); }
+.jeshoots-com-fzOITuS1DIQ-unsplash-3-rgba { color: rgba(126, 165, 217, 1); }
+.jeshoots-com-fzOITuS1DIQ-unsplash-4-rgba { color: rgba(242, 160, 7, 1); }
+.jeshoots-com-fzOITuS1DIQ-unsplash-5-rgba { color: rgba(242, 56, 15, 1); }
+
+
+
+
+body {
+  background-image: url(../img/jeshoots-com-fzOITuS1DIQ-unsplash.jpg);
+}
+
+.jumbotron  {
+  background-color: rgba(126, 165, 217, .8); ;
+  color: #191919;
+  border: 2px solid #244673;
+} 
+
+h3, h4 {
+  color: #191919;
+}
+
+#chart, #grid {
+  background-color:  rgba(126, 165, 217, .8);
+  color: #191919;
+  border: 2px solid #244673;
+}
+
+caption {
+  color: #191919;
+}  
+
+table td, table th {
+  border:  1px solid #244673;
+}
+
+table tr:hover {
+  background-color: #4970BF;
+  color: #f2f2f2;
+}
+
+
+table th {
+  background-color: #4970BF;
+  color: #f2f2f2;
+}
+
+
+

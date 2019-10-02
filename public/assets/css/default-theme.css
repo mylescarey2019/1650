@@ -1,0 +1,63 @@
+/* home page CSS file */
+/* Color Theme Swatches in Hex */
+.Fashion-1-hex { color: #F2F2F2; }
+.Fashion-2-hex { color: #A5A5A5; }
+.Fashion-3-hex { color: #727272; }
+.Fashion-4-hex { color: #3F3F3F; }
+.Fashion-5-hex { color: #0C0C0C; }
+
+/* Color Theme Swatches in RGBA */
+.Fashion-1-rgba { color: rgba(242, 242, 242, 1); }
+.Fashion-2-rgba { color: rgba(165, 165, 165, 1); }
+.Fashion-3-rgba { color: rgba(114, 114, 114, 1); }
+.Fashion-4-rgba { color: rgba(63, 63, 63, 1); }
+.Fashion-5-rgba { color: rgba(12, 12, 12, 1); }
+
+
+
+
+
+
+body {
+  background-color: #e5e5e5
+}
+
+.jumbotron  {
+  background-color: #bfbfbf ;
+  color: #0C0C0C;
+  border: 2px solid #85bb65;
+} 
+
+h3, h4 {
+  color: #3F3F3F;
+}
+
+#chart, #grid {
+  background-color:  #bfbfbf;
+  color: #3F3F3F;
+  border: 2px solid #85bb65;
+}
+
+caption {
+  color: #3F3F3F;
+}  
+
+table td, table th {
+  border:  1px solid #3F3F3F;
+  /* background-color: #cccccc */
+}
+
+table tr:hover {
+  background-color: #85bb65;
+  color: #3F3F3F;
+}
+
+
+
+table th {
+  background-color: #85bb65;
+  color: #3F3F3F;
+}
+
+
+

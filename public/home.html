@@ -6,10 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>1650-Custodial-IRA</title>
 
+
+
   <!-- bootstrap .css -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- page .css -->
-  <link rel="stylesheet" type="text/css" href="assets/css/home.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+  <link id="css-theme" rel="stylesheet" type="text/css" href="assets/css/default-theme.css">
 
 </head>
 <body>
@@ -45,12 +48,35 @@
     </div> 
   </div>
 
+  <footer id="footer-bar" class="navbar">
+    <span id="footer-text" class="navbar-text"> 
+      <a href="#" onclick="setStyleSheet('assets/css/default-theme.css')">Default-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/ocean-theme.css')">Ocean-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/desert-theme.css')">Desert-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/tunnel-theme.css')">Tunnel-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/glass-theme.css')">Glass-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/mountain-theme.css')">Mountain-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/road-theme.css')">Road-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/money-theme.css')">Money-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/chess-theme.css')">Chess-Theme</a>
+      <!-- <a href="#" onclick="setStyleSheet('assets/css/road-theme.css')">Road-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/moutains-theme.css')">Moutain-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/water-theme.css')">Water-Theme</a> -->
+    </span>
+  </footer> 
+
       <!-- Main program javascript -->
       <script src="https://code.jquery.com/jquery.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
       <script src="assets/js/home.js"></script>
   
+      <script>
+          function setStyleSheet(url) {
+            var stylesheet = document.getElementById("css-theme");
+            stylesheet.setAttribute('href',url);
+          }
+      </script>
 
 
   
