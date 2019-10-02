@@ -5,8 +5,8 @@ USE INVEST;
 SELECT pu.id, pu.user_name
       ,p.id, p.plan_name
       ,pt.id, pt.type_name
-  FROM plan_user AS pu 
-  JOIN plan AS p 
+  FROM PlanUser AS pu 
+  JOIN Plan AS p 
     ON pu.id = p.plan_user_id
   JOIN plan_type AS pt 
     ON pt.id = p.plan_type_id
@@ -24,13 +24,13 @@ SELECT pu.id, pu.user_name
       ,irt.invest_type
       ,lc.return_pct
       ,lc.inflation_pct 
-  FROM plan_user AS pu 
-  JOIN plan AS p 
+  FROM PlanUser AS pu 
+  JOIN Plan AS p 
     ON pu.id = p.plan_user_id
-  JOIN plan_type AS pt 
+  JOIN PlanType AS pt 
     ON pt.id = p.plan_type_id
-  JOIN life_chapter AS lc 
+  JOIN LifeChapters AS lc 
     ON p.id = lc.plan_id
-  JOIN invest_rate_type AS irt 
+  JOIN InvestRateType AS irt 
     ON irt.id = lc.invest_rate_type_id
  ORDER BY pu.id, p.id, lc.seq_no

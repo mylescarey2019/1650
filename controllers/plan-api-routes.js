@@ -24,6 +24,21 @@ module.exports = function(app) {
     });
   });
 
+  // get specific plan and its life chapters and their invest rate types
+  app.get("/api/plan-life-chapter/:id", function(req, res) {
+    db.Plan.findOne({  
+      where: { id: req.params.id },
+      include: [{model: db.LifeChapter, 
+                   include: [{ model: db.InvestRateType }]
+                  }],
+      order: [
+        [db.LifeChapter, 'seq_no', 'asc']
+      ]            
+                    }).then(function(results) {
+      // results are available to us inside the .then
+      res.json(results);
+    });
+  });
 
   // Get specific plan
   app.get("/api/plan/:id", function(req, res) {

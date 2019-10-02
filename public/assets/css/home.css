@@ -1,0 +1,108 @@
+/* home page CSS file */
+
+
+/* 
+.sean-o-KMn4VEeEPR8-unsplash-1-hex { color: #95BBBF; }
+.sean-o-KMn4VEeEPR8-unsplash-2-hex { color: #027373; }
+.sean-o-KMn4VEeEPR8-unsplash-3-hex { color: #6FBFBF; }
+.sean-o-KMn4VEeEPR8-unsplash-4-hex { color: #F2D5BB; }
+.sean-o-KMn4VEeEPR8-unsplash-5-hex { color: #D9B4A7; }
+
+
+.sean-o-KMn4VEeEPR8-unsplash-1-rgba { color: rgba(149, 187, 191, 1); }
+.sean-o-KMn4VEeEPR8-unsplash-2-rgba { color: rgba(2, 115, 115, 1); }
+.sean-o-KMn4VEeEPR8-unsplash-3-rgba { color: rgba(111, 191, 191, 1); }
+.sean-o-KMn4VEeEPR8-unsplash-4-rgba { color: rgba(242, 213, 187, 1); }
+.sean-o-KMn4VEeEPR8-unsplash-5-rgba { color: rgba(217, 180, 167, 1); } */
+
+
+
+
+body {
+  background-image: url(../img/sean-o-KMn4VEeEPR8-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-origin: center;
+  width: 100%;
+  height: 100%;
+  max-height: 3072px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40px;
+}
+
+.jumbotron  {
+  background-color: rgba(149, 187, 191, .8); ;
+  color: #4c4c4c;
+  border: 2px solid #4c4c4c;
+  border-radius: 1rem;
+  padding: 32px;
+} 
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: .15em;
+}
+
+h3, h4 {
+  text-align: center;
+  color: #4c4c4c;
+}
+
+#chart, #grid {
+  background-color:  rgba(217, 180, 167, .8);
+  color: #4c4c4c;
+  border: 2px solid #4c4c4c;
+  border-radius: 1rem;
+  margin-top: 20px;
+  padding: 32px;
+
+}
+
+table {
+  margin: 20px;
+}
+
+table td, table th {
+  border:  1px solid #4c4c4c;
+  padding: 8px;
+  text-align: center;
+}
+
+table tr:hover {
+  /* background-color: #b2b2b2; */
+  color: #e50000
+}
+
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4892c4;
+  color: white;
+}
+
+
+/* #survey {
+  margin: 20px 0px 20px 0px;
+}
+
+.links {
+  margin: 30px 0px 0px 0px;
+}
+
+.links {
+  color: white;
+}
+
+footer {
+  background-color: rgba(0,63,135,.5);
+  color: white;
+}
+
+#footer-text {
+  display: block;
+  float: right;
+} */

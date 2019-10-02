@@ -23,6 +23,7 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
+require("./controllers/html-routes.js")(app);
 require("./controllers/planuser-api-routes.js")(app);
 require("./controllers/plan-api-routes.js")(app);
 require("./controllers/plantype-api-routes.js")(app);
