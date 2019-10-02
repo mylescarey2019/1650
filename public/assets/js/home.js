@@ -12,7 +12,7 @@ $(document).ready(function(){
   }).then(function(res) {
       console.log(res);
       console.log(`plan name: ${res.plan_name}`);
-      // $("#grid-caption").text(res.plan_name);
+      $("#grid-caption").text(res.plan_name);
       res.LifeChapters.map(chapter => {
         console.log(`seq: ${chapter.seq_no} name ${chapter.chapter_name} start ${chapter.start_age} end ${chapter.end_age} 
                      invest-amt ${chapter.invest_amount} frequency: ${chapter.InvestRateType.invest_type} 
@@ -27,7 +27,6 @@ $(document).ready(function(){
         modelRow.append($(`<td>${chapter.inflation_pct}</td>`));
         $("#grid-table").append(modelRow);
       });
-      $("tbody").before(`<caption align="top">${res.plan_name}</caption>`);
     
 
 
