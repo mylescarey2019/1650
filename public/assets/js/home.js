@@ -13,74 +13,97 @@ $(document).ready(function(){
 //   };
 
 
-  // retreive servers for the order form control select box
-  $.ajax("/api/plan-life-chapter/4", {
+  // retreive financial plan and render in model grid, ToDo : and model chart
+  $.ajax("/api/plan-user-life-chapter/4", {
     type: "GET"
   }).then(function(res) {
       console.log(res);
-      console.log(`plan name: ${res.plan_name}`);
-      $("#grid-caption").text(res.plan_name);
-      res.LifeChapters.map(chapter => {
-        console.log(`seq: ${chapter.seq_no} name ${chapter.chapter_name} start ${chapter.start_age} end ${chapter.end_age} 
-                     invest-amt ${chapter.invest_amount} frequency: ${chapter.InvestRateType.invest_type} 
-                     return-rate ${chapter.return_pct} inflation-rate ${chapter.inflation_pct}`);
+      console.log(`plan name: ${res.name}`);
+      $("#grid-caption").text(res.name);
+      res.lifeChapters.map(chapter => {
+        console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
+                     invest-amt ${chapter.investAmount} frequency: ${chapter.frequency} 
+                     return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
         var modelRow = $('<tr>');
-        modelRow.append($(`<td>${chapter.chapter_name}</td>`));
-        modelRow.append($(`<td>${chapter.start_age}</td>`));
-        modelRow.append($(`<td>${chapter.end_age}</td>`));
-        modelRow.append($(`<td>${chapter.invest_amount}</td>`));
-        modelRow.append($(`<td>${chapter.InvestRateType.invest_type}</td>`));
-        modelRow.append($(`<td>${chapter.return_pct}</td>`));
-        modelRow.append($(`<td>${chapter.inflation_pct}</td>`));
+        modelRow.append($(`<td>${chapter.name}</td>`));
+        modelRow.append($(`<td>${chapter.startYear}</td>`));
+        modelRow.append($(`<td>${chapter.endYear}</td>`));
+        modelRow.append($(`<td>${chapter.investAmount}</td>`));
+        modelRow.append($(`<td>${chapter.frequency}</td>`));
+        modelRow.append($(`<td>${chapter.returnPct}</td>`));
+        modelRow.append($(`<td>${chapter.inflationPct}</td>`));
         $("#grid-table").append(modelRow);
       });
     }
   );
+  // SAVING CODE that processed API results when they weren't converted to Class objects
+  // $.ajax("/api/plan-user-life-chapter/4", {
+  //   type: "GET"
+  // }).then(function(res) {
+  //     console.log(res);
+  //     console.log(`plan name: ${res.plan_name}`);
+  //     $("#grid-caption").text(res.plan_name);
+  //     res.LifeChapters.map(chapter => {
+  //       console.log(`seq: ${chapter.seq_no} name ${chapter.chapter_name} start ${chapter.start_age} end ${chapter.end_age} 
+  //                    invest-amt ${chapter.invest_amount} frequency: ${chapter.InvestRateType.invest_type} 
+  //                    return-rate ${chapter.return_pct} inflation-rate ${chapter.inflation_pct}`);
+  //       var modelRow = $('<tr>');
+  //       modelRow.append($(`<td>${chapter.chapter_name}</td>`));
+  //       modelRow.append($(`<td>${chapter.start_age}</td>`));
+  //       modelRow.append($(`<td>${chapter.end_age}</td>`));
+  //       modelRow.append($(`<td>${chapter.invest_amount}</td>`));
+  //       modelRow.append($(`<td>${chapter.InvestRateType.invest_type}</td>`));
+  //       modelRow.append($(`<td>${chapter.return_pct}</td>`));
+  //       modelRow.append($(`<td>${chapter.inflation_pct}</td>`));
+  //       $("#grid-table").append(modelRow);
+  //     });
+  //   }
+  // );
 
   // demo chart via chartist
-  var chartData = {
-    labels:[15,20,25,30,35,40,45,50,55,60,65],
-    series:[
-      {
-        name: 'model-1',
-        data: [200,500,600,3000,5000,6700,8000,11000,13000,20000,
-               22000],
-      },
+  // var chartData = {
+  //   labels:[15,20,25,30,35,40,45,50,55,60,65],
+  //   series:[
+  //     {
+  //       name: 'model-1',
+  //       data: [200,500,600,3000,5000,6700,8000,11000,13000,20000,
+  //              22000],
+  //     },
 
-    ]
-  };
-
-
+  //   ]
+  // };
 
 
 
-// We are setting a few options for our chart and override the defaults
-var options = {
-  // Don't draw the line chart points
-  showPoint: true,
-  // Disable line smoothing
-  lineSmooth: true,
-  // X-Axis specific configuration
-  axisX: {
-    // We can disable the grid for this axis
-    showGrid: true,
-    // and also don't show the label
-    showLabel: true
-  },
-  // Y-Axis specific configuration
-  axisY: {
-    // Lets offset the chart a bit from the labels
-    offset: 60,
-    // The label interpolation function enables you to modify the values
-    // used for the labels on each axis. Here we are converting the
-    // values into million pound.
-    labelInterpolationFnc: function(value) {
-      return '$' + value;
-    }
-  }
-};
 
-  var myChart = new Chartist.Line('#demo-chart',chartData,options);
+
+// // We are setting a few options for our chart and override the defaults
+// var options = {
+//   // Don't draw the line chart points
+//   showPoint: true,
+//   // Disable line smoothing
+//   lineSmooth: true,
+//   // X-Axis specific configuration
+//   axisX: {
+//     // We can disable the grid for this axis
+//     showGrid: true,
+//     // and also don't show the label
+//     showLabel: true
+//   },
+//   // Y-Axis specific configuration
+//   axisY: {
+//     // Lets offset the chart a bit from the labels
+//     offset: 60,
+//     // The label interpolation function enables you to modify the values
+//     // used for the labels on each axis. Here we are converting the
+//     // values into million pound.
+//     labelInterpolationFnc: function(value) {
+//       return '$' + value;
+//     }
+//   }
+// };
+
+  // var myChart = new Chartist.Line('#demo-chart',chartData,options);
 
   var nums = [];
   var amount = 0;
@@ -88,15 +111,15 @@ var options = {
   for (let i = 15; i <= 66; i++) {
     nums.push(i);
     if (i % 5) {
-      modelData.push(amount += 500)
+      modelData.push(amount += 200 + i * 50)
     } else if (i % 3) {
-      modelData.push(amount += 5000)
+      modelData.push(amount += 400 + i * 100)
     } else if (i % 6) {
-      modelData.push(amount += 14000)
+      modelData.push(amount += 1000 + i * 200)
     } else if (i % 7) {
-      modelData.push(amount += 30000)
+      modelData.push(amount += 800 + i * 300)
     } else {
-      modelData.push(amount += 2000)
+      modelData.push(amount += 600 + i * 20)
     };
   };
   console.log(nums);
