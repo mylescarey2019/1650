@@ -16,29 +16,34 @@ var { ChartResult }  = require("../public/assets/js/chartResult.js");
 // helper functions
 function buildModel(results) {
   // console.log ("in plan-api-routes.buildModel");
-  var firstModelYear = '';
-  var lastModelYear = '';
+  // var firstModelYear = '';
+  // var lastModelYear = '';
   var resultPlots = [];
   var lifeChapters = [];  // an array of life chapter objects
   var chartResult  = {};  // a chart result object
 
   // get start year for Result Plot
-  firstModelYear = results.LifeChapters[0].start_age;
+  // firstModelYear = results.LifeChapters[0].start_age;
 
   // build lifeChapters
   results.LifeChapters.map(chapter => {
     lifeChapters.push(new LifeChapter(chapter.seq_no, chapter.chapter_name,
       chapter.start_age, chapter.end_age, chapter.invest_amount,chapter.InvestRateType.invest_type,
       chapter.return_pct, chapter.inflation_pct));
-      lastModelYear = chapter.end_age;
+      // lastModelYear = chapter.end_age;
   });
   
   // build chartResult
-  chartResult =  new ChartResult(firstModelYear,lastModelYear,resultPlots);
+  chartResult =  new ChartResult(results.LifeChapters[0].start_age,results.LifeChapters[results.LifeChapters.length - 1].end_age,resultPlots);
 
   // build financialModel
   financialModel = new FinancialModel(results.plan_name,results.PlanUser.user_name,results.PlanUserId,lifeChapters,chartResult);
+  financialModel.computeFinancialResult();
+  // console.log(financialModel.chartResult.xPlotToArray());
+  // console.log(financialModel.chartResult.yPlotToArray());
+
   console.log(financialModel);
+
   return financialModel;
 };
 

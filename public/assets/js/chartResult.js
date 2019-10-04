@@ -3,13 +3,27 @@ class ChartResult {
   constructor(startYear, endYear,resultPlots) {
     this.startYear = startYear;
     this.endYear = endYear;
-    this.resultPlots = resultPlots; // an array of objects with x and y plot values
+    this.resultPlots = resultPlots; // an array of objects with x and y plot values { year:, amount:}
   }
 
   // methods  
-  // xPlotToArray
+  // get the x values in the plot objects as an array
+  xPlotToArray() {
+    var xArray = [];
+    this.resultPlots.map(plot => {
+      xArray.push(plot.year);
+    });
+    return xArray
+  };
 
-  // yPlotToArray
+  // get the y values in the plot objects as an array
+  yPlotToArray() {
+    var yArray = [];
+    this.resultPlots.map(plot => {
+      yArray.push(plot.amount);
+    });
+    return yArray
+  };
 
 //   computeCompatibility(candidateAnswers) {
 //     // compare this.answers to candidateAnswers to compute compatiblity rating

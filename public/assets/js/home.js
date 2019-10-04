@@ -1,5 +1,9 @@
 // home page  
 
+
+
+
+
 //on document load
 $(document).ready(function(){
 // prototyping phase  
@@ -18,6 +22,9 @@ $(document).ready(function(){
     type: "GET"
   }).then(function(res) {
       console.log(res);
+      // var financialModel = new
+      // console.log(res.chartResult.xPlotToArray());
+      // console.log(res.chartResult.yPlotToArray());
       console.log(`plan name: ${res.name}`);
       $("#grid-caption").text(res.name);
       res.lifeChapters.map(chapter => {
