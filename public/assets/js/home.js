@@ -1,9 +1,5 @@
 // home page  
 
-
-
-
-
 //on document load
 $(document).ready(function(){
 // prototyping phase  
@@ -16,16 +12,118 @@ $(document).ready(function(){
 //     stylesheet.setAttribute('href',url);
 //   };
 
+  // helper functions
+  // output the chartResult object into x, y arrays
+  function resultPlotsToArray(resultPlots) {
+    // console.log("in home.js.resultPlotsToArray");
+    var xArray = [];
+    var yArray = [];
+    console.log(resultPlots);
+    resultPlots.map(plot => {
+      xArray.push(plot.year);
+      yArray.push(plot.amount);
+    });
+    return { yearAxis : xArray, dollarAxis : yArray };
+  };
+
+  // render the financial chart using model data
+  function renderChart(chartName, xAxisData, yAxisData) {
+    // console.log("in home.js.renderChart");
+    Highcharts.setOptions({colors: ['#026873']});
+    Highcharts.chart('container', {
+      chart: {
+        type: 'area',
+        backgroundColor:  null 
+        // 'rgba(197, 209, 217, .2'
+      },
+      tooltip: {
+        valuePrefix: '$'
+      },
+      title: {
+        text: chartName 
+        // 'Historic and Estimated Worldwide Population Growth by Region'
+      },
+      // subtitle: {
+      //   text: 'Source: Wikipedia.org'
+      // },
+      xAxis: {
+        // categories: ['15', '16', '17', '18', '19', '20', '21'],
+        categories: xAxisData,
+        // [15,16,17,18,19,20,21,22],
+        tickmarkPlacement: 'on',
+        title: {
+          enabled: false
+        }
+      },
+      yAxis: {
+        title: {
+          text: '$ Dollars'
+        }
+        // ,
+        // labels: {
+        //   formatter: function () {
+        //     return this.value / 1;
+        //   }
+        // }
+      },
+      tooltip: {
+        split: true,
+        valueSuffix: ' dollars'
+      },
+      plotOptions: {
+        series: {
+          marker: {
+            enabled: false
+          }
+        },
+        area: {
+          stacking: 'normal',
+          lineColor: '#666666',
+          lineWidth: 1,
+          marker: {
+            enabled: false
+            // lineWidth: 1,
+            // lineColor: '#666666'
+          }
+        }
+      },
+      line: {
+        marker: {
+            enabled: false
+        }
+      },
+      series: [{
+        name: 'Age',
+        data: yAxisData,
+        type: 'areaspline',
+        color: '#026873',
+        // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
+        fillColor: {
+          linearGradient: {
+              x1: 0,
+              y1: 0,
+              x2: 0,
+              y2: 1
+          },
+          stops: [
+              [0, Highcharts.getOptions().colors[0]],
+              [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+          ]
+        }
+      }
+      ]
+    });
+  };
 
   // retreive financial plan and render in model grid, ToDo : and model chart
   $.ajax("/api/plan-user-life-chapter/4", {
     type: "GET"
   }).then(function(res) {
-      console.log(res);
-      // var financialModel = new
-      // console.log(res.chartResult.xPlotToArray());
-      // console.log(res.chartResult.yPlotToArray());
-      console.log(`plan name: ${res.name}`);
+      var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
+      // console.log(yearAxis);
+      // console.log(dollarAxis);
+
+      // console.log(`plan name: ${res.name}`);
       $("#grid-caption").text(res.name);
       res.lifeChapters.map(chapter => {
         console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
@@ -40,6 +138,8 @@ $(document).ready(function(){
         modelRow.append($(`<td>${chapter.returnPct}</td>`));
         modelRow.append($(`<td>${chapter.inflationPct}</td>`));
         $("#grid-table").append(modelRow);
+
+        renderChart(res.name, yearAxis, dollarAxis);
       });
     }
   );
@@ -112,109 +212,109 @@ $(document).ready(function(){
 
   // var myChart = new Chartist.Line('#demo-chart',chartData,options);
 
-  var nums = [];
-  var amount = 0;
-  var modelData = [];
-  for (let i = 15; i <= 66; i++) {
-    nums.push(i);
-    if (i % 5) {
-      modelData.push(amount += 200 + i * 50)
-    } else if (i % 3) {
-      modelData.push(amount += 400 + i * 100)
-    } else if (i % 6) {
-      modelData.push(amount += 1000 + i * 200)
-    } else if (i % 7) {
-      modelData.push(amount += 800 + i * 300)
-    } else {
-      modelData.push(amount += 600 + i * 20)
-    };
-  };
-  console.log(nums);
-  console.log(modelData);
+  // var nums = [];
+  // var amount = 0;
+  // var modelData = [];
+  // for (let i = 15; i <= 66; i++) {
+  //   nums.push(i);
+  //   if (i % 5) {
+  //     modelData.push(amount += 200 + i * 50)
+  //   } else if (i % 3) {
+  //     modelData.push(amount += 400 + i * 100)
+  //   } else if (i % 6) {
+  //     modelData.push(amount += 1000 + i * 200)
+  //   } else if (i % 7) {
+  //     modelData.push(amount += 800 + i * 300)
+  //   } else {
+  //     modelData.push(amount += 600 + i * 20)
+  //   };
+  // };
+  // console.log(nums);
+  // console.log(modelData);
 
-  var title = "Kyra's 50 Year Retirement Plan";
+  
 
-  Highcharts.setOptions({colors: ['#026873']});
-  Highcharts.chart('container', {
-    chart: {
-      type: 'area',
-      backgroundColor:  null 
-      // 'rgba(197, 209, 217, .2'
-    },
-    title: {
-      text: title 
-      // 'Historic and Estimated Worldwide Population Growth by Region'
-    },
-    // subtitle: {
-    //   text: 'Source: Wikipedia.org'
-    // },
-    xAxis: {
-      // categories: ['15', '16', '17', '18', '19', '20', '21'],
-      categories: nums,
-      // [15,16,17,18,19,20,21,22],
-      tickmarkPlacement: 'on',
-      title: {
-        enabled: false
-      }
-    },
-    yAxis: {
-      title: {
-        text: '$ Dollars'
-      }
-      // ,
-      // labels: {
-      //   formatter: function () {
-      //     return this.value / 1;
-      //   }
-      // }
-    },
-    tooltip: {
-      split: true,
-      valueSuffix: ' dollars'
-    },
-    plotOptions: {
-      series: {
-        marker: {
-          enabled: false
-        }
-      },
-      area: {
-        stacking: 'normal',
-        lineColor: '#666666',
-        lineWidth: 1,
-        marker: {
-          enabled: false
-          // lineWidth: 1,
-          // lineColor: '#666666'
-        }
-      }
-    },
-    line: {
-      marker: {
-          enabled: false
-      }
-    },
-    series: [{
-      name: 'Age',
-      data: modelData,
-      type: 'areaspline',
-      color: '#026873',
-      // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
-      fillColor: {
-        linearGradient: {
-            x1: 0,
-            y1: 0,
-            x2: 0,
-            y2: 1
-        },
-        stops: [
-            [0, Highcharts.getOptions().colors[0]],
-            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-        ]
-    }
-    }
-    ]
-  });
+  // Highcharts.setOptions({colors: ['#026873']});
+  // Highcharts.chart('container', {
+  //   chart: {
+  //     type: 'area',
+  //     backgroundColor:  null 
+  //     // 'rgba(197, 209, 217, .2'
+  //   },
+  //   title: {
+  //     text: title 
+  //     // 'Historic and Estimated Worldwide Population Growth by Region'
+  //   },
+  //   // subtitle: {
+  //   //   text: 'Source: Wikipedia.org'
+  //   // },
+  //   xAxis: {
+  //     // categories: ['15', '16', '17', '18', '19', '20', '21'],
+  //     categories: nums,
+  //     // [15,16,17,18,19,20,21,22],
+  //     tickmarkPlacement: 'on',
+  //     title: {
+  //       enabled: false
+  //     }
+  //   },
+  //   yAxis: {
+  //     title: {
+  //       text: '$ Dollars'
+  //     }
+  //     // ,
+  //     // labels: {
+  //     //   formatter: function () {
+  //     //     return this.value / 1;
+  //     //   }
+  //     // }
+  //   },
+  //   tooltip: {
+  //     split: true,
+  //     valueSuffix: ' dollars'
+  //   },
+  //   plotOptions: {
+  //     series: {
+  //       marker: {
+  //         enabled: false
+  //       }
+  //     },
+  //     area: {
+  //       stacking: 'normal',
+  //       lineColor: '#666666',
+  //       lineWidth: 1,
+  //       marker: {
+  //         enabled: false
+  //         // lineWidth: 1,
+  //         // lineColor: '#666666'
+  //       }
+  //     }
+  //   },
+  //   line: {
+  //     marker: {
+  //         enabled: false
+  //     }
+  //   },
+  //   series: [{
+  //     name: 'Age',
+  //     data: modelData,
+  //     type: 'areaspline',
+  //     color: '#026873',
+  //     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
+  //     fillColor: {
+  //       linearGradient: {
+  //           x1: 0,
+  //           y1: 0,
+  //           x2: 0,
+  //           y2: 1
+  //       },
+  //       stops: [
+  //           [0, Highcharts.getOptions().colors[0]],
+  //           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+  //       ]
+  //   }
+  //   }
+  //   ]
+  // });
 
 
   // Highcharts.chart('container', {
