@@ -22,6 +22,12 @@ body {
   background-image: url(../img/sean-o-KMn4VEeEPR8-unsplash.jpg);
 }
 
+
+#nav-bar, footer {
+  background-color: rgba(104, 130, 133, 1); ;
+  color: #4c4c4c;
+}
+
 .jumbotron  {
   background-color: rgba(149, 187, 191, .8); ;
   color: #4c4c4c;

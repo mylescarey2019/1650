@@ -19,6 +19,11 @@ body {
   background-image: url(../img/jesse-bowser-c0I4ahyGIkA-unsplash.jpg);
 }
 
+#nav-bar, footer {
+  background-color: rgba(73, 79, 98, 1); ;
+  color: #D5E5F2;
+}
+
 .jumbotron  {
   background-color: rgba(105, 114, 140, .8); ;
   color: #D5E5F2;

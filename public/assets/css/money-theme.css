@@ -20,10 +20,15 @@ body {
   background-image: url(../img/alexander-mils-lCPhGxs7pww-unsplash.jpg);
 }
 
-.jumbotron  {
-  background-color: rgba(159, 179, 191, .8); ;
+#nav-bar, footer {
+  background-color: rgba(111, 125, 133, 1); ;
   color: #191919;
-  border: 2px solid #516373;
+}
+
+.jumbotron  {
+  /* background-color: rgba(159, 179, 191, .8); ; */
+  color: #191919;
+  /* border: 2px solid #516373; */
 } 
 
 h3, h4 {

@@ -24,6 +24,11 @@ body {
   background-image: url(../img/john-king-LGCIWbBGnxQ-unsplash.jpg);
 }
 
+#nav-bar, footer {
+  background-color: rgba(137, 146, 151, 1);
+  color: #4c4c4c;
+}
+
 .jumbotron  {
   background-color: rgba(197, 209, 217, .8);
   color: #4c4c4c;

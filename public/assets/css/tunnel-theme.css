@@ -30,6 +30,12 @@ body {
   background-image: url(../img/gdtography-LCJ9iOli-uE-unsplash.jpg);
 }
 
+#nav-bar, footer {
+  background-color: rgba(40,44,43, 1);
+  color: #f2f2f2;
+}
+
+
 .jumbotron  {
   background-color: rgba(58, 64, 62, .8);
 } 

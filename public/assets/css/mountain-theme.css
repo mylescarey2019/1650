@@ -20,6 +20,11 @@ body {
   background-image: url(../img/yux-xiang-AATLGHDZrJY-unsplash.jpg);
 }
 
+#nav-bar, footer {
+  background-color: rgba(48,59,62, 1); ;
+  color: #e5e5e5;
+}
+
 .jumbotron  {
   background-color: rgba(69, 85, 89, .8); ;
   color: #e5e5e5;

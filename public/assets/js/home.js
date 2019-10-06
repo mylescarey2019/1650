@@ -116,7 +116,7 @@ $(document).ready(function(){
   };
 
   // retreive financial plan and render in model grid, ToDo : and model chart
-  $.ajax("/api/plan-user-life-chapter/4", {
+  $.ajax("/api/plan-user-life-chapter/5", {
     type: "GET"
   }).then(function(res) {
       var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
@@ -143,6 +143,23 @@ $(document).ready(function(){
       });
     }
   );
+
+
+  // toggle upper section on/off when users scrolls down/up
+  window.onscroll = function() {hideDiv()};
+
+  function hideDiv() {
+    console.log(document.documentElement.scrollTop);
+    if (document.documentElement.scrollTop > 150) {
+      $(".jumbotron").fadeOut();
+      
+    } 
+    else if (document.documentElement.scrollTop <= 150) {
+      $(".jumbotron").fadeIn();
+    }
+  };
+
+
   // SAVING CODE that processed API results when they weren't converted to Class objects
   // $.ajax("/api/plan-user-life-chapter/4", {
   //   type: "GET"

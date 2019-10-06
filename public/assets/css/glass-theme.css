@@ -29,6 +29,11 @@ body {
   background-image: url(../img/drew-beamer-xU5Mqq0Chck-unsplash.jpg);
 }
 
+#nav-bar, footer {
+  background-color: rgba(98, 149, 169, 1);
+  color: #3C5973;
+}
+
 .jumbotron  {
   background-color: rgba(141, 213, 242, .8);
   color: #3C5973;

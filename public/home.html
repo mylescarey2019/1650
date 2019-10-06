@@ -19,25 +19,36 @@
 
 </head>
 <body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1 id="name">Custodial IRA Planning</h1>
-      <h3>1650 - Start at age 16 and let your money grow for 50 years</h3>
-      <hr>
-      <h4>The results are incredible</h4>
-     </div>
-    <div id="chart" class="row">
+  <nav id="nav-bar" class="navbar fixed-top navbar-expand-sm">
+    <a class="navbar-brand" href="#">1650</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- <div class="container"> -->
+  <div id="main-section" class="jumbotron jumbotron-fluid">
+    <h1 id="name">Custodial IRA Planning</h1>
+    <h3>1650 - Start at age 16 and let your money grow for 50 years</h3>
+    <hr>
+    <h4>Time and money working for you</h4>
+  </div>
+
+  <div id="lower-section" class="container-fluid">
+    <div id="chart" class="row no-margin">
       <div class="col-12">
         <!-- <h3>prototyping chart goes here</h3>
         <div id="demo-chart" class="ct-chart ct-major-twelfth">
-
         </div> -->
         <div id="container">
-
         </div> 
       </div>
     </div>  
-    <div id="grid" class="row">
+    <div id="grid" class="row no-margin">
       <div id="table-div" class="col-12">
         <table id='grid-table'>
           <caption id="grid-caption">THIS IS A TEST</caption>
@@ -48,15 +59,25 @@
             <th>Invest Amount</th>
             <th>Frequency</th>            
             <th>Modeled Return Rate</th>
-            <th>Modeled Inflation Rate</th>            
+            <th>Modeled Inflation Rate</th> 
+            <!-- <th>Modeled Inflation Rate</th>   
+            <th>Modeled Inflation Rate</th>               -->
           </tr>
         </table>
       </div>
-    </div> 
+    </div>
+    
+    <!-- <div id="grid" class="row no-margin">
+      <div id="table-div" class="col-12">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus deserunt, libero officiis commodi explicabo enim cum similique minus, quisquam voluptates nisi, consequuntur aliquam unde quos praesentium natus quae voluptatibus sint.</p>
+      </div>
+    </div>   -->
   </div>
 
-  <footer id="footer-bar" class="navbar">
-    <span id="footer-text" class="navbar-text"> 
+  <!-- <footer id="footer-bar" class="navbar">
+    <span id="footer-text" class="navbar-text">  -->
+  <footer id="footer-bar">
+    <span id="footer-text">
       <!-- move this logic to home.js if end up keeping feature -->
       <a href="#" onclick="setStyleSheet('assets/css/default-theme.css')">Default-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/ocean-theme.css')">Ocean-Theme</a>
@@ -67,6 +88,19 @@
       <a href="#" onclick="setStyleSheet('assets/css/road-theme.css')">Road-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/money-theme.css')">Money-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/chess-theme.css')">Chess-Theme</a>
+      <span id="footer-text">
+          photo by
+          <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont,
+          &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;,
+           Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" 
+           href="https://unsplash.com/@masterofshots?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+            target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Master Of Shots">
+            <span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" 
+             style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title>
+           <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Master Of Shots</span></a>
+      </span>
+
+
     </span>
   </footer> 
 
