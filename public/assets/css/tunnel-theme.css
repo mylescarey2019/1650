@@ -41,14 +41,14 @@ body {
 } 
 
 
-h3, h4 {
+h3, h4, #brand  {
   color: #f2f2f2;
 }
 
 #chart, #grid {
   background-color:  rgba(58, 64, 62, .8);
   color: #f2f2f2;
-  border: 2px solid #f2f2f2;
+  /* border: 2px solid #f2f2f2; */
 }
 
 caption {

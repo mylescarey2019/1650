@@ -12,6 +12,8 @@ $(document).ready(function(){
 //     stylesheet.setAttribute('href',url);
 //   };
 
+
+
   // helper functions
   // output the chartResult object into x, y arrays
   function resultPlotsToArray(resultPlots) {
@@ -116,7 +118,7 @@ $(document).ready(function(){
   };
 
   // retreive financial plan and render in model grid, ToDo : and model chart
-  $.ajax("/api/plan-user-life-chapter/5", {
+  $.ajax("/api/plan-user-life-chapter/4", {
     type: "GET"
   }).then(function(res) {
       var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
@@ -151,11 +153,11 @@ $(document).ready(function(){
   function hideDiv() {
     console.log(document.documentElement.scrollTop);
     if (document.documentElement.scrollTop > 150) {
-      $(".jumbotron").fadeOut();
+      $("#main-section").fadeOut();
       
     } 
     else if (document.documentElement.scrollTop <= 150) {
-      $(".jumbotron").fadeIn();
+      $("#main-section").fadeIn();
     }
   };
 

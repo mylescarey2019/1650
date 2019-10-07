@@ -6,8 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>1650-Custodial-IRA</title>
 
-
-
   <!-- bootstrap .css -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- chartist -->
@@ -20,51 +18,116 @@
 </head>
 <body>
   <nav id="nav-bar" class="navbar fixed-top navbar-expand-sm">
-    <a class="navbar-brand" href="#">1650</a>
+    <!-- <a class="navbar-brand" href="#">1650</a> -->
+    <div id="brand">1650</div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
       </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="0" href="#">Slide 1</a>
+          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="1" href="#">Slide 2</a>
+          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="2" href="#">Slide 3</a>
+          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="3" href="#">Slide 4</a>
+          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="4" href="#">Slide 5</a>
+        </ul>
+      </div>
     </div>
+
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+              <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="0" href="#">Slide 1</a>
+              <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="1" href="#">Slide 2</a>
+              <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="2" href="#">Slide 3</a>
+              <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="3" href="#">Slide 4</a>
+              <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="4" href="#">Slide 5</a>
+      </ul>
+    </div> -->
   </nav>
   
   <!-- <div class="container"> -->
-  <div id="main-section" class="jumbotron jumbotron-fluid">
-    <h1 id="name">Custodial IRA Planning</h1>
+  <!-- <div id="main-section" class="jumbotron jumbotron-fluid"> -->
+    <!-- <h1 id="name">Custodial IRA Planning</h1>
     <h3>1650 - Start at age 16 and let your money grow for 50 years</h3>
     <hr>
-    <h4>Time and money working for you</h4>
-  </div>
+    <h4>Time and money working for you</h4> -->
+    <div id="main-section" class="bd-example">
+  
+  <div id="carousel-example-2" class="carousel slide " data-ride="carousel" data-interval="false">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+        <li data-target="#carousel-example-2" data-slide-to="3"></li>
+        <li data-target="#carousel-example-2" data-slide-to="4"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="slide-body">THIS IS SLIDE 1 - IMPORTANT INFORMATION AND CONTENT WILL GO HERE</div>
+        </div>
+        <div class="carousel-item">
+          <div class="slide-body">THIS IS SLIDE 2</div>
+        </div>
+        <div class="carousel-item">
+          <div class="slide-body">THIS IS SLIDE 3</div>
+        </div>
+        <div class="carousel-item">
+          <div class="slide-body">THIS IS SLIDE 4</div>
+        </div>
+        <div class="carousel-item">
+          <div class="slide-body">THIS IS SLIDE 5</div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" style="color:black" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+      </div>
 
+    
   <div id="lower-section" class="container-fluid">
-    <div id="chart" class="row no-margin">
-      <div class="col-12">
-        <!-- <h3>prototyping chart goes here</h3>
-        <div id="demo-chart" class="ct-chart ct-major-twelfth">
-        </div> -->
-        <div id="container">
-        </div> 
-      </div>
-    </div>  
-    <div id="grid" class="row no-margin">
-      <div id="table-div" class="col-12">
-        <table id='grid-table'>
-          <caption id="grid-caption">THIS IS A TEST</caption>
-          <tr id="table-header">
-            <th>Life Chapter</th>
-            <th>Start Age</th>
-            <th>End Age</th>            
-            <th>Invest Amount</th>
-            <th>Frequency</th>            
-            <th>Modeled Return Rate</th>
-            <th>Modeled Inflation Rate</th> 
-            <!-- <th>Modeled Inflation Rate</th>   
-            <th>Modeled Inflation Rate</th>               -->
-          </tr>
-        </table>
-      </div>
+    <!-- <div class="row">
+      <div id="lower-frame" class="col-12"> -->
+        <div id="chart" class="row no-margin">
+          <div class="col-12">
+            <!-- <h3>prototyping chart goes here</h3>
+            <div id="demo-chart" class="ct-chart ct-major-twelfth">
+            </div> -->
+            <div id="container">
+            </div> 
+          </div>
+        </div>  
+        <div id="grid" class="row no-margin">
+          <div id="table-div" class="col-12">
+            <table id='grid-table'>
+              <caption id="grid-caption">THIS IS A TEST</caption>
+              <tr id="table-header">
+                <th>Life Chapter</th>
+                <th>Start Age</th>
+                <th>End Age</th>            
+                <th>Invest Amount</th>
+                <th>Frequency</th>            
+                <th>Modeled Return Rate</th>
+                <th>Modeled Inflation Rate</th> 
+                <!-- <th>Modeled Inflation Rate</th>   
+                <th>Modeled Inflation Rate</th>               -->
+              </tr>
+            </table>
+          </div>
+        <!-- </div>
+      </div> -->
     </div>
     
     <!-- <div id="grid" class="row no-margin">

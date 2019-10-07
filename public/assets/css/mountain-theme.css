@@ -31,14 +31,14 @@ body {
   border: 2px solid #4F6F8C;
 } 
 
-h3, h4 {
+h3, h4, #brand  {
   color: #e5e5e5;
 }
 
 #chart, #grid {
   background-color:  rgba(69, 85, 89, .8);
   color: #e5e5e5;
-  border: 2px solid #8C884F;
+  /* border: 2px solid #8C884F; */
 }
 
 caption {

@@ -21,9 +21,23 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 10;
 }
 
+#brand {
+  padding: 5px;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.linkcolor a:visited{
+  color: white;
+}
+
+#links {
+  /* background-color: aquamarine; */
+  margin-left: 800px;
+}
 
 /* .container-no-gutter {
   margin: 0;
@@ -44,16 +58,62 @@ body {
 
   width: 100%;
   height: 500px;
-  /* background-color: blue;
-  color: white;
+
+  background-color: white;
+  
+  /* color: white;
   font-weight: bold;
   font-size: 24px; */
-  padding: 50px 50px;
+  /* padding: 50px 50px; */
   position: fixed;
   top: 150px;
   margin: 0 auto ;
-  z-index: -1;
+  z-index: 1;
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .5), 0 8px 26px 0 rgba(0, 0, 0, 0.46);
 }
+
+.carousel-item {
+  height: 500px;
+  width: 100%;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  width: 100px;
+}
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+/* .carousel-control-prev, .carousel-control-next {
+ 
+  z-index: 20;
+} */
+
+.slide-body {
+  padding: 200px 50px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+/* .carousel-item:nth-child(1) {
+  background-color: blue;
+}
+.carousel-item:nth-child(2) {
+  background-color: red;
+}
+.carousel-item:nth-child(3) {
+  background-color: green;
+} */
+
+/* #lower-frame {
+  margin: 5px 
+  border-radius: 1rem;
+} */
 
 #lower-section {
   height: 900px;
@@ -84,13 +144,24 @@ h3, h4 {
   text-align: center;
 }
 
+#nav-bar, #chart, #grid , #footer-bar, #lower-frame {
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .5), 0 8px 26px 0 rgba(0, 0, 0, 0.46);
+}
 #chart, #grid {
   width: 90%;
   border-radius: 1rem;
   /* margin-top: 20px; */
   margin: 20px auto 20px auto;
   padding: 32px;
+}
 
+#grid {
+  margin-top: 50px;
+}
+
+#grid-table {
+width: 100%;  
+margin: 0 auto;
 }
 
 #table-div {
@@ -128,7 +199,7 @@ table th {
 
 a:hover {
   font-weight: bold;
-  background-color: #f2f2f2
+  /* background-color: #f2f2f2 */
 }
 
 a {
@@ -141,8 +212,8 @@ footer {
   color: white;
   height: 50px;
   position: relative;
-  top: 850px;
-  z-index: 2000;
+  top: 1000px;
+  z-index: 2;
 }
 
 #footer-text {

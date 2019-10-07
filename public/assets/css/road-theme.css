@@ -30,14 +30,14 @@ body {
   border: 2px solid #D98841;
 } 
 
-h3, h4 {
+h3, h4, #brand  {
   color: #D5E5F2;
 }
 
 #chart, #grid {
   background-color:  rgba(105, 114, 140, .8);
   color: #D5E5F2;
-  border: 2px solid #D98841;
+  /* border: 2px solid #D98841; */
 }
 
 caption {
