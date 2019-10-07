@@ -6,6 +6,8 @@ $(document).ready(function(){
 
 
 
+
+
   // $('body').hide();
   // $(window).on('load', function() {
   //   var activeWallpaper = manageLocalStorage.getLocalStorage('wallpaper');
@@ -181,13 +183,13 @@ $(document).ready(function(){
   };
 
   // retreive financial plan and render in model grid, ToDo : and model chart
-  $.ajax("/api/plan-user-life-chapter/4", {
+  $.ajax("/api/plan-user-life-chapter/1", {
     type: "GET"
   }).then(function(res) {
       var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
       // console.log(yearAxis);
       // console.log(dollarAxis);
-
+      console.log(res);
       // console.log(`plan name: ${res.name}`);
       $("#grid-caption").text(res.name);
       res.lifeChapters.map(chapter => {
@@ -225,7 +227,7 @@ $(document).ready(function(){
   window.onscroll = function() {hideDiv()};
 
   function hideDiv() {
-    console.log(document.documentElement.scrollTop);
+    // console.log(document.documentElement.scrollTop);
     if (document.documentElement.scrollTop > 150) {
       $("#main-section").fadeOut();
       

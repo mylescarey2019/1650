@@ -1,8 +1,9 @@
 // class for a financial model year segments (aka life chapters)
 
 class FinancialModel {
-  constructor(name, userName, userId, lifeChapters, chartResult) {
+  constructor(name, id, userName, userId, lifeChapters, chartResult) {
     this.name = name;
+    this.id   = id;
     this.userName = userName;
     this.userId = userId;
     this.lifeChapters = lifeChapters;

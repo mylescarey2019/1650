@@ -37,7 +37,7 @@ function buildModel(results) {
   chartResult =  new ChartResult(results.LifeChapters[0].start_age,results.LifeChapters[results.LifeChapters.length - 1].end_age,resultPlots);
 
   // build financialModel
-  financialModel = new FinancialModel(results.plan_name,results.PlanUser.user_name,results.PlanUserId,lifeChapters,chartResult);
+  financialModel = new FinancialModel(results.plan_name,results.id,results.PlanUser.user_name,results.PlanUserId,lifeChapters,chartResult);
   financialModel.computeFinancialResult();
   // console.log(financialModel.chartResult.xPlotToArray());
   // console.log(financialModel.chartResult.yPlotToArray());
@@ -155,4 +155,33 @@ module.exports = function(app) {
     });
   });
 
-};
+  // clone a plan 
+  // initially this will be used to clone demo plan id 1
+  // to allow guest vistors to receive a rendered model
+  // and use it without being registered or logged in
+  // This cloned model will not be recoverable after user
+  // leaves page - (no database cleanup being setup at the moment)
+  app.get("/api/clone-plan/:id", function(req, res) {
+    // retrieve the model being cloned from
+    db.Plan.findOne({  
+      where: { id: req.params.id },
+      include: [{model: db.PlanUser},
+                {model: db.LifeChapter, 
+                            include: [{ model: db.InvestRateType }]
+                  }],
+      order: [
+        [db.LifeChapter, 'seq_no', 'asc']
+      ]            
+      }).then(function(cloneFromPlan) {
+        console.log(`find One: ${cloneFromPlan}`);
+        res.json(buildModel(cloneFromPlan));
+      });
+    });
+  
+
+  
+  
+
+
+
+};  // end of module export

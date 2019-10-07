@@ -3,10 +3,13 @@ USE invest;
 INSERT INTO invest_rate_type (invest_type) VALUES ('monthly');
 INSERT INTO invest_rate_type (invest_type) VALUES ('yearly');
 
-INSERT INTO plan_type (type_name) VALUES ('predefined');
+INSERT INTO plan_type (type_name) VALUES ('demo');
+INSERT INTO plan_type (type_name) VALUES ('guest');
 INSERT INTO plan_type (type_name) VALUES ('user');
 
+
 INSERT INTO plan_user (user_name) VALUES ('system');
+INSERT INTO plan_user (user_name) VALUES ('guest');
 INSERT INTO plan_user (user_name) VALUES ('Kyra Rose');
 INSERT INTO plan_user (user_name) VALUES ('Rory Alexis');
 INSERT INTO plan (plan_name, plan_user_id, plan_type_id) VALUES ('Demo Model',1,1);
