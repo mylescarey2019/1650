@@ -24,6 +24,28 @@ body {
   color: #D5E5F2;
 }
 
+/* a { color: #D5E5F2 } 
+a:visited { text-decoration: none; color: #D5E5F2; }
+a:hover { text-decoration: none; color: #D5E5F2; }
+a:focus { text-decoration: none; color: #D5E5F2; }
+a:hover, a:active { text-decoration: none; color: #D5E5F2 } */
+
+/* .dropdown-menu.a { text-decoration: none; color: #191919 !important; }
+.dropdown-menu.a:visited { text-decoration: none; color: #191919 !important; }
+.dropdown-menu.a:hover { text-decoration: none; color: #191919 !important; }
+.dropdown-menu.a:focus { text-decoration: none; color: #191919 !important; }
+.dropdown-menu.a:hover, a:active { text-decoration: none; color: #191919 !important} */
+
+#brand {
+  text-shadow: 0px 2px 3px #e5eff7; 
+}
+
+a { color: #191919 } 
+a:visited { text-decoration: none; color: #191919; }
+a:hover { text-decoration: none; color: #191919; }
+a:focus { text-decoration: none; color: #191919; }
+a:hover, a:active { text-decoration: none; color: #191919 }
+
 .jumbotron  {
   background-color: rgba(105, 114, 140, .8); ;
   color: #D5E5F2;
@@ -41,7 +63,7 @@ h3, h4, #brand  {
 }
 
 caption {
-  color: D5E5F2;
+  color: #D5E5F2;
 }  
 
 table td, table th {
@@ -55,7 +77,7 @@ table tr:hover {
 
 table th {
   background-color: #594031;
-  color: D5E5F2;
+  color: #D5E5F2;
 }
 
 

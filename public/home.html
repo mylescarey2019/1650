@@ -18,8 +18,8 @@
 </head>
 <body>
   <nav id="nav-bar" class="navbar fixed-top navbar-expand-sm">
-    <!-- <a class="navbar-brand" href="#">1650</a> -->
     <div id="brand">1650</div>
+   
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,23 +34,28 @@
           <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="2" href="#">Slide 3</a>
           <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="3" href="#">Slide 4</a>
           <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="4" href="#">Slide 5</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Wallpaper
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item active" data-value="money" href="#">Money</a>
+              <a class="dropdown-item" data-value="desert" href="#">Desert</a>
+              <a class="dropdown-item" data-value="ocean" href="#">Ocean</a>
+              <a class="dropdown-item" data-value="mountain" href="#">Mountain</a>
+              <a class="dropdown-item" data-value="road" href="#">Road</a>
+              <a class="dropdown-item" data-value="tunnel" href="#">Tunnel</a>
+              <a class="dropdown-item" data-value="chess" href="#">Chess</a>
+              <a class="dropdown-item" data-value="glass" href="#">Glass</a>
+            </div>
+          </li>
+  
         </ul>
       </div>
     </div>
-
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-              <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="0" href="#">Slide 1</a>
-              <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="1" href="#">Slide 2</a>
-              <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="2" href="#">Slide 3</a>
-              <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="3" href="#">Slide 4</a>
-              <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="4" href="#">Slide 5</a>
-      </ul>
-    </div> -->
+    <div id="tag-line">Start saving at 16 watch it grow for 50 years</div>
   </nav>
+
   
   <!-- <div class="container"> -->
   <!-- <div id="main-section" class="jumbotron jumbotron-fluid"> -->
@@ -58,9 +63,8 @@
     <h3>1650 - Start at age 16 and let your money grow for 50 years</h3>
     <hr>
     <h4>Time and money working for you</h4> -->
-    <div id="main-section" class="bd-example">
-  
-  <div id="carousel-example-2" class="carousel slide " data-ride="carousel" data-interval="false">
+  <div id="main-section" class="bd-example">
+    <div id="carousel-example-2" class="carousel slide " data-ride="carousel" data-interval="false">
       <ol class="carousel-indicators">
         <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-example-2" data-slide-to="1"></li>
@@ -94,7 +98,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-      </div>
+  </div>
 
     
   <div id="lower-section" class="container-fluid">
@@ -142,7 +146,7 @@
   <footer id="footer-bar">
     <span id="footer-text">
       <!-- move this logic to home.js if end up keeping feature -->
-      <a href="#" onclick="setStyleSheet('assets/css/default-theme.css')">Default-Theme</a>
+      <!-- <a href="#" onclick="setStyleSheet('assets/css/default-theme.css')">Default-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/ocean-theme.css')">Ocean-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/desert-theme.css')">Desert-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/tunnel-theme.css')">Tunnel-Theme</a>
@@ -150,7 +154,7 @@
       <a href="#" onclick="setStyleSheet('assets/css/mountain-theme.css')">Mountain-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/road-theme.css')">Road-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/money-theme.css')">Money-Theme</a>
-      <a href="#" onclick="setStyleSheet('assets/css/chess-theme.css')">Chess-Theme</a>
+      <a href="#" onclick="setStyleSheet('assets/css/chess-theme.css')">Chess-Theme</a> -->
       <span id="footer-text">
           photo by
           <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont,
@@ -181,12 +185,12 @@
       <script src="assets/js/home.js"></script>
   
       <!-- move this logic to home.js if end up keeping feature -->
-      <script>
+      <!-- <script>
           function setStyleSheet(url) {
             var stylesheet = document.getElementById("css-theme");
             stylesheet.setAttribute('href',url);
           }
-      </script>
+      </script> -->
 
 
   

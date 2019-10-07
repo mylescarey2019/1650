@@ -34,6 +34,12 @@ body {
   color: #3C5973;
 }
 
+a { color: #3C5973 } 
+a:visited { text-decoration: none; color: #3C5973; }
+a:hover { text-decoration: none; color: #3C5973; }
+a:focus { text-decoration: none; color: #3C5973; }
+a:hover, a:active { text-decoration: none; color: #3C5973 }
+
 .jumbotron  {
   background-color: rgba(141, 213, 242, .8);
   color: #3C5973;

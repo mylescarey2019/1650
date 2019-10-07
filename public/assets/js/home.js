@@ -2,6 +2,22 @@
 
 //on document load
 $(document).ready(function(){
+
+
+
+
+  // $('body').hide();
+  // $(window).on('load', function() {
+  //   var activeWallpaper = manageLocalStorage.getLocalStorage('wallpaper');
+  //   if (!activeWallpaper) {
+  //     activeWallpaper ='money'
+  //   };
+  
+  //   setStyleSheet(`assets/css/${activeWallpaper}-theme.css`);
+  //     $('body').show();
+  // });
+
+
 // prototyping phase  
 // make get routes call to retrieve a default model data 
 // and render it as table grid on page
@@ -15,6 +31,53 @@ $(document).ready(function(){
 
 
   // helper functions
+
+  // set style sheet for a wallpaper change
+  function setStyleSheet(url) {
+    var stylesheet = document.getElementById("css-theme");
+    stylesheet.setAttribute('href',url);
+  };
+
+
+  // ----------------------------------------------------------
+  // object for local storage:
+  // ----------------------------------------------------------
+  var manageLocalStorage = {
+    // local variables:
+
+    // methods:
+
+    // method to clear property from local storage
+    clearLocalStorage: function(property) {
+      console.log("in manageLocalStorage.clearLocalStorage");
+      localStorage.removeItem(property);
+    },
+
+    // method to get property from local storage
+    getLocalStorage: function(property) {
+      console.log("in manageLocalStorage.getLocalStorage");
+      var propVal = localStorage.getItem(property);
+      return propVal;
+    },
+
+    // method to set property in local storage
+    setLocalStorage: function(property,propVal) {
+      console.log("in manageLocalStorage.setLocalStorage");
+      localStorage.setItem(property,propVal);
+    }
+  };
+
+  // get the saved wallpaper and apply style
+  var activeWallpaper = manageLocalStorage.getLocalStorage('wallpaper');
+  if (!activeWallpaper) {
+    activeWallpaper ='money'
+  };
+  $('.dropdown-item.active').removeClass("active");
+  $('.dropdown-item[data-value="' + activeWallpaper +'"]').addClass("active");
+  setStyleSheet(`assets/css/${activeWallpaper}-theme.css`);
+
+
+
   // output the chartResult object into x, y arrays
   function resultPlotsToArray(resultPlots) {
     // console.log("in home.js.resultPlotsToArray");
@@ -146,6 +209,17 @@ $(document).ready(function(){
     }
   );
 
+  // wall paper drop down event
+  $(document).on("click", ".dropdown-item", function() {
+    console.log("in global.dropdown-item click event");
+    console.log("you pressed: " + $(this).data("value"));
+    var clickedValue = $(this).data("value");
+    console.log("value is: ",clickedValue); 
+    $('.dropdown-item.active').removeClass("active");
+    $('.dropdown-item[data-value="' + clickedValue +'"]').addClass("active");
+    setStyleSheet(`assets/css/${clickedValue}-theme.css`);
+    manageLocalStorage.setLocalStorage('wallpaper',clickedValue);
+  });
 
   // toggle upper section on/off when users scrolls down/up
   window.onscroll = function() {hideDiv()};
@@ -161,6 +235,17 @@ $(document).ready(function(){
     }
   };
 
+  // ----------------------------------------------------------
+  // START OF PROGRAM FLOW:
+  // ----------------------------------------------------------
+  // console.log("In Home Page");
+  // var activeWallpaper = manageLocalStorage.getLocalStorage('wallpaper');
+  // if (!activeWallpaper) {
+  //   activeWallpaper ='money'
+  // };
+
+  // setStyleSheet(`assets/css/${activeWallpaper}-theme.css`);
+  
 
   // SAVING CODE that processed API results when they weren't converted to Class objects
   // $.ajax("/api/plan-user-life-chapter/4", {

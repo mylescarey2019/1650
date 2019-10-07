@@ -25,6 +25,17 @@ body {
   color: #191919;
 }
 
+
+#brand {
+  text-shadow: 0px 2px 3px #888; 
+}
+
+a { color: #191919 } 
+a:visited { text-decoration: none; color: #191919; }
+a:hover { text-decoration: none; color: #191919; }
+a:focus { text-decoration: none; color: #191919; }
+a:hover, a:active { text-decoration: none; color: #191919 }
+
 .jumbotron  {
   background-color: rgba(126, 165, 217, .8); ;
   color: #191919;

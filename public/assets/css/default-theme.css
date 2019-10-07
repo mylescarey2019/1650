@@ -27,6 +27,12 @@ body {
   color: #0C0C0C;
 }
 
+a { color: #0C0C0C } 
+a:visited { text-decoration: none; color: #0C0C0C; }
+a:hover { text-decoration: none; color: #0C0C0C; }
+a:focus { text-decoration: none; color: #0C0C0C; }
+a:hover, a:active { text-decoration: none; color: #0C0C0C }
+
 .jumbotron  {
   background-color: #bfbfbf ;
   color: #0C0C0C;
