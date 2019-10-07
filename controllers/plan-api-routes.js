@@ -48,6 +48,95 @@ function buildModel(results) {
 };
 
 
+// helper function to build a single Life Chapter
+function buildOneLifeChapter(lifeChapter,newPlanId) {
+  // console.log ("in plan-api-routes.buildOneLifeChapter");
+  db.LifeChapter.create({
+    seq_no: lifeChapter.seq_no,
+    chapter_name: lifeChapter.chapter_name,
+    start_age: lifeChapter.start_age,
+    end_age: lifeChapter.end_age,
+    invest_amount: lifeChapter.invest_amount,
+    return_pct: lifeChapter.return_pct,
+    inflation_pct: lifeChapter.inflation_pct,
+    InvestRateTypeId: lifeChapter.InvestRateType.id,
+    PlanId: newPlanId
+  }).then(function(results) {
+    // res.json(results);
+  });
+
+};
+
+
+// helper function to build a new plan's life chapters
+function buildLifeChapters(demoPlan,newPlanId) {
+  // console.log ("in plan-api-routes.buildLifeChapters");
+    // build lifeChapters
+    demoPlan.LifeChapters.map(chapter => {
+      console.log(`new plan id ${newPlanId}`);
+      console.log(`clone from this plan ${demoPlan.id}`);
+      console.log(`clone from this plan ${demoPlan.plan_name}`);
+      console.log(`life chapter ${chapter.seq_no}`);
+      console.log(`life chapter ${chapter.chapter_name}`);
+      console.log(`life chapter ${chapter.start_age}`);
+      console.log(`life chapter ${chapter.end_age}`);
+      console.log(`life chapter ${chapter.invest_amount}`);
+      console.log(`life chapter ${chapter.return_pct}`);
+      console.log(`life chapter ${chapter.inflation_pct}`);
+      console.log(`life chapter ${chapter.InvestRateType.id}`);
+      buildOneLifeChapter(chapter,newPlanId);
+    });
+   
+
+};
+
+
+// helper function to build a new plan for cloning
+function buildNewPlan(demoPlan) {
+  // console.log ("in plan-api-routes.buildNewPlan");
+  db.Plan.create({
+    plan_name: 'Your Guest Financial IRA Model',
+    PlanUserId: 2,
+    PlanTypeId: 2
+  }).then(function(results) {
+    // console.log(`back from inserting new plan id ${results.id}`);
+    // console.log(`clone from this plan ${demoPlan.id}`);
+    // console.log(`clone from this plan ${demoPlan.plan_name}`);
+    // console.log(`life chapter 0 ${demoPlan.LifeChapters[0].seq_no}`);
+    // console.log(`life chapter 0 ${demoPlan.LifeChapters[0].chapter_name}`);
+    // console.log(`life chapter 0 ${demoPlan.LifeChapters[0].start_age}`);
+    // console.log(`life chapter 0 ${demoPlan.LifeChapters[0].end_age}`);
+    // console.log(`life chapter 0 ${demoPlan.LifeChapters[0].invest_amount}`);
+    // console.log(`life chapter 0 ${demoPlan.LifeChapters[0].return_pct}`);
+    // console.log(`life chapter 0 ${demoPlan.LifeChapters[0].inflation_pct}`);
+    // console.log(`life chapter 0 ${demoPlan.LifeChapters[0].InvestRateType}`);
+    buildLifeChapters(demoPlan,results.id);
+    return results.id;
+  });
+};
+
+// // helper function to get the newly cloned plan
+// function getOnePlan(planId) {
+//   // console.log ("in plan-api-routes.getOnePlan");
+//   console.log(`the cloned plan to be retreived and returnd is: ${planId}`);
+//   db.Plan.findOne({  
+//     where: { id: planId },
+//     include: [{model: db.LifeChapter, 
+//                  include: [{ model: db.InvestRateType }]
+//                 }],
+//     order: [
+//       [db.LifeChapter, 'seq_no', 'asc']
+//     ]            
+//     })
+//     .then(function(results) {
+//     // pass result back to client
+//       return results;
+//     // res.json(results);
+//     });
+// };
+
+
+
 
 
 
@@ -155,6 +244,8 @@ module.exports = function(app) {
     });
   });
 
+ 
+
   // clone a plan 
   // initially this will be used to clone demo plan id 1
   // to allow guest vistors to receive a rendered model
@@ -164,7 +255,7 @@ module.exports = function(app) {
   app.get("/api/clone-plan/:id", function(req, res) {
     // retrieve the model being cloned from
     db.Plan.findOne({  
-      where: { id: req.params.id },
+      where: { id: req.params.id }, 
       include: [{model: db.PlanUser},
                 {model: db.LifeChapter, 
                             include: [{ model: db.InvestRateType }]
@@ -173,13 +264,36 @@ module.exports = function(app) {
         [db.LifeChapter, 'seq_no', 'asc']
       ]            
       }).then(function(cloneFromPlan) {
-        console.log(`find One: ${cloneFromPlan}`);
+        // next step is to create a new plan from the cloneFromPlan
+        // console.log("HELLO");
+        // console.log(cloneFromPlan);
+        console.log('calling buildNewPlan');
+        buildNewPlan(cloneFromPlan);
+        // return the final result back to the client-side
+        console.log(`the Demo Plan being cloned is: ${cloneFromPlan}`);
+        // res.json(getOnePlan(buildNewPlan(cloneFromPlan)));
         res.json(buildModel(cloneFromPlan));
       });
     });
   
 
-  
+  // save working partial 
+  // app.get("/api/clone-plan/:id", function(req, res) {
+  //   // retrieve the model being cloned from
+  //   db.Plan.findOne({  
+  //     where: { id: req.params.id },
+  //     include: [{model: db.PlanUser},
+  //               {model: db.LifeChapter, 
+  //                           include: [{ model: db.InvestRateType }]
+  //                 }],
+  //     order: [
+  //       [db.LifeChapter, 'seq_no', 'asc']
+  //     ]            
+  //     }).then(function(cloneFromPlan) {
+  //       console.log(`find One: ${cloneFromPlan}`);
+  //       res.json(buildModel(cloneFromPlan));
+  //     });
+  //   });
   
 
 
