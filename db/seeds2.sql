@@ -16,8 +16,8 @@ INSERT INTO Plans (plan_name, PlanUserId, PlanTypeId) VALUES ('Demo Model',1,1);
 INSERT INTO Plans (plan_name, PlanUserId, PlanTypeId) VALUES ('Demo Model 2',1,1);
 INSERT INTO Plans (plan_name, PlanUserId, PlanTypeId) VALUES ('Demo Model 3',1,1);
 
-INSERT INTO Plans (plan_name, PlanUserId, PlanTypeId) VALUES ('My Future',2,2);
-INSERT INTO Plans (plan_name, PlanUserId, PlanTypeId) VALUES ('Down the Road',3,2);
+INSERT INTO Plans (plan_name, PlanUserId, PlanTypeId) VALUES ('Kyra Retirement IRA',3,3);
+INSERT INTO Plans (plan_name, PlanUserId, PlanTypeId) VALUES ('Custodial IRA - Rory',4,3);
 
 INSERT INTO LifeChapters (seq_no,chapter_name,start_age,end_age,invest_amount,InvestRateTypeId,return_pct,inflation_pct,PlanId)
      VALUES (1,'High School',16,18,10.00,1,10.0,3.0,1),

@@ -19,8 +19,11 @@ module.exports = function(app) {
     db.PlanUser.findOne({  
       where: { id: req.params.id },
       include: [{model: db.Plan, 
-                   include: [{ model: db.LifeChapter }]
-                  }]
+                include: [{ model: db.PlanType },
+                          { model: db.LifeChapter,
+                            include: [ {model: db.InvestRateType } ]},
+                         ],
+               }]
                     }).then(function(results) {
       // results are available to us inside the .then
       res.json(results);

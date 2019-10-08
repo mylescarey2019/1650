@@ -183,7 +183,8 @@ $(document).ready(function(){
   };
 
   // retreive financial plan and render in model grid, ToDo : and model chart
-  $.ajax("/api/plan-user-life-chapter/1", {
+  $.ajax("/api/clone-plan/1", {       // cloning system demo plan 1
+  // $.ajax("/api/plan-user-life-chapter/1", {  
     type: "GET"
   }).then(function(res) {
       var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
