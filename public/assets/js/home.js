@@ -234,12 +234,12 @@ $(document).ready(function(){
         var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
         modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
         modelRow.attr('data-seq-no',`${chapter.seqNo}`);
-        modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name'));
-        modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age'));
-        modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age'));
-        modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount'));
+        modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
+        modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
+        modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
+        modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
         modelRow.append($(`<td>${chapter.frequency}</td>`));
-        modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct'));
+        modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
         modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct'));
         $("#grid-table").append(modelRow);
         // // create a chapter for use in financial model object
@@ -293,19 +293,19 @@ $(document).ready(function(){
     }); 
 
     // some changes in lieu of front end data entry being ready
-    plan.plan_name = "TESTING CHANGE ROUTE 2";
-    updatedChapters[0].chapter_name = "FUBAR";
-    updatedChapters[0].start_age = 15;
-    updatedChapters[0].end_age = 17;
-    updatedChapters[0].invest_amount = 13.13;
-    updatedChapters[0].return_pct = 9.9;
-    updatedChapters[0].inflation_pct = 2.2;
-    updatedChapters[1].chapter_name = "FOO";
-    updatedChapters[1].start_age = 18;
-    updatedChapters[1].end_age = 22;
-    updatedChapters[1].invest_amount = 21.21;
-    updatedChapters[1].return_pct = 7.7;
-    updatedChapters[1].inflation_pct = 1.1;
+    // plan.plan_name = "TESTING CHANGE ROUTE 2";
+    // updatedChapters[0].chapter_name = "FUBAR";
+    // updatedChapters[0].start_age = 15;
+    // updatedChapters[0].end_age = 17;
+    // updatedChapters[0].invest_amount = 13.13;
+    // updatedChapters[0].return_pct = 9.9;
+    // updatedChapters[0].inflation_pct = 2.2;
+    // updatedChapters[1].chapter_name = "FOO";
+    // updatedChapters[1].start_age = 18;
+    // updatedChapters[1].end_age = 22;
+    // updatedChapters[1].invest_amount = 21.21;
+    // updatedChapters[1].return_pct = 7.7;
+    // updatedChapters[1].inflation_pct = 1.1;
 
     console.log(JSON.stringify(updatedChapters));
 
@@ -337,14 +337,26 @@ $(document).ready(function(){
             console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
                         invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
                         return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
-                        var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`).attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
-            modelRow.append($(`<td>${chapter.name}</td>`));
-            modelRow.append($(`<td>${chapter.startYear}</td>`));
-            modelRow.append($(`<td>${chapter.endYear}</td>`));
-            modelRow.append($(`<td>${chapter.investAmount}</td>`));
+            // var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`).attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
+            // modelRow.append($(`<td>${chapter.name}</td>`));
+            // modelRow.append($(`<td>${chapter.startYear}</td>`));
+            // modelRow.append($(`<td>${chapter.endYear}</td>`));
+            // modelRow.append($(`<td>${chapter.investAmount}</td>`));
+            // modelRow.append($(`<td>${chapter.frequency}</td>`));
+            // modelRow.append($(`<td>${chapter.returnPct}</td>`));
+            // modelRow.append($(`<td>${chapter.inflationPct}</td>`));
+            // $("#grid-table").append(modelRow);
+
+            var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
+            modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
+            modelRow.attr('data-seq-no',`${chapter.seqNo}`);
+            modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
+            modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
+            modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
+            modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.frequency}</td>`));
-            modelRow.append($(`<td>${chapter.returnPct}</td>`));
-            modelRow.append($(`<td>${chapter.inflationPct}</td>`));
+            modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
+            modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
             $("#grid-table").append(modelRow);
             // // create a chapter for use in financial model object
             // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,

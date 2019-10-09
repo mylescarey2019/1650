@@ -16,13 +16,37 @@ class FinancialModel {
   computeFinancialResult() {
     // temporary calculation to get the infrastructure tested then
     // will code with actual compound interest calculation
-    var balance = 1000;
+    var balance = 0;  // sample = 5000
     var resultPlots = [];
+    console.log(`======================================`);
     this.lifeChapters.map(chapter => {
       for (let year = chapter.startYear; year <= chapter.endYear; year++) {
-        // Math.random() * (max - min) + min
-        balance += Math.pow(3 * year,2) + year;
+        // console.log(`COMPUTE: ${chapter.frequency}`);
+        // console.log(`COMPUTE:   ${chapter.startYear}   ${chapter.endYear}  ${year} `);
+        // console.log(`COMPUTE:   ${chapter.investAmount}   ${chapter.returnPct} `);
+
+        if (chapter.frequency === 'yearly') { // peform one yearly calculations
+          console.log(`YEAR = ${year}`);
+          console.log(`BALANCE: ${balance} INVEST-AMT ${chapter.investAmount} RETURN-RATE ${chapter.returnPct}`);
+          console.log(`BAL + INV-AMT: ${balance + chapter.investAmount}`);
+          console.log(`POWER: ${Math.pow(1 + (chapter.returnPct / 100), 1)}`);
+          balance = (balance + chapter.investAmount) * Math.pow(1 + (chapter.returnPct / 100), 1);
+          console.log(`NEW BALANCE: ${balance}`);
+        } else { // perform 12 monthly calculations
+          for (var i = 1 ; i <= 12 ; i++ ) {
+            console.log(`YEAR = ${year}  MONTH: ${i}`);
+            console.log(`BALANCE: ${balance} INVEST-AMT ${chapter.investAmount} RETURN-RATE ${chapter.returnPct}`);
+            console.log(`BAL + INV-AMT: ${balance + chapter.investAmount}`);
+            console.log(`POWER: ${Math.pow(1 + ((chapter.returnPct / 100) / 12), 1)}`);
+            balance = (balance + chapter.investAmount) * Math.pow(1 + ((chapter.returnPct / 100) / 12), 1);
+            console.log(`NEW BALANCE: ${balance}`);
+          }
+        };
         resultPlots.push({year: year, amount: balance });
+
+        // forced sample before writing above computation
+        // balance += Math.pow(3 * year,2) + year;
+        // resultPlots.push({year: year, amount: balance });
       }
     });
 

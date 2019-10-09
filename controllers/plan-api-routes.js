@@ -29,7 +29,7 @@ function buildModel(results) {
   // build lifeChapters
   results.LifeChapters.map(chapter => {
     lifeChapters.push(new LifeChapter(chapter.id, chapter.seq_no, chapter.chapter_name,
-      chapter.start_age, chapter.end_age, chapter.invest_amount, chapter.InvestRateType.id, chapter.InvestRateType.invest_type,
+      chapter.start_age, chapter.end_age, parseFloat(chapter.invest_amount), chapter.InvestRateType.id, chapter.InvestRateType.invest_type,
       chapter.return_pct, chapter.inflation_pct));
     // lastModelYear = chapter.end_age;
   });
