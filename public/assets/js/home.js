@@ -40,6 +40,35 @@ $(document).ready(function(){
     stylesheet.setAttribute('href',url);
   };
 
+  // helper model objects and classes
+  class RenderModel {
+    constructor(name, id, userId, planTypeId, lifeChapters) {
+      this.name = name;
+      this.id   = id;
+      this.userId = userId;
+      this.planTypeId = planTypeId;
+      this.lifeChapters = lifeChapters; // array of RenderChapter(s)
+    }
+
+    // methods
+  };
+
+  class RenderChapter {
+    constructor(seq_no, chapterName, startAge, endAge, investAmount, returnPct, inflationPct,investRateTypeId,planId) {
+      this.seq_no = seq_no;
+      this.chapterName   = chapterName;
+      this.startAge = startAge;
+      this.endAge = endAge
+      this.investAmount = investAmount;
+      this.returnPct = returnPct;
+      this.inflationPct = inflationPct;
+      this.investRateTypeId = investRateTypeId;
+      this.planId = planId;
+    }
+
+    // methods
+  };
+
 
   // ----------------------------------------------------------
   // object for local storage:
@@ -188,16 +217,19 @@ $(document).ready(function(){
     type: "GET"
   }).then(function(res) {
       var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
+      // var financialModelChapters = [];
       // console.log(yearAxis);
       // console.log(dollarAxis);
       console.log(res);
-      // console.log(`plan name: ${res.name}`);
+      console.log(`plan type id: ${res.planTypeId}`);
       $("#grid-caption").text(res.name);
+      $("#grid-caption").attr('data-id',`${res.id}`);
+
       res.lifeChapters.map(chapter => {
         console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
-                     invest-amt ${chapter.investAmount} frequency: ${chapter.frequency} 
+                     invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
                      return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
-        var modelRow = $('<tr>');
+        var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
         modelRow.append($(`<td>${chapter.name}</td>`));
         modelRow.append($(`<td>${chapter.startYear}</td>`));
         modelRow.append($(`<td>${chapter.endYear}</td>`));
@@ -206,11 +238,75 @@ $(document).ready(function(){
         modelRow.append($(`<td>${chapter.returnPct}</td>`));
         modelRow.append($(`<td>${chapter.inflationPct}</td>`));
         $("#grid-table").append(modelRow);
-
-        renderChart(res.name, yearAxis, dollarAxis);
+        // // create a chapter for use in financial model object
+        // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
+        //   chapter.investAmount,chapter.returnPct,chapter.inflationPct,chapter.investRateTypeId,res.id));
       });
+      // // create financial model object for use client side
+      // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
+      // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
+      renderChart(res.name, yearAxis, dollarAxis);
     }
   );
+
+ 
+
+  // test button event
+  $("#test-btn").on("click",function() {
+    console.log("in global.test-btn click event")
+    // ajax put call for testing update of model 
+    // update financial model (plan and chapters)
+
+    // plan to update
+    var plan = {
+      id: $("#grid-caption").attr('data-id'),
+      plan_name: $("#grid-caption").text()
+      // not needed yet as model cannot be shifted to 
+      // another use nor can the plan type be changed
+      // PlanUserId: financialModel.userId,
+      // PlanTypeId: financialModel.planTypeId
+    };
+    console.log(`plan1: ${plan}`);
+     plan.plan_name = "THIS IS A TEST2";
+    console.log(`plan2: ${plan}`);
+
+    $.ajax("/api/plan-life-chapters", {       
+        type: "PUT",
+        data: plan
+      }).then(function(res) {
+          var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
+          // var financialModelChapters = [];
+          // console.log(yearAxis);
+          // console.log(dollarAxis);
+          console.log(res);
+          $("#grid-caption").text(res.name);
+          $("tr.model-row").remove();
+          res.lifeChapters.map(chapter => {
+            console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
+                        invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
+                        return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
+            var modelRow = $('<tr>').addClass("model-row");
+            modelRow.append($(`<td>${chapter.name}</td>`));
+            modelRow.append($(`<td>${chapter.startYear}</td>`));
+            modelRow.append($(`<td>${chapter.endYear}</td>`));
+            modelRow.append($(`<td>${chapter.investAmount}</td>`));
+            modelRow.append($(`<td>${chapter.frequency}</td>`));
+            modelRow.append($(`<td>${chapter.returnPct}</td>`));
+            modelRow.append($(`<td>${chapter.inflationPct}</td>`));
+            $("#grid-table").append(modelRow);
+            // // create a chapter for use in financial model object
+            // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
+            //   chapter.investAmount,chapter.returnPct,chapter.inflationPct,chapter.investRateTypeId,res.id));
+          });
+          // // create financial model object for use client side
+          // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
+          // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
+          renderChart(res.name, yearAxis, dollarAxis);
+        }
+      );
+  
+  });
+
 
   // wall paper drop down event
   $(document).on("click", ".dropdown-item", function() {

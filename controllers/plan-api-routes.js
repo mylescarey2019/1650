@@ -28,8 +28,8 @@ function buildModel(results) {
   console.log(`IN BUILD MODEL.LifeChapters.length>>> ${results.LifeChapters.length}`);
   // build lifeChapters
   results.LifeChapters.map(chapter => {
-    lifeChapters.push(new LifeChapter(chapter.seq_no, chapter.chapter_name,
-      chapter.start_age, chapter.end_age, chapter.invest_amount, chapter.InvestRateType.invest_type,
+    lifeChapters.push(new LifeChapter(chapter.id, chapter.seq_no, chapter.chapter_name,
+      chapter.start_age, chapter.end_age, chapter.invest_amount, chapter.InvestRateType.id, chapter.InvestRateType.invest_type,
       chapter.return_pct, chapter.inflation_pct));
     // lastModelYear = chapter.end_age;
   });
@@ -38,7 +38,8 @@ function buildModel(results) {
   chartResult = new ChartResult(results.LifeChapters[0].start_age, results.LifeChapters[results.LifeChapters.length - 1].end_age, resultPlots);
 
   // build financialModel
-  financialModel = new FinancialModel(results.plan_name, results.id, results.PlanUser.user_name, results.PlanUserId, lifeChapters, chartResult);
+  financialModel = new FinancialModel(results.plan_name, results.id, results.PlanUser.user_name, results.PlanUserId, 
+                                      results.PlanTypeId, lifeChapters, chartResult);
   financialModel.computeFinancialResult();
   // console.log(financialModel.chartResult.xPlotToArray());
   // console.log(financialModel.chartResult.yPlotToArray());
@@ -267,7 +268,8 @@ module.exports = function (app) {
       });
   });
 
-  // update a finanical model
+  // update a finanical model and return to client for
+  // rendering
   // this treats the model as whole
   // it will update the Plan model
   // it will bulk update the Plan's LifeChapter model(s)
@@ -281,15 +283,88 @@ module.exports = function (app) {
   //         },
   //         [         // Array of Life Chapter Objects
   //             {
-   //              id: id,    
-  //          plan_name: plan_name,
-  //          PlanUserId: PlanUserId,
-  //          PlanTypeId: PlanTypeId  
+  //                  id: id,  
+  //                  seq_no: seq_no,
+  //                  chapter_name: chapter_name,
+  //                  start_age: start_age,
+  //                  end_age: end_age,
+  //                  invest_amount: invest_amount,
+  //                  return_pct: return_pct,
+  //                  inflation_pct: inflation_pct,
+  //                  InvestRateTypeId: InvestRateTypeId,
+  //                  PlanId: PlanId  
   //             }
   //         ]
   //  }  
   // 
+  app.put("/api/plan-life-chapters", function (req, res) {
+    // update a financial plan (plan and its life chapters)
+    // update the plan
+    db.Plan.update({
+      plan_name: req.body.plan_name,
+      PlanUserId: req.body.PlanUserId,
+      PlanTypeId: req.body.PlanTypeId
+      },
+        {
+          where: { id: req.body.id }
+        }
+      )
+      .then(function (results) {
+      var updatedChapters = [];
 
+        updatedChapters.push({
+          id: 183,
+          seq_no: 1,
+          chapter_name: 'ABC',
+          start_age: 12,
+          end_age: 16,
+          invest_amount: 5.55,
+          return_pct: 9.9,
+          inflation_pct: 1.1,
+          InvestRateTypeId: 1,
+          PlanId: 37
+        });
+        updatedChapters.push({
+          id: 184,
+          seq_no: 2,
+          chapter_name: 'FOOBAR',
+          start_age: 17,
+          end_age: 22,
+          invest_amount: 13.13,
+          return_pct: 10.9,
+          inflation_pct: 1.2,
+          InvestRateTypeId: 2,
+          PlanId: 37
+        });
+ 
+      console.log(`BULK UPDATE TO CHAPTERS >>> ${JSON.stringify(updatedChapters)}`);
+      db.LifeChapter.bulkCreate(updatedChapters,{updateOnDuplicate: ['chapter_name','start_age',
+        'end_age','invest_amount','return_pct','inflation_pct']})
+      .then(function(resul) {
+      // re-retrive updated model to send back to client  
+      db.Plan.findOne({
+        where: { id: req.body.id },
+        include: [{ model: db.PlanUser },
+        {
+          model: db.LifeChapter,
+          include: [{ model: db.InvestRateType }]
+        }],
+        order: [
+          [db.LifeChapter, 'seq_no', 'asc']
+        ]
+      })
+      .then(function(resul2) {
+      // return to client  
+      console.log(`resul2>> ${resul2}`);
+      res.json(buildModel(resul2));
+      });
+    });
+  });
+});
+
+
+
+  // MRC ***
 
   // clone a plan 
   // initially this will be used to clone demo plan id 1
@@ -368,6 +443,8 @@ module.exports = function (app) {
       })
     })
   });
+
+  // MRC
 
   // // clone a plan 
   // // initially this will be used to clone demo plan id 1
