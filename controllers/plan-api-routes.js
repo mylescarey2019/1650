@@ -310,35 +310,36 @@ module.exports = function (app) {
         }
       )
       .then(function (results) {
-      var updatedChapters = [];
+      // // commenting out forced update data object  
+      // var updatedChapters = [];
 
-        updatedChapters.push({
-          id: 203,
-          seq_no: 1,
-          chapter_name: 'FOO',
-          start_age: 12,
-          end_age: 16,
-          invest_amount: 3.33,
-          return_pct: 9.9,
-          inflation_pct: 1.1,
-          InvestRateTypeId: 1,
-          PlanId: 41
-        });
-        updatedChapters.push({
-          id: 204,
-          seq_no: 2,
-          chapter_name: 'FOOBAR',
-          start_age: 17,
-          end_age: 22,
-          invest_amount: 7.77,
-          return_pct: 10.9,
-          inflation_pct: 1.2,
-          InvestRateTypeId: 2,
-          PlanId: 41
-        });
+      //   updatedChapters.push({
+      //     id: 203,
+      //     seq_no: 1,
+      //     chapter_name: 'FOO',
+      //     start_age: 12,
+      //     end_age: 16,
+      //     invest_amount: 3.33,
+      //     return_pct: 9.9,
+      //     inflation_pct: 1.1,
+      //     InvestRateTypeId: 1,
+      //     PlanId: 41
+      //   });
+      //   updatedChapters.push({
+      //     id: 204,
+      //     seq_no: 2,
+      //     chapter_name: 'FOOBAR',
+      //     start_age: 17,
+      //     end_age: 22,
+      //     invest_amount: 7.77,
+      //     return_pct: 10.9,
+      //     inflation_pct: 1.2,
+      //     InvestRateTypeId: 2,
+      //     PlanId: 41
+      //   });
  
-      console.log(`BULK UPDATE TO CHAPTERS >>> ${JSON.stringify(updatedChapters)}`);
-      db.LifeChapter.bulkCreate(updatedChapters,{updateOnDuplicate: ['chapter_name','start_age',
+      console.log(`BULK UPDATE TO CHAPTERS >>> ${JSON.stringify(req.body.updatedChapters)}`);
+      db.LifeChapter.bulkCreate(req.body.updatedChapters,{updateOnDuplicate: ['chapter_name','start_age',
         'end_age','invest_amount','return_pct','inflation_pct']})
       .then(function(resul) {
       // re-retrive updated model to send back to client  
