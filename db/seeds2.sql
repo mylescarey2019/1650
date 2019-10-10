@@ -21,20 +21,20 @@ INSERT INTO Plans (plan_name, PlanUserId, PlanTypeId) VALUES ('Custodial IRA - R
 
 INSERT INTO LifeChapters (seq_no,chapter_name,start_age,end_age,invest_amount,InvestRateTypeId,return_pct,inflation_pct,PlanId)
      VALUES (1,'High School',16,18,10.00,1,10.0,0.0,1),
-            (2,'College',19,22,100.00,2,8.0,0.0,1),
+            (2,'College',19,22,100.00,1,8.0,0.0,1),
             (3,'Early Adult',23,35,100.00,1,9.0,0.0,1),
             (4,'Mid Adult',36,55,200.00,1,8.0,0.0,1), 
-            (5,'Later Adult',56,66,120.00,1,7.0,0.0,1);
+            (5,'Later Adult',56,65,120.00,1,7.0,0.0,1);
 
 INSERT INTO LifeChapters (seq_no,chapter_name,start_age,end_age,invest_amount,InvestRateTypeId,return_pct,inflation_pct,PlanId)
      VALUES (1,'High School',16,18,20.00,1,10.0,3.0,2),
             (2,'College',19,22,30.00,1,10.5,3.0,2),
-            (3,'Adult',23,66,5000.00,2,7.0,4.0,2);
+            (3,'Adult',23,65,5000.00,1,7.0,4.0,2);
 
 INSERT INTO LifeChapters (seq_no,chapter_name,start_age,end_age,invest_amount,InvestRateTypeId,return_pct,inflation_pct,PlanId)
      VALUES (1,'School Years',16,24,10.00,1,8.0,3.0,3),
             (2,'Adult',24,60,75.00,1,7.0,3.0,3),
-            (3,'Early Retirement',61,66, 1000.00,2,6.0,4.5,3);
+            (3,'Early Retirement',61,65, 1000.00,1,6.0,4.5,3);
 
 INSERT INTO LifeChapters (seq_no,chapter_name,start_age,end_age,invest_amount,InvestRateTypeId,return_pct,inflation_pct,PlanId)
      VALUES (1,'High School',16,18,50.00,1,10.0,3.0,4),
@@ -42,9 +42,9 @@ INSERT INTO LifeChapters (seq_no,chapter_name,start_age,end_age,invest_amount,In
             (3,'Post Grad',23,25,30.00,1,9.0,3.2,4),
             (4,'Early Adult',26,36,200.00,1,8.0,3.4,4), 
             (5,'Mid Adult',37,50,300.00,1,7.0,4.0,4),
-            (6,'Later Adult',51,66,400.00,1,5.0,4.0,4);
+            (6,'Later Adult',51,65,400.00,1,5.0,4.0,4);
 
 INSERT INTO LifeChapters (seq_no,chapter_name,start_age,end_age,invest_amount,InvestRateTypeId,return_pct,inflation_pct,PlanId)
      VALUES (1,'High School',16,18,30.00,1,10.0,3.0,5),
             (2,'College',19,22,50.00,1,8.5,3.0,5),
-            (3,'Adult',23,66,250.00,1,7.0,3.8,5);
+            (3,'Adult',23,65,250.00,1,7.0,3.8,5);
