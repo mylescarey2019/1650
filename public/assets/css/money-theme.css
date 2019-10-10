@@ -37,7 +37,7 @@ a:hover, a:active { text-decoration: none; color: #191919 }
 
 
 .jumbotron {
-  background-color: rgba(159, 179, 191, .8); ;
+  background-color: rgba(159, 179, 191, 1); ;
   color: #191919;
   /* border: 2px solid #516373; */
 } 
