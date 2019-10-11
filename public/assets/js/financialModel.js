@@ -34,14 +34,15 @@ class FinancialModel {
           console.log(`NEW BALANCE: ${balance}`);
         } else { // perform 12 monthly calculations
           for (var i = 1 ; i <= 12 ; i++ ) {
-            console.log(`YEAR = ${year}  MONTH: ${i}`);
-            console.log(`BALANCE: ${balance} INVEST-AMT ${chapter.investAmount} RETURN-RATE ${chapter.returnPct}`);
-            console.log(`BAL + INV-AMT: ${balance + chapter.investAmount}`);
-            console.log(`POWER: ${Math.pow(1 + ((chapter.returnPct / 100) / 12), 1)}`);
+            // console.log(`YEAR = ${year}  MONTH: ${i}`);
+            // console.log(`BALANCE: ${balance} INVEST-AMT ${chapter.investAmount} RETURN-RATE ${chapter.returnPct}`);
+            // console.log(`BAL + INV-AMT: ${balance + chapter.investAmount}`);
+            // console.log(`POWER: ${Math.pow(1 + ((chapter.returnPct / 100) / 12), 1)}`);
             balance = (balance + chapter.investAmount) * Math.pow(1 + ((chapter.returnPct / 100) / 12), 1);
-            console.log(`NEW BALANCE: ${balance}`);
+            // console.log(`${balance.toFixed(2)}`);
           }
         };
+        console.log(`${Math.round(balance)}`);
         // console.log(balance.toFixed(2));
         // var newBalance = balance.toFixed(2);
         // console.log(`balance= ${balance} newBalance= ${newBalance}`);

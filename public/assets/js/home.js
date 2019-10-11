@@ -108,16 +108,27 @@ $(document).ready(function(){
   setStyleSheet(`assets/css/${activeWallpaper}-theme.css`);
 
 
+
+  Highcharts.setOptions({
+    colors: ['#026873','#FF0000','#FFFF00','#008000'],
+    lang: {
+      thousandsSep: ',' }
+  });
+  
+
   var data36 =
   {
     name: 'Age-36',
     // data: yAxisData,
-    data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,300,400,600,700,
-      900,1100,1250,1400,1600,1800,2800,3800,5000,7900,9000,12000,16000,20000,27000,32000,40000,46000,56000,72000,90000,100000,120000,140000,190000],
+    // data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,300,400,600,700,
+    //   900,1100,1250,1400,1600,1800,2800,3800,5000,7900,9000,12000,16000,20000,27000,32000,40000,46000,56000,72000,90000,100000,120000,140000,190000],
+
+    data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,125,261,408
+      ,567,739,926,1128,1347,1584,1841,2119,2421,2747,3100,3483,3897,4346,4832,5359,5929
+      ,6546,7215,7939,8724,9573,10493,11489,12568,13737,15002],
 
     type: 'areaspline',
-    // color: '#026873',
-    color: '#F2380F',
+    color: '#FF0000',
     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
     fillColor: {
       linearGradient: {
@@ -127,8 +138,8 @@ $(document).ready(function(){
           y2: 1
       },
       stops: [
-          [0, Highcharts.getOptions().colors[0]],
-          [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+          [0, Highcharts.getOptions().colors[1]],
+          [1, Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0).get('rgba')]
       ]
     }
   };
@@ -137,11 +148,15 @@ $(document).ready(function(){
   {
     name: 'Age-26',
     // data: yAxisData,
-    data: [0,0,0,0,0,0,0,0,0,0,20,30,40,60,80,100,130,160,200,300,360,440,600,800,990,
-      1100,1200,1400,1650,2000,2500,3500,4600,7000,9000,12000,16000,20000,26000,33000,40000,50000,62000,76000,93000,110000,135000,160000,200000,270000],
-
+    // data: [0,0,0,0,0,0,0,0,0,0,20,30,40,60,80,100,130,160,200,300,360,440,600,800,990,
+    //   1100,1200,1400,1650,2000,2500,3500,4600,7000,9000,12000,16000,20000,26000,33000,40000,50000,62000,76000,93000,110000,135000,160000,200000,270000],
+    data: [
+      null,null,null,null,null,null,null,null,null,null,125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359
+      ,5929,6547,7216,7940,8724,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143
+    ],
     type: 'areaspline',
-    color: '#69728C',
+    // color: '#69728C',
+    color: '#FFFF00',
     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
     fillColor: {
       linearGradient: {
@@ -151,8 +166,8 @@ $(document).ready(function(){
           y2: 1
       },
       stops: [
-          [0, Highcharts.getOptions().colors[0]],
-          [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+          [0, Highcharts.getOptions().colors[2]],
+          [1, Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0).get('rgba')]
       ]
     }
   };
@@ -161,11 +176,16 @@ $(document).ready(function(){
   {
     name: 'Age-16',
     // data: yAxisData,
-    data: [100,150,200,260,330,400,480,600,700,900,1000,1200,1400,1700,2100,2600,3100,3700,4400,5000,5900,6600,7500,9000,10500,
-      12000,14000,15000,17000,19000,20000,22000,24000,29000,31000,34000,39000,44000,50000,55000,60000,72000,80000,93000,105000,120000,140000,190000,240000,410000],
-
+    // data: [100,150,200,260,330,400,480,600,700,900,1000,1200,1400,1700,2100,2600,3100,3700,4400,5000,5900,6600,7500,9000,10500,
+    //   12000,14000,15000,17000,19000,20000,22000,24000,29000,31000,34000,39000,44000,50000,55000,60000,72000,80000,93000,105000,120000,140000,190000,240000,410000],
+    data: [
+      125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359,5929,6547,7216,7940,8724
+      ,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143,38185,41480,45048
+      ,48912,53097,57629,62538,67854,73611,79846
+    ],  
     type: 'areaspline',
-    color: '#026873',
+    // color: '#026873',
+    color: '#008000',
     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
     fillColor: {
       linearGradient: {
@@ -175,49 +195,39 @@ $(document).ready(function(){
           y2: 1
       },
       stops: [
-          [0, Highcharts.getOptions().colors[0]],
-          [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+          [0, Highcharts.getOptions().colors[3]],
+          [1, Highcharts.Color(Highcharts.getOptions().colors[3]).setOpacity(0).get('rgba')]
       ]
     }
   };
 
 
 
-  // output the chartResult object into x, y arrays
-  function resultPlotsToArray(resultPlots) {
-    // console.log("in home.js.resultPlotsToArray");
-    var xArray = [];
-    var yArray = [];
-    console.log(resultPlots);
-    resultPlots.map(plot => {
-      xArray.push(plot.year);
-      yArray.push(plot.amount);
-    });
-    return { yearAxis : xArray, dollarAxis : yArray };
-  };
 
  // render slide demo
  function renderDemo(xAxisData, yAxisData) {
   // console.log("in home.js.renderChart");
-  Highcharts.setOptions({
-    colors: ['#026873'],
-    lang: {
-      thousandsSep: ',' }
+  // Highcharts.setOptions({
+  //   colors: ['#FF0000','#FFFF00','#008000'],
+  //   lang: {
+  //     thousandsSep: ',' }
   
-  });
+  // });
   Highcharts.chart('slide-chart', {
     chart: {
       type: 'area',
       backgroundColor:  null 
       // 'rgba(197, 209, 217, .2'
     },
-    tooltip: {
-      valuePrefix: '$'
-    },
+    // colors: ['#FFFF00'],
     title: {
       text: 'Demo Slide Chart' 
       // 'Historic and Estimated Worldwide Population Growth by Region'
     },
+    tooltip: {
+      valuePrefix: '$'
+    },
+
     // subtitle: {
     //   text: 'Source: Wikipedia.org'
     // },
@@ -237,6 +247,7 @@ $(document).ready(function(){
       }
     },
     yAxis: {
+      opposite: true,
       title: {
         text: '$ Dollars'
       }
@@ -344,16 +355,35 @@ $(document).ready(function(){
 };
 
 
+
+  // output the chartResult object into x, y arrays
+  function resultPlotsToArray(resultPlots) {
+    // console.log("in home.js.resultPlotsToArray");
+    var xArray = [];
+    var yArray = [];
+    console.log(resultPlots);
+    resultPlots.map(plot => {
+      xArray.push(plot.year);
+      yArray.push(plot.amount);
+    });
+    return { yearAxis : xArray, dollarAxis : yArray };
+  };
+
   // render the financial chart using model data
   function renderChart(chartName, xAxisData, yAxisData) {
     // console.log("in home.js.renderChart");
-    Highcharts.setOptions({colors: ['#026873']});
+    // Highcharts.setOptions({
+    //   // colors: ['#026873']
+    //   lang: {
+    //     thousandsSep: ',' }
+    // });
     Highcharts.chart('chart-container', {
       chart: {
         type: 'area',
         backgroundColor:  null 
         // 'rgba(197, 209, 217, .2'
       },
+      // colors: ['#026873'],
       tooltip: {
         valuePrefix: '$'
       },
@@ -435,10 +465,21 @@ $(document).ready(function(){
 
 
   // render the demo-intro slide 1
+
+  console.log(`COLOR  ${Highcharts.getOptions().colors[0]}`);
+  console.log(`COLOR  ${Highcharts.getOptions().colors[1]}`);
+  console.log(`COLOR  ${Highcharts.getOptions().colors[2]}`);
+  console.log(`COLOR  ${Highcharts.getOptions().colors[3]}`);
+
   var demoXaxisData = [];
   demoXaxisData.push(data36);
   renderDemo([],[]);
   
+  console.log(`COLOR  ${Highcharts.getOptions().colors[0]}`);
+  console.log(`COLOR  ${Highcharts.getOptions().colors[1]}`);
+  console.log(`COLOR  ${Highcharts.getOptions().colors[2]}`);
+  console.log(`COLOR  ${Highcharts.getOptions().colors[3]}`);
+
   demoXaxisData.push(data26);
   renderDemo([],[]);
   
