@@ -42,7 +42,10 @@ class FinancialModel {
             console.log(`NEW BALANCE: ${balance}`);
           }
         };
-        resultPlots.push({year: year, amount: balance });
+        // console.log(balance.toFixed(2));
+        // var newBalance = balance.toFixed(2);
+        // console.log(`balance= ${balance} newBalance= ${newBalance}`);
+        resultPlots.push({year: year, amount: Math.round(balance) });
 
         // forced sample before writing above computation
         // balance += Math.pow(3 * year,2) + year;
