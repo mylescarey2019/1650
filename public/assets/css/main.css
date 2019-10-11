@@ -183,6 +183,7 @@ h3, h4 {
 
 #grid {
   margin-top: 50px;
+  padding-top: 0px;
 }
 
 #grid-table {
@@ -190,10 +191,15 @@ width: 100%;
 margin: 0 auto;
 }
 
+#test-btn {
+  margin-top: 20px;
+}
+
 #table-div {
   overflow-x:auto
 }
 caption {
+  padding-top: 0px;
   caption-side: top;
   text-align: center;
   font-weight: bold;
@@ -201,12 +207,12 @@ caption {
 }  
 
 table {
-  margin: 20px;
+  margin: 16px;
 
 }
 
 table td, table th {
-  padding: 8px;
+  padding: 4px;
   text-align: center;
 }
 

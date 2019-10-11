@@ -4,34 +4,6 @@
 $(document).ready(function(){
 
 
-
-
-
-
-  // $('body').hide();
-  // $(window).on('load', function() {
-  //   var activeWallpaper = manageLocalStorage.getLocalStorage('wallpaper');
-  //   if (!activeWallpaper) {
-  //     activeWallpaper ='money'
-  //   };
-  
-  //   setStyleSheet(`assets/css/${activeWallpaper}-theme.css`);
-  //     $('body').show();
-  // });
-
-
-// prototyping phase  
-// make get routes call to retrieve a default model data 
-// and render it as table grid on page
-
-// // change page theme css style sheet
-//   function setStyleSheet(url) {
-//     var stylesheet = document.getElementById("css-theme");
-//     stylesheet.setAttribute('href',url);
-//   };
-
-
-
   // helper functions
 
   // set style sheet for a wallpaper change
@@ -106,11 +78,49 @@ $(document).ready(function(){
   $('.dropdown-item.active').removeClass("active");
   $('.dropdown-item[data-value="' + activeWallpaper +'"]').addClass("active");
   setStyleSheet(`assets/css/${activeWallpaper}-theme.css`);
+  var chartGraphColor = '';
+  var chartAxisColor = '';
+  setChartColor(activeWallpaper);
+
+  // set chart color based on wallpaper color
+  function setChartColor(wallPaperColor) {
+    switch (wallPaperColor) {
+      case 'money': {chartGraphColor = '#1F9376',
+                     chartAxisColor = '#191919'}
+        break;
+      case 'desert':  {chartGraphColor = '#026873'
+                        chartAxisColor = '#191919'}
+        break;
+      case 'ocean':  {chartGraphColor = '#027373'
+                       chartAxisColor = '#191919'}
+        break;
+      case 'mountain':  {chartGraphColor = '#e5e5e5'
+                         chartAxisColor = '#191919'}
+        break;
+      case 'road':  {chartGraphColor = '#594031'
+                      chartAxisColor = '#191919'}
+        break;
+      case 'tunnel':  {chartGraphColor = '#f2f2f2'
+                        chartAxisColor = '#191919'}
+        break;
+      case 'chess':  {chartGraphColor = '#244673'
+                       chartAxisColor = '#191919'}
+        break;
+      case 'glass':  {chartGraphColor = '#0367A6'
+                       chartAxisColor = '#191919'}
+      default:  {chartGraphColor = '#1F9376'
+                   chartAxisColor = '#191919'}
+        break;
+    }
+  };
+
+  
 
 
 
   Highcharts.setOptions({
-    colors: ['#026873','#FF0000','#FFFF00','#008000'],
+    // colors: ['#026873','#FF0000','#FFFF00','#008000'],
+    colors: [chartGraphColor,'#FF0000','#FFFF00','#008000'],
     lang: {
       thousandsSep: ',' }
   });
@@ -388,7 +398,8 @@ $(document).ready(function(){
         valuePrefix: '$'
       },
       title: {
-        text: chartName 
+        text: chartName,
+        style: { color: chartAxisColor}
         // 'Historic and Estimated Worldwide Population Growth by Region'
       },
       // subtitle: {
@@ -401,18 +412,26 @@ $(document).ready(function(){
         tickmarkPlacement: 'on',
         title: {
           enabled: false
+        },
+        labels: {
+          style: {
+            color: chartAxisColor
+          }
         }
       },
       yAxis: {
         title: {
-          text: '$ Dollars'
+          text: '$ Dollars',
+          style: {
+            color: chartAxisColor
+          }
         }
-        // ,
-        // labels: {
-        //   formatter: function () {
-        //     return this.value / 1;
-        //   }
-        // }
+        ,
+        labels: {
+          style: {
+            color: chartAxisColor
+          }
+        }
       },
       tooltip: {
         split: true,
@@ -444,7 +463,7 @@ $(document).ready(function(){
         name: 'Age',
         data: yAxisData,
         type: 'areaspline',
-        color: '#026873',
+        color: chartGraphColor,
         // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
         fillColor: {
           linearGradient: {
@@ -530,13 +549,7 @@ $(document).ready(function(){
   );
 
  
-
-  // test button event
-  $("#test-btn").on("click",function() {
-    console.log("in global.test-btn click event")
-    // ajax put call for testing update of model 
-    // update financial model (plan and chapters)
-
+  function updateChartPut() {
     // plan to update
     var plan = {
       id: $("#grid-caption").attr('data-id'),
@@ -591,6 +604,8 @@ $(document).ready(function(){
     console.log(JSON.stringify(plan));
 
     
+  
+
     // turn off call while I try to code for the update object content
     $.ajax("/api/plan-life-chapters", {       
         type: "PUT",
@@ -644,6 +659,124 @@ $(document).ready(function(){
           renderChart(res.name, yearAxis, dollarAxis);
         }
       );
+  };
+
+  // test button event
+  $("#test-btn").on("click",function() {
+    console.log("in global.test-btn click event")
+    // ajax put call for testing update of model 
+    // update financial model (plan and chapters)
+    updateChartPut();
+
+    // // plan to update
+    // var plan = {
+    //   id: $("#grid-caption").attr('data-id'),
+    //   plan_name: $("#grid-caption").text(),
+    //   PlanUserId: $("#grid-caption").attr('data-user-id'),
+    //   PlanTypeId: $("#grid-caption").attr('data-plan-type-id'),
+    // };
+
+    // // chapters to update
+    // var updatedChapters = [];
+    // $("tr.model-row").each(function() {
+    //   var chapter = {};
+    //   chapterId = $(this).attr('data-id');
+    //   Object.assign(chapter,{id: chapterId});
+    //   seqNo = $(this).attr('data-seq-no');
+    //   Object.assign(chapter,{seq_no: seqNo});
+    //   $(this).find("td").each(function() {
+    //     if ($(this).data("key")) {
+    //       console.log(`the key is:  ${$(this).data("key")}`);
+    //       console.log(`CHAPTER-TD element: ${$(this).text()}`);
+    //       thing = $(this).data("key");
+    //       Object.assign(chapter,{[thing]: $(this).text()});
+    //     };
+    //   });
+    //   investRateTypeId = $(this).attr('data-invest-rate-type-id');
+    //   Object.assign(chapter,{InvestRateTypeId: investRateTypeId});
+    //   Object.assign(chapter,{PlanId: $("#grid-caption").attr('data-id')});
+    //   console.log(`This is the chapter object: ${JSON.stringify(chapter)}`);
+    //   updatedChapters.push(chapter);
+    // }); 
+
+    // // some changes in lieu of front end data entry being ready
+    // // plan.plan_name = "TESTING CHANGE ROUTE 2";
+    // // updatedChapters[0].chapter_name = "FUBAR";
+    // // updatedChapters[0].start_age = 15;
+    // // updatedChapters[0].end_age = 17;
+    // // updatedChapters[0].invest_amount = 13.13;
+    // // updatedChapters[0].return_pct = 9.9;
+    // // updatedChapters[0].inflation_pct = 2.2;
+    // // updatedChapters[1].chapter_name = "FOO";
+    // // updatedChapters[1].start_age = 18;
+    // // updatedChapters[1].end_age = 22;
+    // // updatedChapters[1].invest_amount = 21.21;
+    // // updatedChapters[1].return_pct = 7.7;
+    // // updatedChapters[1].inflation_pct = 1.1;
+
+    // console.log(JSON.stringify(updatedChapters));
+
+    // // add the array of chapters to the request plan arugument
+    // Object.assign(plan,{updatedChapters: updatedChapters});
+
+    // console.log(JSON.stringify(plan));
+
+    
+ 
+
+    // // turn off call while I try to code for the update object content
+    // $.ajax("/api/plan-life-chapters", {       
+    //     type: "PUT",
+    //     data: plan
+    //   }).then(function(res) {
+    //       var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
+    //       // var financialModelChapters = [];
+    //       // console.log(yearAxis);
+    //       // console.log(dollarAxis);
+    //       console.log(res);
+
+    //       $("#grid-caption").text(res.name);
+    //       $("#grid-caption").attr('data-id',`${res.id}`);
+    //       $("#grid-caption").attr('data-user-id',`${res.userId}`);
+    //       $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
+
+
+    //       $("tr.model-row").remove();
+    //       res.lifeChapters.map(chapter => {
+    //         console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
+    //                     invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
+    //                     return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
+    //         // var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`).attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
+    //         // modelRow.append($(`<td>${chapter.name}</td>`));
+    //         // modelRow.append($(`<td>${chapter.startYear}</td>`));
+    //         // modelRow.append($(`<td>${chapter.endYear}</td>`));
+    //         // modelRow.append($(`<td>${chapter.investAmount}</td>`));
+    //         // modelRow.append($(`<td>${chapter.frequency}</td>`));
+    //         // modelRow.append($(`<td>${chapter.returnPct}</td>`));
+    //         // modelRow.append($(`<td>${chapter.inflationPct}</td>`));
+    //         // $("#grid-table").append(modelRow);
+
+    //         var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
+    //         modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
+    //         modelRow.attr('data-seq-no',`${chapter.seqNo}`);
+    //         modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
+    //         modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
+    //         modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
+    //         modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
+    //         modelRow.append($(`<td>${chapter.frequency}</td>`));
+    //         modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
+    //         modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
+    //         $("#grid-table").append(modelRow);
+    //         // // create a chapter for use in financial model object
+    //         // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
+    //         //   chapter.investAmount,chapter.returnPct,chapter.inflationPct,chapter.investRateTypeId,res.id));
+    //       });
+    //       // // create financial model object for use client side
+    //       // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
+    //       // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
+    //       renderChart(res.name, yearAxis, dollarAxis);
+    //     }
+    //   );
   
   });
 
@@ -658,6 +791,16 @@ $(document).ready(function(){
     $('.dropdown-item[data-value="' + clickedValue +'"]').addClass("active");
     setStyleSheet(`assets/css/${clickedValue}-theme.css`);
     manageLocalStorage.setLocalStorage('wallpaper',clickedValue);
+    activeWallpaper = clickedValue;
+    setChartColor(activeWallpaper);
+
+    Highcharts.setOptions({
+      colors: [chartGraphColor]  //,'#FF0000','#FFFF00','#008000'],
+    });
+    
+    // have to re-render chart to pick up new colors
+    updateChartPut();
+  
   });
 
   // toggle upper section on/off when users scrolls down/up

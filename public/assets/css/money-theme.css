@@ -47,11 +47,11 @@ h3, h4, #brand {
 }
 
 #lower-frame {
-  border: 5px solid rgba(191, 186, 159, .8);
+  border: 5px solid rgba(191, 186, 159, .9);
 }
 
 #chart, #grid {
-  background-color:  rgba(191, 186, 159, .8);
+  background-color:  rgba(191, 186, 159, .9);
   color: #191919;
   /* border: 2px solid #516373; */
 }
@@ -65,12 +65,12 @@ table td, table th {
 }
 
 table tr:hover {
-  background-color: #9FB3BF;
+  background-color: #1F9376;
 }
 
 
 table th {
-  background-color: #9FB3BF;
+  background-color: #1F9376;
   color: #191919;
 }
 

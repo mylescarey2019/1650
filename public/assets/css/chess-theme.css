@@ -37,7 +37,7 @@ a:focus { text-decoration: none; color: #191919; }
 a:hover, a:active { text-decoration: none; color: #191919 }
 
 .jumbotron  {
-  background-color: rgba(126, 165, 217, .8); ;
+  background-color: rgba(126, 165, 217, .9); ;
   color: #191919;
   border: 2px solid #244673;
 } 
@@ -47,7 +47,7 @@ h3, h4, #brand {
 }
 
 #chart, #grid {
-  background-color:  rgba(126, 165, 217, .8);
+  background-color:  rgba(126, 165, 217, .9);
   color: #191919;
   /* border: 2px solid #244673; */
 }
