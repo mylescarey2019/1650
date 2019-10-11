@@ -4,6 +4,9 @@
 $(document).ready(function(){
 
 
+
+
+
   // helper functions
 
   // set style sheet for a wallpaper change
@@ -154,6 +157,17 @@ $(document).ready(function(){
     }
   };
 
+  var dataSeries26 =  [
+    null,null,null,null,null,null,null,null,null,null,125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359
+    ,5929,6547,7216,7940,8724,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143
+  ];
+
+  var dataSeries16 = [
+    125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359,5929,6547,7216,7940,8724
+    ,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143,38185,41480,45048
+    ,48912,53097,57629,62538,67854,73611,79846
+  ];
+
   var data26 = 
   {
     name: 'Age-26',
@@ -212,6 +226,57 @@ $(document).ready(function(){
   };
 
 
+  // global game variables
+  var demoXaxisData = [];
+  var demoStartTimerDelay = 1000;
+  var demoNextStepDelay = 3000;
+  // interval for timers
+  var demoStartIntervalId;
+  var demoNextStepIntervalId;
+  var demoChart = $('slide-chart').highcharts();
+
+  // start the demo slide delay
+  function demoStartDelay() {
+    console.log("in global.demoStartDelay");
+    // update timer on page
+    demoStartIntervalId = setInterval(firstDemoStep, demoStartTimerDelay);
+  }
+
+  // first demo step
+  function firstDemoStep() {
+    console.log("in global.firstDemoStep");
+    // alert(" demo start delay of 3 seconds finished");
+    clearInterval(demoStartIntervalId);
+    demoXaxisData.push(data36);
+    renderDemo([],[]);
+    demoNextStepIntervalId = setInterval(secondDemoStep, demoNextStepDelay);
+  };
+
+  // second demo step
+  function secondDemoStep() {
+    console.log("in global.secondtDemoStep");
+    // alert(" demo step 1 delay of 5 seconds finished");
+    clearInterval(demoNextStepIntervalId);
+    demoXaxisData.push(data26);
+    // demoChart.series[0].update(data26);
+    // demoChart.redraw();
+    renderDemo([],[]);
+    demoNextStepIntervalId = setInterval(thirdDemoStep, demoNextStepDelay);
+  };
+
+  // third demo step
+  function thirdDemoStep() {
+    console.log("in global.thirdDemoStep");
+    // alert(" demo step 2 delay of 5 seconds finished");
+    clearInterval(demoNextStepIntervalId);
+    demoXaxisData.push(data16);
+    // demoChart.series[0].update(data16);
+    // demoChart.redraw();
+    renderDemo([],[]);
+
+  };
+
+
 
 
  // render slide demo
@@ -231,12 +296,19 @@ $(document).ready(function(){
     },
     // colors: ['#FFFF00'],
     title: {
-      text: 'Demo Slide Chart',
+      text: 'Power of Compound Interest',
       style: {
         fontWeight: 'bold',
         fontSize: '24px',
       }
       // 'Historic and Estimated Worldwide Population Growth by Region'
+    },
+    subtitle: {
+      text: '$10 per month at 8% historic stock market return - starting at age 36, 26 and 16',
+      style: {
+        // fontWeight: 'bold',
+        fontSize: '14px',
+      }
     },
     tooltip: {
       valuePrefix: '$'
@@ -268,6 +340,8 @@ $(document).ready(function(){
     },
     yAxis: {
       opposite: true,
+      min: 0,
+      max: 80000,
       title: {
         text: '$ Dollars',
         style: {
@@ -509,28 +583,24 @@ $(document).ready(function(){
   };
 
 
-  // render the demo-intro slide 1
 
-  console.log(`COLOR  ${Highcharts.getOptions().colors[0]}`);
-  console.log(`COLOR  ${Highcharts.getOptions().colors[1]}`);
-  console.log(`COLOR  ${Highcharts.getOptions().colors[2]}`);
-  console.log(`COLOR  ${Highcharts.getOptions().colors[3]}`);
+    // start demo slide sequence
+    demoStartDelay();
 
-  var demoXaxisData = [];
-  demoXaxisData.push(data36);
-  renderDemo([],[]);
+
+  // // render the demo-intro slide 1
+
+ 
+  // demoXaxisData.push(data36);
+  // renderDemo([],[]);
+
+  // demoXaxisData.push(data26);
+  // renderDemo([],[]);
   
-  console.log(`COLOR  ${Highcharts.getOptions().colors[0]}`);
-  console.log(`COLOR  ${Highcharts.getOptions().colors[1]}`);
-  console.log(`COLOR  ${Highcharts.getOptions().colors[2]}`);
-  console.log(`COLOR  ${Highcharts.getOptions().colors[3]}`);
+  // demoXaxisData.push(data16);
+  // renderDemo([],[]);
 
-  demoXaxisData.push(data26);
-  renderDemo([],[]);
-  
-  demoXaxisData.push(data16);
-  renderDemo([],[]);
-  // $('#slide-chart').highcharts().redraw();
+  // // $('#slide-chart').highcharts().redraw();
 
   // retreive financial plan and render in model grid, ToDo : and model chart
   $.ajax("/api/clone-plan/1", {       // cloning system demo plan 1
