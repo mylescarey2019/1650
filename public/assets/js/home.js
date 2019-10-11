@@ -94,22 +94,22 @@ $(document).ready(function(){
       case 'ocean':  {chartGraphColor = '#027373'
                        chartAxisColor = '#191919'}
         break;
-      case 'mountain':  {chartGraphColor = '#e5e5e5'
-                         chartAxisColor = '#191919'}
+      case 'mountain':  {chartGraphColor = '#7C92A6'
+                         chartAxisColor = '#e5e5e5'}
         break;
       case 'road':  {chartGraphColor = '#594031'
-                      chartAxisColor = '#191919'}
+                      chartAxisColor = '#D5E5F2'}
         break;
-      case 'tunnel':  {chartGraphColor = '#f2f2f2'
-                        chartAxisColor = '#191919'}
+      case 'tunnel':  {chartGraphColor = '#BDBEBF'
+                        chartAxisColor = '#F0F0F2'}
         break;
       case 'chess':  {chartGraphColor = '#244673'
-                       chartAxisColor = '#191919'}
+                       chartAxisColor = '#e5e5e5'}
         break;
-      case 'glass':  {chartGraphColor = '#0367A6'
+      case 'glass':  {chartGraphColor = '#F2D479'
                        chartAxisColor = '#191919'}
-      default:  {chartGraphColor = '#1F9376'
-                   chartAxisColor = '#191919'}
+      // default:  {chartGraphColor = '#1F9376'
+      //              chartAxisColor = '#191919'}
         break;
     }
   };
@@ -231,7 +231,11 @@ $(document).ready(function(){
     },
     // colors: ['#FFFF00'],
     title: {
-      text: 'Demo Slide Chart' 
+      text: 'Demo Slide Chart',
+      style: {
+        fontWeight: 'bold',
+        fontSize: '24px',
+      }
       // 'Historic and Estimated Worldwide Population Growth by Region'
     },
     tooltip: {
@@ -241,6 +245,12 @@ $(document).ready(function(){
     // subtitle: {
     //   text: 'Source: Wikipedia.org'
     // },
+    legend: {
+      itemStyle: {
+        fontWeight: 'bold',
+        fontSize: '18px',
+      }
+    },
     xAxis: {
       // min: 16,
       // max: 28,
@@ -259,7 +269,11 @@ $(document).ready(function(){
     yAxis: {
       opposite: true,
       title: {
-        text: '$ Dollars'
+        text: '$ Dollars',
+        style: {
+          fontWeight: 'bold',
+          fontSize: '18px',
+        }
       }
       // ,
       // labels: {
@@ -399,12 +413,21 @@ $(document).ready(function(){
       },
       title: {
         text: chartName,
-        style: { color: chartAxisColor}
+        style: { color: chartAxisColor,
+            fontWeight: 'bold',
+            fontSize: '24px'
+          }
         // 'Historic and Estimated Worldwide Population Growth by Region'
       },
       // subtitle: {
       //   text: 'Source: Wikipedia.org'
       // },
+      legend: {
+        itemStyle: {
+          fontWeight: 'bold',
+          fontSize: '18px',
+        }
+      },
       xAxis: {
         // categories: ['15', '16', '17', '18', '19', '20', '21'],
         categories: xAxisData,
@@ -412,7 +435,7 @@ $(document).ready(function(){
         tickmarkPlacement: 'on',
         title: {
           enabled: false
-        },
+          },
         labels: {
           style: {
             color: chartAxisColor
@@ -420,10 +443,13 @@ $(document).ready(function(){
         }
       },
       yAxis: {
+        opposite: true,
         title: {
           text: '$ Dollars',
           style: {
-            color: chartAxisColor
+            color: chartAxisColor,
+            fontWeight: 'bold',
+            fontSize: '18px',
           }
         }
         ,
