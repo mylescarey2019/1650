@@ -49,7 +49,8 @@ module.exports = function(app) {
   // insert plan-user
   app.post("/api/plan-user", function(req, res) {
     db.PlanUser.create({
-      user_name: req.body.user_name
+      user_name: req.body.user_name,
+      password: req.body.password
     }).then(function(results) {
       res.json(results);
     });
@@ -58,7 +59,8 @@ module.exports = function(app) {
   // update plan-user
   app.put("/api/plan-user", function(req, res) {
     db.PlanUser.update({
-      user_name: req.body.user_name},
+      user_name: req.body.user_name,
+      password: req.body.password},
       {
         where: { id: req.body.id }
       }
