@@ -308,7 +308,7 @@ $(document).ready(function(){
       text: '$10 per month at 8% historic stock market return - starting at age 36, 26 and 16',
       style: {
         // fontWeight: 'bold',
-        fontSize: '14px',
+        fontSize: '13px',
       }
     },
     tooltip: {

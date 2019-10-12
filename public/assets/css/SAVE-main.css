@@ -86,10 +86,12 @@ h3, h4 {
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .5), 0 8px 26px 0 rgba(0, 0, 0, 0.46);
 }
 
-.carousel-item {
+.carousel-item  {
   height: 500px;
   width: 100%;
 }
+
+
 
 .carousel-control-prev, .carousel-control-next {
   width: 30px;
@@ -109,12 +111,11 @@ h3, h4 {
 
 .slide-body {
   /* padding: 10px; */
-  padding-left: 40px;
-  padding-right: 40px;
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  background-color: #ffffff;
+  background-color: lightcoral;
+  height: 100%;
 }
 
 #first-slide {
@@ -124,7 +125,7 @@ h3, h4 {
 .slide-left {
   background-color: lightseagreen;
   height: 500px;
-  /* margin-left: 20px; */
+  margin-left: 20px;
 }
 
 .slide-right {
@@ -136,8 +137,8 @@ h3, h4 {
 .slide-center {
   background-color: lightgrey;
   height: 500px;
-  /* margin-left: 20px;
-  margin-right: 20px; */
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 /* .carousel-item:nth-child(1) {
