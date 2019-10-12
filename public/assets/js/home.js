@@ -233,7 +233,7 @@ $(document).ready(function(){
   // interval for timers
   var demoStartIntervalId;
   var demoNextStepIntervalId;
-  var demoChart = $('slide-chart').highcharts();
+  // var demoChart = $('slide-chart').highcharts();
 
   // start the demo slide delay
   function demoStartDelay() {
@@ -247,8 +247,11 @@ $(document).ready(function(){
     console.log("in global.firstDemoStep");
     // alert(" demo start delay of 3 seconds finished");
     clearInterval(demoStartIntervalId);
-    demoXaxisData.push(data36);
-    renderDemo([],[]);
+    // demoXaxisData.push(data36);
+    demoChart.addSeries(data36)
+    // demoChart.redraw();
+
+    // renderDemo();
     demoNextStepIntervalId = setInterval(secondDemoStep, demoNextStepDelay);
   };
 
@@ -257,10 +260,15 @@ $(document).ready(function(){
     console.log("in global.secondtDemoStep");
     // alert(" demo step 1 delay of 5 seconds finished");
     clearInterval(demoNextStepIntervalId);
-    demoXaxisData.push(data26);
+    // demoXaxisData.push(data26);
+    // renderDemo();
+
     // demoChart.series[0].update(data26);
     // demoChart.redraw();
-    renderDemo([],[]);
+
+    demoChart.addSeries(data26);
+    // demoChart.redraw();
+  
     demoNextStepIntervalId = setInterval(thirdDemoStep, demoNextStepDelay);
   };
 
@@ -269,26 +277,19 @@ $(document).ready(function(){
     console.log("in global.thirdDemoStep");
     // alert(" demo step 2 delay of 5 seconds finished");
     clearInterval(demoNextStepIntervalId);
-    demoXaxisData.push(data16);
-    // demoChart.series[0].update(data16);
+    // demoXaxisData.push(data16);
+    // renderDemo();
+
     // demoChart.redraw();
-    renderDemo([],[]);
+    // demoChart.series[0].update(data16);
+
+    demoChart.addSeries(data16);
+    // demoChart.redraw();
 
   };
 
-
-
-
- // render slide demo
- function renderDemo(xAxisData, yAxisData) {
-  // console.log("in home.js.renderChart");
-  // Highcharts.setOptions({
-  //   colors: ['#FF0000','#FFFF00','#008000'],
-  //   lang: {
-  //     thousandsSep: ',' }
-  
-  // });
-  Highcharts.chart('slide-chart', {
+  demoChartOptions = 
+  {
     chart: {
       type: 'area',
       backgroundColor:  null 
@@ -342,6 +343,9 @@ $(document).ready(function(){
       opposite: true,
       min: 0,
       max: 80000,
+      // floor: 0,
+      // ceiling: 80000,
+      tickInterval: 20000,
       title: {
         text: '$ Dollars',
         style: {
@@ -383,74 +387,189 @@ $(document).ready(function(){
       }
     },
     series: demoXaxisData
-    // [ 
-    //   {
-    //     name: 'Age-36',
-    //     // data: yAxisData,
-    //     data: [0,0,0,0,2200, 3800, 4000,5000,7500],
-
-    //     type: 'areaspline',
-    //     color: '#026873',
-    //     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
-    //     fillColor: {
-    //       linearGradient: {
-    //           x1: 0,
-    //           y1: 0,
-    //           x2: 0,
-    //           y2: 1
-    //       },
-    //       stops: [
-    //           [0, Highcharts.getOptions().colors[0]],
-    //           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-    //       ]
-    //     }
-    //   },
-    //   {
-    //     name: 'Age-26',
-    //     // data: yAxisData,
-    //     data: [0,0,2200, 3800, 4000,5000,7500,9000,12000],
-
-    //     type: 'areaspline',
-    //     color: '#026873',
-    //     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
-    //     fillColor: {
-    //       linearGradient: {
-    //           x1: 0,
-    //           y1: 0,
-    //           x2: 0,
-    //           y2: 1
-    //       },
-    //       stops: [
-    //           [0, Highcharts.getOptions().colors[0]],
-    //           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-    //       ]
-    //     }
-    //   },  
-    //   {
-    //     name: 'Age-16',
-    //     // data: yAxisData,
-    //     data: [2200, 3800, 4000,5000,7500,9000,12000,16000,30000],
-
-    //     type: 'areaspline',
-    //     color: '#026873',
-    //     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
-    //     fillColor: {
-    //       linearGradient: {
-    //           x1: 0,
-    //           y1: 0,
-    //           x2: 0,
-    //           y2: 1
-    //       },
-    //       stops: [
-    //           [0, Highcharts.getOptions().colors[0]],
-    //           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-    //       ]
-    //     }
-    //   }
-
-    // ]
-  });
 };
+
+
+
+
+  // create demo chart
+  var demoChart = Highcharts.chart('slide-chart', demoChartOptions);
+  
+
+
+
+
+
+
+//   // create 
+//   demoChart = {};
+//  // render slide demo
+//  function renderDemo() {
+//   // console.log("in home.js.renderChart");
+//   demoChart = 
+//   Highcharts.chart('slide-chart', {
+//     chart: {
+//       type: 'area',
+//       backgroundColor:  null 
+//       // 'rgba(197, 209, 217, .2'
+//     },
+//     // colors: ['#FFFF00'],
+//     title: {
+//       text: 'Power of Compound Interest',
+//       style: {
+//         fontWeight: 'bold',
+//         fontSize: '24px',
+//       }
+//       // 'Historic and Estimated Worldwide Population Growth by Region'
+//     },
+//     subtitle: {
+//       text: '$10 per month at 8% historic stock market return - starting at age 36, 26 and 16',
+//       style: {
+//         // fontWeight: 'bold',
+//         fontSize: '14px',
+//       }
+//     },
+//     tooltip: {
+//       valuePrefix: '$'
+//     },
+
+//     // subtitle: {
+//     //   text: 'Source: Wikipedia.org'
+//     // },
+//     legend: {
+//       itemStyle: {
+//         fontWeight: 'bold',
+//         fontSize: '18px',
+//       }
+//     },
+//     xAxis: {
+//       // min: 16,
+//       // max: 28,
+//       categories: ['16', '17', '18', '19', '20', '21', '22', '23', '24',  
+//                     '25','26','27','28','29','30','31','32','33','34','35',
+//                   '36','37','38','39','40','41','42','43','44','45','46','47',
+//                   '48','49','50','51','52','53','54','55','56','57','58','59',
+//                   '60','61','62','63','64','65'],
+//       // categories: xAxisData,
+//       // [15,16,17,18,19,20,21,22],
+//       tickmarkPlacement: 'on',
+//       title: {
+//         enabled: false
+//       }
+//     },
+//     yAxis: {
+//       opposite: true,
+//       min: 0,
+//       max: 80000,
+//       title: {
+//         text: '$ Dollars',
+//         style: {
+//           fontWeight: 'bold',
+//           fontSize: '18px',
+//         }
+//       }
+//       // ,
+//       // labels: {
+//       //   formatter: function () {
+//       //     return this.value / 1;
+//       //   }
+//       // }
+//     },
+//     tooltip: {
+//       split: true,
+//       valueSuffix: ' dollars'
+//     },
+//     plotOptions: {
+//       series: {
+//         marker: {
+//           enabled: false
+//         }
+//       },
+//       area: {
+//         stacking: 'normal',
+//         lineColor: '#666666',
+//         lineWidth: 1,
+//         marker: {
+//           enabled: false
+//           // lineWidth: 1,
+//           // lineColor: '#666666'
+//         }
+//       }
+//     },
+//     line: {
+//       marker: {
+//           enabled: false
+//       }
+//     },
+//     series: demoXaxisData
+//     // [ 
+//     //   {
+//     //     name: 'Age-36',
+//     //     // data: yAxisData,
+//     //     data: [0,0,0,0,2200, 3800, 4000,5000,7500],
+
+//     //     type: 'areaspline',
+//     //     color: '#026873',
+//     //     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
+//     //     fillColor: {
+//     //       linearGradient: {
+//     //           x1: 0,
+//     //           y1: 0,
+//     //           x2: 0,
+//     //           y2: 1
+//     //       },
+//     //       stops: [
+//     //           [0, Highcharts.getOptions().colors[0]],
+//     //           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+//     //       ]
+//     //     }
+//     //   },
+//     //   {
+//     //     name: 'Age-26',
+//     //     // data: yAxisData,
+//     //     data: [0,0,2200, 3800, 4000,5000,7500,9000,12000],
+
+//     //     type: 'areaspline',
+//     //     color: '#026873',
+//     //     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
+//     //     fillColor: {
+//     //       linearGradient: {
+//     //           x1: 0,
+//     //           y1: 0,
+//     //           x2: 0,
+//     //           y2: 1
+//     //       },
+//     //       stops: [
+//     //           [0, Highcharts.getOptions().colors[0]],
+//     //           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+//     //       ]
+//     //     }
+//     //   },  
+//     //   {
+//     //     name: 'Age-16',
+//     //     // data: yAxisData,
+//     //     data: [2200, 3800, 4000,5000,7500,9000,12000,16000,30000],
+
+//     //     type: 'areaspline',
+//     //     color: '#026873',
+//     //     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
+//     //     fillColor: {
+//     //       linearGradient: {
+//     //           x1: 0,
+//     //           y1: 0,
+//     //           x2: 0,
+//     //           y2: 1
+//     //       },
+//     //       stops: [
+//     //           [0, Highcharts.getOptions().colors[0]],
+//     //           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+//     //       ]
+//     //     }
+//     //   }
+
+//     // ]
+//   });
+// };
 
 
 
