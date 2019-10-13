@@ -12,10 +12,10 @@ INSERT INTO PlanTypes (type_name) VALUES ('user');
 -- INSERT INTO PlanUsers (user_name) VALUES ('Kyra Rose');
 -- INSERT INTO PlanUsers (user_name) VALUES ('Rory Alexis');
 
-INSERT INTO PlanUsers (user_name,password) VALUES ('system@abc.com','cat');
-INSERT INTO PlanUsers (user_name,password) VALUES ('guest@abc.com','cat');
-INSERT INTO PlanUsers (user_name,password) VALUES ('kyrarose@abc.com','cat');
-INSERT INTO PlanUsers (user_name,password) VALUES ('roryalexis@abc.com','cat');
+INSERT INTO PlanUsers (user_name,password) VALUES ('system','cat');
+INSERT INTO PlanUsers (user_name,password) VALUES ('guest','cat');
+INSERT INTO PlanUsers (user_name,password) VALUES ('kyrarose','cat');
+INSERT INTO PlanUsers (user_name,password) VALUES ('roryalexis','cat');
 
 INSERT INTO Plans (plan_name, PlanUserId, PlanTypeId) VALUES ('Demo Model',1,1);
 INSERT INTO Plans (plan_name, PlanUserId, PlanTypeId) VALUES ('Demo Model 2',1,1);
