@@ -21,7 +21,8 @@ body {
 }
 
 #nav-bar, footer {
-  background-color: rgba(111, 125, 133, 1); ;
+  background-color: #ffffff; 
+  /* background-color: rgba(111, 125, 133, 1); ; */
   color: #191919;
 }
 
