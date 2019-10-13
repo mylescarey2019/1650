@@ -78,8 +78,8 @@ $(document).ready(function(){
   if (!activeWallpaper) {
     activeWallpaper ='money'
   };
-  $('.dropdown-item.active').removeClass("active");
-  $('.dropdown-item[data-value="' + activeWallpaper +'"]').addClass("active");
+  $('.dropdown-item.wallpaper.active').removeClass("active");
+  $('.dropdown-item.wallpaper[data-value="' + activeWallpaper +'"]').addClass("active");
   setStyleSheet(`assets/css/${activeWallpaper}-theme.css`);
   var chartGraphColor = '';
   var chartAxisColor = '';
@@ -1007,13 +1007,13 @@ $(document).ready(function(){
 
 
   // wall paper drop down event
-  $(document).on("click", ".dropdown-item", function() {
-    console.log("in global.dropdown-item click event");
+  $(document).on("click", ".dropdown-item.wallpaper", function() {
+    console.log("in global.dropdown-item.wallpaper click event");
     console.log("you pressed: " + $(this).data("value"));
     var clickedValue = $(this).data("value");
     console.log("value is: ",clickedValue); 
-    $('.dropdown-item.active').removeClass("active");
-    $('.dropdown-item[data-value="' + clickedValue +'"]').addClass("active");
+    $('.dropdown-item.wallpaper.active').removeClass("active");
+    $('.dropdown-item.wallpaper[data-value="' + clickedValue +'"]').addClass("active");
     setStyleSheet(`assets/css/${clickedValue}-theme.css`);
     manageLocalStorage.setLocalStorage('wallpaper',clickedValue);
     activeWallpaper = clickedValue;
