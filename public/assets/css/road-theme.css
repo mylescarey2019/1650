@@ -19,10 +19,18 @@ body {
   background-image: url(../img/jesse-bowser-c0I4ahyGIkA-unsplash.jpg);
 }
 
-#nav-bar, footer {
+/* #nav-bar, footer {
   background-color: rgba(73, 79, 98, 1); ;
   color: #D5E5F2;
 }
+
+#brand {
+  text-shadow: 0px 2px 3px #e5eff7; 
+}
+
+h3, h4, #brand  {
+  color: #D5E5F2;
+} */
 
 /* a { color: #D5E5F2 } 
 a:visited { text-decoration: none; color: #D5E5F2; }
@@ -36,15 +44,13 @@ a:hover, a:active { text-decoration: none; color: #D5E5F2 } */
 .dropdown-menu.a:focus { text-decoration: none; color: #191919 !important; }
 .dropdown-menu.a:hover, a:active { text-decoration: none; color: #191919 !important} */
 
-#brand {
-  text-shadow: 0px 2px 3px #e5eff7; 
-}
 
-a { color: #191919 } 
+
+/* a { color: #191919 } 
 a:visited { text-decoration: none; color: #191919; }
 a:hover { text-decoration: none; color: #191919; }
 a:focus { text-decoration: none; color: #191919; }
-a:hover, a:active { text-decoration: none; color: #191919 }
+a:hover, a:active { text-decoration: none; color: #191919 } */
 
 .jumbotron  {
   background-color: rgba(105, 114, 140, .9); ;
@@ -52,9 +58,7 @@ a:hover, a:active { text-decoration: none; color: #191919 }
   border: 2px solid #D98841;
 } 
 
-h3, h4, #brand  {
-  color: #D5E5F2;
-}
+
 
 #chart, #grid {
   background-color:  rgba(105, 114, 140, .9);

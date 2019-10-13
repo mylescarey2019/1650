@@ -29,16 +29,24 @@ body {
   background-image: url(../img/drew-beamer-xU5Mqq0Chck-unsplash.jpg);
 }
 
-#nav-bar, footer {
+/* #nav-bar, footer {
   background-color: rgba(98, 149, 169, 1);
   color: #3C5973;
 }
 
-a { color: #3C5973 } 
+/* #brand {
+  text-shadow: 0px 2px 3px #aaa; 
+} */
+
+/* h3, h4, #brand {
+  color: #3C5973;
+} */ 
+
+/* a { color: #3C5973 } 
 a:visited { text-decoration: none; color: #3C5973; }
 a:hover { text-decoration: none; color: #3C5973; }
 a:focus { text-decoration: none; color: #3C5973; }
-a:hover, a:active { text-decoration: none; color: #3C5973 }
+a:hover, a:active { text-decoration: none; color: #3C5973 } */
 
 .jumbotron  {
   background-color: rgba(141, 213, 242, .9);
@@ -46,9 +54,7 @@ a:hover, a:active { text-decoration: none; color: #3C5973 }
   border: 2px solid #F2D479;
 } 
 
-h3, h4, #brand {
-  color: #3C5973;
-}
+
 
 #chart, #grid {
   background-color:  rgba(141, 213, 242, .9);

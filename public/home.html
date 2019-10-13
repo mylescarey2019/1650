@@ -19,14 +19,54 @@
 <body>
   <nav id="nav-bar" class="navbar fixed-top navbar-expand-sm">
     <div id="brand">1650</div>
-   
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-      </ul>
+    <p id="tag-line">
+        Start saving at 16 watch it grow for 50 years
+    </p>
+    <div class="collapse navbar-collapse flex-md-column" id="navbarCollapse">
+        <ul id="nav-line" class="navbar-nav ml-auto">
+            <a class="linkcolor nav-link" data-target="#carousel-example-2" data-slide-to="0" href="#">Introduction</a>
+            <a class="linkcolor nav-link" data-target="#carousel-example-2" data-slide-to="1" href="#">Get Started</a>
+            <a class="linkcolor nav-link " data-target="#carousel-example-2" data-slide-to="2" href="#">Students</a>
+            <a class="linkcolor nav-link" data-target="#carousel-example-2" data-slide-to="3" href="#">Parents</a>
+            <a class="linkcolor nav-link " data-target="#carousel-example-2" data-slide-to="4" href="#">Custodial IRA</a>
+            <!-- <a class="linkcolor nav-link" href="#">Open Models</a> -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="wallpaperDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Wallpaper
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item wallpaper active" data-value="money" href="#">Money</a>
+                <a class="dropdown-item wallpaper" data-value="desert" href="#">Desert</a>
+                <a class="dropdown-item wallpaper" data-value="ocean" href="#">Ocean</a>
+                <a class="dropdown-item wallpaper" data-value="mountain" href="#">Mountain</a>
+                <a class="dropdown-item wallpaper" data-value="road" href="#">Road</a>
+                <a class="dropdown-item wallpaper" data-value="tunnel" href="#">Tunnel</a>
+                <a class="dropdown-item wallpaper" data-value="chess" href="#">Chess</a>
+                <a class="dropdown-item wallpaper" data-value="glass" href="#">Glass</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="signinDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sign In
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item signin active" data-value="signin" href="#">Sign In</a>
+                <a class="dropdown-item signin" data-value="register" href="#">Register</a>
+              </div>
+            </li>
+            <a class="linkcolor nav-link" href="#">Open Models</a>
+          </ul>
+        <!-- <p id="tag-line" class="inline mr-auto"> -->
+        <!-- <p id="tag-line">
+            Start saving at 16 watch it grow for 50 years
+        </p> -->
+    </div>
+    <!-- <p id="tag-line">
+        Start saving at 16 watch it grow for 50 years
+    </p> -->
+  </nav>
+    <!-- <div id="brand">1650</div>
+    <div id="nav-div" class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="0" href="#">Slide 1</a>
@@ -58,12 +98,10 @@
               <a class="dropdown-item signin" data-value="register" href="#">Register</a>
             </div>
           </li>
-  
         </ul>
       </div>
-    </div>
-    <div id="tag-line">Start saving at 16 watch it grow for 50 years</div>
-  </nav>
+      <p id="tag-line">Start saving at 16 watch it grow for 50 years</p> -->
+  <!-- </nav> -->
 
   
   <!-- <div class="container"> -->
@@ -86,7 +124,7 @@
           <div class="slide-body">
             <div id="first-slide" class="container-fluid"> 
               <div class="row">
-                <div class="col-6 slide-left">
+                <div id="slide-1-left" class="col-6 slide-left">
                   THIS IS SLIDE 1  
                 </div>
                 <div id="slide-chart" class="col-6 slide-right">

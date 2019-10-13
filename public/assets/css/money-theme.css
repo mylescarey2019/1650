@@ -20,21 +20,25 @@ body {
   background-image: url(../img/alexander-mils-lCPhGxs7pww-unsplash.jpg);
 }
 
-#nav-bar, footer {
-  background-color: #ffffff; 
-  /* background-color: rgba(111, 125, 133, 1); ; */
+/* #nav-bar, footer {
+  background-color: #d2e9e3;
   color: #191919;
 }
 
 #brand {
-  text-shadow: 0px 2px 3px #999; 
-}
+  text-shadow: 0px 2px 3px #000000; 
+} */
 
-a { color: #191919 } 
+/* h3, h4, #brand { */
+  /* color: #191919; */
+  /* color: #1F9376;
+} */
+
+/* a { color: #191919 } 
 a:visited { text-decoration: none; color: #191919; }
 a:hover { text-decoration: none; color: #191919; }
 a:focus { text-decoration: none; color: #191919; }
-a:hover, a:active { text-decoration: none; color: #191919 }
+a:hover, a:active { text-decoration: none; color: #191919 } */
 
 
 .jumbotron {
@@ -43,9 +47,7 @@ a:hover, a:active { text-decoration: none; color: #191919 }
   /* border: 2px solid #516373; */
 } 
 
-h3, h4, #brand {
-  color: #191919;
-}
+
 
 #lower-frame {
   border: 5px solid rgba(191, 186, 159, .9);
