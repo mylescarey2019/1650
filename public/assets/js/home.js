@@ -1031,33 +1031,69 @@ $(document).ready(function(){
 
   // login drop down event
   $(document).on("click", ".dropdown-item.signin", function() {
-    event.preventDefault();
+
     console.log("in global.dropdown-item.signin click event");
     console.log("you pressed: " + $(this).data("value"));
     var clickedValue = $(this).data("value");
     console.log("value is: ",clickedValue); 
     if (clickedValue === 'login') {
-      $('#submit').val('Login');
+      $('#login-submit').val('Login');
       $('#signup-msg').show();
       $('#login-modal').modal('show');
     } else if (clickedValue === 'signup') {
-      $('#submit').val('Signup');
+      $('#login-submit').val('Signup');
       $('#signup-msg').hide();
       $('#login-modal').modal('show');
+      $('#login-form').removeClass('login');
+      $('#login-form').addClass('signup');
     } else {
-      console.log("this is were we logout"); 
+      console.log("this is where we logout"); 
       $('#logout-modal').modal('show');
 
     };
   });
 
-    // jump from login to signup
-    $(document).on("click", "#jump-to-signup", function() {
-      console.log("in global.jump-to-signup click event");
-      $('#submit').val('Signup');
-      $('#signup-msg').hide();
-    });
+  // jump from login to signup
+  $(document).on("click", "#jump-to-signup", function() {
+    console.log("in global.jump-to-signup click event");
+    $('#login-submit').val('Signup');
+    $('#login-form').removeClass('login');
+    $('#login-form').addClass('signup');
+    $('#signup-msg').hide();
+  });
 
+
+
+
+  // login form submit event
+  $(document).on("submit", "form.login", function(event) {
+    event.preventDefault();
+    console.log("in global.form.login click event");
+    console.log("login route goes here");
+    console.log(`user is: ${$('#user-name').val()}`);
+    console.log(`pswd is: ${$('#password').val()}`);
+    $('#login-modal').modal('hide');
+    return;
+  });
+
+  // signup from submit event
+  $(document).on("submit", "form.signup", function(event) {
+    event.preventDefault();
+    console.log("in global.form.signup click event");
+    console.log("signup route goes here");
+    console.log(`user is: ${$('#user-name').val()}`);
+    console.log(`pswd is: ${$('#password').val()}`);
+    $('#login-modal').modal('hide');
+    return;
+  });
+
+  // logout form submit event
+  $(document).on("submit", "form.logout", function() {
+    console.log("in global.jump-to-signup click event");
+    console.log("logout route goes here");
+    $('#logout-modal').modal('hide');
+    return;
+  });
 
   // toggle upper section on/off when users scrolls down/up
   window.onscroll = function() {hideDiv()};

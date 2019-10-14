@@ -392,13 +392,16 @@ a.nav-link {
   padding: 0px
 }
 
-#submit {
+#login-submit, #logout-submit {
   margin-right: 133px;
+  margin-left: 250px;
+  margin-top: 30px;
   width: 80px;
 }
 
-#close {
+#login-close, #logout-close {
   margin-right: 235px;
+  margin-top: 30px;
   width: 80px
 }
 

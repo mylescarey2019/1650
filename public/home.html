@@ -250,18 +250,20 @@
             </p>
           </div>
           <div class="modal-body">
-            <form>
+            <form id="login-form" class="login">
                 <div class="form-group">
                   <label for="name-input">Username</label>
                   <input type="text" class="form-control" id="user-name" placeholder="">
                   <label for="password-input">Password</label>
                   <input type="text" class="form-control" id="password" placeholder="">
                 </div>
+                <input id="login-submit" class="btn btn-success" type="submit" value="Login">
+                <button id="login-close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </form>
           </div>
           <div class="modal-footer">
-            <input id="submit" class="btn btn-success" type="submit" value="login">
-            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!-- <input id="submit" class="btn btn-success" type="submit" value="login">
+            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
           </div>
           <p id="signup-msg">If you do not have an account please sign up <a id="jump-to-signup" href="#">here</a></p>
         </div>
@@ -278,11 +280,15 @@
               </p>
             </div>
             <div class="modal-body">
-              <p id="logout-msg" >Are you sure you want to logout?</p>
+              <form class="logout">
+                <p id="logout-msg" >Are you sure you want to logout?</p>
+                <input id="logout-submit" class="btn btn-success" type="submit" value="Logout">
+                <button id="logout-close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </form>  
             </div>
             <div class="modal-footer">
-              <input id="submit" class="btn btn-success" type="submit" value="Logout">
-              <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <!-- <input id="submit" class="btn btn-success" type="submit" value="Logout">
+              <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
             </div>
           </div>
         </div>
