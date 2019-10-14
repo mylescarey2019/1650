@@ -1027,7 +1027,6 @@ $(document).ready(function(){
   
   });
 
-
   // login drop down event
   $(document).on("click", ".dropdown-item.signin", function() {
 
@@ -1068,6 +1067,8 @@ $(document).ready(function(){
     $('#login-form').addClass('signup');
     $('#login-msg').text("");
     $('#signup-msg').hide();
+     // autofocus the bootstrap fade in model - first input field
+    $('#user-name').focus();
   });
 
 
@@ -1106,6 +1107,12 @@ $(document).ready(function(){
         $('#login-msg').text("");
         // turn on the save model button since there is a user now
         $('#save-btn').show();
+        // switch login menu title
+        $('#signinDropdown').text('Logout');
+        // set the login dropdown menu options
+        $('#login-dropdown-menu').empty();
+        $('#login-dropdown-menu').append('<a class="dropdown-item signin" data-value="logout" href="#">Logout</a>');
+        // hide model
         $('#login-modal').modal('hide');
         return;
       })
@@ -1151,6 +1158,12 @@ $(document).ready(function(){
         $('#login-msg').text("");
         // turn on the save model button since there is a user now
         $('#save-btn').show();
+        // switch login menu title
+        $('#signinDropdown').text('Logout');
+        // set the login dropdown menu options
+        $('#login-dropdown-menu').empty();
+        $('#login-dropdown-menu').append('<a class="dropdown-item signin" data-value="logout" href="#">Logout</a>');
+        // hide model
         $('#login-modal').modal('hide');
         return;
       })
@@ -1174,8 +1187,15 @@ $(document).ready(function(){
         $('#logged-user').text('Logged Out User');
         $('#logged-user').attr('data-id','')
         $('#logged-id').text('Logged Out User Id');
+        // switch login menu title
+        $('#signinDropdown').text('Login');
         // turn off the save model button since user has logged out
         $('#save-btn').hide();
+        // set the login dropdown menu options
+        $('#login-dropdown-menu').empty();
+        $('#login-dropdown-menu').append('<a class="dropdown-item signin active" data-value="login" href="#">Login</a>');
+        $('#login-dropdown-menu').append('<a class="dropdown-item signin" data-value="signup" href="#">Signup</a>');
+        // hide model
         $('#logout-modal').modal('hide');
         return;
       })
@@ -1187,11 +1207,18 @@ $(document).ready(function(){
     // return;
   });
 
+  // autofocus the bootstrap fade in model - first input field
+  $("#login-modal").on('shown.bs.modal', function () {
+    $(this).find("input:visible:first").focus();
+  });
+
   // carousel slide event
   $('.carousel').on('slide.bs.carousel',function(e){
     var slideFrom = $(this).find('.active').index();
     var slideTo = $(e.relatedTarget).index();
     console.log(slideFrom+' => '+slideTo);
+    $(`.nav-link[data-slide-to="${slideFrom}"]`).removeClass('active-nav-link');
+    $(`.nav-link[data-slide-to="${slideTo}"]`).addClass('active-nav-link');
   });
 
   // toggle upper section on/off when users scrolls down/up

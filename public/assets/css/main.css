@@ -68,6 +68,10 @@ h3, h4 {
   margin-top: 2px;
 }
 
+.active-nav-link {
+  font-weight: 700;
+  color: #1F9376;
+}
 /* #nav-div {
   float: right;
 } */
@@ -300,7 +304,10 @@ margin: 0 auto;
 
 #test-btn, #save-btn {
   margin-top: 20px;
-  margin-left: 8px;
+  /* margin-left: 8px; */
+  margin-right: 30px;
+  width: 150px;
+  
 }
 
 #table-div {
@@ -367,6 +374,9 @@ a.nav-link {
       /* font-size: 14px; */
 }
 
+.active-nav-link {
+  font-weight: 700;
+}
 
 #wallpaperDropdown, #signinDropdown {
   padding-bottom: 4px;

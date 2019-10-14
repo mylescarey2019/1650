@@ -51,7 +51,7 @@
     </p>
     <div class="collapse navbar-collapse flex-md-column" id="navbarCollapse">
         <ul id="nav-line" class="navbar-nav ml-auto">
-            <a class="linkcolor nav-link" data-target="#carousel-example-2" data-slide-to="0" href="#">Introduction</a>
+            <a class="linkcolor nav-link active-nav-link" data-target="#carousel-example-2" data-slide-to="0" href="#">Introduction</a>
             <a class="linkcolor nav-link" data-target="#carousel-example-2" data-slide-to="1" href="#">Get Started</a>
             <a class="linkcolor nav-link " data-target="#carousel-example-2" data-slide-to="2" href="#">Students</a>
             <a class="linkcolor nav-link" data-target="#carousel-example-2" data-slide-to="3" href="#">Parents</a>
@@ -75,10 +75,10 @@
               <a class="nav-link dropdown-toggle" href="#" id="signinDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Login
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div id="login-dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item signin active" data-value="login" href="#">Login</a>
                 <a class="dropdown-item signin" data-value="signup" href="#">Signup</a>
-                <a class="dropdown-item signin" data-value="logout" href="#">Logout</a>
+                <!-- <a class="dropdown-item signin" data-value="logout" href="#">Logout</a> -->
               </div>
             </li>
             <a class="linkcolor nav-link" href="#">Open Models</a>
@@ -195,8 +195,8 @@
     </div>  
       <div id="grid" class="row no-margin">
         <div id="table-div" class="col-12">
-          <button id="test-btn" type="button" class="btn btn-outline-dark btn-sml">Test</button>
-          <button id="save-btn" type="button" class="btn btn-outline-dark btn-sml">Save</button>
+          <button id="test-btn" type="button" class="btn btn-outline-dark btn-sml">Refresh Graph</button>
+          <button id="save-btn" type="button" class="btn btn-outline-dark btn-sml">Save Model</button>
           <table id='grid-table'>
             <div>
               <caption contenteditable="true" id="grid-caption"></caption>
