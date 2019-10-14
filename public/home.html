@@ -17,6 +17,33 @@
 
 </head>
 <body>
+
+  <!-- <nav>
+    <div class="container">
+        <h1 class="mb-0"><a href="#">Logo</a></h1>
+        <button class="navbar-toggler mt-1" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-column align-items-start ml-lg-2 ml-0" id="navbarCollapse">
+            <span class="navbar-text ml-auto py-0 px-lg-2">(00) 1234 5678</span>
+            <ul class="navbar-nav mb-auto mt-0 ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link py-0" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#">Company</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#">Blog</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav> -->
+
   <nav id="nav-bar" class="navbar fixed-top navbar-expand-sm">
     <div class="brand">1650</div>
     <p class="tag-line">
@@ -29,7 +56,6 @@
             <a class="linkcolor nav-link " data-target="#carousel-example-2" data-slide-to="2" href="#">Students</a>
             <a class="linkcolor nav-link" data-target="#carousel-example-2" data-slide-to="3" href="#">Parents</a>
             <a class="linkcolor nav-link " data-target="#carousel-example-2" data-slide-to="4" href="#">Custodial IRA</a>
-            <!-- <a class="linkcolor nav-link" href="#">Open Models</a> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="wallpaperDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Wallpaper
@@ -57,60 +83,9 @@
             </li>
             <a class="linkcolor nav-link" href="#">Open Models</a>
           </ul>
-        <!-- <p id="tag-line" class="inline mr-auto"> -->
-        <!-- <p id="tag-line">
-            Start saving at 16 watch it grow for 50 years
-        </p> -->
     </div>
-    <!-- <p id="tag-line">
-        Start saving at 16 watch it grow for 50 years
-    </p> -->
   </nav>
-    <!-- <div id="brand">1650</div>
-    <div id="nav-div" class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="0" href="#">Slide 1</a>
-          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="1" href="#">Slide 2</a>
-          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="2" href="#">Slide 3</a>
-          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="3" href="#">Slide 4</a>
-          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="4" href="#">Slide 5</a>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="wallpaperDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Wallpaper
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item wallpaper active" data-value="money" href="#">Money</a>
-              <a class="dropdown-item wallpaper" data-value="desert" href="#">Desert</a>
-              <a class="dropdown-item wallpaper" data-value="ocean" href="#">Ocean</a>
-              <a class="dropdown-item wallpaper" data-value="mountain" href="#">Mountain</a>
-              <a class="dropdown-item wallpaper" data-value="road" href="#">Road</a>
-              <a class="dropdown-item wallpaper" data-value="tunnel" href="#">Tunnel</a>
-              <a class="dropdown-item wallpaper" data-value="chess" href="#">Chess</a>
-              <a class="dropdown-item wallpaper" data-value="glass" href="#">Glass</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="signinDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Sign In
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item signin active" data-value="signin" href="#">Sign In</a>
-              <a class="dropdown-item signin" data-value="register" href="#">Register</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <p id="tag-line">Start saving at 16 watch it grow for 50 years</p> -->
-  <!-- </nav> -->
-
-  
-  <!-- <div class="container"> -->
-  <!-- <div id="main-section" class="jumbotron jumbotron-fluid"> -->
-    <!-- <h1 id="name">Custodial IRA Planning</h1>
-    <h3>1650 - Start at age 16 and let your money grow for 50 years</h3>
-    <hr>
-    <h4>Time and money working for you</h4> -->
+ 
   <div id="main-section" class="bd-example">
     <div id="carousel-example-2" class="carousel slide " data-ride="carousel" data-interval="false">
       <ol class="carousel-indicators">
@@ -221,6 +196,7 @@
       <div id="grid" class="row no-margin">
         <div id="table-div" class="col-12">
           <button id="test-btn" type="button" class="btn btn-outline-dark btn-sml">Test</button>
+          <button id="save-btn" type="button" class="btn btn-outline-dark btn-sml">Save</button>
           <table id='grid-table'>
             <div>
               <caption contenteditable="true" id="grid-caption"></caption>
@@ -257,6 +233,7 @@
                   <label for="password-input">Password</label>
                   <input type="text" class="form-control" id="password" placeholder="">
                 </div>
+                <p id="login-msg"></p>
                 <input id="login-submit" class="btn btn-success" type="submit" value="Login">
                 <button id="login-close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </form>
@@ -298,7 +275,9 @@
     <span id="footer-text" class="navbar-text">  -->
   <footer id="footer-bar">
     <!-- <button id="test-btn" type="button" class="btn btn-outline-dark btn-sml">Test</button> -->
-    <span id="footer-text">
+    <span id="logged-user" data-id="">Logged Out</span>
+    <span id="logged-id">ID Logged Out<i class="fa fa-id-badge" aria-hidden="true"></i></span>
+    <span id="footer-text"></span>
       <!-- move this logic to home.js if end up keeping feature -->
       <!-- <a href="#" onclick="setStyleSheet('assets/css/default-theme.css')">Default-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/ocean-theme.css')">Ocean-Theme</a>

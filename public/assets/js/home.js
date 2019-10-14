@@ -1072,7 +1072,39 @@ $(document).ready(function(){
     console.log("login route goes here");
     console.log(`user is: ${$('#user-name').val()}`);
     console.log(`pswd is: ${$('#password').val()}`);
-    $('#login-modal').modal('hide');
+    var userData = {
+      user_name: $('#user-name').val().trim(),
+      password: $('#password').val().trim()
+    };
+    console.log(`userData: ${JSON.stringify(userData)}`);
+    if (!userData.user_name || !userData.password) {
+      $('#login-msg').text('Please enter both username and password.');
+      return
+    };
+
+    $.post("/api/login", {
+      user_name: userData.user_name,
+      password: userData.password
+    })
+      .then(function(data) {
+        console.log(`Login Retured Data is: ${JSON.stringify(data)}`);
+        // set the logged in user on the HTML
+        $('#logged-user').text(data.user_name);
+        $('#logged-user').attr('data-id',data.id)
+        $('#logged-id').text(data.id);
+        // clear form fields
+        $('#user-name').val("");
+        $('#password').val("");
+        $('#login-modal').modal('hide');
+        return;
+      })
+      .fail(function(err) {
+        console.log("LOGIN FAILED");
+        console.log(err);
+        $('#login-msg').text('Username or Password incorrect.');
+        return
+      });
+
     return;
   });
 
@@ -1081,8 +1113,17 @@ $(document).ready(function(){
     event.preventDefault();
     console.log("in global.form.signup click event");
     console.log("signup route goes here");
-    console.log(`user is: ${$('#user-name').val()}`);
-    console.log(`pswd is: ${$('#password').val()}`);
+    console.log(`user is: ${$('#user-name').val().trim()}`);
+    console.log(`pswd is: ${$('#password').val().trim()}`);
+    var userData = {
+      user_name: $('#user-name').val().trim(),
+      password: $('#password').val().trim()
+    };
+    console.log(`userData: ${JSON.stringify(userData)}`);
+    if (!userData.user_name || !userData.password) {
+      $('#login-msg').text('Please enter both username and password.');
+      return
+    };
     $('#login-modal').modal('hide');
     return;
   });
@@ -1093,6 +1134,13 @@ $(document).ready(function(){
     console.log("logout route goes here");
     $('#logout-modal').modal('hide');
     return;
+  });
+
+  // carousel slide event
+  $('.carousel').on('slide.bs.carousel',function(e){
+    var slideFrom = $(this).find('.active').index();
+    var slideTo = $(e.relatedTarget).index();
+    console.log(slideFrom+' => '+slideTo);
   });
 
   // toggle upper section on/off when users scrolls down/up

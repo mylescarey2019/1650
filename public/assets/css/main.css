@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+/* to be used for nav bar re-write */
+/* body {
+  padding-top: 70px;
+} */
+
 body {
   margin: 0;
   padding: 0;
@@ -293,8 +298,9 @@ width: 100%;
 margin: 0 auto;
 }
 
-#test-btn {
+#test-btn, #save-btn {
   margin-top: 20px;
+  margin-left: 8px;
 }
 
 #table-div {
@@ -354,11 +360,11 @@ a.nav-link:hover, a.nav-link:active { text-decoration: none; color: #191919 }
 } */
 
 a.nav-link {
-  /* margin-left: 20px; */
+      /* margin-left: 20px; */
   padding-top: 30px;
   padding-bottom: 4px;
   border-bottom: 2px solid #e5e5e5;
-  /* font-size: 14px; */
+      /* font-size: 14px; */
 }
 
 
@@ -395,14 +401,21 @@ a.nav-link {
 #login-submit, #logout-submit {
   margin-right: 133px;
   margin-left: 250px;
-  margin-top: 30px;
+  margin-top: 10px;
   width: 80px;
 }
 
 #login-close, #logout-close {
   margin-right: 235px;
-  margin-top: 30px;
+  margin-top: 10px;
   width: 80px
+}
+
+#login-msg {
+  margin-top: 10px;
+  margin-left: 250px;
+  margin-bottom: 10px;
+  color: red;
 }
 
 #user-name {
