@@ -18,9 +18,9 @@
 </head>
 <body>
   <nav id="nav-bar" class="navbar fixed-top navbar-expand-sm">
-    <div id="brand">1650</div>
-    <p id="tag-line">
-        Start saving at 16 watch it grow for 50 years
+    <div class="brand">1650</div>
+    <p class="tag-line">
+        Start saving at 16 watch it <strong>grow</strong> for 50 years
     </p>
     <div class="collapse navbar-collapse flex-md-column" id="navbarCollapse">
         <ul id="nav-line" class="navbar-nav ml-auto">
@@ -47,11 +47,12 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="signinDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sign In
+                Login
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item signin active" data-value="signin" href="#">Sign In</a>
-                <a class="dropdown-item signin" data-value="register" href="#">Register</a>
+                <a class="dropdown-item signin active" data-value="login" href="#">Login</a>
+                <a class="dropdown-item signin" data-value="signup" href="#">Signup</a>
+                <a class="dropdown-item signin" data-value="logout" href="#">Logout</a>
               </div>
             </li>
             <a class="linkcolor nav-link" href="#">Open Models</a>
@@ -237,6 +238,55 @@
         </div>
       </div>
     </div>
+
+
+    <div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content custom">
+          <div class="modal-header">
+            <div class="brand">1650</div>
+            <p class="tag-line">
+                Start saving at 16 watch it <strong>grow</strong> for 50 years
+            </p>
+          </div>
+          <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="name-input">Username</label>
+                  <input type="text" class="form-control" id="user-name" placeholder="">
+                  <label for="password-input">Password</label>
+                  <input type="text" class="form-control" id="password" placeholder="">
+                </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <input id="submit" class="btn btn-success" type="submit" value="login">
+            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+          <p id="signup-msg">If you do not have an account please sign up <a id="jump-to-signup" href="#">here</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="logout-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content custom">
+            <div class="modal-header">
+              <div class="brand">1650</div>
+              <p class="tag-line">
+                  Start saving at 16 watch it <strong>grow</strong> for 50 years
+              </p>
+            </div>
+            <div class="modal-body">
+              <p id="logout-msg" >Are you sure you want to logout?</p>
+            </div>
+            <div class="modal-footer">
+              <input id="submit" class="btn btn-success" type="submit" value="Logout">
+              <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
   <!-- <footer id="footer-bar" class="navbar">
     <span id="footer-text" class="navbar-text">  -->

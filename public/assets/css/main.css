@@ -29,7 +29,7 @@ h3, h4 {
   /* color: #1F9376; */
 /* } */
 
-#brand {
+.brand {
   padding: 5px 5px 5px 0px;
   font-size: 70px;
   font-weight: bold;
@@ -70,7 +70,7 @@ h3, h4 {
 
 
 
-#tag-line {
+.tag-line {
   color: #1F9376;
   font-size: 20px;
   font-weight: 800;
@@ -272,7 +272,7 @@ h3, h4 {
 } */
 
 
-#nav-bar, #chart, #grid , #footer-bar, #lower-frame {
+#nav-bar, #chart, #grid , #footer-bar, #lower-frame, .custom {
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .5), 0 8px 26px 0 rgba(0, 0, 0, 0.46);
 }
 #chart, #grid {
@@ -366,3 +366,50 @@ a.nav-link {
   padding-bottom: 4px;
 }  
 
+#login-modal .form-group {
+  width: 300px;
+  margin: 0 auto;
+}
+
+#login-modal .tag-line, #logout-modal .tag-line {
+  margin-right: 150px;
+}
+
+#logout-msg {
+  margin-left: 250px;
+}
+
+#signup-msg {
+  margin-left: 250px;
+  margin-bottom: 20px;
+}
+
+.modal-header {
+  padding-bottom: 0px
+}
+
+.modal-body {
+  padding: 0px
+}
+
+#submit {
+  margin-right: 133px;
+  width: 80px;
+}
+
+#close {
+  margin-right: 235px;
+  width: 80px
+}
+
+#user-name {
+  margin-bottom: 30px;
+}
+.custom {
+  background-color: #e5e5e5;
+  color: #191919;
+  /* width: 800px; */
+
+  /* border: 2px solid #FFC61e;
+  border-radius: 1rem; */
+}
