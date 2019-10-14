@@ -1099,7 +1099,6 @@ $(document).ready(function(){
         return;
       })
       .fail(function(err) {
-        console.log("LOGIN FAILED");
         console.log(err);
         $('#login-msg').text('Username or Password incorrect.');
         return
