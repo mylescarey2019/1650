@@ -34,9 +34,10 @@ module.exports = function(app) {
       user_name: req.body.user_name,
       password: req.body.password
     })
-      .then(function() {
+      .then(function(response) {
         console.log('in /api/signup - successful');
-        res.json(req.body.user_name);
+        console.log(`signup response is: ${JSON.stringify(response)}`);
+        res.json(response);
         // res.redirect(307, "/api/login");
       })
       .catch(function(err) {

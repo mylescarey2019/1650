@@ -3,9 +3,8 @@
 //on document load
 $(document).ready(function(){
 
-
-
-
+  // hide the save model button until user signed in
+  $('#save-btn').hide();
 
   // helper functions
 
@@ -1039,13 +1038,21 @@ $(document).ready(function(){
     if (clickedValue === 'login') {
       $('#login-submit').val('Login');
       $('#signup-msg').show();
+      $('#login-msg').text("");
+      $('#login-form').removeClass('signup');
+      $('#login-form').addClass('login');
+      $('#user-name').val("");
+      $('#password').val("");
       $('#login-modal').modal('show');
     } else if (clickedValue === 'signup') {
       $('#login-submit').val('Signup');
       $('#signup-msg').hide();
-      $('#login-modal').modal('show');
+      $('#login-msg').text("");
       $('#login-form').removeClass('login');
       $('#login-form').addClass('signup');
+      $('#user-name').val("");
+      $('#password').val("");
+      $('#login-modal').modal('show');
     } else {
       console.log("this is where we logout"); 
       $('#logout-modal').modal('show');
@@ -1059,6 +1066,7 @@ $(document).ready(function(){
     $('#login-submit').val('Signup');
     $('#login-form').removeClass('login');
     $('#login-form').addClass('signup');
+    $('#login-msg').text("");
     $('#signup-msg').hide();
   });
 
@@ -1095,6 +1103,9 @@ $(document).ready(function(){
         // clear form fields
         $('#user-name').val("");
         $('#password').val("");
+        $('#login-msg').text("");
+        // turn on the save model button since there is a user now
+        $('#save-btn').show();
         $('#login-modal').modal('hide');
         return;
       })
@@ -1104,7 +1115,7 @@ $(document).ready(function(){
         return
       });
 
-    return;
+    // return;
   });
 
   // signup from submit event
@@ -1123,16 +1134,57 @@ $(document).ready(function(){
       $('#login-msg').text('Please enter both username and password.');
       return
     };
-    $('#login-modal').modal('hide');
-    return;
+
+    $.post("/api/signup", {
+      user_name: userData.user_name,
+      password: userData.password
+    })
+      .then(function(data) {
+        console.log(`Signup Retured Data is: ${JSON.stringify(data)}`);
+        // set the logged in user on the HTML
+        $('#logged-user').text(data.user_name);
+        $('#logged-user').attr('data-id',data.id)
+        $('#logged-id').text(data.id);
+        // clear form fields
+        $('#user-name').val("");
+        $('#password').val("");
+        $('#login-msg').text("");
+        // turn on the save model button since there is a user now
+        $('#save-btn').show();
+        $('#login-modal').modal('hide');
+        return;
+      })
+      .fail(function(err) {
+        console.log(err);
+        $('#login-msg').text('Signup error. This Username already exists');
+        return
+      });
+
+    // return;
   });
 
   // logout form submit event
   $(document).on("submit", "form.logout", function() {
-    console.log("in global.jump-to-signup click event");
+    console.log("in global.logout click event");
     console.log("logout route goes here");
-    $('#logout-modal').modal('hide');
-    return;
+    $.get("/logout")
+      .then(function(data) {
+        console.log(`Logout Retured Data is: ${JSON.stringify(data)}`);
+        // clear the logged in user on the HTML
+        $('#logged-user').text('Logged Out User');
+        $('#logged-user').attr('data-id','')
+        $('#logged-id').text('Logged Out User Id');
+        // turn off the save model button since user has logged out
+        $('#save-btn').hide();
+        $('#logout-modal').modal('hide');
+        return;
+      })
+      .fail(function(err) {
+        console.log(err);
+        return
+      });
+
+    // return;
   });
 
   // carousel slide event
