@@ -339,7 +339,7 @@ table td, table th {
   text-align: center;
 }
 
-table tr:hover {
+#grid-table tr:hover {
   font-weight: bold;
   /* color: #e50000 */
 }
@@ -403,8 +403,22 @@ a.nav-link {
   margin-right: 150px;
 }
 
-#logout-msg, #load-models-msg {
+#logout-msg {
+  margin-top: 0px;
   margin-left: 250px;
+}
+
+#load-models-msg {
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+.model-plan-item:hover  {
+  cursor: pointer;
+}
+
+#model-table-div {
+  overflow: auto;
 }
 
 #signup-msg {
@@ -436,6 +450,11 @@ a.nav-link {
   margin-left: 250px;
   margin-top: 10px;
   width: 80px
+}
+
+#model-table {
+  margin: 0 auto;
+  width: 80%;
 }
 
 #login-msg {

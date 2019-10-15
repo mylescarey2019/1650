@@ -850,7 +850,7 @@ $(document).ready(function(){
           // var financialModelChapters = [];
           // console.log(yearAxis);
           // console.log(dollarAxis);
-          console.log(res);
+          console.log(`UPDATED:: ${JSON.stringify(res)}`);
 
           $("#grid-caption").text(res.name);
           $("#grid-caption").attr('data-id',`${res.id}`);
@@ -1251,35 +1251,76 @@ $(document).ready(function(){
   // load models button event
   $(document).on("click", "#your-charts", function() {
     // console.log("in global.your-charts click event");
+
+    $.ajax(`/api/plan-user-plans/${$("#grid-caption").attr('data-user-id')}`, {     
+        type: "GET"
+      }).then(function(res) {
+          // console.log(`MODELS RETURNED: ${JSON.stringify(res)}`);
+          // console.log(res[0].user_name);
+          // console.log(res[0].Plans);
+
+        // remove any modal model rows from previous opens
+        $("tr.modal-model-row").remove();
+
+        if (res[0].Plans.length === 0) {
+          $("#load-models-msg").text('You currently have no models to load');
+        } else {
+          $("#load-models-msg").text('Click on a model name to load it');
+          res[0].Plans.map(plan => {
+            // console.log(`user name: ${res[0].user_name}  plan_name ${plan.plan_name} plan id: ${plan.id}`);
+            var modelRow = $('<tr>').addClass("modal-model-row");
+            modelRow.append($(`<td>${res[0].user_name}</td>`));
+            modelRow.append($(`<td class="model-plan-item">${plan.plan_name}</td>`).attr('data-id',`${plan.id}`));
+            modelRow.append($(`<td>${plan.id}</td>`));
+            $("#model-table").append(modelRow);
+          });
+        };
+
+
+          // $("#grid-caption").text(res.name);
+          // $("#grid-caption").attr('data-id',`${res.id}`);
+          // $("#grid-caption").attr('data-user-id',`${res.userId}`);
+          // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
+    
+          // // update current logged in user information for display on page
+          // console.log(`user ${JSON.stringify(res)}`) 
+          // $("#logged-id").text(res.userId);
+          // $("#logged-user").text(res.userName);
+    
+          // $("tr.model-row").remove();
+          // res.lifeChapters.map(chapter => {
+          //   console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
+          //                invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
+          //                return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
+          //   var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
+          //   modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
+          //   modelRow.attr('data-seq-no',`${chapter.seqNo}`);
+          //   modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
+          //   modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
+          //   modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
+          //   modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
+          //   modelRow.append($(`<td>${chapter.frequency}</td>`));
+          //   modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
+          //   modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct'));
+          //   $("#grid-table").append(modelRow);
+          // });
+
+        }
+      );
+
     $('#load-models-modal').modal('show');
 
-    // console.log("you pressed: " + $(this).data("value"));
-    // var clickedValue = $(this).data("value");
-    // console.log("value is: ",clickedValue); 
-    // if (clickedValue === 'login') {
-    //   $('#login-submit').val('Login');
-    //   $('#signup-msg').show();
-    //   $('#login-msg').text("");
-    //   $('#login-form').removeClass('signup');
-    //   $('#login-form').addClass('login');
-    //   $('#user-name').val("");
-    //   $('#password').val("");
-    //   $('#login-modal').modal('show');
-    // } else if (clickedValue === 'signup') {
-    //   $('#login-submit').val('Signup');
-    //   $('#signup-msg').hide();
-    //   $('#login-msg').text("");
-    //   $('#login-form').removeClass('login');
-    //   $('#login-form').addClass('signup');
-    //   $('#user-name').val("");
-    //   $('#password').val("");
-    //   $('#login-modal').modal('show');
-    // } else {
-    //   console.log("this is where we logout"); 
-    //   $('#logout-modal').modal('show');
-
-    // };
   });
+
+
+
+  //  model modal plan name click event for loading a users plan
+  $(document).on("click", ".model-plan-item", function() {
+    // console.log("in global.model-plan-item click event");
+    // console.log("you pressed " + $(this).attr("data-id"));
+
+  });
+
 
   // autofocus the bootstrap fade in model - first input field
   $("#login-modal").on('shown.bs.modal', function () {

@@ -250,52 +250,68 @@
     </div>
 
     <div id="logout-modal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content custom">
-            <div class="modal-header">
-              <div class="brand">1650</div>
-              <p class="tag-line">
-                  Start saving at 16 watch it <strong>grow</strong> for 50 years
-              </p>
-            </div>
-            <div class="modal-body">
-              <form class="logout">
-                <p id="logout-msg" >Are you sure you want to logout?</p>
-                <input id="logout-submit" class="btn btn-success" type="submit" value="Logout">
-                <button id="logout-close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              </form>  
-            </div>
-            <div class="modal-footer">
-              <!-- <input id="submit" class="btn btn-success" type="submit" value="Logout">
-              <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
-            </div>
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content custom">
+          <div class="modal-header">
+            <div class="brand">1650</div>
+            <p class="tag-line">
+                Start saving at 16 watch it <strong>grow</strong> for 50 years
+            </p>
+          </div>
+          <div class="modal-body">
+            <form class="logout">
+              <p id="logout-msg" >Are you sure you want to logout?</p>
+              <input id="logout-submit" class="btn btn-success" type="submit" value="Logout">
+              <button id="logout-close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </form>  
+          </div>
+          <div class="modal-footer">
+            <!-- <input id="submit" class="btn btn-success" type="submit" value="Logout">
+            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
           </div>
         </div>
       </div>
+    </div>
 
-      <div id="load-models-modal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content custom">
-            <div class="modal-header">
-              <div class="brand">1650</div>
-              <p class="tag-line">
-                  Start saving at 16 watch it <strong>grow</strong> for 50 years
-              </p>
+    <div id="load-models-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content custom">
+          <div class="modal-header">
+            <div class="brand">1650</div>
+            <p class="tag-line">
+                Start saving at 16 watch it <strong>grow</strong> for 50 years
+            </p>
+          </div>
+          <div id="model-modal-body" class="modal-body">
+            <div class="container-fluid">
+              <div class="row no-margin">
+                <div id="model-table-div" class="col-12">
+                  <table id='model-table'>
+                    <div>
+                      <caption id="model-caption"></caption>
+                    </div>  
+                    <tr id="model-table-header">
+                      <th>User Name</th>  
+                      <th>Model Name</th>
+                      <th>Model ID</th>
+                    </tr>
+                  </table>
+                </div>
+              </div>
             </div>
-            <div class="modal-body">
-              <form class="load-models">
-                <p id="load-models-msg">Click on a model name to load it</p>
-                <!-- <input id="logout-submit" class="btn btn-success" type="submit" value="Logout"> -->
-                <button id="load-models-close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              </form>  
-            </div>
-            <div class="modal-footer">
-              <!-- <input id="submit" class="btn btn-success" type="submit" value="Logout">
-              <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
-            </div>
+
+            <p id="load-models-msg">Click on a model name to load it</p>
+            <!-- <input id="logout-submit" class="btn btn-success" type="submit" value="Logout"> -->
+            <button id="load-models-close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          </div>
+          <div class="modal-footer">
+            <!-- <input id="submit" class="btn btn-success" type="submit" value="Logout">
+            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
           </div>
         </div>
       </div>
+    </div>
+
 
   <!-- <footer id="footer-bar" class="navbar">
     <span id="footer-text" class="navbar-text">  -->

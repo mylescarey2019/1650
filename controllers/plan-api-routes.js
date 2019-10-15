@@ -44,7 +44,7 @@ function buildModel(results) {
   // console.log(financialModel.chartResult.xPlotToArray());
   // console.log(financialModel.chartResult.yPlotToArray());
 
-  console.log(financialModel);
+  // console.log(`FINANCIAL MODEL: ${JSON.stringify(financialModel)}`);
 
   return financialModel;
 };

@@ -80,6 +80,7 @@ module.exports = function(app) {
       include: [{model: db.Plan}]
                     }).then(function(results) {
       // results are available to us inside the .then
+      // console.log(`GETTING MODAL MODELS: ${JSON.stringify(results)}`);
       res.json(results);
     });
   });
