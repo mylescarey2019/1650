@@ -81,7 +81,7 @@
                 <!-- <a class="dropdown-item signin" data-value="logout" href="#">Logout</a> -->
               </div>
             </li>
-            <a class="linkcolor nav-link" href="#">Open Models</a>
+            <a id="your-charts" class="linkcolor nav-link disabled" href="#">Your Charts</a>
           </ul>
     </div>
   </nav>
@@ -196,6 +196,8 @@
       <div id="grid" class="row no-margin">
         <div id="table-div" class="col-12">
           <button id="test-btn" type="button" class="btn btn-outline-dark btn-sml">Refresh Graph</button>
+          <!-- <button id="test-btn" type="button" class="btn btn-secondary btn-sml">Refresh Graph</button> -->
+          <!-- <button id="test-btn" type="button">Refresh Graph</button> -->
           <!-- <button id="save-btn" type="button" class="btn btn-outline-dark btn-sml">Save Model</button> -->
           <table id='grid-table'>
             <div>
@@ -271,15 +273,39 @@
         </div>
       </div>
 
+      <div id="load-models-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content custom">
+            <div class="modal-header">
+              <div class="brand">1650</div>
+              <p class="tag-line">
+                  Start saving at 16 watch it <strong>grow</strong> for 50 years
+              </p>
+            </div>
+            <div class="modal-body">
+              <form class="load-models">
+                <p id="load-models-msg">Click on a model name to load it</p>
+                <!-- <input id="logout-submit" class="btn btn-success" type="submit" value="Logout"> -->
+                <button id="load-models-close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </form>  
+            </div>
+            <div class="modal-footer">
+              <!-- <input id="submit" class="btn btn-success" type="submit" value="Logout">
+              <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
   <!-- <footer id="footer-bar" class="navbar">
     <span id="footer-text" class="navbar-text">  -->
   <footer id="footer-bar">
     <!-- <button id="test-btn" type="button" class="btn btn-outline-dark btn-sml">Test</button> -->
-    <span>Logged in: </span>
-    <span id="logged-user" data-id=""></span>
-    <span>User Id: </span>
-    <span id="logged-id"></span>
-    <span id="footer-text"></span>
+    <div id="footer-user-label">Logged in as: </div>
+    <div id="logged-user" data-id=""></div>
+    <div id="footer-id-label">User Id: </div>
+    <div id="logged-id"></div>
+    <div id="footer-text"></div>
       <!-- move this logic to home.js if end up keeping feature -->
       <!-- <a href="#" onclick="setStyleSheet('assets/css/default-theme.css')">Default-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/ocean-theme.css')">Ocean-Theme</a>

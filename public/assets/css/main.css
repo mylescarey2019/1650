@@ -103,7 +103,15 @@ h3, h4 {
 #footer-text {
   display: block;
   float: right;
+  padding-top: 10px;
+  padding-right: 5px;
 }
+
+#footer-user-label, #logged-user, #footer-id-label, #logged-id {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+} 
 
 /* #tag-line {
   z-index: 4;
@@ -361,7 +369,11 @@ a.nav-link:visited { text-decoration: none; color: #191919; }
 a.nav-link:hover { text-decoration: none; color: #1F9376; }
 a.nav-link:focus { text-decoration: none; color: #191919; }
 a.nav-link:hover, a.nav-link:active { text-decoration: none; color: #191919 }
+a.nav-link.disabled { color: #acacac}
 
+/* #your-charts {
+  color: #acacac;
+} */
 /* a.nav-link:nth-child(1) {
   margin-left: 8px;
 } */
@@ -387,11 +399,11 @@ a.nav-link {
   margin: 0 auto;
 }
 
-#login-modal .tag-line, #logout-modal .tag-line {
+#login-modal .tag-line, #logout-modal .tag-line, #load-models-modal .tag-line {
   margin-right: 150px;
 }
 
-#logout-msg {
+#logout-msg, #load-models-msg {
   margin-left: 250px;
 }
 
@@ -420,6 +432,11 @@ a.nav-link {
   margin-top: 10px;
   width: 80px
 }
+#load-models-close {
+  margin-left: 250px;
+  margin-top: 10px;
+  width: 80px
+}
 
 #login-msg {
   margin-top: 10px;
@@ -443,3 +460,16 @@ a.nav-link {
 #logged-user {
   margin-right: 20px;
 }
+
+#test-btn {
+  /* border: 1px solid #4892c4;
+  border-radius: .3rem; */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.10); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39); 
+}
+
+/* #test-btn:hover {
+  /* background-color: #4892c4;
+  border: 1px solid red; */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.39);  */
+/* }  */

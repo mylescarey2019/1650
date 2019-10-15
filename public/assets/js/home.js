@@ -1115,7 +1115,7 @@ $(document).ready(function(){
         // set the logged in user on the grid attributes for the next refresh
         $("#grid-caption").attr('data-user-id',data.id);  // change to the logged in user id
         $("#grid-caption").attr('data-plan-type-id',3); // change to plan type 3 (user)
-
+        $("#your-charts").removeClass('disabled');
         // clear form fields
         $('#user-name').val("");
         $('#password').val("");
@@ -1172,6 +1172,7 @@ $(document).ready(function(){
         // set the logged in user on the grid attributes for the next refresh
         $("#grid-caption").attr('data-user-id',data.id);  // change to the logged in user id
         $("#grid-caption").attr('data-plan-type-id',3); // change to plan type 3 (user)
+        $("#your-charts").removeClass('disabled');
         // clear form fields
         $('#user-name').val("");
         $('#password').val("");
@@ -1209,6 +1210,7 @@ $(document).ready(function(){
         $('#logged-user').text('guest');
         $('#logged-user').attr('data-id','2')
         $('#logged-id').text('2');
+        $("#your-charts").addClass('disabled');
 
         // MRC** - this is a problem - if you logout the user's model is still
         // in the grid - will need to do a CLONE API call here to get free
@@ -1243,6 +1245,40 @@ $(document).ready(function(){
       });
 
     // return;
+  });
+
+
+  // load models button event
+  $(document).on("click", "#your-charts", function() {
+    // console.log("in global.your-charts click event");
+    $('#load-models-modal').modal('show');
+
+    // console.log("you pressed: " + $(this).data("value"));
+    // var clickedValue = $(this).data("value");
+    // console.log("value is: ",clickedValue); 
+    // if (clickedValue === 'login') {
+    //   $('#login-submit').val('Login');
+    //   $('#signup-msg').show();
+    //   $('#login-msg').text("");
+    //   $('#login-form').removeClass('signup');
+    //   $('#login-form').addClass('login');
+    //   $('#user-name').val("");
+    //   $('#password').val("");
+    //   $('#login-modal').modal('show');
+    // } else if (clickedValue === 'signup') {
+    //   $('#login-submit').val('Signup');
+    //   $('#signup-msg').hide();
+    //   $('#login-msg').text("");
+    //   $('#login-form').removeClass('login');
+    //   $('#login-form').addClass('signup');
+    //   $('#user-name').val("");
+    //   $('#password').val("");
+    //   $('#login-modal').modal('show');
+    // } else {
+    //   console.log("this is where we logout"); 
+    //   $('#logout-modal').modal('show');
+
+    // };
   });
 
   // autofocus the bootstrap fade in model - first input field

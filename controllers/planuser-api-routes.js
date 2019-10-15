@@ -74,6 +74,17 @@ module.exports = function(app) {
   // CRUD Routes
 
   // get specific user, there plans user and its type
+   app.get("/api/plan-user-plans/:id", function(req, res) {
+    db.PlanUser.findAll({  
+      where: { id: req.params.id },
+      include: [{model: db.Plan}]
+                    }).then(function(results) {
+      // results are available to us inside the .then
+      res.json(results);
+    });
+  });
+
+  // get specific user, there plans user and its type
   app.get("/api/plan-user-plan/:id", function(req, res) {
     db.PlanUser.findOne({  
       where: { id: req.params.id },
