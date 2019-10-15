@@ -730,48 +730,59 @@ $(document).ready(function(){
 
   // // $('#slide-chart').highcharts().redraw();
 
-  // retreive financial plan and render in model grid, ToDo : and model chart
-  $.ajax("/api/clone-plan/1", {       // cloning system demo plan 1
-  // $.ajax("/api/plan-user-life-chapter/1", {  
-    type: "GET"
-  }).then(function(res) {
-      var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
-      // var financialModelChapters = [];
-      // console.log(yearAxis);
-      // console.log(dollarAxis);
-      console.log(res);
-      console.log(`plan type id: ${res.planTypeId}`);
-      $("#grid-caption").text(res.name);
-      $("#grid-caption").attr('data-id',`${res.id}`);
-      $("#grid-caption").attr('data-user-id',`${res.userId}`);
-      $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
+ 
+  // function to get clone and return a plan to render for the guest signon
+  function getClonePlan() {
+    $.ajax("/api/clone-plan/1", {       // cloning system demo plan 1
+      // $.ajax("/api/plan-user-life-chapter/1", {  
+        type: "GET"
+      }).then(function(res) {
+          var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
+          // var financialModelChapters = [];
+          // console.log(yearAxis);
+          // console.log(dollarAxis);
+          console.log(res);
+          console.log(`plan type id: ${res.planTypeId}`);
+          $("#grid-caption").text(res.name);
+          $("#grid-caption").attr('data-id',`${res.id}`);
+          $("#grid-caption").attr('data-user-id',`${res.userId}`);
+          $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
+    
+          // update current logged in user information for display on page
+          console.log(`user ${JSON.stringify(res)}`) 
+          $("#logged-id").text(res.userId);
+          $("#logged-user").text(res.userName);
+    
+          $("tr.model-row").remove();
+          res.lifeChapters.map(chapter => {
+            console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
+                         invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
+                         return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
+            var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
+            modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
+            modelRow.attr('data-seq-no',`${chapter.seqNo}`);
+            modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
+            modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
+            modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
+            modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
+            modelRow.append($(`<td>${chapter.frequency}</td>`));
+            modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
+            modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct'));
+            $("#grid-table").append(modelRow);
+            // // create a chapter for use in financial model object
+            // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
+            //   chapter.investAmount,chapter.returnPct,chapter.inflationPct,chapter.investRateTypeId,res.id));
+          });
+          // // create financial model object for use client side
+          // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
+          // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
+          renderChart(res.name, yearAxis, dollarAxis);
+        }
+      );
+  };
 
-      res.lifeChapters.map(chapter => {
-        console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
-                     invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
-                     return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
-        var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
-        modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
-        modelRow.attr('data-seq-no',`${chapter.seqNo}`);
-        modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
-        modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
-        modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
-        modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
-        modelRow.append($(`<td>${chapter.frequency}</td>`));
-        modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
-        modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct'));
-        $("#grid-table").append(modelRow);
-        // // create a chapter for use in financial model object
-        // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
-        //   chapter.investAmount,chapter.returnPct,chapter.inflationPct,chapter.investRateTypeId,res.id));
-      });
-      // // create financial model object for use client side
-      // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
-      // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
-      renderChart(res.name, yearAxis, dollarAxis);
-    }
-  );
-
+  // initial page load clone plan
+  getClonePlan();
  
   function updateChartPut() {
     // plan to update
@@ -1101,12 +1112,18 @@ $(document).ready(function(){
         $('#logged-user').text(data.user_name);
         $('#logged-user').attr('data-id',data.id)
         $('#logged-id').text(data.id);
+        // set the logged in user on the grid attributes for the next refresh
+        $("#grid-caption").attr('data-user-id',data.id);  // change to the logged in user id
+        $("#grid-caption").attr('data-plan-type-id',3); // change to plan type 3 (user)
+
         // clear form fields
         $('#user-name').val("");
         $('#password').val("");
         $('#login-msg').text("");
-        // turn on the save model button since there is a user now
-        $('#save-btn').show();
+        // change the refresh button to save & refresh since a user has signed in
+        $('#test-btn').text('Save & Refresh Graph');
+        // // turn on the save model button since there is a user now
+        // $('#save-btn').show();
         // switch login menu title
         $('#signinDropdown').text('Logout');
         // set the login dropdown menu options
@@ -1152,12 +1169,17 @@ $(document).ready(function(){
         $('#logged-user').text(data.user_name);
         $('#logged-user').attr('data-id',data.id)
         $('#logged-id').text(data.id);
+        // set the logged in user on the grid attributes for the next refresh
+        $("#grid-caption").attr('data-user-id',data.id);  // change to the logged in user id
+        $("#grid-caption").attr('data-plan-type-id',3); // change to plan type 3 (user)
         // clear form fields
         $('#user-name').val("");
         $('#password').val("");
         $('#login-msg').text("");
-        // turn on the save model button since there is a user now
-        $('#save-btn').show();
+        // change the refresh button to save & refresh since a user has signed in
+        $('#test-btn').text('Save & Refresh Graph');
+        // // turn on the save model button since there is a user now
+        // $('#save-btn').show();
         // switch login menu title
         $('#signinDropdown').text('Logout');
         // set the login dropdown menu options
@@ -1183,20 +1205,36 @@ $(document).ready(function(){
     $.get("/logout")
       .then(function(data) {
         console.log(`Logout Retured Data is: ${JSON.stringify(data)}`);
-        // clear the logged in user on the HTML
-        $('#logged-user').text('Logged Out User');
-        $('#logged-user').attr('data-id','')
-        $('#logged-id').text('Logged Out User Id');
+        // switch the logged in user to the guest user the HTML
+        $('#logged-user').text('guest');
+        $('#logged-user').attr('data-id','2')
+        $('#logged-id').text('2');
+
+        // MRC** - this is a problem - if you logout the user's model is still
+        // in the grid - will need to do a CLONE API call here to get free
+        // of the user's past model
+        // MRC**
+
+        // set the logged in user on the grid attributes for the next refresh
+        $("#grid-caption").attr('data-user-id',2);  // change to the logged in guest user id
+        $("#grid-caption").attr('data-plan-type-id',2); // change to plan type 2 (guest)
         // switch login menu title
         $('#signinDropdown').text('Login');
-        // turn off the save model button since user has logged out
-        $('#save-btn').hide();
+        // change the refresh button to save & refresh since a user has logged in
+        $('#test-btn').text('Refresh Graph');
+        // // turn off the save model button since user has logged out
+        // $('#save-btn').hide();
         // set the login dropdown menu options
         $('#login-dropdown-menu').empty();
         $('#login-dropdown-menu').append('<a class="dropdown-item signin active" data-value="login" href="#">Login</a>');
         $('#login-dropdown-menu').append('<a class="dropdown-item signin" data-value="signup" href="#">Signup</a>');
         // hide model
         $('#logout-modal').modal('hide');
+
+        // need to clone the demo model since user has logged out and
+        // now the user is the guest user
+        getClonePlan();
+
         return;
       })
       .fail(function(err) {
