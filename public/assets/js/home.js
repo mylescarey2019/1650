@@ -6,6 +6,13 @@ $(document).ready(function(){
   // hide the new model button until user signed in
   $('#new-model-btn').hide();
 
+  // hide starting demo content
+  $(".slide-1-1").hide();
+  $("#slide-1-2").hide();
+  $("#slide-1-3").hide();
+  $("#slide-1-4").hide();
+  $("#slide-1-5").hide();
+
   // helper functions
 
   // set style sheet for a wallpaper change
@@ -227,8 +234,12 @@ $(document).ready(function(){
 
   // global game variables
   var demoXaxisData = [];
-  var demoStartTimerDelay = 1000;
-  var demoNextStepDelay = 3000;
+  var demoStartTimerDelay = 3000;
+  var demoPreStepDelay = 3500;
+  var demoFirstStepDelay = 5500;
+  var demoSecondStepDelay = 5500;
+  var demoThirdStepDelay = 4000;
+
   // interval for timers
   var demoStartIntervalId;
   var demoNextStepIntervalId;
@@ -236,27 +247,38 @@ $(document).ready(function(){
 
   // start the demo slide delay
   function demoStartDelay() {
-    console.log("in global.demoStartDelay");
+    // console.log("in global.demoStartDelay");
     // update timer on page
-    demoStartIntervalId = setInterval(firstDemoStep, demoStartTimerDelay);
+    demoStartIntervalId = setInterval(preDemoStep, demoStartTimerDelay);
   }
+
+    // pre demo step
+    function preDemoStep() {
+      // console.log("in global.preDemoStep");
+      // alert(" demo start delay of 3 seconds finished");
+      clearInterval(demoStartIntervalId);
+      $(".slide-1-1").show();
+      //  need to reveil 2nd line of content
+      demoNextStepIntervalId = setInterval(firstDemoStep, demoPreStepDelay);
+    };
 
   // first demo step
   function firstDemoStep() {
-    console.log("in global.firstDemoStep");
+    // console.log("in global.firstDemoStep");
     // alert(" demo start delay of 3 seconds finished");
-    clearInterval(demoStartIntervalId);
+    clearInterval(demoNextStepIntervalId);
     // demoXaxisData.push(data36);
+    $("#slide-1-2").show();
     demoChart.addSeries(data36)
     // demoChart.redraw();
 
     // renderDemo();
-    demoNextStepIntervalId = setInterval(secondDemoStep, demoNextStepDelay);
+    demoNextStepIntervalId = setInterval(secondDemoStep, demoFirstStepDelay);
   };
 
   // second demo step
   function secondDemoStep() {
-    console.log("in global.secondtDemoStep");
+    // console.log("in global.secondtDemoStep");
     // alert(" demo step 1 delay of 5 seconds finished");
     clearInterval(demoNextStepIntervalId);
     // demoXaxisData.push(data26);
@@ -264,16 +286,16 @@ $(document).ready(function(){
 
     // demoChart.series[0].update(data26);
     // demoChart.redraw();
-
+    $("#slide-1-3").show();
     demoChart.addSeries(data26);
     // demoChart.redraw();
   
-    demoNextStepIntervalId = setInterval(thirdDemoStep, demoNextStepDelay);
+    demoNextStepIntervalId = setInterval(thirdDemoStep, demoSecondStepDelay);
   };
 
   // third demo step
   function thirdDemoStep() {
-    console.log("in global.thirdDemoStep");
+    // console.log("in global.thirdDemoStep");
     // alert(" demo step 2 delay of 5 seconds finished");
     clearInterval(demoNextStepIntervalId);
     // demoXaxisData.push(data16);
@@ -281,11 +303,22 @@ $(document).ready(function(){
 
     // demoChart.redraw();
     // demoChart.series[0].update(data16);
-
+    $("#slide-1-4").show();
     demoChart.addSeries(data16);
     // demoChart.redraw();
 
+    demoNextStepIntervalId = setInterval(forthDemoStep, demoThirdStepDelay);
+
   };
+
+  // forth demo step
+  function forthDemoStep() {
+    // console.log("in global.thirdDemoStep");
+    // alert(" demo step 2 delay of 5 seconds finished");
+    clearInterval(demoNextStepIntervalId);
+    $("#slide-1-5").show();
+  };
+
 
   demoChartOptions = 
   {
