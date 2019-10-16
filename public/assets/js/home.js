@@ -236,8 +236,8 @@ $(document).ready(function(){
   var demoXaxisData = [];
   var demoStartTimerDelay = 3000;
   var demoPreStepDelay = 3500;
-  var demoFirstStepDelay = 5500;
-  var demoSecondStepDelay = 5500;
+  var demoFirstStepDelay = 4000;
+  var demoSecondStepDelay = 4000;
   var demoThirdStepDelay = 4000;
 
   // interval for timers
