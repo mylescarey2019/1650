@@ -47,7 +47,10 @@ h3, h4 {
   height: 100px; */
   }
 
-
+.brand-rule {
+  border-top: 2px solid #1F9376;
+  width: 90%;
+ }
 
 
 #nav-bar, footer {
@@ -138,21 +141,9 @@ h3, h4 {
 } */
 
 #main-section {
-  /* margin-top: 100px;
-  margin: 100px 0px 100px 0px;
   width: 100%;
-  height: 500px;
-  padding: 32px; */
-
-  width: 100%;
-  height: 500px;
-
+  height: 600px;
   background-color: white;
-  
-  /* color: white;
-  font-weight: bold;
-  font-size: 24px; */
-  /* padding: 50px 50px; */
   position: fixed;
   top: 170px;
   margin: 0 auto ;
@@ -161,7 +152,7 @@ h3, h4 {
 }
 
 .carousel-item {
-  height: 500px;
+  height: 600px;
   width: 100%;
 }
 
@@ -203,16 +194,16 @@ h3, h4 {
 }
 
 .slide-left {
-  background-color: lightseagreen;
-  height: 500px;
+  height: 600px;
   /* margin-left: 20px; */
   border-top: solid 1px #e5e5e5;
   border-bottom: solid 1px #e5e5e5;
+  padding: 15px 25px 30px 25px;
 }
 
 .slide-right {
   background-color: lightblue;
-  height: 500px;
+  height: 600px;
   /* margin-right: 20px; */
   border-top: solid 1px #e5e5e5;
   border-bottom: solid 1px #e5e5e5;
@@ -220,26 +211,27 @@ h3, h4 {
 
 .slide-center {
   background-color: lightblue;
-  height: 500px;
+  height: 600px;
   /* margin-left: 20px;
   margin-right: 20px; */
   border-top: solid 1px #e5e5e5;
   border-bottom: solid 1px #e5e5e5;
 }
+/* 
+#slide1-l-img {
+  width: 100%;
+  height: 100%;
+} */
 
 #slide-1-left {
-  
-  /* background-attachment: fixed; */
-  /* background-repeat: no-repeat; */
+
   background-size: cover;
   background-origin: center;
-  /* width: 100%; 
-  height: 100%;  */
+
   background-image: 
-    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
     url("../img/sabine-peters-4IqiPGAuTVE-unsplash.jpg");
   color: #e5e5e5;
-  /* border-left: solid 1px #e5e5e5; */
   border-top: solid 1px #e5e5e5;
   border-bottom: solid 1px #e5e5e5;
 }
@@ -264,6 +256,15 @@ h3, h4 {
   margin: 5px 
   border-radius: 1rem;
 } */
+.big-text40 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.big-text24 {
+  font-size: 30px;
+  font-weight: 700;
+}
 
 #lower-section {
   height: 900px;
@@ -273,10 +274,7 @@ h3, h4 {
   z-index: 2;
   position: relative;
   top: 820px;
-/*   position: absolute;
-  top: 500px; */
-  /* display: block;
-  width: 100%; */
+
 }
 
 /* .jumbotron  {
@@ -500,6 +498,22 @@ a.nav-link {
   color: blue;
 }
 
+.bullet {
+  text-align: left;
+  line-height: 1.5em;
+}
+
+.red-text {
+  color: red;
+}
+
+.yellow-text {
+  color: yellow;
+}
+
+.green-text {
+  color: green;
+}
 
 /* #test-btn:hover {
   /* background-color: #4892c4;

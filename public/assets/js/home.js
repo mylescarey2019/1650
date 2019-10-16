@@ -296,10 +296,10 @@ $(document).ready(function(){
     },
     // colors: ['#FFFF00'],
     title: {
-      text: 'Power of Compound Interest',
+      text: 'The Power of Compound Interest',
       style: {
         fontWeight: 'bold',
-        fontSize: '24px',
+        fontSize: '32px',
       }
       // 'Historic and Estimated Worldwide Population Growth by Region'
     },
@@ -307,7 +307,7 @@ $(document).ready(function(){
       text: '$10 per month at 8% historic stock market return - starting at age 36, 26 and 16',
       style: {
         // fontWeight: 'bold',
-        fontSize: '13px',
+        fontSize: '14px',
       }
     },
     tooltip: {
@@ -1337,11 +1337,11 @@ $(document).ready(function(){
 
   function hideDiv() {
     // console.log(document.documentElement.scrollTop);
-    if (document.documentElement.scrollTop > 150) {
+    if (document.documentElement.scrollTop > 50) {
       $("#main-section").fadeOut();
       
     } 
-    else if (document.documentElement.scrollTop <= 150) {
+    else if (document.documentElement.scrollTop <= 50) {
       $("#main-section").fadeIn();
     }
   };

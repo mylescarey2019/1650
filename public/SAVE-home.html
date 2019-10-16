@@ -17,52 +17,75 @@
 
 </head>
 <body>
-  <nav id="nav-bar" class="navbar fixed-top navbar-expand-sm">
-    <div id="brand">1650</div>
-   
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-      </ul>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="0" href="#">Slide 1</a>
-          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="1" href="#">Slide 2</a>
-          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="2" href="#">Slide 3</a>
-          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="3" href="#">Slide 4</a>
-          <a class="linkcolor" data-target="#carousel-example-2" data-slide-to="4" href="#">Slide 5</a>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Wallpaper
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item active" data-value="money" href="#">Money</a>
-              <a class="dropdown-item" data-value="desert" href="#">Desert</a>
-              <a class="dropdown-item" data-value="ocean" href="#">Ocean</a>
-              <a class="dropdown-item" data-value="mountain" href="#">Mountain</a>
-              <a class="dropdown-item" data-value="road" href="#">Road</a>
-              <a class="dropdown-item" data-value="tunnel" href="#">Tunnel</a>
-              <a class="dropdown-item" data-value="chess" href="#">Chess</a>
-              <a class="dropdown-item" data-value="glass" href="#">Glass</a>
-            </div>
-          </li>
-  
-        </ul>
-      </div>
+  <!-- <nav>
+    <div class="container">
+        <h1 class="mb-0"><a href="#">Logo</a></h1>
+        <button class="navbar-toggler mt-1" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-column align-items-start ml-lg-2 ml-0" id="navbarCollapse">
+            <span class="navbar-text ml-auto py-0 px-lg-2">(00) 1234 5678</span>
+            <ul class="navbar-nav mb-auto mt-0 ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link py-0" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#">Company</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-0" href="#">Blog</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div id="tag-line">Start saving at 16 watch it grow for 50 years</div>
-  </nav>
+  </nav> -->
 
-  
-  <!-- <div class="container"> -->
-  <!-- <div id="main-section" class="jumbotron jumbotron-fluid"> -->
-    <!-- <h1 id="name">Custodial IRA Planning</h1>
-    <h3>1650 - Start at age 16 and let your money grow for 50 years</h3>
-    <hr>
-    <h4>Time and money working for you</h4> -->
+  <nav id="nav-bar" class="navbar fixed-top navbar-expand-sm">
+    <div id="brand-logo" class="brand">1650</div>
+    <p class="tag-line">
+        Start saving at 16 watch it <strong>grow</strong> for 50 years
+    </p>
+    <div class="collapse navbar-collapse flex-md-column" id="navbarCollapse">
+        <ul id="nav-line" class="navbar-nav ml-auto">
+            <a class="linkcolor slide-nav nav-link active-nav-link" data-target="#carousel-example-2" data-slide-to="0" href="#">Introduction</a>
+            <a class="linkcolor slide-nav nav-link" data-target="#carousel-example-2" data-slide-to="1" href="#">Get Started</a>
+            <a class="linkcolor slide-nav nav-link " data-target="#carousel-example-2" data-slide-to="2" href="#">Students</a>
+            <a class="linkcolor slide-nav nav-link" data-target="#carousel-example-2" data-slide-to="3" href="#">Parents</a>
+            <a class="linkcolor slide-nav nav-link " data-target="#carousel-example-2" data-slide-to="4" href="#">Custodial IRA</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="wallpaperDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Wallpaper
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item wallpaper active" data-value="money" href="#">Money</a>
+                <a class="dropdown-item wallpaper" data-value="desert" href="#">Desert</a>
+                <a class="dropdown-item wallpaper" data-value="ocean" href="#">Ocean</a>
+                <a class="dropdown-item wallpaper" data-value="mountain" href="#">Mountain</a>
+                <a class="dropdown-item wallpaper" data-value="road" href="#">Road</a>
+                <a class="dropdown-item wallpaper" data-value="tunnel" href="#">Tunnel</a>
+                <a class="dropdown-item wallpaper" data-value="chess" href="#">Chess</a>
+                <a class="dropdown-item wallpaper" data-value="glass" href="#">Glass</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="signinDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Login
+              </a>
+              <div id="login-dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item signin active" data-value="login" href="#">Login</a>
+                <a class="dropdown-item signin" data-value="signup" href="#">Signup</a>
+                <!-- <a class="dropdown-item signin" data-value="logout" href="#">Logout</a> -->
+              </div>
+            </li>
+            <a id="your-charts" class="linkcolor nav-link disabled" href="#">Your Models</a>
+          </ul>
+    </div>
+  </nav>
+ 
   <div id="main-section" class="bd-example">
     <div id="carousel-example-2" class="carousel slide " data-ride="carousel" data-interval="false">
       <ol class="carousel-indicators">
@@ -77,18 +100,27 @@
           <div class="slide-body">
             <div id="first-slide" class="container-fluid"> 
               <div class="row">
-                <div class="col-6 slide-left">
-                  THIS IS SLIDE 1  
+                <div id="slide-1-left" class="col-6 slide-left">
+                  <h1 id="slide-1-headline">Here at <span class="brand">1650</span> learn about starting your Custodial Retirement IRA</h1>
+                  <hr id="slide-1-1" class="brand-rule">
+                  <h3 id="slide-1-1">As a 16 or 17 year old with a part time job you can start &nbsp;<span class="big-text40">today</span></h3>
+                  <hr id="slide-1-1" class="brand-rule">
+                  <ul>
+                    <li id="slide-1-2"><h4 class="bullet">In this IRA example investing $10 a month starting at age 36 could grow to <span class="red-text">$15,000</span> after 50 years</h4></li>
+                    <li id="slide-1-3"><h4 class="bullet">Starting at age 26 it could grow to <span class="yellow-text">$35,000</span> after 50 years</h4></li>
+                    <li id="slide-1-4"><h4 class="bullet">But starting at age 16 it could grow to <span class="green-text big-text24">$80,000</span></h4></li>
+                    <li id="slide-1-5"><h4 class="bullet">That is <em><strong>Time</strong></em> & <em><strong>Compound Interest</strong></em> working for <em><strong>you</stron></em> <br />Learn more on the next slides</h4></li>                    
+                  </ul>
                 </div>
                 <div id="slide-chart" class="col-6 slide-right">
-                  CHART WILL GO HERE
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="carousel-item">
-            <div id="second-slide" class="container-fluid slide-body"> 
+          <div class="slide-body">
+            <div id="second-slide" class="container-fluid"> 
                 <div class="row">
                   <div class="col-12 slide-center">
                       SLIDE 2    amet consectetur adipisicing elit. Consequatur maxime fugiat architecto amet magnam autem magni, sapiente
@@ -105,10 +137,11 @@
                   </div>
                 </div>
             </div>
+          </div>
         </div>
         <div class="carousel-item">
-          <!-- <div class="slide-body">THIS IS SLIDE 3</div> -->
-          <div id="third-slide" class="container-fluid slide-body"> 
+          <div class="slide-body">
+            <div id="third-slide" class="container-fluid"> 
               <div class="row">
                 <div class="col-3 slide-left">
                   THIS IS SLIDE 3 left side  
@@ -117,34 +150,35 @@
                   THIS IS SLIDE 3 right side 
                 </div>
               </div>
+            </div> 
           </div>
         </div>
         <div class="carousel-item">
-          <!-- <div class="slide-body">THIS IS SLIDE 4</div> -->
-          <div id="forth-slide" class="container-fluid slide-body"> 
-            <div class="row">
-              <div class="col-5 slide-left">
-                THIS IS SLIDE 4 left side  
-              </div>
-              <div class="col-7 slide-right">
-                THIS IS SLIDE 4 right side 
+          <div class="slide-body">
+            <div id="forth-slide" class="container-fluid"> 
+              <div class="row">
+                <div class="col-5 slide-left">
+                  THIS IS SLIDE 4 left side  
+                </div>
+                <div class="col-7 slide-right">
+                  THIS IS SLIDE 4 right side 
+                </div>
               </div>
             </div>
-            <!-- </div> -->
           </div>
         </div>
         <div class="carousel-item">
-          <!-- <div class="slide-body">THIS IS SLIDE 5</div> -->
-          <div id="fifth-slide" class="container-fluid slide-body"> 
-            <div class="row">
-              <div class="col-8 slide-left">
-                THIS IS SLIDE 5 left side  
+          <div class="slide-body">
+            <div id="fifth-slide" class="container-fluid"> 
+              <div class="row">
+                <div class="col-8 slide-left">
+                  THIS IS SLIDE 5 left side  
+                </div>
+                <div class="col-4 slide-right">
+                  THIS IS SLIDE 5 right side 
+                </div>
               </div>
-              <div class="col-4 slide-right">
-                THIS IS SLIDE 5 right side 
               </div>
-            </div>
-            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -169,7 +203,8 @@
     </div>  
       <div id="grid" class="row no-margin">
         <div id="table-div" class="col-12">
-          <button id="test-btn" type="button" class="btn btn-outline-dark btn-sml">Test</button>
+          <button id="test-btn" type="button" class="btn btn-dark btn-sml">Refresh Model</button>
+          <button id="new-model-btn" type="button" class="btn btn-dark btn-sml">Create New Model</button>
           <table id='grid-table'>
             <div>
               <caption contenteditable="true" id="grid-caption"></caption>
@@ -188,11 +223,113 @@
       </div>
     </div>
 
+
+    <div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content custom">
+          <div class="modal-header">
+            <div class="brand">1650</div>
+            <p class="tag-line">
+                Start saving at 16 watch it <strong>grow</strong> for 50 years
+            </p>
+          </div>
+          <div class="modal-body">
+            <form id="login-form" class="login">
+                <div class="form-group">
+                  <label for="name-input">Username</label>
+                  <input type="text" class="form-control" id="user-name" placeholder="">
+                  <label for="password-input">Password</label>
+                  <input type="text" class="form-control" id="password" placeholder="">
+                </div>
+                <p id="login-msg"></p>
+                <input id="login-submit" class="btn btn-success" type="submit" value="Login">
+                <button id="login-close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <!-- <input id="submit" class="btn btn-success" type="submit" value="login">
+            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          </div>
+          <p id="signup-msg">If you do not have an account please sign up <a id="jump-to-signup" >here</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="logout-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content custom">
+          <div class="modal-header">
+            <div class="brand">1650</div>
+            <p class="tag-line">
+                Start saving at 16 watch it <strong>grow</strong> for 50 years
+            </p>
+          </div>
+          <div class="modal-body">
+            <form class="logout">
+              <p id="logout-msg" >Are you sure you want to logout?</p>
+              <input id="logout-submit" class="btn btn-success" type="submit" value="Logout">
+              <button id="logout-close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </form>  
+          </div>
+          <div class="modal-footer">
+            <!-- <input id="submit" class="btn btn-success" type="submit" value="Logout">
+            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="load-models-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content custom">
+          <div class="modal-header">
+            <div class="brand">1650</div>
+            <p class="tag-line">
+                Start saving at 16 watch it <strong>grow</strong> for 50 years
+            </p>
+          </div>
+          <div id="model-modal-body" class="modal-body">
+            <div class="container-fluid">
+              <div class="row no-margin">
+                <div id="model-table-div" class="col-12">
+                  <table id='model-table'>
+                    <div>
+                      <caption id="model-caption"></caption>
+                    </div>  
+                    <tr id="model-table-header">
+                      <th>User Name</th>  
+                      <th>Model Name</th>
+                      <th>Model ID</th>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <p id="load-models-msg">Click on a model name to load it</p>
+            <!-- <input id="logout-submit" class="btn btn-success" type="submit" value="Logout"> -->
+            <button id="load-models-close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          </div>
+          <div class="modal-footer">
+            <!-- <input id="submit" class="btn btn-success" type="submit" value="Logout">
+            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   <!-- <footer id="footer-bar" class="navbar">
     <span id="footer-text" class="navbar-text">  -->
   <footer id="footer-bar">
     <!-- <button id="test-btn" type="button" class="btn btn-outline-dark btn-sml">Test</button> -->
-    <span id="footer-text">
+    <div id="footer-user-label">Logged in as: </div>
+    <div id="logged-user" data-id=""></div>
+    <div id="footer-id-label">User Id: </div>
+    <div id="logged-id"></div>
+    <div id="footer-model-id-label">Model Id: </div>
+    <div id="footer-model-id"></div>
+    <div id="footer-text"></div>
       <!-- move this logic to home.js if end up keeping feature -->
       <!-- <a href="#" onclick="setStyleSheet('assets/css/default-theme.css')">Default-Theme</a>
       <a href="#" onclick="setStyleSheet('assets/css/ocean-theme.css')">Ocean-Theme</a>
