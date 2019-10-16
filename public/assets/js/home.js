@@ -967,9 +967,10 @@ $(document).ready(function(){
 });
 
 
-  // wall paper drop down event
+  // wall paper drop down change click event
   $(document).on("click", ".dropdown-item.wallpaper", function() {
     console.log("in global.dropdown-item.wallpaper click event");
+    event.preventDefault();  
     console.log("you pressed: " + $(this).data("value"));
     var clickedValue = $(this).data("value");
     console.log("value is: ",clickedValue); 
