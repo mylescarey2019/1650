@@ -414,7 +414,7 @@ a.nav-link {
   margin-left: 250px;
 }
 
-.model-plan-item:hover  {
+.model-plan-item:hover, #brand-logo, #jump-to-signup {
   cursor: pointer;
 }
 
@@ -495,6 +495,11 @@ a.nav-link {
   width: 200px;
   float: right;
 }
+
+#jump-to-signup {
+  color: blue;
+}
+
 
 /* #test-btn:hover {
   /* background-color: #4892c4;

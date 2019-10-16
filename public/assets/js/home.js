@@ -950,8 +950,16 @@ $(document).ready(function(){
     console.log("in global.test-btn click event")
     // ajax put call for refreshing the guest model 
     // update financial model (plan and chapters)
+    
+    // check the location of the graph so
+    // it can be scrolled up or down to be centered
+    var chartOffset = $("#lower-section").offset();
+    var scrollAmt = $(window).scrollTop();
+    console.log(`chart top offset is: ${chartOffset.top} scroll is ${scrollAmt}`);
+
     updateChartPut();
   });
+
 
   // create new user model event
   $("#new-model-btn").on("click",function() {
@@ -1284,6 +1292,27 @@ $(document).ready(function(){
   });
 
 
+ //  nav-link - force scroll to top
+ $(document).on("click", ".slide-nav", function() {
+  //  $("#main-section").fadeIn();
+   window.scroll({
+     top: 0,
+     left: 0,
+     behavior: "smooth"
+   });
+ });
+  
+ //  brand-link - force scroll to top
+ $(document).on("click", "#brand-logo", function() {
+  //  $("#main-section").fadeIn();
+   window.scroll({
+     top: 0,
+     left: 0,
+     behavior: "smooth"
+   });
+ }); 
+
+
   // autofocus the bootstrap fade in model - first input field
   $("#login-modal").on('shown.bs.modal', function () {
     $(this).find("input:visible:first").focus();
@@ -1297,6 +1326,11 @@ $(document).ready(function(){
     $(`.nav-link[data-slide-to="${slideFrom}"]`).removeClass('active-nav-link');
     $(`.nav-link[data-slide-to="${slideTo}"]`).addClass('active-nav-link');
   });
+
+
+
+  
+
 
   // toggle upper section on/off when users scrolls down/up
   window.onscroll = function() {hideDiv()};
