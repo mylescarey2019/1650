@@ -3,8 +3,8 @@
 //on document load
 $(document).ready(function(){
 
-  // hide the save model button until user signed in
-  $('#save-btn').hide();
+  // hide the new model button until user signed in
+  $('#new-model-btn').hide();
 
   // helper functions
 
@@ -730,10 +730,11 @@ $(document).ready(function(){
 
   // // $('#slide-chart').highcharts().redraw();
 
- 
+
   // function to get clone and return a plan to render for the guest signon
-  function getClonePlan() {
-    $.ajax("/api/clone-plan/1", {       // cloning system demo plan 1
+  function getClonePlan(plan) {
+    console.log(`CLONE CLIENT-SIDE2 ${JSON.stringify(plan)}`);
+    $.ajax(`/api/clone-plan/${plan.id}/${plan.planName}/${plan.userId}/${plan.planTypeId}`, {       // cloning system demo plan 1
       // $.ajax("/api/plan-user-life-chapter/1", {  
         type: "GET"
       }).then(function(res) {
@@ -752,6 +753,7 @@ $(document).ready(function(){
           console.log(`user ${JSON.stringify(res)}`) 
           $("#logged-id").text(res.userId);
           $("#logged-user").text(res.userName);
+          $("#footer-model-id").text(res.id);
     
           $("tr.model-row").remove();
           res.lifeChapters.map(chapter => {
@@ -782,8 +784,67 @@ $(document).ready(function(){
   };
 
   // initial page load clone plan
-  getClonePlan();
+  var clonePlan = {
+    id: 1,   // clone from base model
+    planName: 'Your Guest Financial IRA Model',
+    userId: 2,  // user is 'guest'
+    planTypeId: 2, // type is 'guest'
+  };
+  console.log(`CLONE CLIENT-SIDE ${JSON.stringify(clonePlan)}`);
+  getClonePlan(clonePlan);
+
+  // call to render return result of plan
+  function renderReturnedPlan(res) {
+    var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
+    // var financialModelChapters = [];
+    // console.log(yearAxis);
+    // console.log(dollarAxis);
+    console.log(`UPDATED:: ${JSON.stringify(res)}`);
+
+    $("#grid-caption").text(res.name);
+    $("#grid-caption").attr('data-id',`${res.id}`);
+    $("#footer-model-id").text(res.id);
+    $("#grid-caption").attr('data-user-id',`${res.userId}`);
+    $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
+
+
+    $("tr.model-row").remove();
+    res.lifeChapters.map(chapter => {
+      console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
+                  invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
+                  return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
+      // var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`).attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
+      // modelRow.append($(`<td>${chapter.name}</td>`));
+      // modelRow.append($(`<td>${chapter.startYear}</td>`));
+      // modelRow.append($(`<td>${chapter.endYear}</td>`));
+      // modelRow.append($(`<td>${chapter.investAmount}</td>`));
+      // modelRow.append($(`<td>${chapter.frequency}</td>`));
+      // modelRow.append($(`<td>${chapter.returnPct}</td>`));
+      // modelRow.append($(`<td>${chapter.inflationPct}</td>`));
+      // $("#grid-table").append(modelRow);
+
+      var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
+      modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
+      modelRow.attr('data-seq-no',`${chapter.seqNo}`);
+      modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
+      modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
+      modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
+      modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
+      modelRow.append($(`<td>${chapter.frequency}</td>`));
+      modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
+      modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
+      $("#grid-table").append(modelRow);
+      // // create a chapter for use in financial model object
+      // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
+      //   chapter.investAmount,chapter.returnPct,chapter.inflationPct,chapter.investRateTypeId,res.id));
+    });
+    // // create financial model object for use client side
+    // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
+    // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
+    renderChart(res.name, yearAxis, dollarAxis);
+  };
  
+  // call to update plan and then render the return result
   function updateChartPut() {
     // plan to update
     var plan = {
@@ -816,21 +877,6 @@ $(document).ready(function(){
       updatedChapters.push(chapter);
     }); 
 
-    // some changes in lieu of front end data entry being ready
-    // plan.plan_name = "TESTING CHANGE ROUTE 2";
-    // updatedChapters[0].chapter_name = "FUBAR";
-    // updatedChapters[0].start_age = 15;
-    // updatedChapters[0].end_age = 17;
-    // updatedChapters[0].invest_amount = 13.13;
-    // updatedChapters[0].return_pct = 9.9;
-    // updatedChapters[0].inflation_pct = 2.2;
-    // updatedChapters[1].chapter_name = "FOO";
-    // updatedChapters[1].start_age = 18;
-    // updatedChapters[1].end_age = 22;
-    // updatedChapters[1].invest_amount = 21.21;
-    // updatedChapters[1].return_pct = 7.7;
-    // updatedChapters[1].inflation_pct = 1.1;
-
     console.log(JSON.stringify(updatedChapters));
 
     // add the array of chapters to the request plan arugument
@@ -841,179 +887,84 @@ $(document).ready(function(){
     
   
 
-    // turn off call while I try to code for the update object content
+    // now call API to update and then take the results for rendering
     $.ajax("/api/plan-life-chapters", {       
         type: "PUT",
         data: plan
       }).then(function(res) {
-          var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
-          // var financialModelChapters = [];
-          // console.log(yearAxis);
-          // console.log(dollarAxis);
-          console.log(`UPDATED:: ${JSON.stringify(res)}`);
+          // var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
+          // // var financialModelChapters = [];
+          // // console.log(yearAxis);
+          // // console.log(dollarAxis);
+          // console.log(`UPDATED:: ${JSON.stringify(res)}`);
 
-          $("#grid-caption").text(res.name);
-          $("#grid-caption").attr('data-id',`${res.id}`);
-          $("#grid-caption").attr('data-user-id',`${res.userId}`);
-          $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
+          // $("#grid-caption").text(res.name);
+          // $("#grid-caption").attr('data-id',`${res.id}`);
+          // $("#grid-caption").attr('data-user-id',`${res.userId}`);
+          // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
 
 
-          $("tr.model-row").remove();
-          res.lifeChapters.map(chapter => {
-            console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
-                        invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
-                        return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
-            // var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`).attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
-            // modelRow.append($(`<td>${chapter.name}</td>`));
-            // modelRow.append($(`<td>${chapter.startYear}</td>`));
-            // modelRow.append($(`<td>${chapter.endYear}</td>`));
-            // modelRow.append($(`<td>${chapter.investAmount}</td>`));
-            // modelRow.append($(`<td>${chapter.frequency}</td>`));
-            // modelRow.append($(`<td>${chapter.returnPct}</td>`));
-            // modelRow.append($(`<td>${chapter.inflationPct}</td>`));
-            // $("#grid-table").append(modelRow);
+          // $("tr.model-row").remove();
+          // res.lifeChapters.map(chapter => {
+          //   console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
+          //               invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
+          //               return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
+          //   // var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`).attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
+          //   // modelRow.append($(`<td>${chapter.name}</td>`));
+          //   // modelRow.append($(`<td>${chapter.startYear}</td>`));
+          //   // modelRow.append($(`<td>${chapter.endYear}</td>`));
+          //   // modelRow.append($(`<td>${chapter.investAmount}</td>`));
+          //   // modelRow.append($(`<td>${chapter.frequency}</td>`));
+          //   // modelRow.append($(`<td>${chapter.returnPct}</td>`));
+          //   // modelRow.append($(`<td>${chapter.inflationPct}</td>`));
+          //   // $("#grid-table").append(modelRow);
 
-            var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
-            modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
-            modelRow.attr('data-seq-no',`${chapter.seqNo}`);
-            modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
-            modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
-            modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
-            modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
-            modelRow.append($(`<td>${chapter.frequency}</td>`));
-            modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
-            modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
-            $("#grid-table").append(modelRow);
-            // // create a chapter for use in financial model object
-            // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
-            //   chapter.investAmount,chapter.returnPct,chapter.inflationPct,chapter.investRateTypeId,res.id));
-          });
-          // // create financial model object for use client side
-          // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
-          // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
-          renderChart(res.name, yearAxis, dollarAxis);
+          //   var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
+          //   modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
+          //   modelRow.attr('data-seq-no',`${chapter.seqNo}`);
+          //   modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
+          //   modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
+          //   modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
+          //   modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
+          //   modelRow.append($(`<td>${chapter.frequency}</td>`));
+          //   modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
+          //   modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
+          //   $("#grid-table").append(modelRow);
+          //   // // create a chapter for use in financial model object
+          //   // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
+          //   //   chapter.investAmount,chapter.returnPct,chapter.inflationPct,chapter.investRateTypeId,res.id));
+          // });
+          // // // create financial model object for use client side
+          // // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
+          // // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
+          // renderChart(res.name, yearAxis, dollarAxis);
+
+          // now render the chart by calling helper function
+          renderReturnedPlan(res);
         }
       );
   };
 
-  // test button event
+  // save & refresh model event
   $("#test-btn").on("click",function() {
     console.log("in global.test-btn click event")
-    // ajax put call for testing update of model 
+    // ajax put call for refreshing the guest model 
     // update financial model (plan and chapters)
     updateChartPut();
-
-    // // plan to update
-    // var plan = {
-    //   id: $("#grid-caption").attr('data-id'),
-    //   plan_name: $("#grid-caption").text(),
-    //   PlanUserId: $("#grid-caption").attr('data-user-id'),
-    //   PlanTypeId: $("#grid-caption").attr('data-plan-type-id'),
-    // };
-
-    // // chapters to update
-    // var updatedChapters = [];
-    // $("tr.model-row").each(function() {
-    //   var chapter = {};
-    //   chapterId = $(this).attr('data-id');
-    //   Object.assign(chapter,{id: chapterId});
-    //   seqNo = $(this).attr('data-seq-no');
-    //   Object.assign(chapter,{seq_no: seqNo});
-    //   $(this).find("td").each(function() {
-    //     if ($(this).data("key")) {
-    //       console.log(`the key is:  ${$(this).data("key")}`);
-    //       console.log(`CHAPTER-TD element: ${$(this).text()}`);
-    //       thing = $(this).data("key");
-    //       Object.assign(chapter,{[thing]: $(this).text()});
-    //     };
-    //   });
-    //   investRateTypeId = $(this).attr('data-invest-rate-type-id');
-    //   Object.assign(chapter,{InvestRateTypeId: investRateTypeId});
-    //   Object.assign(chapter,{PlanId: $("#grid-caption").attr('data-id')});
-    //   console.log(`This is the chapter object: ${JSON.stringify(chapter)}`);
-    //   updatedChapters.push(chapter);
-    // }); 
-
-    // // some changes in lieu of front end data entry being ready
-    // // plan.plan_name = "TESTING CHANGE ROUTE 2";
-    // // updatedChapters[0].chapter_name = "FUBAR";
-    // // updatedChapters[0].start_age = 15;
-    // // updatedChapters[0].end_age = 17;
-    // // updatedChapters[0].invest_amount = 13.13;
-    // // updatedChapters[0].return_pct = 9.9;
-    // // updatedChapters[0].inflation_pct = 2.2;
-    // // updatedChapters[1].chapter_name = "FOO";
-    // // updatedChapters[1].start_age = 18;
-    // // updatedChapters[1].end_age = 22;
-    // // updatedChapters[1].invest_amount = 21.21;
-    // // updatedChapters[1].return_pct = 7.7;
-    // // updatedChapters[1].inflation_pct = 1.1;
-
-    // console.log(JSON.stringify(updatedChapters));
-
-    // // add the array of chapters to the request plan arugument
-    // Object.assign(plan,{updatedChapters: updatedChapters});
-
-    // console.log(JSON.stringify(plan));
-
-    
- 
-
-    // // turn off call while I try to code for the update object content
-    // $.ajax("/api/plan-life-chapters", {       
-    //     type: "PUT",
-    //     data: plan
-    //   }).then(function(res) {
-    //       var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
-    //       // var financialModelChapters = [];
-    //       // console.log(yearAxis);
-    //       // console.log(dollarAxis);
-    //       console.log(res);
-
-    //       $("#grid-caption").text(res.name);
-    //       $("#grid-caption").attr('data-id',`${res.id}`);
-    //       $("#grid-caption").attr('data-user-id',`${res.userId}`);
-    //       $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
-
-
-    //       $("tr.model-row").remove();
-    //       res.lifeChapters.map(chapter => {
-    //         console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
-    //                     invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
-    //                     return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
-    //         // var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`).attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
-    //         // modelRow.append($(`<td>${chapter.name}</td>`));
-    //         // modelRow.append($(`<td>${chapter.startYear}</td>`));
-    //         // modelRow.append($(`<td>${chapter.endYear}</td>`));
-    //         // modelRow.append($(`<td>${chapter.investAmount}</td>`));
-    //         // modelRow.append($(`<td>${chapter.frequency}</td>`));
-    //         // modelRow.append($(`<td>${chapter.returnPct}</td>`));
-    //         // modelRow.append($(`<td>${chapter.inflationPct}</td>`));
-    //         // $("#grid-table").append(modelRow);
-
-    //         var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
-    //         modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
-    //         modelRow.attr('data-seq-no',`${chapter.seqNo}`);
-    //         modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
-    //         modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
-    //         modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
-    //         modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
-    //         modelRow.append($(`<td>${chapter.frequency}</td>`));
-    //         modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
-    //         modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
-    //         $("#grid-table").append(modelRow);
-    //         // // create a chapter for use in financial model object
-    //         // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
-    //         //   chapter.investAmount,chapter.returnPct,chapter.inflationPct,chapter.investRateTypeId,res.id));
-    //       });
-    //       // // create financial model object for use client side
-    //       // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
-    //       // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
-    //       renderChart(res.name, yearAxis, dollarAxis);
-    //     }
-    //   );
-  
   });
+
+  // create new user model event
+  $("#new-model-btn").on("click",function() {
+    console.log("in global.new-model-btn click event")
+    // ajax put call for creating new user model
+    var clonePlan = {
+      id: 1, // clone from the base model
+      planName: 'Your New Model',
+      userId: $("#grid-caption").attr('data-user-id'),    // user is the current user
+      planTypeId: 3,  // type is 'user'
+    };
+    getClonePlan(clonePlan);
+});
 
 
   // wall paper drop down event
@@ -1039,8 +990,8 @@ $(document).ready(function(){
   });
 
   // login drop down event
-  $(document).on("click", ".dropdown-item.signin", function() {
-
+  $(document).on("click", ".dropdown-item.signin", function(event) {
+    event.preventDefault();  
     console.log("in global.dropdown-item.signin click event");
     console.log("you pressed: " + $(this).data("value"));
     var clickedValue = $(this).data("value");
@@ -1112,16 +1063,18 @@ $(document).ready(function(){
         $('#logged-user').text(data.user_name);
         $('#logged-user').attr('data-id',data.id)
         $('#logged-id').text(data.id);
+        
         // set the logged in user on the grid attributes for the next refresh
         $("#grid-caption").attr('data-user-id',data.id);  // change to the logged in user id
         $("#grid-caption").attr('data-plan-type-id',3); // change to plan type 3 (user)
+        $('#new-model-btn').show();
         $("#your-charts").removeClass('disabled');
         // clear form fields
         $('#user-name').val("");
         $('#password').val("");
         $('#login-msg').text("");
         // change the refresh button to save & refresh since a user has signed in
-        $('#test-btn').text('Save & Refresh Graph');
+        $('#test-btn').text('Save & Refresh Model');
         // // turn on the save model button since there is a user now
         // $('#save-btn').show();
         // switch login menu title
@@ -1172,13 +1125,14 @@ $(document).ready(function(){
         // set the logged in user on the grid attributes for the next refresh
         $("#grid-caption").attr('data-user-id',data.id);  // change to the logged in user id
         $("#grid-caption").attr('data-plan-type-id',3); // change to plan type 3 (user)
+        $('#new-model-btn').show();
         $("#your-charts").removeClass('disabled');
         // clear form fields
         $('#user-name').val("");
         $('#password').val("");
         $('#login-msg').text("");
         // change the refresh button to save & refresh since a user has signed in
-        $('#test-btn').text('Save & Refresh Graph');
+        $('#test-btn').text('Save & Refresh Model');
         // // turn on the save model button since there is a user now
         // $('#save-btn').show();
         // switch login menu title
@@ -1200,7 +1154,8 @@ $(document).ready(function(){
   });
 
   // logout form submit event
-  $(document).on("submit", "form.logout", function() {
+  $(document).on("submit", "form.logout", function(event) {
+    event.preventDefault();  
     console.log("in global.logout click event");
     console.log("logout route goes here");
     $.get("/logout")
@@ -1210,6 +1165,7 @@ $(document).ready(function(){
         $('#logged-user').text('guest');
         $('#logged-user').attr('data-id','2')
         $('#logged-id').text('2');
+        $('#new-model-btn').hide();
         $("#your-charts").addClass('disabled');
 
         // MRC** - this is a problem - if you logout the user's model is still
@@ -1223,7 +1179,7 @@ $(document).ready(function(){
         // switch login menu title
         $('#signinDropdown').text('Login');
         // change the refresh button to save & refresh since a user has logged in
-        $('#test-btn').text('Refresh Graph');
+        $('#test-btn').text('Refresh Model');
         // // turn off the save model button since user has logged out
         // $('#save-btn').hide();
         // set the login dropdown menu options
@@ -1235,7 +1191,13 @@ $(document).ready(function(){
 
         // need to clone the demo model since user has logged out and
         // now the user is the guest user
-        getClonePlan();
+        var clonePlan = {
+          id: 1,  // clone from base model
+          planName: 'Your Guest Financial IRA Model',
+          userId: 2, // user is 'guest'
+          planTypeId: 2,  // type is 'guest'
+        };
+        getClonePlan(clonePlan);
 
         return;
       })
@@ -1249,8 +1211,9 @@ $(document).ready(function(){
 
 
   // load models button event
-  $(document).on("click", "#your-charts", function() {
+  $(document).on("click", "#your-charts", function(event) {
     // console.log("in global.your-charts click event");
+    event.preventDefault();  
 
     $.ajax(`/api/plan-user-plans/${$("#grid-caption").attr('data-user-id')}`, {     
         type: "GET"
@@ -1275,41 +1238,9 @@ $(document).ready(function(){
             $("#model-table").append(modelRow);
           });
         };
-
-
-          // $("#grid-caption").text(res.name);
-          // $("#grid-caption").attr('data-id',`${res.id}`);
-          // $("#grid-caption").attr('data-user-id',`${res.userId}`);
-          // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
-    
-          // // update current logged in user information for display on page
-          // console.log(`user ${JSON.stringify(res)}`) 
-          // $("#logged-id").text(res.userId);
-          // $("#logged-user").text(res.userName);
-    
-          // $("tr.model-row").remove();
-          // res.lifeChapters.map(chapter => {
-          //   console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
-          //                invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
-          //                return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
-          //   var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
-          //   modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
-          //   modelRow.attr('data-seq-no',`${chapter.seqNo}`);
-          //   modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
-          //   modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
-          //   modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
-          //   modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
-          //   modelRow.append($(`<td>${chapter.frequency}</td>`));
-          //   modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
-          //   modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct'));
-          //   $("#grid-table").append(modelRow);
-          // });
-
-        }
-      );
+      });
 
     $('#load-models-modal').modal('show');
-
   });
 
 
@@ -1318,6 +1249,36 @@ $(document).ready(function(){
   $(document).on("click", ".model-plan-item", function() {
     // console.log("in global.model-plan-item click event");
     // console.log("you pressed " + $(this).attr("data-id"));
+
+    // get model that was clicked and render 
+    $.ajax(`/api/plan-user-life-chapter/${$(this).attr("data-id")}`, {     
+      type: "GET"
+    }).then(function(res) {
+        console.log(`MODEL RETURNED: ${JSON.stringify(res)}`);
+
+      // render the returned result
+      renderReturnedPlan(res);
+
+      // // remove any modal model rows from previous opens
+      // $("tr.modal-model-row").remove();
+
+      // if (res[0].Plans.length === 0) {
+      //   $("#load-models-msg").text('You currently have no models to load');
+      // } else {
+      //   $("#load-models-msg").text('Click on a model name to load it');
+      //   res[0].Plans.map(plan => {
+      //     // console.log(`user name: ${res[0].user_name}  plan_name ${plan.plan_name} plan id: ${plan.id}`);
+      //     var modelRow = $('<tr>').addClass("modal-model-row");
+      //     modelRow.append($(`<td>${res[0].user_name}</td>`));
+      //     modelRow.append($(`<td class="model-plan-item">${plan.plan_name}</td>`).attr('data-id',`${plan.id}`));
+      //     modelRow.append($(`<td>${plan.id}</td>`));
+      //     $("#model-table").append(modelRow);
+      //   });
+      // };
+    });
+
+    // close load modal
+    $('#load-models-modal').modal('hide');
 
   });
 

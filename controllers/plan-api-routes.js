@@ -364,8 +364,7 @@ module.exports = function (app) {
 });
 
 
-
-  // MRC ***
+  // MRC ***  ATTEMPT AT CREATE/CLONE ROUTE
 
   // clone a plan 
   // initially this will be used to clone demo plan id 1
@@ -373,8 +372,9 @@ module.exports = function (app) {
   // and use it without being registered or logged in
   // This cloned model will not be recoverable after user
   // leaves page - (no database cleanup being setup at the moment)
-  app.get("/api/clone-plan/:id", function (req, res) {
+  app.get("/api/clone-plan/:id/:planName/:userId/:planTypeId", function (req, res) {
     // retrieve the model being cloned from
+    console.log(`CLONE SERVER-SIDE: ${JSON.stringify(req.params)}`);
     db.Plan.findOne({
       where: { id: req.params.id },
       include: [{ model: db.PlanUser },
@@ -387,9 +387,9 @@ module.exports = function (app) {
       ]
     }).then(function (cloneFromPlan) {
       db.Plan.create({
-        plan_name: 'Your Guest Financial IRA Model',
-        PlanUserId: 2, // guest user id
-        PlanTypeId: 2  // guest plan type id
+        plan_name:  req.params.planName,
+        PlanUserId: req.params.userId, // guest user id
+        PlanTypeId: req.params.planTypeId  // guest plan type id
       }).then(function (results) {
 
         // results.LifeChapters.map(chapter => {
@@ -444,6 +444,87 @@ module.exports = function (app) {
       })
     })
   });
+
+
+  // // MRC ***  WORKING VERSION
+
+  // // clone a plan 
+  // // initially this will be used to clone demo plan id 1
+  // // to allow guest vistors to receive a rendered model
+  // // and use it without being registered or logged in
+  // // This cloned model will not be recoverable after user
+  // // leaves page - (no database cleanup being setup at the moment)
+  // app.get("/api/clone-plan/:id", function (req, res) {
+  //   // retrieve the model being cloned from
+  //   db.Plan.findOne({
+  //     where: { id: req.params.id },
+  //     include: [{ model: db.PlanUser },
+  //     {
+  //       model: db.LifeChapter,
+  //       include: [{ model: db.InvestRateType }]
+  //     }],
+  //     order: [
+  //       [db.LifeChapter, 'seq_no', 'asc']
+  //     ]
+  //   }).then(function (cloneFromPlan) {
+  //     db.Plan.create({
+  //       plan_name: 'Your Guest Financial IRA Model',
+  //       PlanUserId: 2, // guest user id
+  //       PlanTypeId: 2  // guest plan type id
+  //     }).then(function (results) {
+
+  //       // results.LifeChapters.map(chapter => {
+  //       //   lifeChapters.push(new LifeChapter(chapter.seq_no, chapter.chapter_name,
+  //       //     chapter.start_age, chapter.end_age, chapter.invest_amount, chapter.InvestRateType.invest_type,
+  //       //     chapter.return_pct, chapter.inflation_pct));
+  //       var newChapters = [];
+  //       cloneFromPlan.LifeChapters.map(chapter => {
+  //         newChapters.push({
+  //           seq_no: chapter.seq_no,
+  //           chapter_name: chapter.chapter_name,
+  //           start_age: chapter.start_age,
+  //           end_age: chapter.end_age,
+  //           invest_amount: chapter.invest_amount,
+  //           return_pct: chapter.return_pct,
+  //           inflation_pct: chapter.inflation_pct,
+  //           InvestRateTypeId: chapter.InvestRateType.id,
+  //           PlanId: results.id
+  //         })
+  //       });
+  //       console.log(`BULK DATA>>> ${JSON.stringify(newChapters)}`);
+  //       // db.LifeChapter.create({
+  //       //   seq_no: cloneFromPlan.LifeChapters[0].seq_no,
+  //       //   chapter_name: cloneFromPlan.LifeChapters[0].chapter_name,
+  //       //   start_age: cloneFromPlan.LifeChapters[0].start_age,
+  //       //   end_age: cloneFromPlan.LifeChapters[0].end_age,
+  //       //   invest_amount: cloneFromPlan.LifeChapters[0].invest_amount,
+  //       //   return_pct: cloneFromPlan.LifeChapters[0].return_pct,
+  //       //   inflation_pct: cloneFromPlan.LifeChapters[0].inflation_pct,
+  //       //   InvestRateTypeId: cloneFromPlan.LifeChapters[0].InvestRateType.id,
+  //       //   PlanId: results.id
+  //       // })
+  //       db.LifeChapter.bulkCreate(newChapters)
+  //         .then(function (resul) {
+  //         // console.log(`new chapter created ${res}`);
+  //         db.Plan.findOne({
+  //           where: { id: results.id },
+  //           include: [{ model: db.PlanUser },
+  //           {
+  //             model: db.LifeChapter,
+  //             include: [{ model: db.InvestRateType }]
+  //           }],
+  //           order: [
+  //             [db.LifeChapter, 'seq_no', 'asc']
+  //           ]
+  //         }).then(data3 => {
+  //           console.log(`data3>> ${data3}`);
+  //           res.json(buildModel(data3));
+  //         })
+
+  //       })
+  //     })
+  //   })
+  // });
 
   // MRC
 

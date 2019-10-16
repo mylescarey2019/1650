@@ -81,7 +81,7 @@
                 <!-- <a class="dropdown-item signin" data-value="logout" href="#">Logout</a> -->
               </div>
             </li>
-            <a id="your-charts" class="linkcolor nav-link disabled" href="#">Your Charts</a>
+            <a id="your-charts" class="linkcolor nav-link disabled" href="#">Your Models</a>
           </ul>
     </div>
   </nav>
@@ -195,10 +195,8 @@
     </div>  
       <div id="grid" class="row no-margin">
         <div id="table-div" class="col-12">
-          <button id="test-btn" type="button" class="btn btn-outline-dark btn-sml">Refresh Graph</button>
-          <!-- <button id="test-btn" type="button" class="btn btn-secondary btn-sml">Refresh Graph</button> -->
-          <!-- <button id="test-btn" type="button">Refresh Graph</button> -->
-          <!-- <button id="save-btn" type="button" class="btn btn-outline-dark btn-sml">Save Model</button> -->
+          <button id="test-btn" type="button" class="btn btn-dark btn-sml">Refresh Model</button>
+          <button id="new-model-btn" type="button" class="btn btn-dark btn-sml">Create New Model</button>
           <table id='grid-table'>
             <div>
               <caption contenteditable="true" id="grid-caption"></caption>
@@ -321,6 +319,8 @@
     <div id="logged-user" data-id=""></div>
     <div id="footer-id-label">User Id: </div>
     <div id="logged-id"></div>
+    <div id="footer-model-id-label">Model Id: </div>
+    <div id="footer-model-id"></div>
     <div id="footer-text"></div>
       <!-- move this logic to home.js if end up keeping feature -->
       <!-- <a href="#" onclick="setStyleSheet('assets/css/default-theme.css')">Default-Theme</a>
