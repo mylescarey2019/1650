@@ -71,9 +71,10 @@ table td, table th {
   border:  1px solid #4c4c4c;
 }
 
-table tr:hover {
+/* Myles */
+/* table tr:hover {
   background-color: #0396A6;
-}
+} */
 
 
 table th {

@@ -234,11 +234,11 @@ $(document).ready(function(){
 
   // global game variables
   var demoXaxisData = [];
-  var demoStartTimerDelay = 3000;
-  var demoPreStepDelay = 3500;
-  var demoFirstStepDelay = 4000;
-  var demoSecondStepDelay = 4000;
-  var demoThirdStepDelay = 4000;
+  var demoStartTimerDelay = 1000;
+  var demoPreStepDelay = 1500;
+  var demoFirstStepDelay = 2000;
+  var demoSecondStepDelay = 2000;
+  var demoThirdStepDelay = 1000;
 
   // interval for timers
   var demoStartIntervalId;

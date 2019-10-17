@@ -338,10 +338,10 @@ table td, table th {
   text-align: center;
 }
 
-#grid-table tr:hover {
+/* Myles */
+/* #grid-table tr:hover {
   font-weight: bold;
-  /* color: #e50000 */
-}
+} */
 
 
 table th {
@@ -356,12 +356,6 @@ a.nav-link:hover {
   
   /* background-color: #f2f2f2 */
 }
-
-/* a { color: #4c4c4c } 
-a:visited { text-decoration: none; color: #4c4c4c; }
-a:hover { text-decoration: none; color: #4c4c4c; }
-a:focus { text-decoration: none; color: #4c4c4c; }
-a:hover, a:active { text-decoration: none; color: #4c4c4c } */
 
 a.nav-link { color: #191919 } 
 a.nav-link:visited { text-decoration: none; color: #191919; }
@@ -515,6 +509,19 @@ a.nav-link {
   color: #00cd00;
 }
 
+
+caption:hover, td[contenteditable=true]:hover {
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);  */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);  */
+
+  box-shadow:  0 -4px 10px 0 rgba(0, 0, 0, 0.4), 0 4px 10px 0 rgba(0, 0, 0, 0.4); 
+
+  cursor: pointer;
+}
+
+caption:focus, td[contenteditable=true]:focus {
+  cursor: default;
+} 
 /* #test-btn:hover {
   /* background-color: #4892c4;
   border: 1px solid red; */

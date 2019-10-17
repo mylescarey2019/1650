@@ -70,10 +70,10 @@ table td, table th {
   border:  1px solid #F2D479;
 }
 
-table tr:hover {
+/* table tr:hover {
   background-color: #0367A6;
   color: #e5e5e5;
-}
+} */
 
 
 table th {

@@ -77,9 +77,9 @@ table td, table th {
   border:  1px solid #3A403E;
 }
 
-table tr:hover {
+/* table tr:hover {
   background-color: #8C8C88;
-}
+} */
 
 
 table th {

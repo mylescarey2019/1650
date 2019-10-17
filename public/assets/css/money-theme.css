@@ -66,10 +66,10 @@ caption {
 table td, table th {
   border:  1px solid #516373;
 }
-
+/* 
 table tr:hover {
   background-color: #1F9376;
-}
+} */
 
 
 table th {
