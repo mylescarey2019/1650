@@ -160,24 +160,8 @@ h3, h4 {
   width: 30px;
 }
 
-/* .carousel-control-prev {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-}
 
-.carousel-control-next {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-} */
 
-/* .carousel-control-prev-icon, .carousel-control-next-icon {
-  font-size: 100px; 
-  margin-top: -50px;
-  color: #fff;
-}; */
-
-/* .carousel-control-prev, .carousel-control-next {
- 
-  z-index: 20;
-} */
 
 .slide-body {
   /* padding: 10px; */
@@ -231,6 +215,19 @@ h3, h4 {
   background-image: 
     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
     url("../img/sabine-peters-4IqiPGAuTVE-unsplash.jpg");
+  color: #e5e5e5;
+  border-top: solid 1px #e5e5e5;
+  border-bottom: solid 1px #e5e5e5;
+}
+
+#slide-5-left {
+
+  background-size: cover;
+  background-origin: center;
+
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("../img/markus-spiske-5gGcn2PRrtc-unsplash.jpg");
   color: #e5e5e5;
   border-top: solid 1px #e5e5e5;
   border-bottom: solid 1px #e5e5e5;
@@ -515,13 +512,19 @@ caption:hover, td[contenteditable=true]:hover {
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);  */
 
   box-shadow:  0 -4px 10px 0 rgba(0, 0, 0, 0.4), 0 4px 10px 0 rgba(0, 0, 0, 0.4); 
-
   cursor: pointer;
 }
 
 caption:focus, td[contenteditable=true]:focus {
   cursor: default;
 } 
+
+.model-plan-item:hover {
+  box-shadow:  0 -4px 10px 0 rgba(0, 0, 0, 0.4), 0 4px 10px 0 rgba(0, 0, 0, 0.4); 
+  cursor: pointer;
+
+}
+
 /* #test-btn:hover {
   /* background-color: #4892c4;
   border: 1px solid red; */
