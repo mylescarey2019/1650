@@ -191,6 +191,7 @@ h3, h4 {
   /* margin-right: 20px; */
   border-top: solid 1px #e5e5e5;
   border-bottom: solid 1px #e5e5e5;
+  padding: 15px 25px 30px 25px;
 }
 
 .slide-center {
@@ -207,30 +208,57 @@ h3, h4 {
   height: 100%;
 } */
 
-#slide-1-left {
-
+.slides {
   background-size: cover;
   background-origin: center;
-
-  background-image: 
-    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url("../img/sabine-peters-4IqiPGAuTVE-unsplash.jpg");
   color: #e5e5e5;
   border-top: solid 1px #e5e5e5;
   border-bottom: solid 1px #e5e5e5;
 }
 
+#slide-1-left {
+
+  /* background-size: cover;
+  background-origin: center; */
+
+  background-image:  
+    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+    url("../img/sabine-peters-4IqiPGAuTVE-unsplash.jpg");
+
+  /* color: #e5e5e5;
+  border-top: solid 1px #e5e5e5;
+  border-bottom: solid 1px #e5e5e5; */
+}
+
+
+#slide-2-left {
+  background-image:  
+    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+    url("../img/david-iskander-iWTamkU5kiI-unsplash-2.jpg");
+}
+
+#slide-2-right {
+  background-color: #cccccc;
+}
+
+#model-img {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 10px;
+}
+
 #slide-5-left {
 
-  background-size: cover;
-  background-origin: center;
+  /* background-size: cover;
+  background-origin: center; */
 
   background-image: 
-    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
     url("../img/markus-spiske-5gGcn2PRrtc-unsplash.jpg");
-  color: #e5e5e5;
+
+  /* color: #e5e5e5;
   border-top: solid 1px #e5e5e5;
-  border-bottom: solid 1px #e5e5e5;
+  border-bottom: solid 1px #e5e5e5; */
 }
 
 #slide-chart {
