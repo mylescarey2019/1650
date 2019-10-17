@@ -222,7 +222,7 @@ h3, h4 {
   background-origin: center; */
 
   background-image:  
-    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
     url("../img/sabine-peters-4IqiPGAuTVE-unsplash.jpg");
 
   /* color: #e5e5e5;
@@ -233,12 +233,20 @@ h3, h4 {
 
 #slide-2-left {
   background-image:  
-    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
     url("../img/david-iskander-iWTamkU5kiI-unsplash-2.jpg");
 }
 
-#slide-2-right {
-  background-color: #cccccc;
+
+#slide-3-left {
+  background-image:  
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("../img/jen-theodore-fqkaMzeGk7E-unsplash.jpg");
+}
+
+#slide-2-right, #slide-3-right {
+  background-color: #e5e5e5;
+  /* background-color: #a5d3c8; */
 }
 
 #model-img {
@@ -558,3 +566,22 @@ caption:focus, td[contenteditable=true]:focus {
   border: 1px solid red; */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 8px 30px 0 rgba(0, 0, 0, 0.39);  */
 /* }  */
+
+/* .carousel-indicators {
+  background-color: #1F9376;
+}
+
+.carousel-indicators .active{
+  background-color: #2cd2a9;
+} */
+
+/* .carousel .carousel-indicators li {
+  background-color: #fff;
+  background-color: rgba(31,147,118,.6);
+}
+
+.carousel .carousel-indicators .active {
+  background-color: #1F9376;
+} */
+
+
