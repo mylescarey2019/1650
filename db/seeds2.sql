@@ -28,7 +28,7 @@ INSERT INTO LifeChapters (seq_no,chapter_name,start_age,end_age,invest_amount,In
      VALUES (1,'High School',16,18,10.00,1,8.0,0.0,1),
             (2,'College',19,22,100.00,1,8.0,0.0,1),
             (3,'Early Adult',23,35,100.00,1,9.0,0.0,1),
-            (4,'Mid Adult',36,55,200.00,1,8.0,0.0,1), 
+            (4,'Mid Adult',36,55,200.00,1,7.5,0.0,1), 
             (5,'Later Adult',56,65,120.00,1,7.0,0.0,1);
 
 INSERT INTO LifeChapters (seq_no,chapter_name,start_age,end_age,invest_amount,InvestRateTypeId,return_pct,inflation_pct,PlanId)

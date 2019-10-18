@@ -40,12 +40,28 @@ h3, h4 {
   font-size: 70px;
   font-weight: bold;
   /* text-shadow: 0px 2px 1px #ffffff;  */
+  /* text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7); */
+  /* text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7); */
+  text-shadow: 1px 1px rgba(255,255,255,0.8);
+  /* text-shadow: -2px -2px 1px #000000;  */
+  color: #1F9376;
+  /* background-color: #8fc9ba;
+  height: 100px; */
+  }
+
+.brand-on-dark {
+  padding: 5px 5px 5px 0px;
+  font-size: 70px;
+  font-weight: bold;
+  /* text-shadow: 0px 2px 1px #ffffff;  */
   text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
   /* text-shadow: -2px -2px 1px #000000;  */
   color: #1F9376;
   /* background-color: #8fc9ba;
   height: 100px; */
   }
+
+    
 
 .brand-rule {
   border-top: 2px solid #1F9376;
@@ -92,6 +108,7 @@ h3, h4 {
   border-bottom: 2px solid #1F9376;
   margin-top: 44px;
   margin-left: 4px;
+  text-shadow: 1px 1px rgba(255,255,255,0.8);
  }
 
  footer {
@@ -234,7 +251,8 @@ h3, h4 {
 #slide-2-left {
   background-image:  
     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url("../img/david-iskander-iWTamkU5kiI-unsplash-2.jpg");
+    /* url("../img/david-iskander-iWTamkU5kiI-unsplash-2.jpg"); */
+    url("../img/stil-N9uOrBICcjY-unsplash.jpg");
 }
 
 
@@ -268,7 +286,7 @@ h3, h4 {
 
   background-image: 
     linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-    url("../img/markus-spiske-5gGcn2PRrtc-unsplash.jpg");
+    url("../img/markus-spiske-5gGcn2PRrtc-unsplash-DowJones2.jpg");
 
   /* color: #e5e5e5;
   border-top: solid 1px #e5e5e5;
@@ -534,6 +552,22 @@ a.nav-link {
 .bullet {
   text-align: left;
   line-height: 1.5em;
+}
+
+#grid-below-links {
+  margin-bottom: 0px;
+}
+
+.bullet-link {
+  text-align: left;
+  font-size: 16px;
+  line-height: 20%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#rule-before-links {
+  margin-bottom: 0px;
 }
 
 .red-text {

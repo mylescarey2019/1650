@@ -13,6 +13,7 @@ $(document).ready(function(){
   $("#slide-1-4").hide();
   $("#slide-1-5").hide();
 
+
   // helper functions
 
   // set style sheet for a wallpaper change
@@ -858,6 +859,7 @@ $(document).ready(function(){
         $("#grid-caption").attr('data-plan-type-id',3); // change to plan type 3 (user)
         $('#new-model-btn').show();
         $("#your-charts").removeClass('disabled');
+ 
         // clear form fields
         $('#user-name').val("");
         $('#password').val("");
