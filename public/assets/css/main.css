@@ -244,7 +244,13 @@ h3, h4 {
     url("../img/jen-theodore-fqkaMzeGk7E-unsplash.jpg");
 }
 
-#slide-2-right, #slide-3-right {
+#slide-4-left {
+  background-image:  
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("../img/haley-phelps-twoahjAsoO4-unsplash.jpg");
+}
+
+#slide-2-right, #slide-3-right, #slide-4-right, #slide-5-right {
   background-color: #e5e5e5;
   /* background-color: #a5d3c8; */
 }
@@ -487,7 +493,7 @@ a.nav-link {
   margin-top: 10px;
   margin-left: 250px;
   margin-bottom: 10px;
-  color: red;
+  color: #ff1919;
 }
 
 #user-name {
@@ -531,7 +537,7 @@ a.nav-link {
 }
 
 .red-text {
-  color: red;
+  color: #ff4c4c;
 }
 
 .yellow-text {
