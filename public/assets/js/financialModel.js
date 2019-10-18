@@ -43,14 +43,9 @@ class FinancialModel {
           }
         };
         console.log(`${Math.round(balance)}`);
-        // console.log(balance.toFixed(2));
-        // var newBalance = balance.toFixed(2);
-        // console.log(`balance= ${balance} newBalance= ${newBalance}`);
+
         resultPlots.push({year: year, amount: Math.round(balance) });
 
-        // forced sample before writing above computation
-        // balance += Math.pow(3 * year,2) + year;
-        // resultPlots.push({year: year, amount: balance });
       }
     });
 
@@ -80,16 +75,6 @@ class FinancialModel {
     this.chartResult.lastYear = this.lifeChapters[this.lifeChapters.length - 1].endYear;
     this.chartResult.resultPlots = resultPlots;
   };
-
-
-//   computeCompatibility(candidateAnswers) {
-//     // compare this.answers to candidateAnswers to compute compatiblity rating
-//     // candidateAnswers is in the form of Student.answers - an array of 10 valus 1 to 5
-//     // compute absolute difference of each and sum
-//     this.answers.map((answer,i) => {
-//       this.compatibility += Math.abs(answer - candidateAnswers[i]);
-//     })
-//   };
 
 };
 

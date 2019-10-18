@@ -138,9 +138,7 @@ $(document).ready(function(){
   var data36 =
   {
     name: 'Age-36',
-    // data: yAxisData,
-    // data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,300,400,600,700,
-    //   900,1100,1250,1400,1600,1800,2800,3800,5000,7900,9000,12000,16000,20000,27000,32000,40000,46000,56000,72000,90000,100000,120000,140000,190000],
+
 
     data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,125,261,408
       ,567,739,926,1128,1347,1584,1841,2119,2421,2747,3100,3483,3897,4346,4832,5359,5929
@@ -163,23 +161,21 @@ $(document).ready(function(){
     }
   };
 
-  var dataSeries26 =  [
-    null,null,null,null,null,null,null,null,null,null,125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359
-    ,5929,6547,7216,7940,8724,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143
-  ];
+  // var dataSeries26 =  [
+  //   null,null,null,null,null,null,null,null,null,null,125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359
+  //   ,5929,6547,7216,7940,8724,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143
+  // ];
 
-  var dataSeries16 = [
-    125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359,5929,6547,7216,7940,8724
-    ,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143,38185,41480,45048
-    ,48912,53097,57629,62538,67854,73611,79846
-  ];
+  // var dataSeries16 = [
+  //   125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359,5929,6547,7216,7940,8724
+  //   ,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143,38185,41480,45048
+  //   ,48912,53097,57629,62538,67854,73611,79846
+  // ];
 
   var data26 = 
   {
     name: 'Age-26',
-    // data: yAxisData,
-    // data: [0,0,0,0,0,0,0,0,0,0,20,30,40,60,80,100,130,160,200,300,360,440,600,800,990,
-    //   1100,1200,1400,1650,2000,2500,3500,4600,7000,9000,12000,16000,20000,26000,33000,40000,50000,62000,76000,93000,110000,135000,160000,200000,270000],
+
     data: [
       null,null,null,null,null,null,null,null,null,null,125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359
       ,5929,6547,7216,7940,8724,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143
@@ -205,9 +201,7 @@ $(document).ready(function(){
   var data16 =
   {
     name: 'Age-16',
-    // data: yAxisData,
-    // data: [100,150,200,260,330,400,480,600,700,900,1000,1200,1400,1700,2100,2600,3100,3700,4400,5000,5900,6600,7500,9000,10500,
-    //   12000,14000,15000,17000,19000,20000,22000,24000,29000,31000,34000,39000,44000,50000,55000,60000,72000,80000,93000,105000,120000,140000,190000,240000,410000],
+
     data: [
       125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359,5929,6547,7216,7940,8724
       ,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143,38185,41480,45048
@@ -429,182 +423,6 @@ $(document).ready(function(){
   
 
 
-
-
-
-
-//   // create 
-//   demoChart = {};
-//  // render slide demo
-//  function renderDemo() {
-//   // console.log("in home.js.renderChart");
-//   demoChart = 
-//   Highcharts.chart('slide-chart', {
-//     chart: {
-//       type: 'area',
-//       backgroundColor:  null 
-//       // 'rgba(197, 209, 217, .2'
-//     },
-//     // colors: ['#FFFF00'],
-//     title: {
-//       text: 'Power of Compound Interest',
-//       style: {
-//         fontWeight: 'bold',
-//         fontSize: '24px',
-//       }
-//       // 'Historic and Estimated Worldwide Population Growth by Region'
-//     },
-//     subtitle: {
-//       text: '$10 per month at 8% historic stock market return - starting at age 36, 26 and 16',
-//       style: {
-//         // fontWeight: 'bold',
-//         fontSize: '14px',
-//       }
-//     },
-//     tooltip: {
-//       valuePrefix: '$'
-//     },
-
-//     // subtitle: {
-//     //   text: 'Source: Wikipedia.org'
-//     // },
-//     legend: {
-//       itemStyle: {
-//         fontWeight: 'bold',
-//         fontSize: '18px',
-//       }
-//     },
-//     xAxis: {
-//       // min: 16,
-//       // max: 28,
-//       categories: ['16', '17', '18', '19', '20', '21', '22', '23', '24',  
-//                     '25','26','27','28','29','30','31','32','33','34','35',
-//                   '36','37','38','39','40','41','42','43','44','45','46','47',
-//                   '48','49','50','51','52','53','54','55','56','57','58','59',
-//                   '60','61','62','63','64','65'],
-//       // categories: xAxisData,
-//       // [15,16,17,18,19,20,21,22],
-//       tickmarkPlacement: 'on',
-//       title: {
-//         enabled: false
-//       }
-//     },
-//     yAxis: {
-//       opposite: true,
-//       min: 0,
-//       max: 80000,
-//       title: {
-//         text: '$ Dollars',
-//         style: {
-//           fontWeight: 'bold',
-//           fontSize: '18px',
-//         }
-//       }
-//       // ,
-//       // labels: {
-//       //   formatter: function () {
-//       //     return this.value / 1;
-//       //   }
-//       // }
-//     },
-//     tooltip: {
-//       split: true,
-//       valueSuffix: ' dollars'
-//     },
-//     plotOptions: {
-//       series: {
-//         marker: {
-//           enabled: false
-//         }
-//       },
-//       area: {
-//         stacking: 'normal',
-//         lineColor: '#666666',
-//         lineWidth: 1,
-//         marker: {
-//           enabled: false
-//           // lineWidth: 1,
-//           // lineColor: '#666666'
-//         }
-//       }
-//     },
-//     line: {
-//       marker: {
-//           enabled: false
-//       }
-//     },
-//     series: demoXaxisData
-//     // [ 
-//     //   {
-//     //     name: 'Age-36',
-//     //     // data: yAxisData,
-//     //     data: [0,0,0,0,2200, 3800, 4000,5000,7500],
-
-//     //     type: 'areaspline',
-//     //     color: '#026873',
-//     //     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
-//     //     fillColor: {
-//     //       linearGradient: {
-//     //           x1: 0,
-//     //           y1: 0,
-//     //           x2: 0,
-//     //           y2: 1
-//     //       },
-//     //       stops: [
-//     //           [0, Highcharts.getOptions().colors[0]],
-//     //           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-//     //       ]
-//     //     }
-//     //   },
-//     //   {
-//     //     name: 'Age-26',
-//     //     // data: yAxisData,
-//     //     data: [0,0,2200, 3800, 4000,5000,7500,9000,12000],
-
-//     //     type: 'areaspline',
-//     //     color: '#026873',
-//     //     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
-//     //     fillColor: {
-//     //       linearGradient: {
-//     //           x1: 0,
-//     //           y1: 0,
-//     //           x2: 0,
-//     //           y2: 1
-//     //       },
-//     //       stops: [
-//     //           [0, Highcharts.getOptions().colors[0]],
-//     //           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-//     //       ]
-//     //     }
-//     //   },  
-//     //   {
-//     //     name: 'Age-16',
-//     //     // data: yAxisData,
-//     //     data: [2200, 3800, 4000,5000,7500,9000,12000,16000,30000],
-
-//     //     type: 'areaspline',
-//     //     color: '#026873',
-//     //     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
-//     //     fillColor: {
-//     //       linearGradient: {
-//     //           x1: 0,
-//     //           y1: 0,
-//     //           x2: 0,
-//     //           y2: 1
-//     //       },
-//     //       stops: [
-//     //           [0, Highcharts.getOptions().colors[0]],
-//     //           [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-//     //       ]
-//     //     }
-//     //   }
-
-//     // ]
-//   });
-// };
-
-
-
   // output the chartResult object into x, y arrays
   function resultPlotsToArray(resultPlots) {
     // console.log("in home.js.resultPlotsToArray");
@@ -685,16 +503,7 @@ $(document).ready(function(){
         }
       },
       tooltip: {
-        // formatter: function () {
-        //   // The first returned item is the header, subsequent items are the
-        //   // points
-        // //   return ['<b>' + this.x + '</b>'].concat(
-        //       this.points ?
-        //           this.points.map(function (point) {
-        //               return '$ ' + '<b>{point.y:,}</b>'
-        //           }) : []
-        //   );
-        // },
+
         split: true,
         valueSuffix: ' dollars'
       },
@@ -747,22 +556,6 @@ $(document).ready(function(){
 
     // start demo slide sequence
     demoStartDelay();
-
-
-  // // render the demo-intro slide 1
-
- 
-  // demoXaxisData.push(data36);
-  // renderDemo([],[]);
-
-  // demoXaxisData.push(data26);
-  // renderDemo([],[]);
-  
-  // demoXaxisData.push(data16);
-  // renderDemo([],[]);
-
-  // // $('#slide-chart').highcharts().redraw();
-
 
   // function to get clone and return a plan to render for the guest signon
   function getClonePlan(plan) {
@@ -925,52 +718,6 @@ $(document).ready(function(){
         type: "PUT",
         data: plan
       }).then(function(res) {
-          // var { yearAxis, dollarAxis } = resultPlotsToArray(res.chartResult.resultPlots);
-          // // var financialModelChapters = [];
-          // // console.log(yearAxis);
-          // // console.log(dollarAxis);
-          // console.log(`UPDATED:: ${JSON.stringify(res)}`);
-
-          // $("#grid-caption").text(res.name);
-          // $("#grid-caption").attr('data-id',`${res.id}`);
-          // $("#grid-caption").attr('data-user-id',`${res.userId}`);
-          // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
-
-
-          // $("tr.model-row").remove();
-          // res.lifeChapters.map(chapter => {
-          //   console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
-          //               invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
-          //               return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
-          //   // var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`).attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
-          //   // modelRow.append($(`<td>${chapter.name}</td>`));
-          //   // modelRow.append($(`<td>${chapter.startYear}</td>`));
-          //   // modelRow.append($(`<td>${chapter.endYear}</td>`));
-          //   // modelRow.append($(`<td>${chapter.investAmount}</td>`));
-          //   // modelRow.append($(`<td>${chapter.frequency}</td>`));
-          //   // modelRow.append($(`<td>${chapter.returnPct}</td>`));
-          //   // modelRow.append($(`<td>${chapter.inflationPct}</td>`));
-          //   // $("#grid-table").append(modelRow);
-
-          //   var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
-          //   modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
-          //   modelRow.attr('data-seq-no',`${chapter.seqNo}`);
-          //   modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
-          //   modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
-          //   modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
-          //   modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
-          //   modelRow.append($(`<td>${chapter.frequency}</td>`));
-          //   modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
-          //   modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
-          //   $("#grid-table").append(modelRow);
-          //   // // create a chapter for use in financial model object
-          //   // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
-          //   //   chapter.investAmount,chapter.returnPct,chapter.inflationPct,chapter.investRateTypeId,res.id));
-          // });
-          // // // create financial model object for use client side
-          // // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
-          // // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
-          // renderChart(res.name, yearAxis, dollarAxis);
 
           // now render the chart by calling helper function
           renderReturnedPlan(res);
@@ -1300,23 +1047,6 @@ $(document).ready(function(){
 
       // render the returned result
       renderReturnedPlan(res);
-
-      // // remove any modal model rows from previous opens
-      // $("tr.modal-model-row").remove();
-
-      // if (res[0].Plans.length === 0) {
-      //   $("#load-models-msg").text('You currently have no models to load');
-      // } else {
-      //   $("#load-models-msg").text('Click on a model name to load it');
-      //   res[0].Plans.map(plan => {
-      //     // console.log(`user name: ${res[0].user_name}  plan_name ${plan.plan_name} plan id: ${plan.id}`);
-      //     var modelRow = $('<tr>').addClass("modal-model-row");
-      //     modelRow.append($(`<td>${res[0].user_name}</td>`));
-      //     modelRow.append($(`<td class="model-plan-item">${plan.plan_name}</td>`).attr('data-id',`${plan.id}`));
-      //     modelRow.append($(`<td>${plan.id}</td>`));
-      //     $("#model-table").append(modelRow);
-      //   });
-      // };
     });
 
     // close load modal
