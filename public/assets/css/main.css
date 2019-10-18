@@ -285,8 +285,9 @@ h3, h4 {
   background-origin: center; */
 
   background-image: 
-    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-    url("../img/markus-spiske-5gGcn2PRrtc-unsplash-DowJones2.jpg");
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    /* url("../img/markus-spiske-5gGcn2PRrtc-unsplash-DowJones2.jpg"); */
+    url("../img/markus-spiske-3Tf1J8q9bBA-unsplashNYTimes.jpg");
 
   /* color: #e5e5e5;
   border-top: solid 1px #e5e5e5;
@@ -566,7 +567,13 @@ a.nav-link {
   margin-bottom: 0px;
 }
 
-#rule-before-links {
+.bullet-link-2 {
+  text-align: left;
+  font-size: 24px;
+  line-height: 1.5em;
+}
+
+.rule-before-links {
   margin-bottom: 0px;
 }
 
