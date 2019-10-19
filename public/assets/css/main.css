@@ -268,30 +268,15 @@ h3, h4 {
     url("../img/haley-phelps-twoahjAsoO4-unsplash2.jpg");
 }
 
+#slide-5-left {
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("../img/markus-spiske-3Tf1J8q9bBA-unsplashNYTimes.jpg");
+}
+
 #slide-2-right, #slide-3-right, #slide-4-right, #slide-5-right {
   background-color: #e5e5e5;
   /* background-color: #a5d3c8; */
-}
-
-#model-img {
-  max-width: 100%;
-  max-height: 100%;
-  padding: 10px;
-}
-
-#slide-5-left {
-
-  /* background-size: cover;
-  background-origin: center; */
-
-  background-image: 
-    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    /* url("../img/markus-spiske-5gGcn2PRrtc-unsplash-DowJones2.jpg"); */
-    url("../img/markus-spiske-3Tf1J8q9bBA-unsplashNYTimes.jpg");
-
-  /* color: #e5e5e5;
-  border-top: solid 1px #e5e5e5;
-  border-bottom: solid 1px #e5e5e5; */
 }
 
 #slide-chart {
@@ -300,6 +285,7 @@ h3, h4 {
   border-bottom: solid 1px #e5e5e5;
   background-color: #cccccc;
 }
+
 /* .carousel-item:nth-child(1) {
   background-color: blue;
 }
