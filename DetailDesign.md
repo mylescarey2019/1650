@@ -14,7 +14,7 @@
 
 - UX whiteboard: - add notes below image
 
-  ![UX whiteboard (1)](./public/assets/img/readMEs/UX whiteboard (1).jpg)
+  ![UX whiteboard (1)](./public/assets/img/readMEs/UX-whiteboard.jpg)
 
   
 
@@ -24,7 +24,7 @@
 
   - Whiteboard - add notes below
 
-    ![model-grid whiteboard (1)](./public/assets/img/readMEs/model-grid whiteboard (1).jpg)
+    ![model-grid whiteboard (1)](./public/assets/img/readMEs/model-grid-whiteboard.jpg)
 
 
 
@@ -36,7 +36,7 @@
 
 - Key Question:  Client side financial model calculation or Server side?Architecture whiteboard:  add notes below 
 
-  ![route-architecture whiteboard (1)](./public/assets/img/readMEs/route-architecture whiteboard (1).jpg)
+  ![route-architecture whiteboard (1)](./public/assets/img/readMEs/route-architecture-whiteboard.jpg)
 
 
 
@@ -46,7 +46,7 @@
 
 - Whiteboard - add notes below 
 
-  ![data-classes whiteboard (1)](./public/assets/img/readMEs/data-classes whiteboard (1).jpg)
+  ![data-classes whiteboard (1)](./public/assets/img/readMEs/data-classes-whiteboard.jpg)
 
 
 
