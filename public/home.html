@@ -8,8 +8,6 @@
 
   <!-- bootstrap .css -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- chartist -->
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"> -->
   
   <!-- page .css -->
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
@@ -18,48 +16,65 @@
 </head>
 <body>
 
-  <nav id="nav-bar" class="navbar fixed-top navbar-expand-sm">
-    <div id="brand-logo" class="brand">1650</div>
-    <p class="tag-line">
-        Start saving at 16 watch it <strong>grow</strong> for 50 years
-    </p>
-    <div class="collapse navbar-collapse flex-md-column" id="navbarCollapse">
-        <ul id="nav-line" class="navbar-nav ml-auto">
-            <a class="linkcolor slide-nav nav-link active-nav-link" data-target="#carousel-example-2" data-slide-to="0" href="#">Introduction</a>
-            <a class="linkcolor slide-nav nav-link" data-target="#carousel-example-2" data-slide-to="1" href="#">Get Started</a>
-            <a class="linkcolor slide-nav nav-link " data-target="#carousel-example-2" data-slide-to="2" href="#">Students</a>
-            <a class="linkcolor slide-nav nav-link" data-target="#carousel-example-2" data-slide-to="3" href="#">Parents</a>
-            <a class="linkcolor slide-nav nav-link " data-target="#carousel-example-2" data-slide-to="4" href="#">Custodial IRA</a>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="wallpaperDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Wallpaper
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item wallpaper active" data-value="money" href="#">Money</a>
-                <a class="dropdown-item wallpaper" data-value="desert" href="#">Desert</a>
-                <a class="dropdown-item wallpaper" data-value="ocean" href="#">Ocean</a>
-                <a class="dropdown-item wallpaper" data-value="mountain" href="#">Mountain</a>
-                <a class="dropdown-item wallpaper" data-value="road" href="#">Road</a>
-                <a class="dropdown-item wallpaper" data-value="tunnel" href="#">Tunnel</a>
-                <a class="dropdown-item wallpaper" data-value="chess" href="#">Chess</a>
-                <a class="dropdown-item wallpaper" data-value="glass" href="#">Glass</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="signinDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Login
-              </a>
-              <div id="login-dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item signin active" data-value="login" href="#">Login</a>
-                <a class="dropdown-item signin" data-value="signup" href="#">Signup</a>
-                <!-- <a class="dropdown-item signin" data-value="logout" href="#">Logout</a> -->
-              </div>
-            </li>
-            <a id="your-charts" class="linkcolor nav-link disabled" href="#">Your Models</a>
-          </ul>
-    </div>
-  </nav>
- 
+    <nav  id="nav-bar" class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      <!-- <div id="brand-logo" class="brand">1650 <h5 id="tag-line" class="tag-line">Start saving at 16 watch it grow for 50 years</h5></div> -->
+      <div id="brand-logo" class="brand" data-target="#carousel-example-2" data-slide-to="0">1650</div>
+      <h5 id="tag-line" class="tag-line">Start saving at 16 watch it grow for 50 years</h5>
+
+
+      <!-- <h3 id="brand-logo" class="my-auto"><a class="navbar-brand brand" href="#">1650 <h5 class="navbar-brand tag-line">Start saving at 16 watch it grow for 50 years</h5></a></h3> -->
+        <!-- <h5 class="navbar-brand tag-line">Start saving at 16 watch it grow for 50 years</h5> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100 flex-md-column" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto small mb-2 mb-md-0">
+                <li>
+                    <div id="footer-user-label">Welcome, </div>
+                    <div id="logged-user" data-id=""></div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="signinDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Login
+                    </a>
+                    <div id="login-dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item signin active" data-value="login" href="#">Login</a>
+                      <a class="dropdown-item signin" data-value="signup" href="#">Signup</a>
+                    </div>
+                  </li>
+      
+                  <li>
+                    <a id="your-charts" class="nav-item nav-link disabled" href="#">Your Models</a>
+                  </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="wallpaperDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Wallpaper
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item nav-item wallpaper active" data-value="money" href="#">Money</a>
+                      <a class="dropdown-item nav-item wallpaper" data-value="desert" href="#">Desert</a>
+                      <a class="dropdown-item nav-item wallpaper" data-value="ocean" href="#">Ocean</a>
+                      <a class="dropdown-item nav-item wallpaper" data-value="mountain" href="#">Mountain</a>
+                      <a class="dropdown-item nav-item wallpaper" data-value="road" href="#">Road</a>
+                      <a class="dropdown-item nav-item wallpaper" data-value="tunnel" href="#">Tunnel</a>
+                      <a class="dropdown-item nav-item wallpaper" data-value="chess" href="#">Chess</a>
+                      <a class="dropdown-item nav-item wallpaper" data-value="glass" href="#">Glass</a>
+                    </div>
+                  </li>
+
+
+
+            </ul>
+            <ul class="navbar-nav ml-auto small mb-2 mb-md-0">
+                <a class="slide-nav nav-link active-nav-link" data-target="#carousel-example-2" data-slide-to="0" href="#">Introduction</a>
+                <a class="slide-nav nav-link" data-target="#carousel-example-2" data-slide-to="1" href="#">Get Started</a>
+                <a class="slide-nav nav-link " data-target="#carousel-example-2" data-slide-to="2" href="#">Students</a>
+                <a class="slide-nav nav-link" data-target="#carousel-example-2" data-slide-to="3" href="#">Parents</a>
+                <a class="slide-nav nav-link " data-target="#carousel-example-2" data-slide-to="4" href="#">Custodial IRA</a>
+            </ul>
+        </div>
+    </nav>
+    
   <div id="main-section" class="bd-example">
     <div id="carousel-example-2" class="carousel slide " data-ride="carousel" data-interval="false">
       <ol class="carousel-indicators">
@@ -112,10 +127,10 @@
                       <h1>Model Calculator</h1>
                       <hr class="brand-rule slide-1-1">
                       <ul>
-                        <li><h4 class="bullet">Use Calcuator as Guest - signup & login not necessary</h4></li>
+                        <li><h4 class="bullet">Use Calculator as Guest - signup & login not necessary</h4></li>
                         <li><h4 class="bullet">Graph shows years and dollars</h4></li>
                         <li><h4 class="bullet">Grid values you can change and re-run the graph to see "what if"</h4></li>
-                        <li><h4 class="bullet">Model name, year range names, years, investment amounts & modeled return percent are changable</h4></li>
+                        <li><h4 class="bullet">Model name, year range names, years, investment amounts & modeled return percent are changeable</h4></li>
                         <li><h4 class="bullet">Click into a box to change value</h4></li>
                        </ul>
                     </div>
@@ -294,7 +309,7 @@
                   <label for="name-input">Username</label>
                   <input type="text" class="form-control" id="user-name" placeholder="">
                   <label for="password-input">Password</label>
-                  <input type="text" class="form-control" autocomplete="off" id="password" placeholder="">
+                  <input type="password" class="form-control" autocomplete="off" id="password" placeholder="">
                 </div>
                 <p id="login-msg"></p>
                 <input id="login-submit" class="btn btn-success" type="submit" value="Login">
@@ -302,8 +317,6 @@
             </form>
           </div>
           <div class="modal-footer">
-            <!-- <input id="submit" class="btn btn-success" type="submit" value="login">
-            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
           </div>
           <p id="signup-msg">If you do not have an account please sign up <a id="jump-to-signup" >here</a></p>
         </div>
@@ -327,8 +340,6 @@
             </form>  
           </div>
           <div class="modal-footer">
-            <!-- <input id="submit" class="btn btn-success" type="submit" value="Logout">
-            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
           </div>
         </div>
       </div>
@@ -362,28 +373,20 @@
             </div>
 
             <p id="load-models-msg">Click on a model name to load it</p>
-            <!-- <input id="logout-submit" class="btn btn-success" type="submit" value="Logout"> -->
             <button id="load-models-close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
           </div>
           <div class="modal-footer">
-            <!-- <input id="submit" class="btn btn-success" type="submit" value="Logout">
-            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
           </div>
         </div>
       </div>
     </div>
 
 
-  <!-- <footer id="footer-bar" class="navbar">
-    <span id="footer-text" class="navbar-text">  -->
   <footer id="footer-bar">
-    <!-- <button id="test-btn" type="button" class="btn btn-outline-dark btn-sml">Test</button> -->
-    <div id="footer-user-label">Logged in as: </div>
-    <div id="logged-user" data-id=""></div>
-    <div id="footer-id-label">User Id: </div>
-    <div id="logged-id"></div>
-    <div id="footer-model-id-label">Model Id: </div>
-    <div id="footer-model-id"></div>
+    <div id="footer-id-label" class="diagnostic diagnostic-hide">User Id: </div>
+    <div id="logged-id" class="diagnostic diagnostic-hide"></div>
+    <div id="footer-model-id-label" class="diagnostic diagnostic-hide">Model Id: </div>
+    <div id="footer-model-id" class="diagnostic diagnostic-hide"></div>
     <div id="footer-text"></div>
 
       <!-- <span id="footer-text">
@@ -415,16 +418,6 @@
       <script src="https://code.highcharts.com/highcharts.src.js"></script>
        <!-- Main program javascript -->
       <script src="assets/js/home.js"></script>
-  
-      <!-- move this logic to home.js if end up keeping feature -->
-      <!-- <script>
-          function setStyleSheet(url) {
-            var stylesheet = document.getElementById("css-theme");
-            stylesheet.setAttribute('href',url);
-          }
-      </script> -->
-
-
   
   </body>
 </html>

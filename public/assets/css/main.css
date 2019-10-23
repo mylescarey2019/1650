@@ -49,6 +49,11 @@ h3, h4 {
   height: 100px; */
   }
 
+ /* .brand h5 {
+   display: block;
+   margin: 0px;
+ } */
+
 .brand-on-dark {
   padding: 5px 5px 5px 0px;
   font-size: 70px;
@@ -70,41 +75,61 @@ h3, h4 {
 
 
 #nav-bar, footer {
-  background-color: #e5e5e5;
+  background-color: #e5e5e5 !important;
   /* background-color: #d2e9e3; */
   /* background-color: rgba(111, 125, 133, 1); ; */
   color: #191919;
 }
 
+#navbarCollapse {
+  /* margin-top: 20px; */
+  margin-bottom: 10px;
+
+}
+
 #nav-bar {
+  /* height: 130px; */
   height: 100px;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  /* z-index: 10; */ 
 }
+
+/* .navbar-toggler, .navbar-toggler-icon{
+  z-index: 11;
+  background-color: grey;
+} */
 
 #nav-line {
   margin-top: 2px;
 }
 
-.active-nav-link {
-  font-weight: 700;
-  color: #1F9376;
-}
+
+
 /* #nav-div {
   float: right;
 } */
 
+.nav-item {
+  font-size: 16px;
+  color: #191919;
+}
 
 
+#tag-line {
+  color: #1F9376;
+  width: 770px;
+  /* position: relative; */
+  /* bottom: 16px; */
+}
 
 .tag-line {
   color: #1F9376;
   font-size: 20px;
   font-weight: 800;
   /* clear: left; */
-  padding-bottom: 1px;
+  padding-bottom: px;
   border-bottom: 2px solid #1F9376;
   margin-top: 44px;
   margin-left: 4px;
@@ -128,12 +153,32 @@ h3, h4 {
   padding-right: 5px;
 }
 
-#footer-user-label, #logged-user, #footer-id-label, #logged-id, 
+#footer-user-label, #logged-user {
+  float: left;
+  margin-top: 8px;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #191919;
+} 
+
+#footer-id-label, #logged-id, 
 #footer-model-id-label, #footer-model-id {
   float: left;
-  margin-top: 10px;
+  margin-top: 8px;
   margin-left: 10px;
+  font-size: 16px;
 } 
+
+#logged-user  {
+  font-weight: 900;
+  /* color: #1F9376; */
+}
+
+#footer-id-label:hover {
+  cursor: pointer;
+}
+
+
 
 /* #tag-line {
   z-index: 4;
@@ -141,9 +186,7 @@ h3, h4 {
   top: 300px;
 } */
 
-/* .linkcolor a:visited{
-  color: white;
-} */
+
 
 
 
@@ -395,18 +438,18 @@ table th {
   font-weight: bold;
 }
 
-a.nav-link:hover {
-  border-bottom: 2px solid #1F9376;
-  
-  /* background-color: #f2f2f2 */
-}
+        a.nav-link:hover {
+          border-bottom: 2px solid #1F9376;
+     
 
-a.nav-link { color: #191919 } 
-a.nav-link:visited { text-decoration: none; color: #191919; }
-a.nav-link:hover { text-decoration: none; color: #1F9376; }
-a.nav-link:focus { text-decoration: none; color: #191919; }
-a.nav-link:hover, a.nav-link:active { text-decoration: none; color: #191919 }
-a.nav-link.disabled { color: #acacac}
+        }
+
+        a.nav-link { color: #191919 } 
+        a.nav-link:visited { text-decoration: none; color: #191919; }
+        a.nav-link:hover { text-decoration: none; color: #1F9376; }
+        a.nav-link:focus { text-decoration: none; color: #191919; }
+        a.nav-link:hover, a.nav-link:active { text-decoration: none; color: #191919 }
+        a.nav-link.disabled { color: #acacac}
 
 /* #your-charts {
   color: #acacac;
@@ -415,21 +458,37 @@ a.nav-link.disabled { color: #acacac}
   margin-left: 8px;
 } */
 
-a.nav-link {
-      /* margin-left: 20px; */
-  padding-top: 30px;
+/* #your-charts {
   padding-bottom: 4px;
-  border-bottom: 2px solid #e5e5e5;
-      /* font-size: 14px; */
-}
 
-.active-nav-link {
-  font-weight: 700;
-}
+} */
 
-#wallpaperDropdown, #signinDropdown {
-  padding-bottom: 4px;
+        a.nav-link {
+          font-size: 16px;
+          padding-bottom: 2px;
+          margin-right: 20px;
+          border-bottom: 2px solid #e5e5e5;
+          color: #191919 !important;
+
+          /* padding-top: 30px;
+          padding-bottom: 4px;
+          border-bottom: 2px solid #e5e5e5; */
+
+        }
+
+        .active-nav-link {
+          font-weight: 900;
+        }
+
+        a.nav-link.disabled { color: #acacac !important}
+
+#wallpaperDropdown, #signinDropdown, #your-charts {
+  padding-bottom: 2px;
 }  
+
+#wallpaperDropdown {
+  margin-right: 50px;
+}
 
 #login-modal .form-group {
   width: 300px;
@@ -452,6 +511,12 @@ a.nav-link {
 
 .model-plan-item:hover, #brand-logo, #jump-to-signup {
   cursor: pointer;
+}
+
+#brand-logo {
+  /* width: 800px; */
+  height: 100px;
+  margin-bottom: 15px;
 }
 
 #model-table-div {
@@ -594,6 +659,16 @@ caption:focus, td[contenteditable=true]:focus {
 
 }
 
+
+.diagnostic-show {
+  /* background-color: #00cd00; */
+  color: #191919;
+}
+
+.diagnostic-hide {
+  /* background-color: red; */
+  color: #e5e5e5;
+}
 /* #test-btn:hover {
   /* background-color: #4892c4;
   border: 1px solid red; */

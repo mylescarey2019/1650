@@ -1077,6 +1077,20 @@ $(document).ready(function(){
    });
  }); 
 
+ //  diagnostic model info - toggle visibilty
+ $(document).on("click", "#footer-id-label", function() {
+   console.log('DIAG: clicked');
+   if ($("#footer-id-label").hasClass('diagnostic-show')) {
+     console.log('DIAG: has SHOW');
+    $(".diagnostic").removeClass('diagnostic-show');
+    $(".diagnostic").addClass('diagnostic-hide');
+   } else {
+    console.log('DIAG: has HIDE');
+    $(".diagnostic").removeClass('diagnostic-hide');
+    $(".diagnostic").addClass('diagnostic-show');
+   }
+ }); 
+
 
   // autofocus the bootstrap fade in model - first input field
   $("#login-modal").on('shown.bs.modal', function () {
