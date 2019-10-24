@@ -1067,8 +1067,8 @@ $(document).ready(function(){
    });
  });
   
- //  brand-link - force scroll to top
- $(document).on("click", "#brand-logo", function() {
+ //  brand-link, help-btn  - force scroll to top
+ $(document).on("click", "#brand-logo,#help-btn", function() {
   //  $("#main-section").fadeIn();
    window.scroll({
      top: 0,

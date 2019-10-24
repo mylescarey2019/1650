@@ -128,6 +128,7 @@ mylescarey2019@gmail.com
   - masked password
   - hidden, but clickable diagnostic user & model information in left side of footer
   - Brand Logo now returns viewport to the first carousel slide
+  - Help button on Model grid added - resets view port to the "Get Started" slide for model instructions
 - Full Sprint 1 scheduled for 10/27/2019 release - improve responsiveness down to form factor 1024x768 (iPad)
 
 
@@ -138,5 +139,5 @@ mylescarey2019@gmail.com
 
 Thanks to beta testers - my 15yo & 17yo daughters and wife 
 
-Thanks to unsplash photographers for slide and wallpaper images - individual attributes to be added to site footer in upcoming release
+Thanks to unsplash photographers for slide and wallpaper images - individual attribution to be added to site footer in upcoming release
 
