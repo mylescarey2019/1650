@@ -120,6 +120,7 @@ h3, h4 {
 #tag-line {
   color: #1F9376;
   width: 770px;
+  /* width: 432px; */
   /* position: relative; */
   /* bottom: 16px; */
 }
@@ -131,6 +132,25 @@ h3, h4 {
   /* clear: left; */
   padding-bottom: px;
   border-bottom: 2px solid #1F9376;
+  margin-top: 44px;
+  margin-left: 4px;
+  text-shadow: 1px 1px rgba(255,255,255,0.8);
+ }
+
+ #fix-tag {
+    width: 432px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #1F9376;
+ }
+
+ .tag-line0 {
+  color: #1F9376;
+  font-size: 20px;
+  font-weight: 800;
+  width: 432px;
+  /* clear: left; */
+  /* padding-bottom: px;
+  border-bottom: 2px solid #1F9376; */
   margin-top: 44px;
   margin-left: 4px;
   text-shadow: 1px 1px rgba(255,255,255,0.8);
