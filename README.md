@@ -89,6 +89,8 @@ Modal examples:
 
 - none - Note:  not fully responsive yet - best viewed at or above 1440x900 or larger
 
+  but does support down to ipad(1024x768) and larger sizes such as 1366x778
+
 ### Installing
 
 - none necessary - use link to page deployed on Heroku
@@ -103,7 +105,7 @@ Modal examples:
 
 #### Planned & Possible Enhancements
 
-- [ ] clean up responsiveness 
+- [x] clean up responsiveness - completed down to 1024x768
 - [ ] replace/improve spreadsheet grid - allow adding and removing of rows
 - [ ] try dynamic chart rendering on grid value change eliminating need for Refresh Model button
 - [ ] database cleanup to remove guest models no longer being used
@@ -129,9 +131,8 @@ mylescarey2019@gmail.com
   - hidden, but clickable diagnostic user & model information in left side of footer
   - Brand Logo now returns viewport to the first carousel slide
   - Help button on Model grid added - resets view port to the "Get Started" slide for model instructions
-- Full Sprint 1 scheduled for 10/27/2019 release - improve responsiveness down to form factor 1024x768 (iPad)
-
-
+- 1.1 Full Sprint 1 release 10/25/2019 - improve responsiveness down to form factor 1024x768 (iPad)
+- 1.2 Next planned sprint scheduled for 11/3/2019 - Capability to delete user models
 
 ## License
 
