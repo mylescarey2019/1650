@@ -705,12 +705,12 @@ caption:focus, td[contenteditable=true]:focus {
   }
 
   .bullet {
-    line-height: 1.2em;
+    line-height: 1.3em;
     margin-bottom: 0px;
   }
 
   .bullet-link {
-    line-height: 20%;
+    line-height: 1.3em;
   }
 
   a.nav-link, #footer-user-label, #logged-user
