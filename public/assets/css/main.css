@@ -646,7 +646,9 @@ caption:focus, td[contenteditable=true]:focus {
 
 /* media query section */
 
-
+/****************************************************************************/
+/*** Media Query Section                                                  ***/
+/****************************************************************************/
 /* resize nav item margins */
 @media screen and (max-width: 1439px), screen and (max-height: 820px) {
  
@@ -673,7 +675,7 @@ caption:focus, td[contenteditable=true]:focus {
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   h4 {
@@ -698,13 +700,13 @@ caption:focus, td[contenteditable=true]:focus {
   } */
 
   .bullet-link-2 {
-    font-size: 16px;     
+    font-size: 14px;     
     line-height: 1.5em;
   }
 
   .bullet {
-    line-height: 1.5em;
-    margin-bottom: 4px;
+    line-height: 1.2em;
+    margin-bottom: 0px;
   }
 
   .bullet-link {
@@ -718,7 +720,7 @@ caption:focus, td[contenteditable=true]:focus {
   }
 
   .bullet-sm {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   /* #main-section, .carousel-item, .slide-left, .slide-center, .slide-right {
@@ -726,7 +728,7 @@ caption:focus, td[contenteditable=true]:focus {
   } */
 
   #main-section, .carousel-item, .slide-left, .slide-center, .slide-right {
-    height: 450px;
+    height: 460px;
   }
 
   #model-img {
