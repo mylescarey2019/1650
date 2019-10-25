@@ -1116,11 +1116,11 @@ $(document).ready(function(){
 
   function hideDiv() {
     // console.log(document.documentElement.scrollTop);
-    if (document.documentElement.scrollTop > 50) {
+    if (document.documentElement.scrollTop > 20) {
       $("#main-section").fadeOut();
       
     } 
-    else if (document.documentElement.scrollTop <= 50) {
+    else if (document.documentElement.scrollTop <= 20) {
       $("#main-section").fadeIn();
     }
   };
