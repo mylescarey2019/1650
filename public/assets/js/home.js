@@ -583,6 +583,7 @@ $(document).ready(function(){
           $("#footer-model-id").text(res.id);
     
           $("tr.model-row").remove();
+          $("#test-btn").removeAttr('disabled');
           res.lifeChapters.map(chapter => {
             console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
                          invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
@@ -636,6 +637,7 @@ $(document).ready(function(){
 
 
     $("tr.model-row").remove();
+    $("#test-btn").removeAttr('disabled');
     res.lifeChapters.map(chapter => {
       console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
                   invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
@@ -1013,7 +1015,7 @@ $(document).ready(function(){
           // console.log(res[0].user_name);
           // console.log(res[0].Plans);
 
-        // remove any modal model rows from previous opens
+        // remove any modal model rows from previous opens - test
         $("tr.modal-model-row").remove();
 
         if (res[0].Plans.length === 0) {
@@ -1023,6 +1025,7 @@ $(document).ready(function(){
           res[0].Plans.map(plan => {
             // console.log(`user name: ${res[0].user_name}  plan_name ${plan.plan_name} plan id: ${plan.id}`);
             var modelRow = $('<tr>').addClass("modal-model-row");
+            modelRow.append($(`<td><input class="model-list-checkbox" type="checkbox" name="delete" value="${plan.id}"></td>`));
             modelRow.append($(`<td>${res[0].user_name}</td>`));
             modelRow.append($(`<td class="model-plan-item">${plan.plan_name}</td>`).attr('data-id',`${plan.id}`));
             modelRow.append($(`<td>${plan.id}</td>`));
@@ -1031,7 +1034,7 @@ $(document).ready(function(){
         };
       });
 
-    $('#load-models-modal').modal('show');
+    $('#load-models-modal').modal('show'); 
   });
 
 
@@ -1056,6 +1059,60 @@ $(document).ready(function(){
 
   });
 
+  //  model modal plan name click event for deleting a users plan
+  $(document).on("click", "#delete-models", function() {
+    var planIds = [];
+    $('.model-list-checkbox:checked').each(function () {
+      console.log("this item was checked: ", this.value);
+      planIds.push(this.value);
+    });
+    console.log(`ID Array: ${planIds} `);
+
+    var plan = {
+      planIds: planIds
+    };
+
+    console.log(plan);
+
+    // now call API to update and then take the results for rendering
+    $.ajax("/api/multi-plan", {       
+      type: "DELETE",
+      data: plan
+    }).then(function(res) {
+        console.log(res);
+        // // now render the chart by calling helper function
+        // renderReturnedPlan(res);
+      }
+    );
+  
+    // close load modal
+    $('#load-models-modal').modal('hide');
+    
+    if (planIds.indexOf($("#grid-caption").attr('data-id')) !== -1) {
+      console.log('Deleted the current model');
+      $('#no-current-model-modal').modal('show');
+      $("#test-btn").prop("disabled",true);
+      $("tr.model-row").remove();  // clear grid
+      $("#grid-caption").text(''); // clear model name
+      // $("#grid-caption").attr('data-id',`${res.id}`);  // clear model id
+      $("#footer-model-id").text(''); // clear footer model id
+      // $("#grid-caption").attr('data-user-id',`${res.userId}`);  //clear grid user id
+      // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`); //clear grid plan type
+
+    } else {
+      console.log('Current model not deleted');
+    }
+    // NEXT STEPS - SPRINT
+    // X. if current model was deleted then throw up a modal telling user
+    //    that they need to create a new model or load an existing model to keep modeling
+    // 2. if current model was deleted then
+    //        A)  disable the Save-Refresh-Model button
+    //        B)  clear the rendered chart - not sure how to do that yet
+    //        C)  clear the model table with JQuery
+    //        D)  clear the diagnostic portions values hidden in the footer.
+    //        E)  add an enable of Save-Refresh-Model button to whenever it is freshly rendered
+    
+  });
 
  //  nav-link - force scroll to top
  $(document).on("click", ".slide-nav", function() {

@@ -362,6 +362,7 @@
                       <caption id="model-caption"></caption>
                     </div>  
                     <tr id="model-table-header">
+                      <th></th>  
                       <th>User Name</th>  
                       <th>Model Name</th>
                       <th>Model ID</th>
@@ -372,6 +373,8 @@
             </div>
 
             <p id="load-models-msg">Click on a model name to load it</p>
+            <p id="delete-models-msg">To delete models select checkboxes and then Delete</p>
+            <button id="delete-models" type="button" class="btn btn-danger">Delete</button>  
             <button id="load-models-close" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
           </div>
           <div class="modal-footer">
@@ -380,6 +383,26 @@
       </div>
     </div>
 
+    <div id="no-current-model-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content custom">
+          <div class="modal-header">
+            <div class="brand">1650</div>
+            <p class="tag-line">
+                Start saving at 16 watch it <strong>grow</strong> for 50 years
+            </p>
+          </div>
+          <div class="modal-body">
+            <form class="logout">
+              <p id="no-model-msg" >To continue using model tool please create a new model or load one of your saved models</p>
+              <button id="no-model-close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </form>  
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
 
   <footer id="footer-bar">
     <div id="footer-id-label" class="diagnostic diagnostic-hide">User Id: </div>

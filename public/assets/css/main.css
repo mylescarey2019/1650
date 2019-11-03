@@ -468,8 +468,13 @@ table th {
   margin: 0 auto;
 }
 
-#login-modal .tag-line, #logout-modal .tag-line, #load-models-modal .tag-line {
+#login-modal .tag-line, #logout-modal .tag-line, #load-models-modal, 
+#no-current-model-modal, .tag-line {
   margin-right: 150px;
+}
+
+#no-model-msg, #no-model-close {
+  margin-left: 80px;
 }
 
 #logout-msg {
@@ -477,7 +482,7 @@ table th {
   margin-left: 250px;
 }
 
-#load-models-msg {
+#load-models-msg, #delete-models-msg {
   margin-top: 20px;
   margin-left: 250px;
 }
@@ -509,20 +514,15 @@ table th {
   padding: 0px
 }
 
-#login-submit, #logout-submit {
+#login-submit, #logout-submit, #delete-models {
   margin-right: 133px;
   margin-left: 250px;
   margin-top: 10px;
   width: 80px;
 }
 
-#login-close, #logout-close {
+#login-close, #logout-close, #load-models-close {
   margin-right: 235px;
-  margin-top: 10px;
-  width: 80px
-}
-#load-models-close {
-  margin-left: 250px;
   margin-top: 10px;
   width: 80px
 }

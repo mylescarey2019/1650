@@ -176,35 +176,36 @@ module.exports = function (app) {
       });
   });
 
-  // update a finanical model and return to client for
-  // rendering
-  // this treats the model as whole
-  // it will update the Plan model
-  // it will bulk update the Plan's LifeChapter model(s)
-  // it take in an object that has an array of objects
-  //  {
-  //        {          // Plan Object
-  //          id: id,    
-  //          plan_name: plan_name,
-  //          PlanUserId: PlanUserId,
-  //          PlanTypeId: PlanTypeId
-  //         },
-  //         [         // Array of Life Chapter Objects
-  //             {
-  //                  id: id,  
-  //                  seq_no: seq_no,
-  //                  chapter_name: chapter_name,
-  //                  start_age: start_age,
-  //                  end_age: end_age,
-  //                  invest_amount: invest_amount,
-  //                  return_pct: return_pct,
-  //                  inflation_pct: inflation_pct,
-  //                  InvestRateTypeId: InvestRateTypeId,
-  //                  PlanId: PlanId  
-  //             }
-  //         ]
-  //  }  
-  // 
+
+  // delete multiple plans
+    // ALTER TABLE LifeChapters DROP FOREIGN KEY lifechapters_ibfk_2;
+    // ALTER TABLE LifeChapters ADD CONSTRAINT lifechapters_ibfk_2 FOREIGN KEY (`PlanId`) REFERENCES `plans` (`id`) ON DELETE CASCADE;
+  app.delete("/api/multi-plan", (req, res) => {
+    // console.log(req.body.planIds);
+    // const ids = req.body.planIds.split(',');
+    // console.log(`isArray: ${Array.isArray(ids)} arrayIs: ${ids} ${ids[0]} ${ids[1]}`);
+    Op = db.Sequelize.Op;
+    // arrIds = [1686,1687];
+    db.Plan.findAll({
+      where: {id: { [Op.in]: req.body.planIds}}
+      // where: {id: { [Op.in]: ids}}
+      // where: {id: { [Op.in]: arrIds}}
+      // where: {id: { [Op.in]: [1686,1687]}}
+    })
+    .then(plans => {
+      console.log(`plans: ${JSON.stringify(plans)}`);
+      const deletePromises = plans.map(plan => {
+        return plan.destroy();
+      });
+      return db.Sequelize.Promise.all(deletePromises)
+    })
+    .then(deletedPlans => {
+      res.json(deletedPlans)
+    });
+  });
+
+ 
+  //  update plan & its life-chapters
   app.put("/api/plan-life-chapters", function (req, res) {
     // update a financial plan (plan and its life chapters)
     // update the plan
