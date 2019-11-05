@@ -21,6 +21,10 @@
 
 
 body {
+   /* background-image:  
+    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.2)),
+    url("../img/john-king-LGCIWbBGnxQ-unsplash.jpg"); */
+
  background-image: url(../img/john-king-LGCIWbBGnxQ-unsplash.jpg);
 }
 
@@ -58,7 +62,7 @@ a:hover, a:active { text-decoration: none; color: #4c4c4c } */
 
 
 #chart, #grid {
-  background-color:  rgba(197, 209, 217, .9);
+  background-color:  rgba(197, 209, 217, 1.0);
   color: #4c4c4c;
   /* border: 2px solid #4c4c4c; */
 }

@@ -54,7 +54,7 @@ a:hover, a:active { text-decoration: none; color: #e5e5e5 } */
 
 
 #chart, #grid {
-  background-color:  rgba(69, 85, 89, .9);
+  background-color:  rgba(69, 85, 89, 1.0);
   color: #e5e5e5;
   /* border: 2px solid #8C884F; */
 }

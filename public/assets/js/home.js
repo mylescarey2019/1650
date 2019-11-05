@@ -138,13 +138,13 @@ $(document).ready(function(){
 
   var data36 =
   {
-    name: 'Age-36',
+    name: '\u2022\u2022\u2022 Age 36',
 
 
     data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,125,261,408
       ,567,739,926,1128,1347,1584,1841,2119,2421,2747,3100,3483,3897,4346,4832,5359,5929
       ,6546,7215,7939,8724,9573,10493,11489,12568,13737,15002],
-
+      dashStyle: 'dot', 
     type: 'areaspline',
     color: '#FF0000',
     // [850, 900, 1100, 1400, 2200, 3800, 13000,25000]
@@ -175,12 +175,13 @@ $(document).ready(function(){
 
   var data26 = 
   {
-    name: 'Age-26',
+    name: '\u2013\u2013\u2013 Age 26',
 
     data: [
       null,null,null,null,null,null,null,null,null,null,125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359
       ,5929,6547,7216,7940,8724,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143
     ],
+    dashStyle: 'dash',
     type: 'areaspline',
     // color: '#69728C',
     color: '#FFFF00',
@@ -201,13 +202,14 @@ $(document).ready(function(){
 
   var data16 =
   {
-    name: 'Age-16',
+    name: ' \u2500\u2500 Age 16',
 
     data: [
       125,261,408,567,740,926,1129,1348,1585,1842,2120,2421,2747,3101,3483,3898,4347,4833,5359,5929,6547,7216,7940,8724
       ,9574,10494,11490,12569,13737,15003,16374,17858,19465,21206,23092,25134,27345,29740,32334,35143,38185,41480,45048
       ,48912,53097,57629,62538,67854,73611,79846
     ],  
+    dashStyle: 'solid',
     type: 'areaspline',
     // color: '#026873',
     color: '#008000',
@@ -345,11 +347,26 @@ $(document).ready(function(){
     // subtitle: {
     //   text: 'Source: Wikipedia.org'
     // },
+    // legend: {
+    //   enabled: true,
+    //   symbolWidth: 100
+      // enabled: true,
+      // layout: 'vertical',
+      // align: 'right',
+      // verticalAlign: 'top',
+      // x: 10,
+      // y: 100,
+      // borderWidth: 0
+    // },
     legend: {
+      enabled: true,
       itemStyle: {
         fontWeight: 'bold',
-        fontSize: '18px',
-      }
+        fontSize: '16px',
+      },
+      symbolHeight: 16,
+      symbolWidth: 16,
+      symbolRadius: 0
     },
     xAxis: {
       // min: 16,
@@ -1056,7 +1073,12 @@ $(document).ready(function(){
 
     // close load modal
     $('#load-models-modal').modal('hide');
-
+    // scroll to model
+    window.scroll({
+      top: 700,
+      left: 0,
+      behavior: "smooth"
+    });
   });
 
   //  model modal plan name click event for deleting a users plan
@@ -1124,6 +1146,17 @@ $(document).ready(function(){
    });
  });
   
+
+ //  model tool - force scroll to bottom
+ $(document).on("click", "#model-tool", function() {
+  //  $("#main-section").fadeIn();
+   window.scroll({
+     top: 700,
+     left: 0,
+     behavior: "smooth"
+   });
+ });
+
  //  brand-link, help-btn  - force scroll to top
  $(document).on("click", "#brand-logo,#help-btn", function() {
   //  $("#main-section").fadeIn();

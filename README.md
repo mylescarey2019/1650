@@ -133,8 +133,10 @@ mylescarey2019@gmail.com
   - Help button on Model grid added - resets view port to the "Get Started" slide for model instructions
 - 1.1 Sprint 1 release 10/25/2019 - improve responsiveness down to form factor 1024x768 (iPad)
 - 1.2 Sprint 2 release 11/02/2019 - Capability to delete user models added
-- 1.3 Next planned sprint scheduled for 11/10/2019 - UX Improvements (slide text contrast, graph/grid screen fit)
-- 1.3 Planned sprint scheduled for 11/13/2019 - activate monthly compounding option; activate inflation rate option
+- 1.3.5 Sprint 3 release 11/05/2019 - UX improvements (slide text contrast, added symbols for CVD support), nav link to 
+                                      model tool
+- 1.3 Next planned sprint scheduled for 11/10/2019 - UX Improvements (graph/grid screen fit), link to top of page
+- 1.4 Planned sprint scheduled for 11/13/2019 - activate monthly compounding option; activate inflation rate option
 
 ## License
 

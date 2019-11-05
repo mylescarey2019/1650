@@ -245,9 +245,15 @@ h3, h4 {
   /* background-size: cover;
   background-origin: center; */
 
-  background-image:  
+  /* background-image:  
     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url("../img/sabine-peters-4IqiPGAuTVE-unsplash.jpg");
+    url("../img/sabine-peters-4IqiPGAuTVE-unsplash.jpg"); */
+
+  background-image:
+    linear-gradient(
+      to top,
+      #666666, #191919
+    )
 
   /* color: #e5e5e5;
   border-top: solid 1px #e5e5e5;
@@ -256,29 +262,53 @@ h3, h4 {
 
 
 #slide-2-left {
-  background-image:  
-    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  /* background-image:   */
+    /* linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), */
     /* url("../img/david-iskander-iWTamkU5kiI-unsplash-2.jpg"); */
-    url("../img/stil-N9uOrBICcjY-unsplash.jpg");
+    /* url("../img/stil-N9uOrBICcjY-unsplash.jpg"); */
+
+    background-image:
+    linear-gradient(
+      to top,
+      #666666, #191919
+    ) 
 }
 
 
 #slide-3-left {
-  background-image:  
+  /* background-image:  
     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url("../img/jen-theodore-fqkaMzeGk7E-unsplash4.jpg");
+    url("../img/jen-theodore-fqkaMzeGk7E-unsplash4.jpg"); */
+
+    background-image:
+    linear-gradient(
+      to top,
+      #666666, #191919
+    )
 }
 
 #slide-4-left {
-  background-image:  
+  /* background-image:  
     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url("../img/haley-phelps-twoahjAsoO4-unsplash2.jpg");
+    url("../img/haley-phelps-twoahjAsoO4-unsplash2.jpg"); */
+
+    background-image:
+    linear-gradient(
+      to top,
+      #666666, #191919
+    )
 }
 
 #slide-5-left {
-  background-image: 
+  /* background-image: 
     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url("../img/markus-spiske-3Tf1J8q9bBA-unsplashNYTimes.jpg");
+    url("../img/markus-spiske-3Tf1J8q9bBA-unsplashNYTimes.jpg"); */
+
+    background-image:
+    linear-gradient(
+      to top,
+      #666666, #191919
+    )
 }
 
 #slide-2-right, #slide-3-right, #slide-4-right, #slide-5-right {
@@ -459,9 +489,10 @@ table th {
   padding-bottom: 2px;
 }  
 
-#wallpaperDropdown {
+/* #wallpaperDropdown {
   margin-right: 50px;
-}
+} */
+
 
 #login-modal .form-group {
   width: 300px;
@@ -715,7 +746,7 @@ caption:focus, td[contenteditable=true]:focus {
 
   a.nav-link, #footer-user-label, #logged-user
   {
-    font-size: 14px;
+    font-size: 12px;
     margin-right: 10px;
   }
 

@@ -61,7 +61,7 @@ a:hover, a:active { text-decoration: none; color: #191919 } */
 
 
 #chart, #grid {
-  background-color:  rgba(105, 114, 140, .9);
+  background-color:  rgba(105, 114, 140, 1.0);
   color: #D5E5F2;
   /* border: 2px solid #D98841; */
 }
