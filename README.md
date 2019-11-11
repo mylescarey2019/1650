@@ -56,23 +56,23 @@ The backend use mySQL, Sequelize and API routes for HTML and database operations
 
 Page upper section - introduction slide
 
-![intro-slide](./public/assets/img/readMEs/intro-slide.png)
+![intro-slide](./public/assets/img/readMEs/upper-screen.png)
 
 
 
 Modeling Tool
 
-![model-tool](./public/assets/img/readMEs/model-tool.png)
+![model-tool](./public/assets/img/readMEs/lower-screen.png)
 
 
 
 Modal examples:
 
-![login-modal](./public/assets/img/readMEs/login-modal.png)
+![login-modal](./public/assets/img/readMEs/login-screen.png)
 
 
 
-![model-modal](./public/assets/img/readMEs/model-modal.png)
+![model-modal](./public/assets/img/readMEs/model-modal-scren.png)
 
 ## Getting Started
 
