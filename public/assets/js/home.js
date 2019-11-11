@@ -1125,7 +1125,7 @@ $(document).ready(function(){
     $('#load-models-modal').modal('hide');
     // scroll to model
     window.scroll({
-      top: 700,
+      top: 720,
       left: 0,
       behavior: "smooth"
     });
