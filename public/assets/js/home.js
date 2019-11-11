@@ -1224,7 +1224,7 @@ $(document).ready(function(){
   window.onscroll = function() {hideDiv()};
 
   function hideDiv() {
-    console.log(document.documentElement.scrollTop);
+    // console.log(document.documentElement.scrollTop);
     if (document.documentElement.scrollTop > 20) {
       $("#main-section").fadeOut();
     } 
