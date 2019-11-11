@@ -107,6 +107,7 @@ Modal examples:
 
 - [x] clean up responsiveness - completed down to 1024x768
 - [ ] strengthen model grid validations
+- [ ] fine tune/improve media queries to provide better responsiveness
 - [ ] replace/improve spreadsheet grid - allow adding and removing of rows
 - [ ] try dynamic chart rendering on grid value change eliminating need for Refresh Model button
 - [ ] database cleanup to remove guest models no longer being used
