@@ -146,6 +146,8 @@ h3, h4 {
   color: #191919;
 } 
 
+
+
 #footer-id-label, #logged-id, 
 #footer-model-id-label, #footer-model-id {
   float: left;
@@ -159,6 +161,11 @@ h3, h4 {
   color: #1F9376;
 }
 
+.non-guest-user {
+  font-size: 20px !important;
+  font-weight: 900 !important;
+}
+
 #footer-id-label:hover {
   cursor: pointer;
 }
@@ -169,7 +176,7 @@ h3, h4 {
   height: 600px;
   background-color: white;
   position: fixed;
-  top: 170px;
+  top: 150px;
   margin: 0 auto ;
   z-index: 1;
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .5), 0 8px 26px 0 rgba(0, 0, 0, 0.46);
@@ -369,6 +376,23 @@ h3, h4 {
   letter-spacing: .15em;
 } */
 
+#down-btn-div {
+  margin-top: 16px;
+  text-align: center;
+  
+}
+
+#down-btn {
+  /* position: absolute;
+  top: 780px;
+  right: 680px; */
+  background-color: #1F9376;;
+  height: 50px;
+  font-size: 24px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .5), 0 8px 26px 0 rgba(0, 0, 0, 0.46);
+}
 
 #nav-bar, #chart, #grid , #footer-bar, #lower-frame, .custom {
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .5), 0 8px 26px 0 rgba(0, 0, 0, 0.46);
@@ -595,7 +619,7 @@ table th {
   margin-right: 20px;
 }
 
-#test-btn, #help-btn, #new-model-btn, #top-btn {
+#test-btn, #help-btn, #new-model-btn, #top-btn, #down-btn {
   /* border: 1px solid #4892c4;
   border-radius: .3rem; */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.10); */
@@ -614,8 +638,13 @@ table th {
   margin-top: 0px;
   /* margin-left: 8px; */
   margin-right: 0px;
-  width: 60px;
+  width: 100px;
   float: right;
+}
+
+#top-btn-arrow {
+  font-size: 20px;
+  padding-left: 10px;
 }
 
 #jump-to-signup {
@@ -803,7 +832,18 @@ caption:focus, td[contenteditable=true]:focus {
     font-size: 14px;
   }
 
+  .non-guest-user {
+    font-size: 14px !important;
+    font-weight: 900 !important;
+  }
+
 }
 
+@media screen and (max-width: 1024px) {
 
+  .non-guest-user {
+    font-size: 12px !important;
+    font-weight: 900 !important;
+  }
+}
 

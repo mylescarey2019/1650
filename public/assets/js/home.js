@@ -774,7 +774,7 @@ $(document).ready(function(){
     // it can be scrolled up or down to be centered
     var chartOffset = $("#lower-section").offset();
     var scrollAmt = $(window).scrollTop();
-    console.log(`chart top offset is: ${chartOffset.top} scroll is ${scrollAmt}`);
+    // console.log(`chart top offset is: ${chartOffset.top} scroll is ${scrollAmt}`);
 
     updateChartPut();
   });
@@ -895,6 +895,8 @@ $(document).ready(function(){
         // set the logged in user on the grid attributes for the next refresh
         $("#grid-caption").attr('data-user-id',data.id);  // change to the logged in user id
         $("#grid-caption").attr('data-plan-type-id',3); // change to plan type 3 (user)
+        $("#footer-user-label").addClass('non-guest-user');
+        $("#logged-user").addClass('non-guest-user');
         $('#new-model-btn').show();
         $("#your-charts").removeClass('disabled');
  
@@ -903,7 +905,8 @@ $(document).ready(function(){
         $('#password').val("");
         $('#login-msg').text("");
         // change the refresh button to save & refresh since a user has signed in
-        $('#test-btn').text('Save & Refresh Model');
+        // changed from Save & Refresh to just Save to see if UX is better
+        $('#test-btn').text('Save Model');
         // // turn on the save model button since there is a user now
         // $('#save-btn').show();
         // switch login menu title
@@ -913,6 +916,18 @@ $(document).ready(function(){
         $('#login-dropdown-menu').append('<a class="dropdown-item signin" data-value="logout" href="#">Logout</a>');
         // hide model
         $('#login-modal').modal('hide');
+
+        // user logged in so clear the guest model and show modal for need to create or load model
+        // console.log('logged in so clear the guest model');
+        $('#no-current-model-modal').modal('show');
+        $("#test-btn").prop("disabled",true);
+        $("tr.model-row").remove();  // clear grid
+        $("#grid-caption").text(''); // clear model name
+        // $("#grid-caption").attr('data-id',`${res.id}`);  // clear model id
+        $("#footer-model-id").text(''); // clear footer model id
+        // $("#grid-caption").attr('data-user-id',`${res.userId}`);  //clear grid user id
+        // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`); //clear grid plan type
+
         return;
       })
       .fail(function(err) {
@@ -954,6 +969,8 @@ $(document).ready(function(){
         // set the logged in user on the grid attributes for the next refresh
         $("#grid-caption").attr('data-user-id',data.id);  // change to the logged in user id
         $("#grid-caption").attr('data-plan-type-id',3); // change to plan type 3 (user)
+        $("#footer-user-label").addClass('non-guest-user');
+        $("#logged-user").addClass('non-guest-user');
         $('#new-model-btn').show();
         $("#your-charts").removeClass('disabled');
         // clear form fields
@@ -961,7 +978,8 @@ $(document).ready(function(){
         $('#password').val("");
         $('#login-msg').text("");
         // change the refresh button to save & refresh since a user has signed in
-        $('#test-btn').text('Save & Refresh Model');
+        // changed from Save & Refresh to just Save to see if UX is better
+        $('#test-btn').text('Save Model');
         // // turn on the save model button since there is a user now
         // $('#save-btn').show();
         // switch login menu title
@@ -971,6 +989,17 @@ $(document).ready(function(){
         $('#login-dropdown-menu').append('<a class="dropdown-item signin" data-value="logout" href="#">Logout</a>');
         // hide model
         $('#login-modal').modal('hide');
+
+        // user logged in so clear the guest model and show modal for need to create or load model
+        // console.log('logged in so clear the guest model');
+        $('#no-current-model-modal').modal('show');
+        $("#test-btn").prop("disabled",true);
+        $("tr.model-row").remove();  // clear grid
+        $("#grid-caption").text(''); // clear model name
+        // $("#grid-caption").attr('data-id',`${res.id}`);  // clear model id
+        $("#footer-model-id").text(''); // clear footer model id
+        // $("#grid-caption").attr('data-user-id',`${res.userId}`);  //clear grid user id
+        // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`); //clear grid plan type
         return;
       })
       .fail(function(err) {
@@ -1005,6 +1034,8 @@ $(document).ready(function(){
         // set the logged in user on the grid attributes for the next refresh
         $("#grid-caption").attr('data-user-id',2);  // change to the logged in guest user id
         $("#grid-caption").attr('data-plan-type-id',2); // change to plan type 2 (guest)
+        $("#footer-user-label").removeClass('non-guest-user');
+        $("#logged-user").removeClass('non-guest-user');
         // switch login menu title
         $('#signinDropdown').text('Login');
         // change the refresh button to save & refresh since a user has logged in
@@ -1167,7 +1198,7 @@ $(document).ready(function(){
   
 
  //  model tool - force scroll to bottom
- $(document).on("click", "#model-tool", function() {
+ $(document).on("click", "#model-tool, #down-btn", function() {
   //  $("#main-section").fadeIn();
    window.scroll({
      top: 720,
@@ -1175,6 +1206,16 @@ $(document).ready(function(){
      behavior: "smooth"
    });
  });
+
+  //  ask user to load model - modal close  force scroll to bottom
+  $("#no-current-model-modal").on("hide.bs.modal", function() {
+    //  $("#main-section").fadeIn();
+     window.scroll({
+       top: 720,
+       left: 0,
+       behavior: "smooth"
+     });
+   });
 
  //  brand-link, help-btn  - force scroll to top
  $(document).on("click", "#brand-logo,#help-btn", function() {
@@ -1216,20 +1257,18 @@ $(document).ready(function(){
   });
 
 
-
-  
-
-
   // toggle upper section on/off when users scrolls up/down
   window.onscroll = function() {hideDiv()};
 
   function hideDiv() {
     // console.log(document.documentElement.scrollTop);
     if (document.documentElement.scrollTop > 20) {
-      $("#main-section").fadeOut();
+      $("#main-section, #down-btn").fadeOut();
+      // $("#down-btn").fadeOut();
     } 
     else if (document.documentElement.scrollTop <= 20) {
-      $("#main-section").fadeIn();
+      $("#main-section,#down-btn").fadeIn();
+      // $("#down-btn").fadeIn();
     }
   };
 

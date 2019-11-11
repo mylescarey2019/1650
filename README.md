@@ -103,9 +103,10 @@ Modal examples:
 - signup and login to create models, save models and load saved models - see Your Models link in navbar
 - for fun select from several wallpapers via nav bar dropdown
 
-#### Planned & Possible Enhancements
+#### Planned/Possible Enhancements Backlog
 
 - [x] clean up responsiveness - completed down to 1024x768
+- [ ] strengthen model grid validations
 - [ ] replace/improve spreadsheet grid - allow adding and removing of rows
 - [ ] try dynamic chart rendering on grid value change eliminating need for Refresh Model button
 - [ ] database cleanup to remove guest models no longer being used
@@ -114,6 +115,7 @@ Modal examples:
 - [ ] user preferences modal - move wallpaper setting into it; add settings for preset Modeled Return and Inflation rates
 - [ ] improve slide content 
 - [ ] password recovery
+- [ ] multiple model plots on single graph for easy comparisons
 - [ ] layout rework - consider moving from slide layout to traditional page sections accessed via scroll and links
 - [ ] provide dynamic page footer attributions wallpaper images thanking given unsplash photographer
 
@@ -136,7 +138,9 @@ mylescarey2019@gmail.com
 - 1.3 Sprint 3 release 11/05/2019 - UX improvements: slide text contrast, added symbols for CVD support,
       nav link to model tool
 - 1.4 Sprint 4 release 11/10/2019 - UX improvements:  graph/grid screen fit, link to top of page, wallpaper none option
-- 1.5 Planned sprint scheduled for 11/13/2019 - annual compounding option; inflation rate option
+- 1.5 Sprint 5 release 11/11/2019 - UX improvements: symbols on slide for CVD support, model tool down 
+button (manual scroll still available), increased nav bar visibilty of logged in user, login/signup triggers modal reminder to create or load model and auto-scrolls to model section on close, guest model is now cleared from page on login/signup, clarity on model button: (guests refresh the model/graph),logged in users save the model which also refreshs graph)
+- 1.6 Planned sprint scheduled for 11/17/2019 - annual frequency option for compounding; inflation rate option
 
 ## License
 
