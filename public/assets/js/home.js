@@ -13,6 +13,9 @@ $(document).ready(function(){
   $("#slide-1-4").hide();
   $("#slide-1-5").hide();
 
+  // // start with the lower section hidden
+  // $("#lower-section").hide();
+
 
   // helper functions
 
@@ -52,6 +55,13 @@ $(document).ready(function(){
   };
 
 
+  // set chart height
+  var chartHeight = 0;
+  if ($(window).height() > 850) {
+    chartHeight = 400;
+  } else {
+    chartHeight = 290;
+  }
   // ----------------------------------------------------------
   // object for local storage:
   // ----------------------------------------------------------
@@ -118,9 +128,13 @@ $(document).ready(function(){
         break;
       case 'glass':  {chartGraphColor = '#F2D479'
                        chartAxisColor = '#191919'}
+        break;
+      case 'none': {chartGraphColor = '#1F9376',
+                       chartAxisColor = '#191919'}
+       break;
       // default:  {chartGraphColor = '#1F9376'
       //              chartAxisColor = '#191919'}
-        break;
+        // break;
     }
   };
 
@@ -465,15 +479,20 @@ $(document).ready(function(){
     Highcharts.chart('chart-container', {
       chart: {
         type: 'area',
-        backgroundColor:  null 
+        backgroundColor:  null, 
+        height: chartHeight,
         // 'rgba(197, 209, 217, .2'
+      },
+      credits: {
+        enabled: false
       },
       // colors: ['#026873'],
       tooltip: {
         valuePrefix: '$'
       },
       title: {
-        text: chartName,
+        text: ' ',
+        // text: chartName,
         style: { color: chartAxisColor,
             fontWeight: 'bold',
             fontSize: '24px'
@@ -1137,7 +1156,7 @@ $(document).ready(function(){
   });
 
  //  nav-link - force scroll to top
- $(document).on("click", ".slide-nav", function() {
+ $(document).on("click", ".slide-nav, #top-btn", function() {
   //  $("#main-section").fadeIn();
    window.scroll({
      top: 0,
@@ -1151,7 +1170,7 @@ $(document).ready(function(){
  $(document).on("click", "#model-tool", function() {
   //  $("#main-section").fadeIn();
    window.scroll({
-     top: 700,
+     top: 720,
      left: 0,
      behavior: "smooth"
    });
@@ -1201,19 +1220,20 @@ $(document).ready(function(){
   
 
 
-  // toggle upper section on/off when users scrolls down/up
+  // toggle upper section on/off when users scrolls up/down
   window.onscroll = function() {hideDiv()};
 
   function hideDiv() {
-    // console.log(document.documentElement.scrollTop);
+    console.log(document.documentElement.scrollTop);
     if (document.documentElement.scrollTop > 20) {
       $("#main-section").fadeOut();
-      
     } 
     else if (document.documentElement.scrollTop <= 20) {
       $("#main-section").fadeIn();
     }
   };
+
+
 
   
 });

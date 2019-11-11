@@ -1,0 +1,81 @@
+/* home page CSS file */
+/* Color Theme Swatches in Hex */
+/* .alexander-mils-lCPhGxs7pww-unsplash-1-hex { color: #516373; }
+.alexander-mils-lCPhGxs7pww-unsplash-2-hex { color: #9FB3BF; }
+.alexander-mils-lCPhGxs7pww-unsplash-3-hex { color: #BFBA9F; }
+.alexander-mils-lCPhGxs7pww-unsplash-4-hex { color: #F2D9D0; }
+.alexander-mils-lCPhGxs7pww-unsplash-5-hex { color: #73433F; } */
+
+/* Color Theme Swatches in RGBA */
+/* .alexander-mils-lCPhGxs7pww-unsplash-1-rgba { color: rgba(81, 99, 115, 1); }
+.alexander-mils-lCPhGxs7pww-unsplash-2-rgba { color: rgba(159, 179, 191, 1); }
+.alexander-mils-lCPhGxs7pww-unsplash-3-rgba { color: rgba(191, 186, 159, 1); }
+.alexander-mils-lCPhGxs7pww-unsplash-4-rgba { color: rgba(242, 217, 208, 1); }
+.alexander-mils-lCPhGxs7pww-unsplash-5-rgba { color: rgba(115, 67, 63, 1); } */
+
+
+
+
+/* body {
+  background-image: url(../img/alexander-mils-lCPhGxs7pww-unsplash.jpg);
+} */
+
+/* #nav-bar, footer {
+  background-color: #d2e9e3;
+  color: #191919;
+}
+
+#brand {
+  text-shadow: 0px 2px 3px #000000; 
+} */
+
+/* h3, h4, #brand { */
+  /* color: #191919; */
+  /* color: #1F9376;
+} */
+
+/* a { color: #191919 } 
+a:visited { text-decoration: none; color: #191919; }
+a:hover { text-decoration: none; color: #191919; }
+a:focus { text-decoration: none; color: #191919; }
+a:hover, a:active { text-decoration: none; color: #191919 } */
+
+
+.jumbotron {
+  background-color: rgba(159, 179, 191, 1); ;
+  color: #191919;
+  /* border: 2px solid #516373; */
+} 
+
+
+
+#lower-frame {
+  border: 5px solid rgba(191, 186, 159, .9);
+}
+
+#chart, #grid {
+  background-color:  rgba(191, 186, 159, 1.0);
+  color: #191919;
+  /* border: 2px solid #516373; */
+}
+
+caption {
+  color: #191919;
+}  
+
+table td, table th {
+  border:  1px solid #516373;
+}
+/* 
+table tr:hover {
+  background-color: #1F9376;
+} */
+
+
+table th {
+  background-color: #1F9376;
+  color: #191919;
+}
+
+
+

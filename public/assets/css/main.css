@@ -348,7 +348,7 @@ h3, h4 {
 }
 
 #lower-section {
-  height: 900px;
+  height: 800px;
   /* text-align: center;
   padding: 50px 0px;
   margin:0; */
@@ -373,6 +373,7 @@ h3, h4 {
 #nav-bar, #chart, #grid , #footer-bar, #lower-frame, .custom {
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .5), 0 8px 26px 0 rgba(0, 0, 0, 0.46);
 }
+
 #chart, #grid {
   width: 90%;
   /* border-radius: 1rem; */
@@ -381,10 +382,18 @@ h3, h4 {
   padding: 32px;
 }
 
-#grid {
-  margin-top: 50px;
+/* .no-margin {
+  margin: 0px;
+} */
+
+/* #grid {
+  margin-top: 0px;
   padding-top: 0px;
 }
+#chart {
+  margin-bottom: 0px;
+  padding-top: 0px;
+} */
 
 #grid-table {
 width: 100%;  
@@ -392,14 +401,14 @@ margin: 0 auto;
 }
 
 #test-btn, #save-btn {
-  margin-top: 20px;
+  margin-top: 0px;
   /* margin-left: 8px; */
   margin-right: 30px;
   width: 200px;
 }
 
 #help-btn {
-  margin-top: 20px;
+  margin-top: 0px;
   /* margin-left: 8px; */
   margin-right: 30px;
   width: 100px;
@@ -433,8 +442,8 @@ table td, table th {
 
 
 table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 8px 0px;
+  /* padding-bottom: 12px; */
   text-align: center;
   font-weight: bold;
 }
@@ -586,7 +595,7 @@ table th {
   margin-right: 20px;
 }
 
-#test-btn, #help-btn, #new-model-btn {
+#test-btn, #help-btn, #new-model-btn, #top-btn {
   /* border: 1px solid #4892c4;
   border-radius: .3rem; */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.10); */
@@ -594,10 +603,18 @@ table th {
 }
 
 #new-model-btn {
-  margin-top: 20px;
+  margin-top: 0px;
+  /* margin-left: 8px; */
+  margin-right: 30px;
+  width: 200px;
+  float: right;
+}
+
+#top-btn {
+  margin-top: 0px;
   /* margin-left: 8px; */
   margin-right: 0px;
-  width: 200px;
+  width: 60px;
   float: right;
 }
 
@@ -764,6 +781,26 @@ caption:focus, td[contenteditable=true]:focus {
 
   #model-img {
     width: 97%;
+  }
+
+  th, td {
+    font-size: 13px;
+    padding: 2px;
+  }
+
+  table th, table td {
+    padding: 2px;
+  }
+  #grid-caption {
+    font-size: 20px;
+    padding-bottom: 0px;
+    margin: 0px 0px 4px 0px;
+
+  }
+
+
+  #test-btn, #save-btn, #help-btn, #new-model-btn, #top-btn {
+    font-size: 14px;
   }
 
 }
