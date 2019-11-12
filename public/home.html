@@ -46,9 +46,9 @@
                   <li>
                     <a id="model-tool" class="nav-item nav-link" href="#">Model Tool</a>
                   </li>      
-                  <li>
+                  <!-- <li>
                     <a id="your-charts" class="nav-item nav-link disabled" href="#">Your Models</a>
-                  </li>
+                  </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="wallpaperDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Wallpaper
@@ -282,10 +282,11 @@
         </div> 
       </div>
         <div id="table-div" class="col-12">
-          <button id="test-btn" type="button" class="btn btn-dark btn-sml">Refresh Model</button>
+          <button id="test-btn" type="button" class="btn btn-dark btn-sml">Refresh Graph</button>
           <button id="help-btn" type="button" class="btn btn-dark btn-sml" data-target="#carousel-example-2" data-slide-to="1">Help</button>
           <button id="top-btn" type="button" class="btn btn-dark btn-sml">Top <i id="top-btn-arrow" class="fas fa-arrow-alt-circle-up"></i></button>
-          <button id="new-model-btn" type="button" class="btn btn-dark btn-sml">Create Another Model</button>
+          <button id="new-model-btn" type="button" class="btn btn-dark btn-sml">Create New Model</button>
+          <button id="your-charts-btn" type="button" class="btn btn-dark btn-sml">Your Models</button>
 
           <table id='grid-table'>
             <div>
@@ -406,7 +407,7 @@
           </div>
           <div class="modal-body">
             <form class="logout">
-              <p id="no-model-msg" >To continue using model tool create a new model or load one of your saved models <br> using the Your Model link at top of page</p>
+              <p id="no-model-msg" >To continue using model tool create a new model or load one of your saved models</p>
               <button id="no-model-close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </form>  
           </div>

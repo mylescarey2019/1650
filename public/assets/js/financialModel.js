@@ -18,7 +18,7 @@ class FinancialModel {
     // will code with actual compound interest calculation
     var balance = 0;  // sample = 5000
     var resultPlots = [];
-    console.log(`======================================`);
+    // console.log(`======================================`);
     this.lifeChapters.map(chapter => {
       for (let year = chapter.startYear; year <= chapter.endYear; year++) {
         // console.log(`COMPUTE: ${chapter.frequency}`);
@@ -26,12 +26,12 @@ class FinancialModel {
         // console.log(`COMPUTE:   ${chapter.investAmount}   ${chapter.returnPct} `);
 
         if (chapter.frequency === 'yearly') { // peform one yearly calculations
-          console.log(`YEAR = ${year}`);
-          console.log(`BALANCE: ${balance} INVEST-AMT ${chapter.investAmount} RETURN-RATE ${chapter.returnPct}`);
-          console.log(`BAL + INV-AMT: ${balance + chapter.investAmount}`);
-          console.log(`POWER: ${Math.pow(1 + (chapter.returnPct / 100), 1)}`);
+          // console.log(`YEAR = ${year}`);
+          // console.log(`BALANCE: ${balance} INVEST-AMT ${chapter.investAmount} RETURN-RATE ${chapter.returnPct}`);
+          // console.log(`BAL + INV-AMT: ${balance + chapter.investAmount}`);
+          // console.log(`POWER: ${Math.pow(1 + (chapter.returnPct / 100), 1)}`);
           balance = (balance + chapter.investAmount) * Math.pow(1 + (chapter.returnPct / 100), 1);
-          console.log(`NEW BALANCE: ${balance}`);
+          // console.log(`NEW BALANCE: ${balance}`);
         } else { // perform 12 monthly calculations
           for (var i = 1 ; i <= 12 ; i++ ) {
             // console.log(`YEAR = ${year}  MONTH: ${i}`);
@@ -42,7 +42,7 @@ class FinancialModel {
             // console.log(`${balance.toFixed(2)}`);
           }
         };
-        console.log(`${Math.round(balance)}`);
+        // console.log(`${Math.round(balance)}`);
 
         resultPlots.push({year: year, amount: Math.round(balance) });
 
@@ -64,8 +64,8 @@ class FinancialModel {
     var r = .05; // 5%
     var n = 12; // compound monthly
     var t = 1;  // one year
-    console.log( 5000 * Math.pow( 1 + .05/12, 12 * 10));
-    console.log( p * Math.pow( 1 + ( r / n ), (n * t)   ));
+    // console.log( 5000 * Math.pow( 1 + .05/12, 12 * 10));
+    // console.log( p * Math.pow( 1 + ( r / n ), (n * t)   ));
 
     // will need to add in new investment each compounding period (monthly or annually)
     // result rolls into next compounding period

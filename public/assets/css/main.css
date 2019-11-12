@@ -428,7 +428,8 @@ margin: 0 auto;
   margin-top: 0px;
   /* margin-left: 8px; */
   margin-right: 30px;
-  width: 200px;
+  width: 150px;
+  margin-bottom: 6px;
 }
 
 #help-btn {
@@ -436,13 +437,14 @@ margin: 0 auto;
   /* margin-left: 8px; */
   margin-right: 30px;
   width: 100px;
+  margin-bottom: 6px;
 }
 
 #table-div {
   overflow-x:auto
 }
 caption {
-  padding-top: 0px;
+  /* padding-top: 6px; */
   caption-side: top;
   text-align: center;
   font-weight: bold;
@@ -485,17 +487,6 @@ table th {
         a.nav-link:hover, a.nav-link:active { text-decoration: none; color: #191919 }
         a.nav-link.disabled { color: #acacac}
 
-/* #your-charts {
-  color: #acacac;
-} */
-/* a.nav-link:nth-child(1) {
-  margin-left: 8px;
-} */
-
-/* #your-charts {
-  padding-bottom: 4px;
-
-} */
 
         a.nav-link {
           font-size: 16px;
@@ -518,7 +509,7 @@ table th {
 
         a.nav-link.disabled { color: #acacac !important}
 
-#wallpaperDropdown, #signinDropdown, #your-charts {
+#wallpaperDropdown, #signinDropdown {
   padding-bottom: 2px;
 }  
 
@@ -619,18 +610,19 @@ table th {
   margin-right: 20px;
 }
 
-#test-btn, #help-btn, #new-model-btn, #top-btn, #down-btn {
+#test-btn, #help-btn, #new-model-btn, #top-btn, #down-btn, #your-charts-btn {
   /* border: 1px solid #4892c4;
   border-radius: .3rem; */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.10); */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39); 
 }
 
-#new-model-btn {
+#new-model-btn, #your-charts-btn {
   margin-top: 0px;
   /* margin-left: 8px; */
   margin-right: 30px;
-  width: 200px;
+  width: 160px;
+  margin-bottom: 6px;
   float: right;
 }
 
@@ -639,6 +631,7 @@ table th {
   /* margin-left: 8px; */
   margin-right: 0px;
   width: 100px;
+  margin-bottom: 6px;
   float: right;
 }
 
@@ -823,12 +816,13 @@ caption:focus, td[contenteditable=true]:focus {
   #grid-caption {
     font-size: 20px;
     padding-bottom: 0px;
+    padding-top: 0px;
     margin: 0px 0px 4px 0px;
 
   }
 
 
-  #test-btn, #save-btn, #help-btn, #new-model-btn, #top-btn {
+  #test-btn, #save-btn, #help-btn, #new-model-btn, #top-btn, #your-charts-btn {
     font-size: 14px;
   }
 
@@ -845,6 +839,11 @@ caption:focus, td[contenteditable=true]:focus {
     font-size: 12px !important;
     font-weight: 900 !important;
   }
+
+  #new-model-btn, #your-charts-btn {
+    width: 150px;
+  }
+
 }
 
 

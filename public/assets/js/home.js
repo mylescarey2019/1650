@@ -3,8 +3,9 @@
 //on document load
 $(document).ready(function(){
 
-  // hide the new model button until user signed in
+  // hide the new model button and your models buttonuntil user signed in
   $('#new-model-btn').hide();
+  $('#your-charts-btn').hide();
 
   // hide starting demo content
   $(".slide-1-1").hide();
@@ -60,7 +61,7 @@ $(document).ready(function(){
   if ($(window).height() > 850) {
     chartHeight = 400;
   } else {
-    chartHeight = 290;
+    chartHeight = 280;
   }
   // ----------------------------------------------------------
   // object for local storage:
@@ -72,20 +73,20 @@ $(document).ready(function(){
 
     // method to clear property from local storage
     clearLocalStorage: function(property) {
-      console.log("in manageLocalStorage.clearLocalStorage");
+      // console.log("in manageLocalStorage.clearLocalStorage");
       localStorage.removeItem(property);
     },
 
     // method to get property from local storage
     getLocalStorage: function(property) {
-      console.log("in manageLocalStorage.getLocalStorage");
+      // console.log("in manageLocalStorage.getLocalStorage");
       var propVal = localStorage.getItem(property);
       return propVal;
     },
 
     // method to set property in local storage
     setLocalStorage: function(property,propVal) {
-      console.log("in manageLocalStorage.setLocalStorage");
+      // console.log("in manageLocalStorage.setLocalStorage");
       localStorage.setItem(property,propVal);
     }
   };
@@ -460,7 +461,7 @@ $(document).ready(function(){
     // console.log("in home.js.resultPlotsToArray");
     var xArray = [];
     var yArray = [];
-    console.log(resultPlots);
+    // console.log(resultPlots);
     resultPlots.map(plot => {
       xArray.push(plot.year);
       yArray.push(plot.amount);
@@ -596,7 +597,7 @@ $(document).ready(function(){
 
   // function to get clone and return a plan to render for the guest signon
   function getClonePlan(plan) {
-    console.log(`CLONE CLIENT-SIDE2 ${JSON.stringify(plan)}`);
+    // console.log(`CLONE CLIENT-SIDE2 ${JSON.stringify(plan)}`);
     $.ajax(`/api/clone-plan/${plan.id}/${plan.planName}/${plan.userId}/${plan.planTypeId}`, {       // cloning system demo plan 1
       // $.ajax("/api/plan-user-life-chapter/1", {  
         type: "GET"
@@ -605,15 +606,15 @@ $(document).ready(function(){
           // var financialModelChapters = [];
           // console.log(yearAxis);
           // console.log(dollarAxis);
-          console.log(res);
-          console.log(`plan type id: ${res.planTypeId}`);
+          // console.log(res);
+          // console.log(`plan type id: ${res.planTypeId}`);
           $("#grid-caption").text(res.name);
           $("#grid-caption").attr('data-id',`${res.id}`);
           $("#grid-caption").attr('data-user-id',`${res.userId}`);
           $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`);
     
           // update current logged in user information for display on page
-          console.log(`user ${JSON.stringify(res)}`) 
+          // console.log(`user ${JSON.stringify(res)}`) 
           $("#logged-id").text(res.userId);
           $("#logged-user").text(res.userName);
           $("#footer-model-id").text(res.id);
@@ -621,9 +622,9 @@ $(document).ready(function(){
           $("tr.model-row").remove();
           $("#test-btn").removeAttr('disabled');
           res.lifeChapters.map(chapter => {
-            console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
-                         invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
-                         return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
+            // console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
+            //              invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
+            //              return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
             var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
             modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
             modelRow.attr('data-seq-no',`${chapter.seqNo}`);
@@ -654,7 +655,7 @@ $(document).ready(function(){
     userId: 2,  // user is 'guest'
     planTypeId: 2, // type is 'guest'
   };
-  console.log(`CLONE CLIENT-SIDE ${JSON.stringify(clonePlan)}`);
+  // console.log(`CLONE CLIENT-SIDE ${JSON.stringify(clonePlan)}`);
   getClonePlan(clonePlan);
 
   // call to render return result of plan
@@ -663,7 +664,7 @@ $(document).ready(function(){
     // var financialModelChapters = [];
     // console.log(yearAxis);
     // console.log(dollarAxis);
-    console.log(`UPDATED:: ${JSON.stringify(res)}`);
+    // console.log(`UPDATED:: ${JSON.stringify(res)}`);
 
     $("#grid-caption").text(res.name);
     $("#grid-caption").attr('data-id',`${res.id}`);
@@ -675,9 +676,9 @@ $(document).ready(function(){
     $("tr.model-row").remove();
     $("#test-btn").removeAttr('disabled');
     res.lifeChapters.map(chapter => {
-      console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
-                  invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
-                  return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
+      // console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
+      //             invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
+      //             return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
       // var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`).attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
       // modelRow.append($(`<td>${chapter.name}</td>`));
       // modelRow.append($(`<td>${chapter.startYear}</td>`));
@@ -729,8 +730,8 @@ $(document).ready(function(){
       Object.assign(chapter,{seq_no: seqNo});
       $(this).find("td").each(function() {
         if ($(this).data("key")) {
-          console.log(`the key is:  ${$(this).data("key")}`);
-          console.log(`CHAPTER-TD element: ${$(this).text()}`);
+          // console.log(`the key is:  ${$(this).data("key")}`);
+          // console.log(`CHAPTER-TD element: ${$(this).text()}`);
           thing = $(this).data("key");
           Object.assign(chapter,{[thing]: $(this).text()});
         };
@@ -738,16 +739,16 @@ $(document).ready(function(){
       investRateTypeId = $(this).attr('data-invest-rate-type-id');
       Object.assign(chapter,{InvestRateTypeId: investRateTypeId});
       Object.assign(chapter,{PlanId: $("#grid-caption").attr('data-id')});
-      console.log(`This is the chapter object: ${JSON.stringify(chapter)}`);
+      // console.log(`This is the chapter object: ${JSON.stringify(chapter)}`);
       updatedChapters.push(chapter);
     }); 
 
-    console.log(JSON.stringify(updatedChapters));
+    // console.log(JSON.stringify(updatedChapters));
 
     // add the array of chapters to the request plan arugument
     Object.assign(plan,{updatedChapters: updatedChapters});
 
-    console.log(JSON.stringify(plan));
+    // console.log(JSON.stringify(plan));
 
     
   
@@ -766,7 +767,7 @@ $(document).ready(function(){
 
   // save & refresh model event
   $("#test-btn").on("click",function() {
-    console.log("in global.test-btn click event")
+    // console.log("in global.test-btn click event")
     // ajax put call for refreshing the guest model 
     // update financial model (plan and chapters)
     
@@ -782,7 +783,7 @@ $(document).ready(function(){
 
   // create new user model event
   $("#new-model-btn").on("click",function() {
-    console.log("in global.new-model-btn click event")
+    // console.log("in global.new-model-btn click event")
     // ajax put call for creating new user model
     var clonePlan = {
       id: 1, // clone from the base model
@@ -796,11 +797,11 @@ $(document).ready(function(){
 
   // wall paper drop down change click event
   $(document).on("click", ".dropdown-item.wallpaper", function() {
-    console.log("in global.dropdown-item.wallpaper click event");
+    // console.log("in global.dropdown-item.wallpaper click event");
     event.preventDefault();  
-    console.log("you pressed: " + $(this).data("value"));
+    // console.log("you pressed: " + $(this).data("value"));
     var clickedValue = $(this).data("value");
-    console.log("value is: ",clickedValue); 
+    // console.log("value is: ",clickedValue); 
     $('.dropdown-item.wallpaper.active').removeClass("active");
     $('.dropdown-item.wallpaper[data-value="' + clickedValue +'"]').addClass("active");
     setStyleSheet(`assets/css/${clickedValue}-theme.css`);
@@ -820,10 +821,10 @@ $(document).ready(function(){
   // login drop down event
   $(document).on("click", ".dropdown-item.signin", function(event) {
     event.preventDefault();  
-    console.log("in global.dropdown-item.signin click event");
-    console.log("you pressed: " + $(this).data("value"));
+    // console.log("in global.dropdown-item.signin click event");
+    // console.log("you pressed: " + $(this).data("value"));
     var clickedValue = $(this).data("value");
-    console.log("value is: ",clickedValue); 
+    // console.log("value is: ",clickedValue); 
     if (clickedValue === 'login') {
       $('#login-submit').val('Login');
       $('#signup-msg').show();
@@ -843,7 +844,7 @@ $(document).ready(function(){
       $('#password').val("");
       $('#login-modal').modal('show');
     } else {
-      console.log("this is where we logout"); 
+      // console.log("this is where we logout"); 
       $('#logout-modal').modal('show');
 
     };
@@ -851,7 +852,7 @@ $(document).ready(function(){
 
   // jump from login to signup
   $(document).on("click", "#jump-to-signup", function() {
-    console.log("in global.jump-to-signup click event");
+    // console.log("in global.jump-to-signup click event");
     $('#login-submit').val('Signup');
     $('#login-form').removeClass('login');
     $('#login-form').addClass('signup');
@@ -867,15 +868,15 @@ $(document).ready(function(){
   // login form submit event
   $(document).on("submit", "form.login", function(event) {
     event.preventDefault();
-    console.log("in global.form.login click event");
-    console.log("login route goes here");
-    console.log(`user is: ${$('#user-name').val()}`);
-    console.log(`pswd is: ${$('#password').val()}`);
+    // console.log("in global.form.login click event");
+    // console.log("login route goes here");
+    // console.log(`user is: ${$('#user-name').val()}`);
+    // console.log(`pswd is: ${$('#password').val()}`);
     var userData = {
       user_name: $('#user-name').val().trim(),
       password: $('#password').val().trim()
     };
-    console.log(`userData: ${JSON.stringify(userData)}`);
+    // console.log(`userData: ${JSON.stringify(userData)}`);
     if (!userData.user_name || !userData.password) {
       $('#login-msg').text('Please enter both username and password.');
       return
@@ -886,7 +887,7 @@ $(document).ready(function(){
       password: userData.password
     })
       .then(function(data) {
-        console.log(`Login Retured Data is: ${JSON.stringify(data)}`);
+        // console.log(`Login Retured Data is: ${JSON.stringify(data)}`);
         // set the logged in user on the HTML
         $('#logged-user').text(data.user_name);
         $('#logged-user').attr('data-id',data.id)
@@ -898,7 +899,8 @@ $(document).ready(function(){
         $("#footer-user-label").addClass('non-guest-user');
         $("#logged-user").addClass('non-guest-user');
         $('#new-model-btn').show();
-        $("#your-charts").removeClass('disabled');
+        $('#your-charts-btn').show();
+        // $("#your-charts").removeClass('disabled');
  
         // clear form fields
         $('#user-name').val("");
@@ -906,7 +908,8 @@ $(document).ready(function(){
         $('#login-msg').text("");
         // change the refresh button to save & refresh since a user has signed in
         // changed from Save & Refresh to just Save to see if UX is better
-        $('#test-btn').text('Save Model');
+        // changed to Refresh Graph
+        $('#test-btn').text('Refresh Graph');
         // // turn on the save model button since there is a user now
         // $('#save-btn').show();
         // switch login menu title
@@ -942,15 +945,15 @@ $(document).ready(function(){
   // signup from submit event
   $(document).on("submit", "form.signup", function(event) {
     event.preventDefault();
-    console.log("in global.form.signup click event");
-    console.log("signup route goes here");
-    console.log(`user is: ${$('#user-name').val().trim()}`);
-    console.log(`pswd is: ${$('#password').val().trim()}`);
+    // console.log("in global.form.signup click event");
+    // console.log("signup route goes here");
+    // console.log(`user is: ${$('#user-name').val().trim()}`);
+    // console.log(`pswd is: ${$('#password').val().trim()}`);
     var userData = {
       user_name: $('#user-name').val().trim(),
       password: $('#password').val().trim()
     };
-    console.log(`userData: ${JSON.stringify(userData)}`);
+    // console.log(`userData: ${JSON.stringify(userData)}`);
     if (!userData.user_name || !userData.password) {
       $('#login-msg').text('Please enter both username and password.');
       return
@@ -961,7 +964,7 @@ $(document).ready(function(){
       password: userData.password
     })
       .then(function(data) {
-        console.log(`Signup Retured Data is: ${JSON.stringify(data)}`);
+        // console.log(`Signup Retured Data is: ${JSON.stringify(data)}`);
         // set the logged in user on the HTML
         $('#logged-user').text(data.user_name);
         $('#logged-user').attr('data-id',data.id)
@@ -972,14 +975,15 @@ $(document).ready(function(){
         $("#footer-user-label").addClass('non-guest-user');
         $("#logged-user").addClass('non-guest-user');
         $('#new-model-btn').show();
-        $("#your-charts").removeClass('disabled');
+        $('#your-charts-btn').show();
+        // $("#your-charts").removeClass('disabled');
         // clear form fields
         $('#user-name').val("");
         $('#password').val("");
         $('#login-msg').text("");
         // change the refresh button to save & refresh since a user has signed in
         // changed from Save & Refresh to just Save to see if UX is better
-        $('#test-btn').text('Save Model');
+        $('#test-btn').text('Refresh Graph');
         // // turn on the save model button since there is a user now
         // $('#save-btn').show();
         // switch login menu title
@@ -1014,17 +1018,18 @@ $(document).ready(function(){
   // logout form submit event
   $(document).on("submit", "form.logout", function(event) {
     event.preventDefault();  
-    console.log("in global.logout click event");
-    console.log("logout route goes here");
+    // console.log("in global.logout click event");
+    // console.log("logout route goes here");
     $.get("/logout")
       .then(function(data) {
-        console.log(`Logout Retured Data is: ${JSON.stringify(data)}`);
+        // console.log(`Logout Retured Data is: ${JSON.stringify(data)}`);
         // switch the logged in user to the guest user the HTML
         $('#logged-user').text('guest');
         $('#logged-user').attr('data-id','2')
         $('#logged-id').text('2');
         $('#new-model-btn').hide();
-        $("#your-charts").addClass('disabled');
+        $('#your-charts-btn').hide();
+        // $("#your-charts").addClass('disabled');
 
         // MRC** - this is a problem - if you logout the user's model is still
         // in the grid - will need to do a CLONE API call here to get free
@@ -1039,7 +1044,7 @@ $(document).ready(function(){
         // switch login menu title
         $('#signinDropdown').text('Login');
         // change the refresh button to save & refresh since a user has logged in
-        $('#test-btn').text('Refresh Model');
+        $('#test-btn').text('Refresh Graph');
         // // turn off the save model button since user has logged out
         // $('#save-btn').hide();
         // set the login dropdown menu options
@@ -1071,7 +1076,7 @@ $(document).ready(function(){
 
 
   // load models button event
-  $(document).on("click", "#your-charts", function(event) {
+  $(document).on("click", "#your-charts-btn", function(event) {
     // console.log("in global.your-charts click event");
     event.preventDefault();  
 
@@ -1087,7 +1092,9 @@ $(document).ready(function(){
 
         if (res[0].Plans.length === 0) {
           $("#load-models-msg").text('You currently have no models to load');
+          $("#delete-models").prop("disabled",true);
         } else {
+          $("#delete-models").removeAttr('disabled');
           $("#load-models-msg").text('Click on a model name to load it');
           res[0].Plans.map(plan => {
             // console.log(`user name: ${res[0].user_name}  plan_name ${plan.plan_name} plan id: ${plan.id}`);
@@ -1115,7 +1122,7 @@ $(document).ready(function(){
     $.ajax(`/api/plan-user-life-chapter/${$(this).attr("data-id")}`, {     
       type: "GET"
     }).then(function(res) {
-        console.log(`MODEL RETURNED: ${JSON.stringify(res)}`);
+        // console.log(`MODEL RETURNED: ${JSON.stringify(res)}`);
 
       // render the returned result
       renderReturnedPlan(res);
@@ -1123,28 +1130,28 @@ $(document).ready(function(){
 
     // close load modal
     $('#load-models-modal').modal('hide');
-    // scroll to model
-    window.scroll({
-      top: 720,
-      left: 0,
-      behavior: "smooth"
-    });
+    // // scroll to model
+    // window.scroll({
+    //   top: 720,
+    //   left: 0,
+    //   behavior: "smooth"
+    // });
   });
 
   //  model modal plan name click event for deleting a users plan
   $(document).on("click", "#delete-models", function() {
     var planIds = [];
     $('.model-list-checkbox:checked').each(function () {
-      console.log("this item was checked: ", this.value);
+      // console.log("this item was checked: ", this.value);
       planIds.push(this.value);
     });
-    console.log(`ID Array: ${planIds} `);
+    // console.log(`ID Array: ${planIds} `);
 
     var plan = {
       planIds: planIds
     };
 
-    console.log(plan);
+    // console.log(plan);
 
     // now call API to update and then take the results for rendering
     $.ajax("/api/multi-plan", {       
@@ -1161,7 +1168,7 @@ $(document).ready(function(){
     $('#load-models-modal').modal('hide');
     
     if (planIds.indexOf($("#grid-caption").attr('data-id')) !== -1) {
-      console.log('Deleted the current model');
+      // console.log('Deleted the current model');
       $('#no-current-model-modal').modal('show');
       $("#test-btn").prop("disabled",true);
       $("tr.model-row").remove();  // clear grid
@@ -1229,13 +1236,13 @@ $(document).ready(function(){
 
  //  diagnostic model info - toggle visibilty
  $(document).on("click", "#footer-id-label", function() {
-   console.log('DIAG: clicked');
+  //  console.log('DIAG: clicked');
    if ($("#footer-id-label").hasClass('diagnostic-show')) {
-     console.log('DIAG: has SHOW');
+    //  console.log('DIAG: has SHOW');
     $(".diagnostic").removeClass('diagnostic-show');
     $(".diagnostic").addClass('diagnostic-hide');
    } else {
-    console.log('DIAG: has HIDE');
+    // console.log('DIAG: has HIDE');
     $(".diagnostic").removeClass('diagnostic-hide');
     $(".diagnostic").addClass('diagnostic-show');
    }
@@ -1251,7 +1258,7 @@ $(document).ready(function(){
   $('.carousel').on('slide.bs.carousel',function(e){
     var slideFrom = $(this).find('.active').index();
     var slideTo = $(e.relatedTarget).index();
-    console.log(slideFrom+' => '+slideTo);
+    // console.log(slideFrom+' => '+slideTo);
     $(`.nav-link[data-slide-to="${slideFrom}"]`).removeClass('active-nav-link');
     $(`.nav-link[data-slide-to="${slideTo}"]`).addClass('active-nav-link');
   });
