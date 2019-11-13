@@ -63,6 +63,16 @@ $(document).ready(function(){
   } else {
     chartHeight = 280;
   }
+
+    // set chart scroll
+    var chartScroll = 0;
+    console.log(`window height: ${$(window).height()}`);
+    if ($(window).height() > 800) {
+      chartScroll = 730;
+    } else {
+      chartScroll = 760;
+    }
+
   // ----------------------------------------------------------
   // object for local storage:
   // ----------------------------------------------------------
@@ -1208,7 +1218,7 @@ $(document).ready(function(){
  $(document).on("click", "#model-tool, #down-btn", function() {
   //  $("#main-section").fadeIn();
    window.scroll({
-     top: 720,
+     top: chartScroll,
      left: 0,
      behavior: "smooth"
    });
@@ -1218,7 +1228,7 @@ $(document).ready(function(){
   $("#no-current-model-modal").on("hide.bs.modal", function() {
     //  $("#main-section").fadeIn();
      window.scroll({
-       top: 720,
+       top: chartScroll,
        left: 0,
        behavior: "smooth"
      });
