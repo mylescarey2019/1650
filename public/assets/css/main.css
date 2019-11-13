@@ -849,11 +849,12 @@ caption:focus, td[contenteditable=true]:focus {
 
 @media screen and (max-height: 820px) {
   #main-section {
-    top: 120px;
+    top: 100px;
     /* height: 550px; */
   }
 
-  #main-section, .carousel-item, .slide-left, .slide-center, .slide-right {
-    height: 430px;
+  #nav-bar {
+    height: 70px;
   }
+  
 }
