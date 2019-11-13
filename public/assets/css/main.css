@@ -173,17 +173,17 @@ h3, h4 {
 
 #main-section {
   width: 100%;
-  height: 600px;
+  height: 580px;
   background-color: white;
   position: fixed;
-  top: 150px;
+  top: 130px;
   margin: 0 auto ;
   z-index: 1;
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .5), 0 8px 26px 0 rgba(0, 0, 0, 0.46);
 }
 
 .carousel-item {
-  height: 600px;
+  height: 580px;
   width: 100%;
 }
 
@@ -209,7 +209,7 @@ h3, h4 {
 }
 
 .slide-left {
-  height: 600px;
+  height: 580px;
   /* margin-left: 20px; */
   border-top: solid 1px #e5e5e5;
   border-bottom: solid 1px #e5e5e5;
@@ -218,7 +218,7 @@ h3, h4 {
 
 .slide-right {
   background-color: lightblue;
-  height: 600px;
+  height: 580px;
   /* margin-right: 20px; */
   border-top: solid 1px #e5e5e5;
   border-bottom: solid 1px #e5e5e5;
@@ -227,7 +227,7 @@ h3, h4 {
 
 .slide-center {
   background-color: lightblue;
-  height: 600px;
+  height: 580px;
   /* margin-left: 20px;
   margin-right: 20px; */
   border-top: solid 1px #e5e5e5;
@@ -646,7 +646,7 @@ table th {
 
 .bullet {
   text-align: left;
-  line-height: 1.5em;
+  line-height: 1.4em;
 }
 
 #grid-below-links {
@@ -664,7 +664,7 @@ table th {
 .bullet-link-2 {
   text-align: left;
   font-size: 24px;
-  line-height: 1.5em;
+  line-height: 1.4em;
 }
 
 .rule-before-links {
