@@ -24,7 +24,7 @@ The backend use mySQL, Sequelize and API routes for HTML and database operations
 
 - #### Github project:  <a href="https://github.com/mylescarey2019/1650">1650 Teen Custodial IRA Planner</a>
 
-- #### Deployed Heroku link:  <a href="https://nameless-sea-48228.herokuapp.com/#">1650 Teen Custodial IRA Planner</a>
+- #### Deployed Heroku link:  <a href="https://ira1650.herokuapp.com/#">1650 Teen Custodial IRA Planner</a>
 
 - #### For further design and development details see: 
 
