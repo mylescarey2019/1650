@@ -783,6 +783,10 @@ caption:focus, td[contenteditable=true]:focus {
     line-height: 1.3em;
   }
 
+  li {
+    line-height: 1.4em;
+  }  
+
   a.nav-link, #footer-user-label, #logged-user
   {
     font-size: 12px;
