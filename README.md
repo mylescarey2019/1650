@@ -141,7 +141,7 @@ mylescarey2019@gmail.com
 - 1.4 Sprint 4 release 11/10/2019 - UX improvements:  graph/grid screen fit, link to top of page, wallpaper none option
 - 1.5 Sprint 5 release 11/11/2019 - UX improvements: symbols on slide for CVD support, model tool down 
 button (manual scroll still available), increased nav bar visibilty of logged in user, login/signup triggers modal reminder to create or load model and auto-scrolls to model section on close, guest model is now cleared from page on login/signup, clarity on model button: (guests refresh the model/graph),logged in users save the model which also refreshs graph)
-- 1.6 Planned sprint scheduled for 11/17/2019 - annual frequency option for compounding; inflation rate option
+- 1.6 Planned sprint scheduled for December/2019 - annual frequency option for compounding; inflation rate option
 
 ## License
 
