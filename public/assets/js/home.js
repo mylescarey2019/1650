@@ -631,6 +631,22 @@ $(document).ready(function(){
     
           $("tr.model-row").remove();
           $("#test-btn").removeAttr('disabled');
+
+
+
+          // need to render select box for invest type on each row
+          // need to this in here getClonePlan and  renderReturnedPlan
+          // <form>
+          // <div class="form-group">
+          //   <label class="question-label" id="survey-question-1" for="survey-question"></label>
+          //   <select class="form-control question" id="question1">
+          //     <option value="" selected="selected" hidden="hidden"  >Select answer</option>
+          //     <option value="1">monthly</option>
+          //     <option value="2">yearly</option>
+          //   </select>
+          // </div>
+          // </form>  
+
           res.lifeChapters.map(chapter => {
             // console.log(`seq: ${chapter.seqNo} name ${chapter.name} start ${chapter.startYear} end ${chapter.endYear} 
             //              invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
@@ -642,7 +658,7 @@ $(document).ready(function(){
             modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
-            modelRow.append($(`<td>${chapter.frequency}</td>`));
+            modelRow.append($(`<td>${chapter.frequency}</td>`).attr('data-key','invest_frequency').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct'));
             $("#grid-table").append(modelRow);
@@ -699,6 +715,8 @@ $(document).ready(function(){
       // modelRow.append($(`<td>${chapter.inflationPct}</td>`));
       // $("#grid-table").append(modelRow);
 
+
+
       var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
       modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
       modelRow.attr('data-seq-no',`${chapter.seqNo}`);
@@ -706,7 +724,7 @@ $(document).ready(function(){
       modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
-      modelRow.append($(`<td>${chapter.frequency}</td>`));
+      modelRow.append($(`<td>${chapter.frequency}</td>`).attr('data-key','invest_frequency').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
       $("#grid-table").append(modelRow);

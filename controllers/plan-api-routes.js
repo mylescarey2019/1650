@@ -24,8 +24,8 @@ function buildModel(results) {
 
   // get start year for Result Plot
   // firstModelYear = results.LifeChapters[0].start_age;
-  console.log(`IN BUILD MODEL.plan_name>>> ${results.plan_name}`);
-  console.log(`IN BUILD MODEL.LifeChapters.length>>> ${results.LifeChapters.length}`);
+  //console.log(`IN BUILD MODEL.plan_name>>> ${results.plan_name}`);
+  //console.log(`IN BUILD MODEL.LifeChapters.length>>> ${results.LifeChapters.length}`);
   // build lifeChapters
   results.LifeChapters.map(chapter => {
     lifeChapters.push(new LifeChapter(chapter.id, chapter.seq_no, chapter.chapter_name,
