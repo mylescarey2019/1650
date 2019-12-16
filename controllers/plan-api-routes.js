@@ -221,7 +221,7 @@ module.exports = function (app) {
       .then(function (results) {
       console.log(`BULK UPDATE TO CHAPTERS >>> ${JSON.stringify(req.body.updatedChapters)}`);
       db.LifeChapter.bulkCreate(req.body.updatedChapters,{updateOnDuplicate: ['chapter_name','start_age',
-        'end_age','invest_amount','return_pct','inflation_pct']})
+        'end_age','invest_amount','return_pct','inflation_pct','InvestRateTypeId']})
       .then(function(resul) {
       // re-retrive updated model to send back to client  
       db.Plan.findOne({

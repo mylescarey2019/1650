@@ -652,13 +652,24 @@ $(document).ready(function(){
             //              invest-amt ${chapter.investAmount} invest-rate-type-id: ${chapter.investRateTypeId} frequency: ${chapter.frequency} 
             //              return-rate ${chapter.returnPct} inflation-rate ${chapter.inflationPct}`);
             var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
+
+            // build select input for invest frequency
+            var freqCell = $(`<select class="form-control invest-type"></select`);
+            //console.log(`seq: ${chapter.seqNo} rate: ${chapter.investRateTypeId}`);
+            freqCell.append($(`<option value="1" ${(chapter.investRateTypeId === 1 ? 'selected' : '')}>monthly</option>`));
+            freqCell.append($(`<option value="2" ${(chapter.investRateTypeId === 2 ? 'selected' : '')}>yearly</option>`));
+            freqCell.append($(`<option value="3" ${(chapter.investRateTypeId === 3 ? 'selected' : '')}>semi-annual</option>`));
+            freqCell.append($(`<option value="4" ${(chapter.investRateTypeId === 4 ? 'selected' : '')}>quarterly</option>`));
+
             modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
             modelRow.attr('data-seq-no',`${chapter.seqNo}`);
+
             modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
-            modelRow.append($(`<td>${chapter.frequency}</td>`).attr('data-key','invest_frequency').attr('contenteditable','true'));
+            modelRow.append(freqCell);
+            //modelRow.append($(`<td>${chapter.frequency}</td>`).attr('data-key','invest_frequency').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct'));
             $("#grid-table").append(modelRow);
@@ -718,13 +729,22 @@ $(document).ready(function(){
 
 
       var modelRow = $('<tr>').addClass("model-row").attr('data-id',`${chapter.id}`);
+      // build select input for invest frequency
+      var freqCell = $(`<select class="form-control invest-type"></select`);
+      //console.log(`seq: ${chapter.seqNo} rate: ${chapter.investRateTypeId}`);
+      freqCell.append($(`<option value="1" ${(chapter.investRateTypeId === 1 ? 'selected' : '')}>monthly</option>`));
+      freqCell.append($(`<option value="2" ${(chapter.investRateTypeId === 2 ? 'selected' : '')}>yearly</option>`));
+      freqCell.append($(`<option value="3" ${(chapter.investRateTypeId === 3 ? 'selected' : '')}>semi-annual</option>`));
+      freqCell.append($(`<option value="4" ${(chapter.investRateTypeId === 4 ? 'selected' : '')}>quarterly</option>`));
+
       modelRow.attr('data-invest-rate-type-id',`${chapter.investRateTypeId}`);
       modelRow.attr('data-seq-no',`${chapter.seqNo}`);
       modelRow.append($(`<td>${chapter.name}</td>`).attr('data-key','chapter_name').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.startYear}</td>`).attr('data-key','start_age').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.endYear}</td>`).attr('data-key','end_age').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.investAmount}</td>`).attr('data-key','invest_amount').attr('contenteditable','true'));
-      modelRow.append($(`<td>${chapter.frequency}</td>`).attr('data-key','invest_frequency').attr('contenteditable','true'));
+      modelRow.append(freqCell);
+//      modelRow.append($(`<td>${chapter.frequency}</td>`).attr('data-key','invest_frequency').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
       $("#grid-table").append(modelRow);
@@ -740,6 +760,7 @@ $(document).ready(function(){
  
   // call to update plan and then render the return result
   function updateChartPut() {
+    console.log('THIS IS updateChartPut');
     // plan to update
     var plan = {
       id: $("#grid-caption").attr('data-id'),
@@ -764,10 +785,30 @@ $(document).ready(function(){
           Object.assign(chapter,{[thing]: $(this).text()});
         };
       });
+
+      // MRC- trying to ge the selected rate set
+      var setInvestRateTypeId = $(this).find("select").val();
+      //var selectedRate = rowSelect.val();
+      //console.log(`rate id:  ${setInvestRateTypeId}`);
+      $(this).attr('data-invest-rate-type-id',setInvestRateTypeId);
+      console.log(`data-invest-rate-type-id: ${$(this).attr('data-invest-rate-type-id')}`)
+
+      // $(".invest-type").each(function() {  
+      //   console.log(`Was Selected: ${$(this).val()}`)
+      //   var theParentInvestRateId = $(this).parent().data("invest-rate-type-id")
+      //   console.log(`theParent invest ${theParentInvestRateId}`)
+      // $(".invest-type").each(function() {  
+      //   console.log(`Was Selected: ${$(this).val()}`)
+      //   var theParentInvestRateId = $(this).parent().data("invest-rate-type-id")
+      //   console.log(`theParent invest ${theParentInvestRateId}`)
+      // });  
+      // MRC- trying to ge the selected rate set
+
       investRateTypeId = $(this).attr('data-invest-rate-type-id');
+      console.log(`NEW RATE ID: ${investRateTypeId}`)
       Object.assign(chapter,{InvestRateTypeId: investRateTypeId});
       Object.assign(chapter,{PlanId: $("#grid-caption").attr('data-id')});
-      // console.log(`This is the chapter object: ${JSON.stringify(chapter)}`);
+      console.log(`This is the chapter object: ${JSON.stringify(chapter)}`);
       updatedChapters.push(chapter);
     }); 
 
@@ -792,6 +833,25 @@ $(document).ready(function(){
         }
       );
   };
+
+
+//   // MRC- update chapter invest rate type id attribute
+//   $(document).on("change", ".invest-type", function() {
+//     console.log("in global.invest-type change event");
+// //    $(".invest-type option:selected").each(function() {
+//     $(".invest-type").each(function() {  
+//       console.log(`Was Selected: ${$(this).val()}`)
+//       var theParentInvestRateId = $(this).parent().data("invest-rate-type-id")
+//       console.log(`theParent invest ${theParentInvestRateId}`)
+//     });
+
+//   });
+  // $(document).on("change", ".invest-type", function(event) {
+  //   console.log("in global.invest-type change event");
+  //   console.log(`event: ${JSON.stringify(event)}`);
+  //  // console.log("you selected: " + $(this).data("value"));
+  // });
+
 
   // save & refresh model event
   $("#test-btn").on("click",function() {
@@ -820,7 +880,7 @@ $(document).ready(function(){
       planTypeId: 3,  // type is 'user'
     };
     getClonePlan(clonePlan);
-});
+  });
 
 
   // wall paper drop down change click event
