@@ -683,24 +683,34 @@ table th {
   color: #00cd00;
 }
 
-
 caption:hover, td[contenteditable=true]:hover {
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);  */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);  */
 
-  box-shadow:  0 -4px 10px 0 rgba(0, 0, 0, 0.4), 0 4px 10px 0 rgba(0, 0, 0, 0.4); 
+  box-shadow:  0 -4px 10px 0 rgba(0, 0, 0, 0.8), 0 4px 10px 0 rgba(0, 0, 0, 0.8); 
   cursor: pointer;
+ 
 }
 
 caption:focus, td[contenteditable=true]:focus {
   cursor: default;
+ 
 } 
 
-.model-plan-item:hover {
-  box-shadow:  0 -4px 10px 0 rgba(0, 0, 0, 0.4), 0 4px 10px 0 rgba(0, 0, 0, 0.4); 
+select:hover {
+  box-shadow:  0 -4px 10px 0 rgba(0, 0, 0, 0.8), 0 4px 10px 0 rgba(0, 0, 0, 0.8); 
   cursor: pointer;
+ 
+}
+
+.model-plan-item:hover {
+  box-shadow:  0 -4px 10px 0 rgba(0, 0, 0, 0.8), 0 4px 10px 0 rgba(0, 0, 0, 0.8); 
+  cursor: pointer;
+ 
 
 }
+
+
 
 
 .diagnostic-show {
@@ -809,7 +819,7 @@ caption:focus, td[contenteditable=true]:focus {
     width: 97%;
   }
 
-  th, td , .form-control {
+  th, td , .invest-type {
     font-size: 13px;
     padding: 2px;
   }

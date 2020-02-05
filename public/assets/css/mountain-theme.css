@@ -53,7 +53,7 @@ a:hover, a:active { text-decoration: none; color: #e5e5e5 } */
 
 
 
-#chart, #grid {
+#chart, #grid, .invest-type, .invest-type:focus {
   background-color:  rgba(69, 85, 89, 1.0);
   color: #e5e5e5;
   /* border: 2px solid #8C884F; */
@@ -65,6 +65,11 @@ caption {
 
 table td, table th {
   border:  1px solid #8C884F;
+}
+
+.invest-type {
+  border: none;
+  border-bottom:  1px solid #8C884F;
 }
 
 /* table tr:hover {
