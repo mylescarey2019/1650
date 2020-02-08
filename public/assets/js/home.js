@@ -746,7 +746,7 @@ $(document).ready(function(){
       modelRow.append(freqCell);
 //      modelRow.append($(`<td>${chapter.frequency}</td>`).attr('data-key','invest_frequency').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
-      modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
+      modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct'));
       $("#grid-table").append(modelRow);
       // // create a chapter for use in financial model object
       // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
