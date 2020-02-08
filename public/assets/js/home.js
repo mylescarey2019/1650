@@ -66,7 +66,7 @@ $(document).ready(function(){
 
     // set chart scroll
     var chartScroll = 0;
-    console.log(`window height: ${$(window).height()}`);
+    // console.log(`window height: ${$(window).height()}`);
     if ($(window).height() > 800) {
       chartScroll = 730;
     } else {
@@ -760,7 +760,7 @@ $(document).ready(function(){
  
   // call to update plan and then render the return result
   function updateChartPut() {
-    console.log('THIS IS updateChartPut');
+    // console.log('THIS IS updateChartPut');
     // plan to update
     var plan = {
       id: $("#grid-caption").attr('data-id'),
@@ -791,7 +791,7 @@ $(document).ready(function(){
       //var selectedRate = rowSelect.val();
       //console.log(`rate id:  ${setInvestRateTypeId}`);
       $(this).attr('data-invest-rate-type-id',setInvestRateTypeId);
-      console.log(`data-invest-rate-type-id: ${$(this).attr('data-invest-rate-type-id')}`)
+      // console.log(`data-invest-rate-type-id: ${$(this).attr('data-invest-rate-type-id')}`)
 
       // $(".invest-type").each(function() {  
       //   console.log(`Was Selected: ${$(this).val()}`)
@@ -805,10 +805,10 @@ $(document).ready(function(){
       // MRC- trying to ge the selected rate set
 
       investRateTypeId = $(this).attr('data-invest-rate-type-id');
-      console.log(`NEW RATE ID: ${investRateTypeId}`)
+      // console.log(`NEW RATE ID: ${investRateTypeId}`)
       Object.assign(chapter,{InvestRateTypeId: investRateTypeId});
       Object.assign(chapter,{PlanId: $("#grid-caption").attr('data-id')});
-      console.log(`This is the chapter object: ${JSON.stringify(chapter)}`);
+      // console.log(`This is the chapter object: ${JSON.stringify(chapter)}`);
       updatedChapters.push(chapter);
     }); 
 
@@ -1246,7 +1246,7 @@ $(document).ready(function(){
       type: "DELETE",
       data: plan
     }).then(function(res) {
-        console.log(res);
+        // console.log(res);
         // // now render the chart by calling helper function
         // renderReturnedPlan(res);
       }
@@ -1267,7 +1267,7 @@ $(document).ready(function(){
       // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`); //clear grid plan type
 
     } else {
-      console.log('Current model not deleted');
+      // console.log('Current model not deleted');
     }
     // NEXT STEPS - SPRINT
     // X. if current model was deleted then throw up a modal telling user
