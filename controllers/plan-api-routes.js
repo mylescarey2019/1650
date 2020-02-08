@@ -24,8 +24,8 @@ function buildModel(results) {
 
   // get start year for Result Plot
   // firstModelYear = results.LifeChapters[0].start_age;
-  console.log(`IN BUILD MODEL.plan_name>>> ${results.plan_name}`);
-  console.log(`IN BUILD MODEL.LifeChapters.length>>> ${results.LifeChapters.length}`);
+  //console.log(`IN BUILD MODEL.plan_name>>> ${results.plan_name}`);
+  //console.log(`IN BUILD MODEL.LifeChapters.length>>> ${results.LifeChapters.length}`);
   // build lifeChapters
   results.LifeChapters.map(chapter => {
     lifeChapters.push(new LifeChapter(chapter.id, chapter.seq_no, chapter.chapter_name,
@@ -193,7 +193,7 @@ module.exports = function (app) {
       // where: {id: { [Op.in]: [1686,1687]}}
     })
     .then(plans => {
-      console.log(`plans: ${JSON.stringify(plans)}`);
+      // console.log(`plans: ${JSON.stringify(plans)}`);
       const deletePromises = plans.map(plan => {
         return plan.destroy();
       });
@@ -219,9 +219,9 @@ module.exports = function (app) {
         }
       )
       .then(function (results) {
-      console.log(`BULK UPDATE TO CHAPTERS >>> ${JSON.stringify(req.body.updatedChapters)}`);
+      // console.log(`BULK UPDATE TO CHAPTERS >>> ${JSON.stringify(req.body.updatedChapters)}`);
       db.LifeChapter.bulkCreate(req.body.updatedChapters,{updateOnDuplicate: ['chapter_name','start_age',
-        'end_age','invest_amount','return_pct','inflation_pct']})
+        'end_age','invest_amount','return_pct','inflation_pct','InvestRateTypeId']})
       .then(function(resul) {
       // re-retrive updated model to send back to client  
       db.Plan.findOne({
@@ -237,7 +237,7 @@ module.exports = function (app) {
       })
       .then(function(resul2) {
       // return to client  
-      console.log(`resul2>> ${resul2}`);
+      // console.log(`resul2>> ${resul2}`);
       res.json(buildModel(resul2));
       });
     });
@@ -255,7 +255,7 @@ module.exports = function (app) {
   // leaves page - (no database cleanup being setup at the moment)
   app.get("/api/clone-plan/:id/:planName/:userId/:planTypeId", function (req, res) {
     // retrieve the model being cloned from
-    console.log(`CLONE SERVER-SIDE: ${JSON.stringify(req.params)}`);
+    // console.log(`CLONE SERVER-SIDE: ${JSON.stringify(req.params)}`);
     db.Plan.findOne({
       where: { id: req.params.id },
       include: [{ model: db.PlanUser },
@@ -291,7 +291,7 @@ module.exports = function (app) {
             PlanId: results.id
           })
         });
-        console.log(`BULK DATA>>> ${JSON.stringify(newChapters)}`);
+        // console.log(`BULK DATA>>> ${JSON.stringify(newChapters)}`);
         // db.LifeChapter.create({
         //   seq_no: cloneFromPlan.LifeChapters[0].seq_no,
         //   chapter_name: cloneFromPlan.LifeChapters[0].chapter_name,
@@ -317,7 +317,7 @@ module.exports = function (app) {
               [db.LifeChapter, 'seq_no', 'asc']
             ]
           }).then(data3 => {
-            console.log(`data3>> ${data3}`);
+            // console.log(`data3>> ${data3}`);
             res.json(buildModel(data3));
           })
 

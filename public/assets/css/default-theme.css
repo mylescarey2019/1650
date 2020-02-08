@@ -43,7 +43,7 @@ h3, h4, #brand {
   color: #3F3F3F;
 }
 
-#chart, #grid {
+#chart, #grid, .invest-type, .invest-type:focus {
   background-color:  #bfbfbf;
   color: #3F3F3F;
   /* border: 2px solid #85bb65; */
@@ -56,6 +56,11 @@ caption {
 table td, table th {
   border:  1px solid #3F3F3F;
   /* background-color: #cccccc */
+}
+
+.invest-type {
+  border: none;
+  border-bottom:  1px solid #0C0C0C;
 }
 
 table tr:hover {
