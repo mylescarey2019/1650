@@ -779,8 +779,8 @@ $(document).ready(function(){
       Object.assign(chapter,{seq_no: seqNo});
       $(this).find("td").each(function() {
         if ($(this).data("key")) {
-          console.log(`the key is:  ${$(this).data("key")}`);
-          console.log(`CHAPTER-TD element: ${$(this).text()}`);
+          // console.log(`the key is:  ${$(this).data("key")}`);
+          // console.log(`CHAPTER-TD element: ${$(this).text()}`);
           thing = $(this).data("key");
           Object.assign(chapter,{[thing]: $(this).text()});
         };
