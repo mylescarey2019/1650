@@ -671,7 +671,7 @@ $(document).ready(function(){
             modelRow.append(freqCell);
             //modelRow.append($(`<td>${chapter.frequency}</td>`).attr('data-key','invest_frequency').attr('contenteditable','true'));
             modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
-            modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct'));
+            modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
             $("#grid-table").append(modelRow);
             // // create a chapter for use in financial model object
             // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
@@ -746,7 +746,7 @@ $(document).ready(function(){
       modelRow.append(freqCell);
 //      modelRow.append($(`<td>${chapter.frequency}</td>`).attr('data-key','invest_frequency').attr('contenteditable','true'));
       modelRow.append($(`<td>${chapter.returnPct}</td>`).attr('data-key','return_pct').attr('contenteditable','true'));
-      modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct'));
+      modelRow.append($(`<td>${chapter.inflationPct}</td>`).attr('data-key','inflation_pct').attr('contenteditable','true'));
       $("#grid-table").append(modelRow);
       // // create a chapter for use in financial model object
       // financialModelChapters.push(new RenderChapter(chapter.seqNo,chapter.name,chapter.startYear,chapter.endYear,
@@ -779,8 +779,8 @@ $(document).ready(function(){
       Object.assign(chapter,{seq_no: seqNo});
       $(this).find("td").each(function() {
         if ($(this).data("key")) {
-          // console.log(`the key is:  ${$(this).data("key")}`);
-          // console.log(`CHAPTER-TD element: ${$(this).text()}`);
+          console.log(`the key is:  ${$(this).data("key")}`);
+          console.log(`CHAPTER-TD element: ${$(this).text()}`);
           thing = $(this).data("key");
           Object.assign(chapter,{[thing]: $(this).text()});
         };
