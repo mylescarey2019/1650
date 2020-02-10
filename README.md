@@ -142,7 +142,8 @@ mylescarey2019@gmail.com
 - 1.5 Sprint 5 release 11/11/2019 - UX improvements: symbols on slide for CVD support, model tool down 
 button (manual scroll still available), increased nav bar visibilty of logged in user, login/signup triggers modal reminder to create or load model and auto-scrolls to model section on close, guest model is now cleared from page on login/signup, clarity on model button: (guests refresh the model/graph),logged in users save the model which also refreshs graph)
 - 1.6 Sprint 6 release 2-8-2020 - added investment frequency options for annual, semi-annual and quarterly 
-- 1.7 Planned sprint scheduled for February/2020 - option to set an inflation rate modifier
+- 1.7 Sprint 7 release 2-10-2020 - added option to set an inflation rate modifier
+- 1.8 Planned sprint scheduled for February/2020 - revised help information via modal 
 
 ## License
 
