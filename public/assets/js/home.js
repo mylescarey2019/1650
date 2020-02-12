@@ -1162,6 +1162,11 @@ $(document).ready(function(){
     // return;
   });
 
+  // instructions modal event
+  $(document).on("click", "#help2-btn", function() {
+    $('#instructions-modal').modal('show');
+  });
+  
 
   // load models button event
   $(document).on("click", "#your-charts-btn", function(event) {
