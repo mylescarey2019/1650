@@ -587,6 +587,32 @@ table th {
   width: 80%;
 }
 
+.help-img {
+  width: 100%;
+  display: block;
+  padding: 0 1.5rem 1.5rem 1.5rem
+}
+
+/* #instruction-modal-body {
+  position: relative;
+} */
+
+.help-tip {
+  color: red;
+  font-size: 2rem;
+  position: absolute;
+}
+
+#help-tip-graph {
+  top: 0%;
+  left: 0%;
+}
+
+#help-tip-grid {
+  top: 80%;
+  left: 60%;
+}
+
 #login-msg {
   margin-top: 10px;
   margin-left: 250px;

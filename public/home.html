@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   
   <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/6eecbb7cb2.js" crossorigin="anonymous"></script>
+    
 
   <!-- page .css -->
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
@@ -427,12 +429,28 @@
                 Start saving at 16 watch it <strong>grow</strong> for 50 years
             </p>
           </div>
-          <div class="modal-body">
-            <form class="logout">
-              <p id="no-model-msg" >Will put image with popovers here</p>
+          <div id="instruction-modal-body" class="modal-body">
+              <img class="help-img" src="assets/img/help-image.png" alt="help image">
+              <i id="help-tip-graph" data-toggle="popover"
+              class="far fa-question-circle btn help-tip" title="Popover title" 
+              data-content="Popover body content is set in this attribute.">
+           </i>
+              <i id="help-tip-grid" data-toggle="popover" 
+              class="far fa-question-circle btn help-tip" title="Popover title" 
+              data-content="Popover body content is set in this attribute.">
+           </i>   
               <button id="no-model-close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </form>  
           </div>
+          <!-- <button id="help-tip-graph" role="button" data-toggle="popover" class="btn btn-secondary popover-test"
+             title="Popover title" data-content="Popover body content is set in this attribute.">button</button> -->
+          <!-- <i id="help-tip-graph" data-toggle="popover"
+             class="far fa-question-circle btn help-tip" title="Popover title" 
+             data-content="Popover body content is set in this attribute.">
+          </i>
+             <i id="help-tip-grid" data-toggle="popover" 
+             class="far fa-question-circle btn help-tip" title="Popover title" 
+             data-content="Popover body content is set in this attribute.">
+          </i>    -->
           <div class="modal-footer">
           </div>
         </div>

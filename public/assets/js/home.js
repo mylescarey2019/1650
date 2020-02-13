@@ -3,6 +3,9 @@
 //on document load
 $(document).ready(function(){
 
+  // init popovers
+  $('[data-toggle="popover"]').popover()
+
   // hide the new model button and your models buttonuntil user signed in
   $('#new-model-btn').hide();
   $('#your-charts-btn').hide();
