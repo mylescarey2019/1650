@@ -424,11 +424,19 @@ width: 100%;
 margin: 0 auto;
 }
 
-#test-btn, #save-btn {
+#test-btn, #save-btn, #help3-btn {
   margin-top: 0px;
   /* margin-left: 8px; */
   margin-right: 30px;
   width: 150px;
+  margin-bottom: 6px;
+}
+
+#help3-btn {
+  margin-top: 0px;
+  /* margin-left: 8px; */
+  margin-right: 30px;
+  width: 160px;
   margin-bottom: 6px;
 }
 
@@ -597,20 +605,30 @@ table th {
   position: relative;
 } */
 
-.help-tip {
-  color: red;
+.help-tip,
+.help-tip0 {
+  color: blue;
   font-size: 2rem;
   position: absolute;
 }
 
-#help-tip-graph {
-  top: 0%;
-  left: 0%;
+#help-tip-graph0 {
+  top: 10%;
+  left: 20%;
 }
 
-#help-tip-grid {
-  top: 80%;
-  left: 60%;
+#help-tip-grid0 {
+  top: 60%;
+  left: 30%;
+}
+
+#help-tip-graph {
+  top: 20%;
+  left: 50%;
+}
+#help-tip-refresh-btn {
+  top: 48%;
+  left: 10%;
 }
 
 #login-msg {
@@ -636,7 +654,7 @@ table th {
   margin-right: 20px;
 }
 
-#test-btn, #help-btn, #help2-btn, #new-model-btn, #top-btn, #down-btn, #your-charts-btn {
+#test-btn, #help-btn, #help2-btn, #help3-btn, #new-model-btn, #top-btn, #down-btn, #your-charts-btn {
   /* border: 1px solid #4892c4;
   border-radius: .3rem; */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.10); */
@@ -661,7 +679,8 @@ table th {
   float: right;
 }
 
-#top-btn-arrow {
+#top-btn-arrow,
+#help3-btn-icon {
   font-size: 20px;
   padding-left: 10px;
 }
@@ -862,7 +881,8 @@ select:hover {
   }
 
 
-  #test-btn, #save-btn, #help-btn, #help2-btn, #new-model-btn, #top-btn, #your-charts-btn {
+  #test-btn, #save-btn, #help-btn, #help2-btn, #help3-btn,
+  #new-model-btn, #top-btn, #your-charts-btn {
     font-size: 14px;
   }
 

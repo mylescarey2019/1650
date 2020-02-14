@@ -4,7 +4,11 @@
 $(document).ready(function(){
 
   // init popovers
-  $('[data-toggle="popover"]').popover()
+  $('[data-toggle="popover"]').popover();
+
+  // help tip hidden intially
+  $('.help-tip').hide();
+  let helpTipsOn = false;
 
   // hide the new model button and your models buttonuntil user signed in
   $('#new-model-btn').hide();
@@ -869,6 +873,22 @@ $(document).ready(function(){
     // console.log(`chart top offset is: ${chartOffset.top} scroll is ${scrollAmt}`);
 
     updateChartPut();
+  });
+
+  // help tips button event
+  $("#help3-btn").on("click",function() {
+    //console.log("in global.help3-btn click event")
+    // toggle the help tips
+    helpTipsOn = (helpTipsOn) ? false : true;
+    $('.help-tip').toggle();
+    if (helpTipsOn) {
+      $('#help3-btn').text('Turn Tips Off');
+    } else {
+      $('#help3-btn').text('Turn Tips On');
+      $('.help-tip').popover('hide');
+
+    }
+
   });
 
 

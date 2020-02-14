@@ -287,6 +287,8 @@
           <button id="test-btn" type="button" class="btn btn-dark btn-sml">Refresh Graph</button>
           <button id="help-btn" type="button" class="btn btn-dark btn-sml" data-target="#carousel-example-2" data-slide-to="1">Help</button>
           <button id="help2-btn" type="button" class="btn btn-dark btn-sml">Help2</button>
+          <button id="help3-btn" type="button" class="btn btn-dark btn-sml">Turn Tips On <i id="help3-btn-icon" class="far fa-question-circle"></i></button>
+
           <button id="top-btn" type="button" class="btn btn-dark btn-sml">Top <i id="top-btn-arrow" class="fas fa-arrow-alt-circle-up"></i></button>
           <button id="new-model-btn" type="button" class="btn btn-dark btn-sml">Create New Model</button>
           <button id="your-charts-btn" type="button" class="btn btn-dark btn-sml">Your Models</button>
@@ -307,6 +309,14 @@
           </table>
         </div>
       </div>
+      <i id="help-tip-graph" data-toggle="popover"
+         class="far fa-question-circle btn help-tip" title="Popover title" 
+         data-content="Popover body content is set in this attribute.">
+      </i>
+      <i id="help-tip-refresh-btn" data-toggle="popover" 
+         class="far fa-question-circle btn help-tip" title="Popover title" 
+         data-content="Popover body content is set in this attribute.">
+      </i>  
     </div>
   
     <div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
@@ -431,14 +441,14 @@
           </div>
           <div id="instruction-modal-body" class="modal-body">
               <img class="help-img" src="assets/img/help-image.png" alt="help image">
-              <i id="help-tip-graph" data-toggle="popover"
-              class="far fa-question-circle btn help-tip" title="Popover title" 
-              data-content="Popover body content is set in this attribute.">
-           </i>
-              <i id="help-tip-grid" data-toggle="popover" 
-              class="far fa-question-circle btn help-tip" title="Popover title" 
-              data-content="Popover body content is set in this attribute.">
-           </i>   
+              <i id="help-tip-graph0" data-toggle="popover"
+                 class="far fa-question-circle btn help-tip0" title="Popover title" 
+                 data-content="Popover body content is set in this attribute.">
+              </i>
+              <i id="help-tip-grid0" data-toggle="popover" 
+                 class="far fa-question-circle btn help-tip0" title="Popover title" 
+                 data-content="Popover body content is set in this attribute.">
+              </i>   
               <button id="no-model-close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
           <!-- <button id="help-tip-graph" role="button" data-toggle="popover" class="btn btn-secondary popover-test"
