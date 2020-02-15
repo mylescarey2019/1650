@@ -285,9 +285,9 @@
       </div>
         <div id="table-div" class="col-12">
           <button id="test-btn" type="button" class="btn btn-dark btn-sml">Refresh Graph</button>
-          <button id="help-btn" type="button" class="btn btn-dark btn-sml" data-target="#carousel-example-2" data-slide-to="1">Help</button>
-          <button id="help2-btn" type="button" class="btn btn-dark btn-sml">Help2</button>
-          <button id="help3-btn" type="button" class="btn btn-dark btn-sml">Turn Tips On <i id="help3-btn-icon" class="far fa-question-circle"></i></button>
+          <!-- <button id="help-btn" type="button" class="btn btn-dark btn-sml" data-target="#carousel-example-2" data-slide-to="1">Help</button> -->
+          <!-- <button id="help2-btn" type="button" class="btn btn-dark btn-sml">Help2</button> -->
+          <button id="tips-btn" type="button" class="btn btn-dark btn-sml">Help<i id="tips-btn-icon" class="fas fa-question-circle"></i></button>
 
           <button id="top-btn" type="button" class="btn btn-dark btn-sml">Top <i id="top-btn-arrow" class="fas fa-arrow-alt-circle-up"></i></button>
           <button id="new-model-btn" type="button" class="btn btn-dark btn-sml">Create New Model</button>
@@ -308,15 +308,63 @@
             </tr>
           </table>
         </div>
+        <i id="help-tip-graph" data-toggle="popover"
+          class="fas fa-question-circle btn help-tip" title="Model Graph" 
+          data-content="Popover body content is set in this attribute.">
+        </i>
+        <i id="help-tip-refresh-btn" data-toggle="popover" 
+            class="fas fa-question-circle btn help-tip" title="Refresh Graph" 
+            data-content="Popover body content is set in this attribute.">
+        </i> 
+        <i id="help-tip-tips-btn" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip" title="Toggle Tips" 
+          data-content="Popover body content is set in this attribute.">
+        </i>  
+          <i id="help-tip-models-btn" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip help-tip-off" title="Your Models" 
+          data-content="Popover body content is set in this attribute.">
+        </i>   
+        <i id="help-tip-new-model-btn" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip help-tip-off" title="Create Model" 
+          data-content="Popover body content is set in this attribute.">
+        </i>   
+        <i id="help-tip-to-top-btn" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip" title="Scroll Top" 
+          data-content="Popover body content is set in this attribute.">
+        </i> 
+        <i id="help-tip-chapter" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip" title="Life Chapter" 
+          data-content="Popover body content is set in this attribute.">
+        </i> 
+        <i id="help-tip-start" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip" title="Start Age" 
+          data-content="Popover body content is set in this attribute.">
+        </i> 
+        <i id="help-tip-end" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip" title="End Age" 
+          data-content="Popover body content is set in this attribute.">
+        </i> 
+        <i id="help-tip-invest" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip" title="Invest Amount" 
+          data-content="Popover body content is set in this attribute.">
+        </i> 
+        <i id="help-tip-name" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip" title="Model Name" 
+          data-content="Popover body content is set in this attribute.">
+        </i> 
+        <i id="help-tip-frequency" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip" title="Frequency" 
+          data-content="Popover body content is set in this attribute.">
+        </i> 
+        <i id="help-tip-return" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip" title="Return" 
+          data-content="Popover body content is set in this attribute.">
+        </i> 
+        <i id="help-tip-inflation" data-toggle="popover" 
+          class="fas fa-question-circle btn help-tip" title="Inflation" 
+          data-content="Popover body content is set in this attribute.">
+        </i> 
       </div>
-      <i id="help-tip-graph" data-toggle="popover"
-         class="far fa-question-circle btn help-tip" title="Popover title" 
-         data-content="Popover body content is set in this attribute.">
-      </i>
-      <i id="help-tip-refresh-btn" data-toggle="popover" 
-         class="far fa-question-circle btn help-tip" title="Popover title" 
-         data-content="Popover body content is set in this attribute.">
-      </i>  
     </div>
   
     <div id="login-modal" class="modal fade" tabindex="-1" role="dialog">

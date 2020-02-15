@@ -6,7 +6,7 @@ $(document).ready(function(){
   // init popovers
   $('[data-toggle="popover"]').popover();
 
-  // help tip hidden intially
+  // help tip hidden initially
   $('.help-tip').hide();
   let helpTipsOn = false;
 
@@ -876,18 +876,23 @@ $(document).ready(function(){
   });
 
   // help tips button event
-  $("#help3-btn").on("click",function() {
-    //console.log("in global.help3-btn click event")
+  $("#tips-btn").on("click",function() {
+    //console.log("in global.tips-btn click event")
     // toggle the help tips
     helpTipsOn = (helpTipsOn) ? false : true;
     $('.help-tip').toggle();
-    if (helpTipsOn) {
-      $('#help3-btn').text('Turn Tips Off');
-    } else {
-      $('#help3-btn').text('Turn Tips On');
+    if (!helpTipsOn) {
       $('.help-tip').popover('hide');
-
     }
+
+
+
+    // if (helpTipsOn) {
+    //   $('#tips-btn').html('Turn Tips Off <i id="tips-btn-icon" class="far fa-question-circle"></i>');
+    // } else {
+    //   $('#tips-btn').html('Turn Tips On <i id="tips-btn-icon" class="far fa-question-circle"></i>');
+    //   $('.help-tip').popover('hide');
+    // }
 
   });
 
@@ -1041,7 +1046,9 @@ $(document).ready(function(){
         $("#footer-model-id").text(''); // clear footer model id
         // $("#grid-caption").attr('data-user-id',`${res.userId}`);  //clear grid user id
         // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`); //clear grid plan type
-
+        // remove tip hide class from your models & new model button
+        $("#help-tip-models-btn").removeClass('help-tip-off');
+        $("#help-tip-new-model-btn").removeClass('help-tip-off');
         return;
       })
       .fail(function(err) {
@@ -1115,6 +1122,9 @@ $(document).ready(function(){
         $("#footer-model-id").text(''); // clear footer model id
         // $("#grid-caption").attr('data-user-id',`${res.userId}`);  //clear grid user id
         // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`); //clear grid plan type
+        // remove tip hide class from your models & new model button
+        $("#help-tip-models-btn").removeClass('help-tip-off');
+        $("#help-tip-new-model-btn").removeClass('help-tip-off');
         return;
       })
       .fail(function(err) {
@@ -1164,6 +1174,9 @@ $(document).ready(function(){
         $('#login-dropdown-menu').append('<a class="dropdown-item signin" data-value="signup" href="#">Signup</a>');
         // hide model
         $('#logout-modal').modal('hide');
+        // add tip hide class from your models & new model button
+        $("#help-tip-models-btn").addClass('help-tip-off');
+        $("#help-tip-new-model-btn").addClass('help-tip-off');
 
         // need to clone the demo model since user has logged out and
         // now the user is the guest user

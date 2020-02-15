@@ -406,6 +406,10 @@ h3, h4 {
   padding: 32px;
 }
 
+#chart {
+  position: relative;
+}
+
 /* .no-margin {
   margin: 0px;
 } */
@@ -424,7 +428,7 @@ width: 100%;
 margin: 0 auto;
 }
 
-#test-btn, #save-btn, #help3-btn {
+#test-btn, #save-btn {
   margin-top: 0px;
   /* margin-left: 8px; */
   margin-right: 30px;
@@ -432,15 +436,7 @@ margin: 0 auto;
   margin-bottom: 6px;
 }
 
-#help3-btn {
-  margin-top: 0px;
-  /* margin-left: 8px; */
-  margin-right: 30px;
-  width: 160px;
-  margin-bottom: 6px;
-}
-
-#help-btn, #help2-btn {
+#help-btn, #help2-btn, #tips-btn {
   margin-top: 0px;
   /* margin-left: 8px; */
   margin-right: 30px;
@@ -607,9 +603,10 @@ table th {
 
 .help-tip,
 .help-tip0 {
-  color: blue;
+  color: red;
   font-size: 2rem;
   position: absolute;
+  padding: 0;
 }
 
 #help-tip-graph0 {
@@ -622,13 +619,78 @@ table th {
   left: 30%;
 }
 
+.help-tip-off {
+  visibility: hidden;
+}
+
 #help-tip-graph {
   top: 20%;
   left: 50%;
 }
+
 #help-tip-refresh-btn {
-  top: 48%;
-  left: 10%;
+  top: 40%;
+  left: 8%;
+}
+
+#help-tip-tips-btn {
+  top: 40%;
+  left: 20%;
+}
+
+#help-tip-models-btn {
+  top: 40%;
+  left: 62%;
+}
+
+#help-tip-new-model-btn {
+  top: 40%;
+  left: 78%;
+}
+
+#help-tip-to-top-btn {
+  top: 40%;
+  left: 90%;
+}
+
+#help-tip-chapter {
+  top: 60%;
+  left: 8%;
+}
+
+#help-tip-start {
+  top: 60%;
+  left: 18%;
+}
+
+#help-tip-end {
+  top: 60%;
+  left: 24%;
+}
+
+#help-tip-invest {
+  top: 60%;
+  left: 34%;
+}
+
+#help-tip-name {
+  top: 54%;
+  left: 40%;
+}
+
+#help-tip-frequency {
+  top: 60%;
+  left: 48%;
+}
+
+#help-tip-return {
+  top: 60%;
+  left: 65%;
+}
+
+#help-tip-inflation {
+  top: 60%;
+  left: 85%;
 }
 
 #login-msg {
@@ -654,7 +716,7 @@ table th {
   margin-right: 20px;
 }
 
-#test-btn, #help-btn, #help2-btn, #help3-btn, #new-model-btn, #top-btn, #down-btn, #your-charts-btn {
+#test-btn, #help-btn, #help2-btn, #tips-btn, #new-model-btn, #top-btn, #down-btn, #your-charts-btn {
   /* border: 1px solid #4892c4;
   border-radius: .3rem; */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.10); */
@@ -680,7 +742,7 @@ table th {
 }
 
 #top-btn-arrow,
-#help3-btn-icon {
+#tips-btn-icon {
   font-size: 20px;
   padding-left: 10px;
 }
@@ -881,7 +943,7 @@ select:hover {
   }
 
 
-  #test-btn, #save-btn, #help-btn, #help2-btn, #help3-btn,
+  #test-btn, #save-btn, #help-btn, #help2-btn, #tips-btn,
   #new-model-btn, #top-btn, #your-charts-btn {
     font-size: 14px;
   }
