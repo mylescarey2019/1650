@@ -623,75 +623,174 @@ table th {
   visibility: hidden;
 }
 
-#help-tip-graph {
-  top: 20%;
+.help-tipX-graph {
   left: 50%;
 }
 
-#help-tip-refresh-btn {
-  top: 40%;
+.help-tipX-refresh-btn {
   left: 8%;
 }
 
-#help-tip-tips-btn {
-  top: 40%;
+.help-tipX-tips-btn {
   left: 20%;
 }
 
-#help-tip-models-btn {
-  top: 40%;
+.help-tipX-models-btn {
   left: 62%;
 }
 
-#help-tip-new-model-btn {
-  top: 40%;
+.help-tipX-new-model-btn {
   left: 78%;
 }
 
-#help-tip-to-top-btn {
-  top: 40%;
+.help-tipX-to-top-btn {
   left: 90%;
 }
 
-#help-tip-chapter {
-  top: 60%;
+.help-tipX-chapter {
   left: 8%;
 }
 
-#help-tip-start {
-  top: 60%;
+.help-tipX-start {
   left: 18%;
 }
 
-#help-tip-end {
-  top: 60%;
+.help-tipX-end {
   left: 24%;
 }
 
-#help-tip-invest {
-  top: 60%;
+.help-tipX-invest {
   left: 34%;
 }
 
-#help-tip-name {
-  top: 54%;
+.help-tipX-name {
   left: 40%;
 }
 
-#help-tip-frequency {
-  top: 60%;
+.help-tipX-frequency {
   left: 48%;
 }
 
-#help-tip-return {
-  top: 60%;
+.help-tipX-return {
   left: 65%;
 }
 
-#help-tip-inflation {
-  top: 60%;
+.help-tipX-inflation {
   left: 85%;
 }
+
+.help-tipY-graph {
+  top: 20%;
+}
+
+.help-tipY-refresh-btn {
+  top: 40%;
+}
+
+.help-tipY-tips-btn {
+  top: 40%;
+}
+
+.help-tipY-models-btn {
+  top: 40%;
+}
+
+.help-tipY-new-model-btn {
+  top: 40%;
+}
+
+.help-tipY-to-top-btn {
+  top: 40%;
+}
+
+.help-tipY-chapter {
+  top: 60%;
+}
+
+.help-tipY-start {
+  top: 60%;
+}
+
+.help-tipY-end {
+  top: 60%;
+}
+
+.help-tipY-invest {
+  top: 60%;
+}
+
+.help-tipY-name {
+  top: 54%;
+}
+
+.help-tipY-frequency {
+  top: 60%;
+}
+
+.help-tipY-return {
+  top: 60%;
+}
+
+.help-tipY-inflation {
+  top: 60%;
+}
+
+.help-tipY2-graph {
+  top: 40%;
+}
+
+.help-tipY2-refresh-btn {
+  top: 60%;
+}
+
+.help-tipY2-tips-btn {
+  top: 60%;
+}
+
+.help-tipY2-models-btn {
+  top: 60%;
+}
+
+.help-tipY2-new-model-btn {
+  top: 60%;
+}
+
+.help-tipY2-to-top-btn {
+  top: 60%;
+}
+
+.help-tipY2-chapter {
+  top: 80%;
+}
+
+.help-tipY2-start {
+  top: 80%;
+}
+
+.help-tipY2-end {
+  top: 80%;
+}
+
+.help-tipY2-invest {
+  top: 80%;
+}
+
+.help-tipY2-name {
+  top: 74%;
+}
+
+.help-tipY2-frequency {
+  top: 80%;
+}
+
+.help-tipY2-return {
+  top: 80%;
+}
+
+.help-tipY2-inflation {
+  top: 80%;
+}
+
 
 #login-msg {
   margin-top: 10px;
