@@ -603,10 +603,11 @@ table th {
 
 .help-tip,
 .help-tip0 {
-  color: red;
-  font-size: 2rem;
+  /* color: red; */
+  font-size: 1.3rem;
   position: absolute;
-  padding: 0;
+  padding: 0 .5rem 0 .5rem;
+  border-radius: 5px;
 }
 
 #help-tip-graph0 {
@@ -679,59 +680,59 @@ table th {
   left: 85%;
 }
 
-.help-tipY-graph {
+.help-tipY1-graph {
   top: 20%;
 }
 
-.help-tipY-refresh-btn {
+.help-tipY1-refresh-btn {
   top: 40%;
 }
 
-.help-tipY-tips-btn {
+.help-tipY1-tips-btn {
   top: 40%;
 }
 
-.help-tipY-models-btn {
+.help-tipY1-models-btn {
   top: 40%;
 }
 
-.help-tipY-new-model-btn {
+.help-tipY1-new-model-btn {
   top: 40%;
 }
 
-.help-tipY-to-top-btn {
+.help-tipY1-to-top-btn {
   top: 40%;
 }
 
-.help-tipY-chapter {
+.help-tipY1-chapter {
   top: 60%;
 }
 
-.help-tipY-start {
+.help-tipY1-start {
   top: 60%;
 }
 
-.help-tipY-end {
+.help-tipY1-end {
   top: 60%;
 }
 
-.help-tipY-invest {
+.help-tipY1-invest {
   top: 60%;
 }
 
-.help-tipY-name {
+.help-tipY1-name {
   top: 54%;
 }
 
-.help-tipY-frequency {
+.help-tipY1-frequency {
   top: 60%;
 }
 
-.help-tipY-return {
+.help-tipY1-return {
   top: 60%;
 }
 
-.help-tipY-inflation {
+.help-tipY1-inflation {
   top: 60%;
 }
 

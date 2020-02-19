@@ -278,7 +278,7 @@
 
 
   <div id="lower-section" class="container-fluid">
-    <div id="chart" class="row no-margin">
+    <div id="chart" tabindex="0" class="row no-margin">
       <div class="col-12">
         <div id="chart-container">
         </div> 
@@ -308,11 +308,70 @@
             </tr>
           </table>
         </div>
-        <i id="help-tip-graph" data-toggle="popover"
+
+
+        <button tabindex="0" id="help-tip-graph" class="help-tipX-graph help-tipY1-graph btn btn-primary help-tip" title="Model Graph" 
+          data-toggle="popover" data-placement="top" 
+          data-content="Popover body content is set in this attribute.">?
+        </button>
+        <button data-toggle="popover" data-placement="top" 
+            class="help-tipX-refresh-btn help-tipY1-refresh-btn btn-primary help-tip" title="Refresh Graph" 
+            data-content="Popover body content is set in this attribute.">?
+        </button>
+        <button id="help-tipX-tips-btn" data-toggle="popover" data-placement="top" 
+          class="help-tipX-tips-btn help-tipY1-tips-btn btn btn-primary help-tip" title="Toggle Tips" 
+          data-content="Popover body content is set in this attribute.">?
+        </button>  
+        <button id="help-tip-models-btn" data-toggle="popover" data-placement="top" 
+          class="help-tipX-models-btn help-tipY1-models-btn btn btn-primary help-tip help-tip-off" title="Your Models" 
+          data-content="Popover body content is set in this attribute.">?
+        </button>   
+        <button id="help-tip-new-model-btn" data-toggle="popover" data-placement="top" 
+          class="help-tipX-new-model-btn help-tipY1-new-model-btn btn btn-primary help-tip help-tip-off" title="Create Model" 
+          data-content="Popover body content is set in this attribute.">?
+        </button>   
+        <button id="help-tip-to-top-btn" data-toggle="popover" data-placement="top" 
+          class="help-tipX-to-top-btn help-tipY1-to-top-btn btn btn-primary help-tip" title="Scroll Top" 
+          data-content="Popover body content is set in this attribute.">?
+        </button> 
+        <button id="help-tip-chapter" data-toggle="popover" data-placement="bottom" 
+          class="help-tipX-chapter help-tipY1-chapter btn btn-primary help-tip" title="Life Chapter" 
+          data-content="Popover body content is set in this attribute.">?
+        </button> 
+        <button id="help-tip-start" data-toggle="popover" data-placement="bottom" 
+          class="help-tipX-start help-tipY1-start btn btn-primary help-tip" title="Start Age" 
+          data-content="Popover body content is set in this attribute.">?
+        </button> 
+        <button id="help-tip-end" data-toggle="popover" data-placement="bottom" 
+          class="help-tipX-end help-tipY1-end btn btn-primary help-tip" title="End Age" 
+          data-content="Popover body content is set in this attribute.">?
+        </button> 
+        <button id="help-tip-invest" data-toggle="popover" data-placement="bottom" 
+          class="help-tipX-invest help-tipY1-invest btn btn-primary help-tip" title="Invest Amount" 
+          data-content="Popover body content is set in this attribute.">?
+        </button> 
+        <button id="help-tip-name" data-toggle="popover" data-placement="top" 
+          class="help-tipX-name help-tipY1-name btn btn-primary help-tip" title="Model Name" 
+          data-content="Popover body content is set in this attribute.">?
+        </button> 
+        <button id="help-tip-frequency" data-toggle="popover" data-placement="top" 
+          class="help-tipX-frequency help-tipY1-frequency btn btn-primary help-tip" title="Frequency" 
+          data-content="Popover body content is set in this attribute.">?
+        </button> 
+        <button id="help-tip-return" data-toggle="popover" data-placement="top" 
+          class="help-tipX-return help-tipY1-return btn btn-primary help-tip" title="Return" 
+          data-content="Popover body content is set in this attribute.">?
+        </button> 
+        <button id="help-tip-inflation" data-toggle="popover" data-placement="top" 
+          class="help-tipX-inflation help-tipY1-inflation btn btn-primary help-tip" title="Inflation" 
+          data-content="Popover body content is set in this attribute.">?
+        </button> 
+
+        <!-- <i> id="help-tip-graph" data-toggle="popover"
           class="help-tipX-graph help-tipY-graph fas fa-question-circle btn help-tip" title="Model Graph" 
           data-content="Popover body content is set in this attribute.">
-        </i>
-        <i id="help-tip-refresh-btn" data-toggle="popover" 
+        </i> -->
+        <!-- <i id="help-tip-refresh-btn" data-toggle="popover" 
             class="help-tipX-refresh-btn help-tipY-refresh-btn fas fa-question-circle btn help-tip" title="Refresh Graph" 
             data-content="Popover body content is set in this attribute.">
         </i> 
@@ -363,7 +422,7 @@
         <i id="help-tip-inflation" data-toggle="popover" 
           class="help-tipX-inflation help-tipY-inflation fas fa-question-circle btn help-tip" title="Inflation" 
           data-content="Popover body content is set in this attribute.">
-        </i> 
+        </i>  -->
       </div>
     </div>
   
