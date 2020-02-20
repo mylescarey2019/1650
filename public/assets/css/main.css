@@ -936,6 +936,88 @@ select:hover {
 /****************************************************************************/
 /*** Media Query Section                                                  ***/
 /****************************************************************************/
+
+@media screen and (min-width: 1651px) {
+  .help-tipX-graph {
+    left: 44%;
+  }
+  
+  .help-tipX-refresh-btn {
+    left: 10%;
+  }
+  
+  .help-tipX-tips-btn {
+    left: 18%;
+  }
+
+  .help-tipX-models-btn {
+    left: 70%;
+  }
+
+  .help-tipX-new-model-btn {
+    left: 86%;
+  }
+
+  .help-tipX-to-top-btn {
+    left: 92%;
+  } 
+
+}
+
+
+@media screen and (max-width: 1170px) {
+  .help-tipX-graph {
+    left: 44%;
+  }
+  
+  .help-tipX-refresh-btn {
+    left: 10%;
+  }
+  
+  .help-tipX-tips-btn {
+    left: 28%;
+  }
+
+  .help-tipX-models-btn {
+    left: 54%;
+  }
+
+  .help-tipX-new-model-btn {
+    left: 68%;
+  }
+
+  .help-tipX-to-top-btn {
+    left: 92%;
+  } 
+
+}
+
+/* @media screen and (max-height: 820px) {
+  .help-tipY1-graph {
+    top: 26%;
+  }
+
+  .help-tipY1-refresh-btn {
+    top: 44%;
+  }
+
+  .help-tipY1-tips-btn {
+    top: 44%;
+  }
+
+  .help-tipY1-models-btn {
+    top: 44%;
+  }
+
+  .help-tipY1-new-model-btn {
+    top: 44%;
+  }
+
+  .help-tipY1-to-top-btn {
+    top: 44%;
+  }
+}   */
+
 /* resize nav item margins */
 @media screen and (max-width: 1439px), screen and (max-height: 820px) {
  
@@ -1053,6 +1135,30 @@ select:hover {
     font-weight: 900 !important;
   }
 
+
+  .help-tipY1-graph {
+    top: 26%;
+  }
+
+  .help-tipY1-refresh-btn {
+    top: 44%;
+  }
+
+  .help-tipY1-tips-btn {
+    top: 44%;
+  }
+
+  .help-tipY1-models-btn {
+    top: 44%;
+  }
+
+  .help-tipY1-new-model-btn {
+    top: 44%;
+  }
+
+  .help-tipY1-to-top-btn {
+    top: 44%;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -1078,5 +1184,347 @@ select:hover {
   #nav-bar {
     height: 70px;
   }
+/* 
+@media screen and (min-width: 1441px) {
+
+  .help-tipX-graph {
+    left: 65%;
+  }
+
+  .help-tipX-refresh-btn {
+    left: 14%;
+  }
+
+  .help-tipX-tips-btn {
+    left: 26%;
+  }
+
+  .help-tipX-models-btn {
+    left: 70%;
+  }
+
+  .help-tipX-new-model-btn {
+    left: 86%;
+  }
+
+  .help-tipX-to-top-btn {
+    left: 94%;
+  } */
+
+  /* .help-tipX-chapter {
+    left: 8%;
+  }
+
+  .help-tipX-start {
+    left: 18%;
+  }
+
+  .help-tipX-end {
+    left: 24%;
+  }
+
+  .help-tipX-invest {
+    left: 34%;
+  }
+
+  .help-tipX-name {
+    left: 40%;
+  }
+
+  .help-tipX-frequency {
+    left: 48%;
+  }
+
+  .help-tipX-return {
+    left: 65%;
+  }
+
+  .help-tipX-inflation {
+    left: 85%;
+  }
+ */
+
+  /* .help-tipY1-graph {
+    top: 20%;
+  }
+
+  .help-tipY1-refresh-btn {
+    top: 40%;
+  }
+
+  .help-tipY1-tips-btn {
+    top: 40%;
+  }
+
+  .help-tipY1-models-btn {
+    top: 40%;
+  }
+
+  .help-tipY1-new-model-btn {
+    top: 40%;
+  }
+
+  .help-tipY1-to-top-btn {
+    top: 40%;
+  }
+
+  .help-tipY1-chapter {
+    top: 60%;
+  }
+
+  .help-tipY1-start {
+    top: 60%;
+  }
+
+  .help-tipY1-end {
+    top: 60%;
+  }
+
+  .help-tipY1-invest {
+    top: 60%;
+  }
+
+  .help-tipY1-name {
+    top: 54%;
+  }
+
+  .help-tipY1-frequency {
+    top: 60%;
+  }
+
+  .help-tipY1-return {
+    top: 60%;
+  }
+
+  .help-tipY1-inflation {
+    top: 60%;
+  }
+
+  .help-tipY2-graph {
+    top: 40%;
+  }
+
+  .help-tipY2-refresh-btn {
+    top: 60%;
+  }
+
+  .help-tipY2-tips-btn {
+    top: 60%;
+  }
+
+  .help-tipY2-models-btn {
+    top: 60%;
+  }
+
+  .help-tipY2-new-model-btn {
+    top: 60%;
+  }
+
+  .help-tipY2-to-top-btn {
+    top: 60%;
+  }
+
+  .help-tipY2-chapter {
+    top: 80%;
+  }
+
+  .help-tipY2-start {
+    top: 80%;
+  }
+
+  .help-tipY2-end {
+    top: 80%;
+  }
+
+  .help-tipY2-invest {
+    top: 80%;
+  }
+
+  .help-tipY2-name {
+    top: 74%;
+  }
+
+  .help-tipY2-frequency {
+    top: 80%;
+  }
+
+  .help-tipY2-return {
+    top: 80%;
+  }
+
+  .help-tipY2-inflation {
+    top: 80%;
+  } */
+
   
 }
+
+
+/* 
+.help-tipX-graph {
+  left: 50%;
+}
+
+.help-tipX-refresh-btn {
+  left: 8%;
+}
+
+.help-tipX-tips-btn {
+  left: 20%;
+}
+
+.help-tipX-models-btn {
+  left: 62%;
+}
+
+.help-tipX-new-model-btn {
+  left: 78%;
+}
+
+.help-tipX-to-top-btn {
+  left: 90%;
+}
+
+.help-tipX-chapter {
+  left: 8%;
+}
+
+.help-tipX-start {
+  left: 18%;
+}
+
+.help-tipX-end {
+  left: 24%;
+}
+
+.help-tipX-invest {
+  left: 34%;
+}
+
+.help-tipX-name {
+  left: 40%;
+}
+
+.help-tipX-frequency {
+  left: 48%;
+}
+
+.help-tipX-return {
+  left: 65%;
+}
+
+.help-tipX-inflation {
+  left: 85%;
+}
+
+.help-tipY1-graph {
+  top: 20%;
+}
+
+.help-tipY1-refresh-btn {
+  top: 40%;
+}
+
+.help-tipY1-tips-btn {
+  top: 40%;
+}
+
+.help-tipY1-models-btn {
+  top: 40%;
+}
+
+.help-tipY1-new-model-btn {
+  top: 40%;
+}
+
+.help-tipY1-to-top-btn {
+  top: 40%;
+}
+
+.help-tipY1-chapter {
+  top: 60%;
+}
+
+.help-tipY1-start {
+  top: 60%;
+}
+
+.help-tipY1-end {
+  top: 60%;
+}
+
+.help-tipY1-invest {
+  top: 60%;
+}
+
+.help-tipY1-name {
+  top: 54%;
+}
+
+.help-tipY1-frequency {
+  top: 60%;
+}
+
+.help-tipY1-return {
+  top: 60%;
+}
+
+.help-tipY1-inflation {
+  top: 60%;
+}
+
+.help-tipY2-graph {
+  top: 40%;
+}
+
+.help-tipY2-refresh-btn {
+  top: 60%;
+}
+
+.help-tipY2-tips-btn {
+  top: 60%;
+}
+
+.help-tipY2-models-btn {
+  top: 60%;
+}
+
+.help-tipY2-new-model-btn {
+  top: 60%;
+}
+
+.help-tipY2-to-top-btn {
+  top: 60%;
+}
+
+.help-tipY2-chapter {
+  top: 80%;
+}
+
+.help-tipY2-start {
+  top: 80%;
+}
+
+.help-tipY2-end {
+  top: 80%;
+}
+
+.help-tipY2-invest {
+  top: 80%;
+}
+
+.help-tipY2-name {
+  top: 74%;
+}
+
+.help-tipY2-frequency {
+  top: 80%;
+}
+
+.help-tipY2-return {
+  top: 80%;
+}
+
+.help-tipY2-inflation {
+  top: 80%;
+} */
