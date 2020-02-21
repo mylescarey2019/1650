@@ -93,6 +93,26 @@ $(document).ready(function(){
     }
   }
 
+  // $("#test-btn").click(function(e) {
+  //   var senderElement = e.target;
+  //   console.log(`e.target is: ${e.target}`);
+  //   // Check if sender is the <div> element e.g.
+  //   // if($(e.target).is("div")) {
+  //   // window.location = url;
+  //   // return true;
+  // });
+
+  // $("#help-tip-refresh-btn").click(function(e) {
+  //   //e.stopImmediatePropagation();
+  //   e.stopPropagation();
+  // });
+
+  $(".btn-help-tip-icon").click(function(e) {
+    //e.stopImmediatePropagation();
+    e.stopPropagation();
+  });
+
+  
 
   // // start with the lower section hidden
   // $("#lower-section").hide();
@@ -939,19 +959,32 @@ $(document).ready(function(){
   // });
 
 
-  // save & refresh model event
-  $("#test-btn").on("click",function() {
-    // console.log("in global.test-btn click event")
-    // ajax put call for refreshing the guest model 
-    // update financial model (plan and chapters)
-    
-    // check the location of the graph so
-    // it can be scrolled up or down to be centered
-    var chartOffset = $("#lower-section").offset();
-    var scrollAmt = $(window).scrollTop();
-    // console.log(`chart top offset is: ${chartOffset.top} scroll is ${scrollAmt}`);
+  // $("#test-btn").click(function(e) {
+  //   var senderElement = e.target;
+  //   console.log(`e.target is: ${e.target}`);
+  //   // Check if sender is the <div> element e.g.
+  //   // if($(e.target).is("div")) {
+  //   // window.location = url;
+  //   // return true;
+  // });
 
-    updateChartPut();
+  // save & refresh model event
+  $("#test-btn").on("click",function(e) {
+    // console.dir(e);
+    // console.log(e.target.id);
+    // if (e.target.id = 'test-btn') {
+      // console.log("in global.test-btn click event")
+      // ajax put call for refreshing the guest model 
+      // update financial model (plan and chapters)
+      
+      // check the location of the graph so
+      // it can be scrolled up or down to be centered
+      var chartOffset = $("#lower-section").offset();
+      var scrollAmt = $(window).scrollTop();
+      // console.log(`chart top offset is: ${chartOffset.top} scroll is ${scrollAmt}`);
+      updateChartPut();
+    // }
+
   });
 
   // help tips button event
@@ -1104,7 +1137,7 @@ $(document).ready(function(){
         // change the refresh button to save & refresh since a user has signed in
         // changed from Save & Refresh to just Save to see if UX is better
         // changed to Refresh Graph
-        $('#test-btn').text('Refresh Graph');
+        // $('#test-btn').text('Refresh Graph');
         // // turn on the save model button since there is a user now
         // $('#save-btn').show();
         // switch login menu title
@@ -1252,7 +1285,7 @@ $(document).ready(function(){
         // switch login menu title
         $('#signinDropdown').text('Login');
         // change the refresh button to save & refresh since a user has logged in
-        $('#test-btn').text('Refresh Graph');
+        // $('#test-btn').text('Refresh Graph');
         // // turn off the save model button since user has logged out
         // $('#save-btn').hide();
         // set the login dropdown menu options

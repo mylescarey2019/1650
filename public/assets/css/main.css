@@ -439,7 +439,7 @@ margin: 0 auto;
 #help-btn, #help2-btn, #tips-btn {
   margin-top: 0px;
   /* margin-left: 8px; */
-  margin-right: 30px;
+  margin-right: 28px;
   width: 100px;
   margin-bottom: 6px;
 }
@@ -453,6 +453,9 @@ caption {
   text-align: center;
   font-weight: bold;
   font-size: 24px;
+  width: 80%;
+  margin: 6px auto;
+
 }  
 
 table {
@@ -608,6 +611,38 @@ table th {
   position: absolute;
   padding: 0 .5rem 0 .5rem;
   border-radius: 5px;
+}
+
+.btn-help-tip-icon {
+  color: white;
+  padding: 2px;
+  margin-left: 8px;
+  vertical-align: bottom;
+}
+
+.help-tip-icon {
+  padding: 2px;
+  margin-left: 8px;
+  vertical-align: bottom;
+}
+
+.btn-help-tip-icon:hover,
+.btn-help-tip-icon:active {
+  color: #1F9376;
+  /* border: solid 1px yellow;
+  border-radius: 50%; */
+  /* background-color: #1F9376; */
+}
+
+.help-tip-icon:hover,
+.help-tip-icon:active {
+  cursor: pointer;
+  color: #1F9376;
+}
+
+#test-btn {
+  text-align: left;
+  width: 170px;
 }
 
 #help-tip-graph0 {
@@ -823,13 +858,24 @@ table th {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39); 
 }
 
-#new-model-btn, #your-charts-btn {
+#new-model-btn {
   margin-top: 0px;
   /* margin-left: 8px; */
-  margin-right: 30px;
+  margin-right: 28px;
+  width: 200px;
+  margin-bottom: 6px;
+  float: right;
+  text-align: left;
+}
+
+#your-charts-btn {
+  margin-top: 0px;
+  /* margin-left: 8px; */
+  margin-right: 28px;
   width: 160px;
   margin-bottom: 6px;
   float: right;
+  text-align: left;
 }
 
 #top-btn {
@@ -1120,10 +1166,12 @@ select:hover {
     font-size: 20px;
     padding-bottom: 0px;
     padding-top: 0px;
-    margin: 0px 0px 4px 0px;
+    /* margin: 0px 0px 4px 0px; */
+    margin: 4px auto;
 
   }
 
+  #new-model
 
   #test-btn, #save-btn, #help-btn, #help2-btn, #tips-btn,
   #new-model-btn, #top-btn, #your-charts-btn {
@@ -1161,6 +1209,16 @@ select:hover {
   }
 }
 
+@media screen and (max-width: 1180px) {
+  .help-tip-icon {
+    margin-left: 0;
+  }
+
+  th {
+    font-size: 10px;
+  }
+}
+
 @media screen and (max-width: 1024px) {
 
   .non-guest-user {
@@ -1168,8 +1226,22 @@ select:hover {
     font-weight: 900 !important;
   }
 
-  #new-model-btn, #your-charts-btn {
+  #test-btn {
+    margin-right: 16px;
+  }
+
+  #help-btn {
+    margin-right: 16px;
+  }
+
+  #new-model-btn {
+    width: 190px;
+    margin-right: 16px;
+  }
+
+  #your-charts-btn {
     width: 150px;
+    margin-right: 16px;
   }
 
 }

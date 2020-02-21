@@ -278,46 +278,111 @@
 
 
   <div id="lower-section" class="container-fluid">
-    <div id="chart" tabindex="0" class="row no-margin">
+    <div id="chart" tabindex="-1" class="row no-margin">
       <div class="col-12">
         <div id="chart-container">
         </div> 
       </div>
         <div id="table-div" class="col-12">
-          <button id="test-btn" type="button" class="btn btn-dark btn-sml">Refresh Graph</button>
-          <!-- <button id="help-btn" type="button" class="btn btn-dark btn-sml" data-target="#carousel-example-2" data-slide-to="1">Help</button> -->
+          <button id="test-btn" type="button" class="btn btn-dark btn-sml">Refresh Graph
+            <i id="help-tip-refresh-btn" data-toggle="popover" title="Refresh Graph"
+              class="fas fa-question-circle btn btn-help-tip-icon" 
+              data-placement="right"
+              data-content="Saves model changes and re-draws the model graph">
+            </i> 
+          </button>
+          <button id="help-btn" type="button" class="btn btn-dark btn-sml" data-target="#carousel-example-2" data-slide-to="1">Help</button>
           <!-- <button id="help2-btn" type="button" class="btn btn-dark btn-sml">Help2</button> -->
-          <button id="tips-btn" type="button" class="btn btn-dark btn-sml">Help<i id="tips-btn-icon" class="fas fa-question-circle"></i></button>
+          <!-- <button id="tips-btn" type="button" class="btn btn-dark btn-sml">Help<i id="tips-btn-icon" class="fas fa-question-circle"></i></button> -->
 
           <button id="top-btn" type="button" class="btn btn-dark btn-sml">Top <i id="top-btn-arrow" class="fas fa-arrow-alt-circle-up"></i></button>
-          <button id="new-model-btn" type="button" class="btn btn-dark btn-sml">Create New Model</button>
-          <button id="your-charts-btn" type="button" class="btn btn-dark btn-sml">Your Models</button>
+          <button id="new-model-btn" type="button" class="btn btn-dark btn-sml">Create New Model
+            <i id="help-tip-new-model-btn" data-toggle="popover" 
+              class="btn-help-tip-icon fas fa-question-circle btn" title="Create Model"
+              data-placement="bottom"
+              data-content="This will save the current model and then open a new model. Click into the name above model grid if you want to rename model.">
+            </i>  
+          </button>
+          <button id="your-charts-btn" type="button" class="btn btn-dark btn-sml">Your Models
+            <i id="help-tip-models-btn" data-toggle="popover" 
+              class="btn-help-tip-icon fas fa-question-circle btn" title="Your Models"
+              data-placement="left"
+              data-content="Opens list of your saved models. Click into model name to re-open it. Once opened, click into the name 
+              above model grid if you want to rename model.  You can also delete models from the list presented.">
+            </i> 
+          </button>
 
           <table id='grid-table'>
             <div>
               <caption contenteditable="true" id="grid-caption"></caption>
             </div>  
             <tr id="table-header">
-              <th>Life Chapter</th>
-              <th>Start Age</th>
-              <th>End Age</th>            
-              <th>Invest Amount $</th>
-              <th>Frequency</th>            
-              <th>Modeled Return Rate %</th>
-              <th>Modeled Inflation Rate %</th> 
+              <th>Life Chapter
+                <i id="help-tip-chapter" data-toggle="popover" 
+                  class="help-tip-icon fas fa-question-circle btn" title="Life Chapter" 
+                  data-placement="top"
+                  data-content="The model grid defines 5 life chapters each of which has a start and end year. 
+                   You can re-name a chapter to your liking by clicking into the grid cell and typing.">
+                </i> 
+              </th>
+              <th>Start Age
+                <i id="help-tip-start" data-toggle="popover" 
+                  class="help-tip-icon fas fa-question-circle btn" title="Start Age" 
+                  data-placement="top"
+                  data-content="Each Life Chapter has a start age and end age.  You can change these to create different length
+                  chapters by clicking into the grid cell and typing.  The chapter years need to be consectutive, for example ending in 18 and the next chapter starting in 19.">
+                </i> 
+              </th>
+              <th>End Age
+                <i id="help-tip-end" data-toggle="popover" 
+                  class="help-tip-icon fas fa-question-circle btn" title="End Age" 
+                  data-placement="top"
+                  data-content="Each Life Chapter has a start age and end age.  You can change these to create different length
+                  chapters by clicking into the grid cell and typing. The chapter years need to be consectutive, for example ending in 18 and the next chapter starting in 19.">
+                </i> 
+              </th>            
+              <th>Invest Amount $
+                <i id="help-tip-invest" data-toggle="popover" 
+                  class="help-tip-icon fas fa-question-circle btn" title="Invest Amount" 
+                  data-placement="top"
+                  data-content="The inventment amount is the dollar amount you intend on in investing each frequency period for each year.  For example enter 20 
+                  to model a $20 investment each period.  To change the amount click into the grid cell and type.">
+                </i> 
+              </th>
+              <th>Frequency
+                <i id="help-tip-frequency" data-toggle="popover" 
+                  class="help-tip-icon fas fa-question-circle btn" title="Frequency" 
+                  data-placement="top"
+                  data-content="Popover body content is set in this attribute.">
+                </i> 
+              </th>            
+              <th>Modeled Return Rate %
+                <i id="help-tip-return" data-toggle="popover" 
+                  class="help-tip-icon fas fa-question-circle btn" title="Return" 
+                  data-placement="top"
+                  data-content="Popover body content is set in this attribute.">
+                </i>  
+              </th>
+              <th>Modeled Inflation Rate %
+                <i id="help-tip-inflation" data-toggle="popover" 
+                  class="help-tip-icon fas fa-question-circle btn" title="Inflation" 
+                  data-placement="top"
+                  data-content="Popover body content is set in this attribute.">
+                </i> 
+              </th> 
             </tr>
           </table>
         </div>
 
 
-        <button tabindex="0" id="help-tip-graph" class="help-tipX-graph help-tipY1-graph btn btn-primary help-tip" title="Model Graph" 
+        <button tabindex="-1" id="help-tip-graph" class="help-tipX-graph help-tipY1-graph btn btn-primary help-tip" title="Model Graph" 
           data-toggle="popover" data-placement="top" 
           data-content="Popover body content is set in this attribute.">?
         </button>
-        <button data-toggle="popover" data-placement="top" 
+        <!-- <button data-toggle="popover" data-placement="top" 
             class="help-tipX-refresh-btn help-tipY1-refresh-btn btn-primary help-tip" title="Refresh Graph" 
             data-content="Popover body content is set in this attribute.">?
-        </button>
+        </button> -->
         <button id="help-tipX-tips-btn" data-toggle="popover" data-placement="top" 
           class="help-tipX-tips-btn help-tipY1-tips-btn btn btn-primary help-tip" title="Toggle Tips" 
           data-content="Popover body content is set in this attribute.">?
@@ -334,7 +399,7 @@
           class="help-tipX-to-top-btn help-tipY1-to-top-btn btn btn-primary help-tip" title="Scroll Top" 
           data-content="Popover body content is set in this attribute.">?
         </button> 
-        <button id="help-tip-chapter" data-toggle="popover" data-placement="bottom" 
+        <!-- <button id="help-tip-chapter" data-toggle="popover" data-placement="bottom" 
           class="help-tipX-chapter help-tipY1-chapter btn btn-primary help-tip" title="Life Chapter" 
           data-content="Popover body content is set in this attribute.">?
         </button> 
@@ -345,7 +410,7 @@
         <button id="help-tip-end" data-toggle="popover" data-placement="bottom" 
           class="help-tipX-end help-tipY1-end btn btn-primary help-tip" title="End Age" 
           data-content="Popover body content is set in this attribute.">?
-        </button> 
+        </button>  -->
         <button id="help-tip-invest" data-toggle="popover" data-placement="bottom" 
           class="help-tipX-invest help-tipY1-invest btn btn-primary help-tip" title="Invest Amount" 
           data-content="Popover body content is set in this attribute.">?
