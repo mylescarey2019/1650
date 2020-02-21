@@ -453,7 +453,7 @@ caption {
   text-align: center;
   font-weight: bold;
   font-size: 24px;
-  width: 80%;
+  width: 40%;
   margin: 6px auto;
 
 }  
@@ -626,9 +626,16 @@ table th {
   vertical-align: bottom;
 }
 
+#help-tip-model-name {
+  position: absolute;
+  right: 28%;
+  top: 19%;
+}
+
 .btn-help-tip-icon:hover,
 .btn-help-tip-icon:active {
-  color: #1F9376;
+  color: gray;
+  /* color: #1F9376; */
   /* border: solid 1px yellow;
   border-radius: 50%; */
   /* background-color: #1F9376; */
@@ -637,7 +644,8 @@ table th {
 .help-tip-icon:hover,
 .help-tip-icon:active {
   cursor: pointer;
-  color: #1F9376;
+  color: white;
+  /* color: #1F9376; */
 }
 
 #test-btn {
