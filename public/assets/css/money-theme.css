@@ -68,10 +68,10 @@ a:hover, a:active { text-decoration: none; color: #191919 } */
 
 caption {
   color: #191919;
-  border-left: 1px solid #516373;
-  border-right: 1px solid #516373;
-  border-top: 1px solid #516373;
-  border-bottom: 1px solid #516373;
+  border: 1px solid #516373;
+  /* border-right: 1px solid #516373; */
+  /* border-top: 1px solid #516373; */
+  /* border-bottom: 1px solid #516373; */
   /* background-color: #1F9376; */
 }  
 

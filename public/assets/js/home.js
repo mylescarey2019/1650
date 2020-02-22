@@ -782,6 +782,9 @@ $(document).ready(function(){
           // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
           renderChart(res.name, yearAxis, dollarAxis);
 
+          // show the model name help tip now that a grid is present
+          $('#help-tip-model-name').show();
+
           // set the help tips Y axis to account for model grid present
           setHelpTipYAxis(GRID_SHOWN);
         }
@@ -860,6 +863,9 @@ $(document).ready(function(){
     // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
     renderChart(res.name, yearAxis, dollarAxis);
     
+    // show the model name help tip now that a grid is present
+    $('#help-tip-model-name').show();
+
     // set the help tips Y axis to account for model grid present
     setHelpTipYAxis(GRID_SHOWN);
   };
@@ -1162,6 +1168,9 @@ $(document).ready(function(){
         $("#help-tip-models-btn").removeClass('help-tip-off');
         $("#help-tip-new-model-btn").removeClass('help-tip-off');
 
+        // hide the model name help tip until a grid is present
+        $('#help-tip-model-name').hide();
+
         // set the help tips Y axis to account for no model grid present
         setHelpTipYAxis(GRID_HID);
 
@@ -1217,7 +1226,7 @@ $(document).ready(function(){
         $('#login-msg').text("");
         // change the refresh button to save & refresh since a user has signed in
         // changed from Save & Refresh to just Save to see if UX is better
-        $('#test-btn').text('Refresh Graph');
+        // $('#test-btn').text('Refresh Graph');
         // // turn on the save model button since there is a user now
         // $('#save-btn').show();
         // switch login menu title
@@ -1241,6 +1250,9 @@ $(document).ready(function(){
         // remove tip hide class from your models & new model button
         $("#help-tip-models-btn").removeClass('help-tip-off');
         $("#help-tip-new-model-btn").removeClass('help-tip-off');
+
+        // hide the model name help tip until a grid is present
+        $('#help-tip-model-name').hide();
 
         // set the help tips Y axis to account for no model grid present
         setHelpTipYAxis(GRID_HID);
@@ -1307,6 +1319,9 @@ $(document).ready(function(){
           planTypeId: 2,  // type is 'guest'
         };
         getClonePlan(clonePlan);
+
+        // show the model name help tip now that a grid is present
+        $('#help-tip-model-name').show();
 
         // set the help tips Y axis to account for model grid present
         setHelpTipYAxis(GRID_SHOWN);
@@ -1429,6 +1444,9 @@ $(document).ready(function(){
       $("#footer-model-id").text(''); // clear footer model id
       // $("#grid-caption").attr('data-user-id',`${res.userId}`);  //clear grid user id
       // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`); //clear grid plan type
+
+      // hide the model name help tip until a grid is present
+      $('#help-tip-model-name').hide();
 
       // set the help tips Y axis to account for no model grid present
       setHelpTipYAxis(GRID_HID);

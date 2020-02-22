@@ -57,6 +57,7 @@ a:hover, a:active { text-decoration: none; color: #191919 } */
 
 caption {
   color: #191919;
+  border: 1px solid #244673;
 }  
 
 table td, table th {

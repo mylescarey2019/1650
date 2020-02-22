@@ -287,8 +287,8 @@
           <button id="test-btn" type="button" class="btn btn-dark btn-sml">Refresh Graph
             <i id="help-tip-refresh-btn" data-toggle="popover" title="Refresh Graph"
               class="fas fa-question-circle btn btn-help-tip-icon" 
-              data-placement="right"
-              data-content="Saves model changes and re-draws the model graph">
+              data-placement="left"
+              data-content="Saves any model grid changes you have made and then updates the model graph">
             </i> 
           </button>
           <button id="help-btn" type="button" class="btn btn-dark btn-sml" data-target="#carousel-example-2" data-slide-to="1">Help</button>
@@ -299,8 +299,9 @@
           <button id="new-model-btn" type="button" class="btn btn-dark btn-sml">Create New Model
             <i id="help-tip-new-model-btn" data-toggle="popover" 
               class="btn-help-tip-icon fas fa-question-circle btn" title="Create Model"
-              data-placement="bottom"
-              data-content="This will save the current model and then open a new model. Click into the name above model grid if you want to rename model.">
+              data-placement="left"
+              data-content="This will save the current model and then open a new model that you can customize.
+               Click into the name above model grid if you want to rename model.">
             </i>  
           </button>
           <button id="your-charts-btn" type="button" class="btn btn-dark btn-sml">Your Models
@@ -317,7 +318,7 @@
               <caption contenteditable="true" id="grid-caption"></caption>
               <i id="help-tip-model-name" data-toggle="popover" 
               class="help-tip-icon fas fa-question-circle btn" title="Model Name"
-              data-placement="top"
+              data-placement="left"
               data-content="You can change the model name by clicking in the grid cell and typing.">
             </i> 
             </div>  
@@ -325,7 +326,7 @@
               <th>Life Chapter
                 <i id="help-tip-chapter" data-toggle="popover" 
                   class="help-tip-icon fas fa-question-circle btn" title="Life Chapter" 
-                  data-placement="top"
+                  data-placement="left"
                   data-content="The model grid defines 5 life chapters each of which has a start and end year. 
                    You can re-name a chapter to your liking by clicking into the grid cell and typing.">
                 </i> 
@@ -333,7 +334,7 @@
               <th>Start Age
                 <i id="help-tip-start" data-toggle="popover" 
                   class="help-tip-icon fas fa-question-circle btn" title="Start Age" 
-                  data-placement="top"
+                  data-placement="left"
                   data-content="Each Life Chapter has a start age and end age.  You can change these to create different length
                   chapters by clicking into the grid cell and typing.  The chapter years need to be consectutive, for example ending in 18 and the next chapter starting in 19.">
                 </i> 
@@ -341,7 +342,7 @@
               <th>End Age
                 <i id="help-tip-end" data-toggle="popover" 
                   class="help-tip-icon fas fa-question-circle btn" title="End Age" 
-                  data-placement="top"
+                  data-placement="left"
                   data-content="Each Life Chapter has a start age and end age.  You can change these to create different length
                   chapters by clicking into the grid cell and typing. The chapter years need to be consectutive, for example ending in 18 and the next chapter starting in 19.">
                 </i> 
@@ -349,30 +350,38 @@
               <th>Invest Amount $
                 <i id="help-tip-invest" data-toggle="popover" 
                   class="help-tip-icon fas fa-question-circle btn" title="Invest Amount" 
-                  data-placement="top"
-                  data-content="The inventment amount is the dollar amount you intend on in investing each frequency period for each year.  For example enter 20 
-                  to model a $20 investment each period.  To change the amount click into the grid cell and type.">
+                  data-placement="left"
+                  data-content="The inventment amount is the dollar amount you intend to invest each frequency period for each year.  For example enter 20 
+                  to model a $20 investment each period.  To change the amount click into the grid cell and type.  
+                  The period is set in the next column and can be monthly, quarterly, semi-annual or yearly.">
                 </i> 
               </th>
               <th>Frequency
                 <i id="help-tip-frequency" data-toggle="popover" 
-                  class="help-tip-icon fas fa-question-circle btn" title="Frequency" 
-                  data-placement="top"
-                  data-content="Popover body content is set in this attribute.">
+                  class="help-tip-icon fas fa-question-circle btn" title="Investment Frequency" 
+                  data-placement="left"
+                  data-content="This is how often you intend to invest per year.  It can be monthly, quarterly, semi-annual or yearly.
+                  Use the drop down menu in each row to select the desired frequency for that row's life chapter.">
                 </i> 
               </th>            
               <th>Modeled Return Rate %
                 <i id="help-tip-return" data-toggle="popover" 
-                  class="help-tip-icon fas fa-question-circle btn" title="Return" 
-                  data-placement="top"
-                  data-content="Popover body content is set in this attribute.">
+                  class="help-tip-icon fas fa-question-circle btn" title="Modeled Return Rate" 
+                  data-placement="left"
+                  data-content="This is the annual return percentage that you want the model to apply. 
+                   For example use 8.0 for historic stock market average return.
+                   You can enter negative numbers to model an extended bear market (recession or depression).">
                 </i>  
               </th>
               <th>Modeled Inflation Rate %
                 <i id="help-tip-inflation" data-toggle="popover" 
-                  class="help-tip-icon fas fa-question-circle btn" title="Inflation" 
-                  data-placement="top"
-                  data-content="Popover body content is set in this attribute.">
+                  class="help-tip-icon fas fa-question-circle btn" title="Modeled Inflation Rate" 
+                  data-placement="left"
+                  data-content="Keep the default annual inflation rate at 0.0 to see the model shows
+                  future dollars without regard to inflation.  Inflation represents the higher cost of goods
+                  and services in the future making the dollars buy less than they do today.  
+                  You can enter an annual inflation rate, for example 3.0, to
+                  have the model show the future dollar's purchasing power.">
                 </i> 
               </th> 
             </tr>
@@ -561,9 +570,9 @@
               <div class="row no-margin">
                 <div id="model-table-div" class="col-12">
                   <table id='model-table'>
-                    <div>
+                    <!-- <div>
                       <caption id="model-caption"></caption>
-                    </div>  
+                    </div>   -->
                     <tr id="model-table-header">
                       <th></th>  
                       <th>User Name</th>  
