@@ -436,7 +436,7 @@ margin: 0 auto;
   margin-bottom: 6px;
 }
 
-#help-btn, #help2-btn, #tips-btn {
+#help-btn {
   margin-top: 0px;
   /* margin-left: 8px; */
   margin-right: 28px;
@@ -616,17 +616,12 @@ table th {
 .btn-help-tip-icon:hover,
 .btn-help-tip-icon:active {
   color: gray;
-  /* color: #1F9376; */
-  /* border: solid 1px yellow;
-  border-radius: 50%; */
-  /* background-color: #1F9376; */
 }
 
 .help-tip-icon:hover,
 .help-tip-icon:active {
   cursor: pointer;
   color: white;
-  /* color: #1F9376; */
 }
 
 #test-btn {
@@ -664,9 +659,9 @@ table th {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39); 
 }
 
-#new-model-btn {
+#new-model-btn ,
+#your-charts-btn {
   margin-top: 0px;
-  /* margin-left: 8px; */
   margin-right: 28px;
   width: 200px;
   margin-bottom: 6px;
@@ -674,14 +669,12 @@ table th {
   text-align: left;
 }
 
+#new-model-btn {
+  width: 200px;
+}
+
 #your-charts-btn {
-  margin-top: 0px;
-  /* margin-left: 8px; */
-  margin-right: 28px;
   width: 160px;
-  margin-bottom: 6px;
-  float: right;
-  text-align: left;
 }
 
 #top-btn {
