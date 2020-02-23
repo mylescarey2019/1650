@@ -6,10 +6,6 @@ $(document).ready(function(){
   // init popovers
   $('[data-toggle="popover"]').popover();
 
-  // // help tip hidden initially
-  // $('.help-tip').hide();
-  // let helpTipsOn = false;
-
   // hide the new model button and your models buttonuntil user signed in
   $('#new-model-btn').hide();
   $('#your-charts-btn').hide();
@@ -21,99 +17,13 @@ $(document).ready(function(){
   $("#slide-1-4").hide();
   $("#slide-1-5").hide();
 
-
   const GRID_SHOWN = 1;
   const GRID_HID = 0;
-
-  // // function to adjust the Y axis position of help tips depending
-  // // on whether a model grid is present or not
-  // const setHelpTipYAxis = (chartShown) => {
-  //   // console.log(`in setHelpTipYAxis, chartShown: ${chartShown}`);
-  //   if (chartShown) {
-  //     // use Y1
-  //     $(".help-tipX-graph").removeClass("help-tipY2-graph");
-  //     $(".help-tipX-refresh-btn").removeClass("help-tipY2-refresh-btn");
-  //     $(".help-tipX-tips-btn").removeClass("help-tipY2-tips-btn"); 
-  //     $(".help-tipX-models-btn").removeClass("help-tipY2-models-btn"); 
-  //     $(".help-tipX-new-model-btn").removeClass("help-tipY2-new-model-btn"); 
-  //     $(".help-tipX-to-top-btn").removeClass("help-tipY2-to-top-btn");
-  //     $(".help-tipX-chapter").removeClass("help-tipY2-chapter"); 
-  //     $(".help-tipX-start").removeClass("help-tipY2-start");
-  //     $(".help-tipX-end").removeClass("help-tipY2-end"); 
-  //     $(".help-tipX-invest").removeClass("help-tipY2-invest"); 
-  //     $(".help-tipX-name").removeClass("help-tipY2-name"); 
-  //     $(".help-tipX-frequency").removeClass("help-tipY2-frequency"); 
-  //     $(".help-tipX-return").removeClass("help-tipY2-return"); 
-  //     $(".help-tipX-inflation").removeClass("help-tipY2-inflation");
-
-  //     $(".help-tipX-graph").addClass("help-tipY1-graph");
-  //     $(".help-tipX-refresh-btn").addClass("help-tipY1-refresh-btn");
-  //     $(".help-tipX-tips-btn").addClass("help-tipY1-tips-btn"); 
-  //     $(".help-tipX-models-btn").addClass("help-tipY1-models-btn"); 
-  //     $(".help-tipX-new-model-btn").addClass("help-tipY1-new-model-btn"); 
-  //     $(".help-tipX-to-top-btn").addClass("help-tipY1-to-top-btn");
-  //     $(".help-tipX-chapter").addClass("help-tipY1-chapter"); 
-  //     $(".help-tipX-start").addClass("help-tipY1-start");
-  //     $(".help-tipX-end").addClass("help-tipY1-end"); 
-  //     $(".help-tipX-invest").addClass("help-tipY1-invest"); 
-  //     $(".help-tipX-name").addClass("help-tipY1-name"); 
-  //     $(".help-tipX-frequency").addClass("help-tipY1-frequency"); 
-  //     $(".help-tipX-return").addClass("help-tipY1-return"); 
-  //     $(".help-tipX-inflation").addClass("help-tipY1-inflation"); 
-  //   } else {
-  //     // use Y2
-  //     $(".help-tipX-graph").removeClass("help-tipY1-graph");
-  //     $(".help-tipX-refresh-btn").removeClass("help-tipY1-refresh-btn");
-  //     $(".help-tipX-tips-btn").removeClass("help-tipY1-tips-btn"); 
-  //     $(".help-tipX-models-btn").removeClass("help-tipY1-models-btn"); 
-  //     $(".help-tipX-new-model-btn").removeClass("help-tipY1-new-model-btn"); 
-  //     $(".help-tipX-to-top-btn").removeClass("help-tipY1-to-top-btn");
-  //     $(".help-tipX-chapter").removeClass("help-tipY1-chapter"); 
-  //     $(".help-tipX-start").removeClass("help-tipY1-start");
-  //     $(".help-tipX-end").removeClass("help-tipY1-end"); 
-  //     $(".help-tipX-invest").removeClass("help-tipY1-invest"); 
-  //     $(".help-tipX-name").removeClass("help-tipY1-name"); 
-  //     $(".help-tipX-frequency").removeClass("help-tipY1-frequency"); 
-  //     $(".help-tipX-return").removeClass("help-tipY1-return"); 
-  //     $(".help-tipX-inflation").removeClass("help-tipY1-inflation");
-
-  //     $(".help-tipX-graph").addClass("help-tipY2-graph");
-  //     $(".help-tipX-refresh-btn").addClass("help-tipY2-refresh-btn");
-  //     $(".help-tipX-tips-btn").addClass("help-tipY2-tips-btn"); 
-  //     $(".help-tipX-models-btn").addClass("help-tipY2-models-btn"); 
-  //     $(".help-tipX-new-model-btn").addClass("help-tipY2-new-model-btn"); 
-  //     $(".help-tipX-to-top-btn").addClass("help-tipY2-to-top-btn");
-  //     $(".help-tipX-chapter").addClass("help-tipY2-chapter"); 
-  //     $(".help-tipX-start").addClass("help-tipY2-start");
-  //     $(".help-tipX-end").addClass("help-tipY2-end"); 
-  //     $(".help-tipX-invest").addClass("help-tipY2-invest"); 
-  //     $(".help-tipX-name").addClass("help-tipY2-name"); 
-  //     $(".help-tipX-frequency").addClass("help-tipY2-frequency"); 
-  //     $(".help-tipX-return").addClass("help-tipY2-return"); 
-  //     $(".help-tipX-inflation").addClass("help-tipY2-inflation"); 
-  //   }
-  // }
-
-  // $("#test-btn").click(function(e) {
-  //   var senderElement = e.target;
-  //   console.log(`e.target is: ${e.target}`);
-  //   // Check if sender is the <div> element e.g.
-  //   // if($(e.target).is("div")) {
-  //   // window.location = url;
-  //   // return true;
-  // });
-
-  // $("#help-tip-refresh-btn").click(function(e) {
-  //   //e.stopImmediatePropagation();
-  //   e.stopPropagation();
-  // });
 
   $(".btn-help-tip-icon").click(function(e) {
     //e.stopImmediatePropagation();
     e.stopPropagation();
   });
-
-  
 
   // // start with the lower section hidden
   // $("#lower-section").hide();
@@ -785,9 +695,6 @@ $(document).ready(function(){
 
           // show the model name help tip now that a grid is present
           $('#help-tip-model-name').show();
-
-          // // set the help tips Y axis to account for model grid present
-          // setHelpTipYAxis(GRID_SHOWN);
         }
       );
   };
@@ -866,9 +773,6 @@ $(document).ready(function(){
     
     // show the model name help tip now that a grid is present
     $('#help-tip-model-name').show();
-
-    // // set the help tips Y axis to account for model grid present
-    // setHelpTipYAxis(GRID_SHOWN);
   };
  
   // call to update plan and then render the return result
@@ -965,16 +869,6 @@ $(document).ready(function(){
   //  // console.log("you selected: " + $(this).data("value"));
   // });
 
-
-  // $("#test-btn").click(function(e) {
-  //   var senderElement = e.target;
-  //   console.log(`e.target is: ${e.target}`);
-  //   // Check if sender is the <div> element e.g.
-  //   // if($(e.target).is("div")) {
-  //   // window.location = url;
-  //   // return true;
-  // });
-
   // save & refresh model event
   $("#test-btn").on("click",function(e) {
     // console.dir(e);
@@ -993,28 +887,6 @@ $(document).ready(function(){
     // }
 
   });
-
-  // // help tips button event
-  // $("#tips-btn").on("click",function() {
-  //   //console.log("in global.tips-btn click event")
-  //   // toggle the help tips
-  //   helpTipsOn = (helpTipsOn) ? false : true;
-  //   $('.help-tip').toggle();
-  //   if (!helpTipsOn) {
-  //     $('.help-tip').popover('hide');
-  //   }
-
-
-
-  //   // if (helpTipsOn) {
-  //   //   $('#tips-btn').html('Turn Tips Off <i id="tips-btn-icon" class="far fa-question-circle"></i>');
-  //   // } else {
-  //   //   $('#tips-btn').html('Turn Tips On <i id="tips-btn-icon" class="far fa-question-circle"></i>');
-  //   //   $('.help-tip').popover('hide');
-  //   // }
-
-  // });
-
 
   // create new user model event
   $("#new-model-btn").on("click",function() {
@@ -1172,10 +1044,6 @@ $(document).ready(function(){
 
         // hide the model name help tip until a grid is present
         $('#help-tip-model-name').hide();
-
-        // // set the help tips Y axis to account for no model grid present
-        // setHelpTipYAxis(GRID_HID);
-
         return;
       })
       .fail(function(err) {
@@ -1255,10 +1123,6 @@ $(document).ready(function(){
 
         // hide the model name help tip until a grid is present
         $('#help-tip-model-name').hide();
-
-        // set the help tips Y axis to account for no model grid present
-        setHelpTipYAxis(GRID_HID);
-
         return;
       })
       .fail(function(err) {
@@ -1324,10 +1188,6 @@ $(document).ready(function(){
 
         // show the model name help tip now that a grid is present
         $('#help-tip-model-name').show();
-
-        // // set the help tips Y axis to account for model grid present
-        // setHelpTipYAxis(GRID_SHOWN);
-
         return;
       })
       .fail(function(err) {
@@ -1337,12 +1197,6 @@ $(document).ready(function(){
 
     // return;
   });
-
-  // // instructions modal event
-  // $(document).on("click", "#help2-btn", function() {
-  //   $('#instructions-modal').modal('show');
-  // });
-  
 
   // load models button event
   $(document).on("click", "#your-charts-btn", function(event) {
@@ -1449,10 +1303,6 @@ $(document).ready(function(){
 
       // hide the model name help tip until a grid is present
       $('#help-tip-model-name').hide();
-
-      // // set the help tips Y axis to account for no model grid present
-      // setHelpTipYAxis(GRID_HID);
-
     } else {
       // console.log('Current model not deleted');
     }

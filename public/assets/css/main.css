@@ -453,7 +453,7 @@ caption {
   text-align: center;
   font-weight: bold;
   font-size: 24px;
-  width: 40%;
+  width: 52%;
   margin: 6px auto;
 
 }  
@@ -609,7 +609,7 @@ table th {
 
 #help-tip-model-name {
   position: absolute;
-  right: 28%;
+  right: 22%;
   top: 19%;
 }
 
