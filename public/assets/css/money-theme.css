@@ -59,8 +59,16 @@ a:hover, a:active { text-decoration: none; color: #191919 } */
   /* border: 2px solid #516373; */
 }
 
+
+.help-tip-icon:hover,
+.help-tip-icon:active {
+  cursor: pointer;
+  color: white;
+}
+
 caption {
   color: #191919;
+  border: 1px solid #516373;
 }  
 
 table td, table th {
@@ -70,7 +78,7 @@ table td, table th {
 
 .invest-type {
   border: none;
-  border-bottom:  1px solid #191919;
+  border-bottom:  1px solid #516373;
 }
 
 /* 

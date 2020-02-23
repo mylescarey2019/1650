@@ -3,6 +3,9 @@
 //on document load
 $(document).ready(function(){
 
+  // init popovers
+  $('[data-toggle="popover"]').popover();
+
   // hide the new model button and your models buttonuntil user signed in
   $('#new-model-btn').hide();
   $('#your-charts-btn').hide();
@@ -13,6 +16,14 @@ $(document).ready(function(){
   $("#slide-1-3").hide();
   $("#slide-1-4").hide();
   $("#slide-1-5").hide();
+
+  const GRID_SHOWN = 1;
+  const GRID_HID = 0;
+
+  $(".btn-help-tip-icon").click(function(e) {
+    //e.stopImmediatePropagation();
+    e.stopPropagation();
+  });
 
   // // start with the lower section hidden
   // $("#lower-section").hide();
@@ -681,6 +692,9 @@ $(document).ready(function(){
           // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
           // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
           renderChart(res.name, yearAxis, dollarAxis);
+
+          // show the model name help tip now that a grid is present
+          $('#help-tip-model-name').show();
         }
       );
   };
@@ -756,6 +770,9 @@ $(document).ready(function(){
     // var financialModel = new RenderModel(res.name,res.id,res.userId,financialModelChapters);
     // console.log(`renderModel: ${JSON.stringify(financialModel)}`);
     renderChart(res.name, yearAxis, dollarAxis);
+    
+    // show the model name help tip now that a grid is present
+    $('#help-tip-model-name').show();
   };
  
   // call to update plan and then render the return result
@@ -852,22 +869,24 @@ $(document).ready(function(){
   //  // console.log("you selected: " + $(this).data("value"));
   // });
 
-
   // save & refresh model event
-  $("#test-btn").on("click",function() {
-    // console.log("in global.test-btn click event")
-    // ajax put call for refreshing the guest model 
-    // update financial model (plan and chapters)
-    
-    // check the location of the graph so
-    // it can be scrolled up or down to be centered
-    var chartOffset = $("#lower-section").offset();
-    var scrollAmt = $(window).scrollTop();
-    // console.log(`chart top offset is: ${chartOffset.top} scroll is ${scrollAmt}`);
+  $("#test-btn").on("click",function(e) {
+    // console.dir(e);
+    // console.log(e.target.id);
+    // if (e.target.id = 'test-btn') {
+      // console.log("in global.test-btn click event")
+      // ajax put call for refreshing the guest model 
+      // update financial model (plan and chapters)
+      
+      // check the location of the graph so
+      // it can be scrolled up or down to be centered
+      var chartOffset = $("#lower-section").offset();
+      var scrollAmt = $(window).scrollTop();
+      // console.log(`chart top offset is: ${chartOffset.top} scroll is ${scrollAmt}`);
+      updateChartPut();
+    // }
 
-    updateChartPut();
   });
-
 
   // create new user model event
   $("#new-model-btn").on("click",function() {
@@ -997,7 +1016,7 @@ $(document).ready(function(){
         // change the refresh button to save & refresh since a user has signed in
         // changed from Save & Refresh to just Save to see if UX is better
         // changed to Refresh Graph
-        $('#test-btn').text('Refresh Graph');
+        // $('#test-btn').text('Refresh Graph');
         // // turn on the save model button since there is a user now
         // $('#save-btn').show();
         // switch login menu title
@@ -1018,7 +1037,13 @@ $(document).ready(function(){
         $("#footer-model-id").text(''); // clear footer model id
         // $("#grid-caption").attr('data-user-id',`${res.userId}`);  //clear grid user id
         // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`); //clear grid plan type
+        
+        // remove tip hide class from your models & new model button
+        $("#help-tip-models-btn").removeClass('help-tip-off');
+        $("#help-tip-new-model-btn").removeClass('help-tip-off');
 
+        // hide the model name help tip until a grid is present
+        $('#help-tip-model-name').hide();
         return;
       })
       .fail(function(err) {
@@ -1071,7 +1096,7 @@ $(document).ready(function(){
         $('#login-msg').text("");
         // change the refresh button to save & refresh since a user has signed in
         // changed from Save & Refresh to just Save to see if UX is better
-        $('#test-btn').text('Refresh Graph');
+        // $('#test-btn').text('Refresh Graph');
         // // turn on the save model button since there is a user now
         // $('#save-btn').show();
         // switch login menu title
@@ -1092,6 +1117,12 @@ $(document).ready(function(){
         $("#footer-model-id").text(''); // clear footer model id
         // $("#grid-caption").attr('data-user-id',`${res.userId}`);  //clear grid user id
         // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`); //clear grid plan type
+        // remove tip hide class from your models & new model button
+        $("#help-tip-models-btn").removeClass('help-tip-off');
+        $("#help-tip-new-model-btn").removeClass('help-tip-off');
+
+        // hide the model name help tip until a grid is present
+        $('#help-tip-model-name').hide();
         return;
       })
       .fail(function(err) {
@@ -1132,7 +1163,7 @@ $(document).ready(function(){
         // switch login menu title
         $('#signinDropdown').text('Login');
         // change the refresh button to save & refresh since a user has logged in
-        $('#test-btn').text('Refresh Graph');
+        // $('#test-btn').text('Refresh Graph');
         // // turn off the save model button since user has logged out
         // $('#save-btn').hide();
         // set the login dropdown menu options
@@ -1141,6 +1172,9 @@ $(document).ready(function(){
         $('#login-dropdown-menu').append('<a class="dropdown-item signin" data-value="signup" href="#">Signup</a>');
         // hide model
         $('#logout-modal').modal('hide');
+        // add tip hide class from your models & new model button
+        $("#help-tip-models-btn").addClass('help-tip-off');
+        $("#help-tip-new-model-btn").addClass('help-tip-off');
 
         // need to clone the demo model since user has logged out and
         // now the user is the guest user
@@ -1152,6 +1186,8 @@ $(document).ready(function(){
         };
         getClonePlan(clonePlan);
 
+        // show the model name help tip now that a grid is present
+        $('#help-tip-model-name').show();
         return;
       })
       .fail(function(err) {
@@ -1161,7 +1197,6 @@ $(document).ready(function(){
 
     // return;
   });
-
 
   // load models button event
   $(document).on("click", "#your-charts-btn", function(event) {
@@ -1266,6 +1301,8 @@ $(document).ready(function(){
       // $("#grid-caption").attr('data-user-id',`${res.userId}`);  //clear grid user id
       // $("#grid-caption").attr('data-plan-type-id',`${res.planTypeId}`); //clear grid plan type
 
+      // hide the model name help tip until a grid is present
+      $('#help-tip-model-name').hide();
     } else {
       // console.log('Current model not deleted');
     }
