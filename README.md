@@ -144,7 +144,7 @@ button (manual scroll still available), increased nav bar visibilty of logged in
 - 1.6 Sprint 6 release 2-8-2020 - added investment frequency options for annual, semi-annual and quarterly 
 - 1.7 Sprint 7 release 2-10-2020 - added option to set an inflation rate modifier
 - 1.8 Sprint 8 release 2-23-2020 - added help tip popups to buttons and grid field headers
-- 1.9 Next sprint content & schedule TBD
+- 1.9 Sprint 9 release 5-5-2020 - minor typo cleanups
 
 ## License
 
